@@ -66,7 +66,7 @@ class CompletedTasksScreen extends React.Component {
                             name="lock"
                             type="fontawesome"
                             size={20}
-                            style={{ paddingRight: 10 }}
+                            containerStyle={{ paddingRight: 10 }}
                             color={COLOR_BLACK}
                           />
                         ) : (

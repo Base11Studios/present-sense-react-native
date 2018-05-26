@@ -35,7 +35,7 @@ export class FocusTypeIcon extends React.Component {
         type="fontawesome"
         name="lock"
         size={26}
-        style={{ padding: 7 }}
+        containerStyle={{ padding: 7 }}
         color={COLOR_BLACK}
       />
     ) : (

@@ -141,7 +141,7 @@ export const TabNavigator = createBottomTabNavigator(
             name={iconName}
             size={28}
             type="ionicon"
-            style={{ marginBottom: -3, width: 25 }}
+            containerStyle={{ marginBottom: -3, width: 25 }}
             color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
           />
         );

@@ -70,7 +70,7 @@ class SettingsScreen extends React.Component {
               type="SimpleLineIcons"
               name="notebook"
               size={20}
-              style={{ padding: 2 }}
+              containerStyle={{ padding: 2 }}
             />
           }
         />

@@ -12,7 +12,7 @@ export class BackButton extends React.Component {
         name={Platform.OS === "ios" ? "ios-arrow-back" : "md-arrow-back"}
         size={Platform.OS === "ios" ? 35 : 24}
         color={Platform.OS === "ios" ? Colors.tintColor : COLOR_BLACK}
-        style={
+        containerStyle={
           Platform.OS === "ios"
             ? { marginBottom: -4, width: 25, marginLeft: 9 }
             : { marginBottom: -4, width: 25, marginLeft: 20 }

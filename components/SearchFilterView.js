@@ -24,7 +24,7 @@ export default class SearchFilterView extends React.Component {
               ? COLOR_WHITE
               : COLOR_BLACK
           }
-          style={[styles.icon]}
+          containerStyle={[styles.icon]}
         />
         <MyText
           style={[
