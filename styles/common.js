@@ -1,0 +1,10 @@
+export const COLOR_PRIMARY = "#0081D5";
+export const COLOR_SECONDARY = "#03BD5B";
+export const COLOR_HIGHLIGHT = "#FF9947";
+export const COLOR_TERTIARY = "#A939B9";
+export const COLOR_QUATERNARY = "#9DBF15";
+export const COLOR_ALERT = "#D1335B";
+export const COLOR_WHITE = "#FFF";
+export const COLOR_BLACK = "#333";
+export const COLOR_DARK_GRAY = "#555";
+export const BORDER_RADIUS = 5;
