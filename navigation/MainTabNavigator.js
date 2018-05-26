@@ -15,6 +15,7 @@ import SettingsScreen from "../screens/SettingsScreen";
 import SubscriptionScreen from "../screens/SubscriptionScreen";
 import TaskOverviewScreen from "../screens/TaskOverviewScreen";
 import TermsAndConditions from "../screens/TermsAndConditions";
+import { COLOR_PRIMARY } from "../styles/common";
 
 export const DoTaskNavigator = StackNavigator({
   TaskOverview: {
@@ -147,7 +148,7 @@ export const TabNavigator = createBottomTabNavigator(
         );
       },
       tabBarOptions: {
-        activeTintColor: "tomato",
+        activeTintColor: COLOR_PRIMARY,
         inactiveTintColor: "gray"
       }
     })
