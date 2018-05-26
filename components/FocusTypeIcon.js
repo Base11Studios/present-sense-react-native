@@ -32,7 +32,7 @@ export class FocusTypeIcon extends React.Component {
       />
     ) : this.props.focusType === "Locked" ? (
       <Icon
-        type="fontawesome"
+        type="font-awesome"
         name="lock"
         size={26}
         containerStyle={{ padding: 7 }}

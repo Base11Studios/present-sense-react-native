@@ -67,7 +67,7 @@ class SettingsScreen extends React.Component {
           title="Credits"
           avatar={
             <Icon
-              type="SimpleLineIcons"
+              type="simple-line-icon"
               name="notebook"
               size={20}
               containerStyle={{ padding: 2 }}
@@ -83,13 +83,13 @@ class SettingsScreen extends React.Component {
         <ListItem
           onPress={() => this.props.navigation.navigate("Subscribe")}
           title="Unlock Premium"
-          avatar={<Icon type="materialicons" name="star-border" size={24} />}
+          avatar={<Icon type="material" name="star-border" size={24} />}
         />
       ) : (
         <ListItem
           onPress={() => this.props.navigation.navigate("Subscribe")}
           title="Unlock Premium"
-          avatar={<Icon type="materialicons" name="star-border" size={24} />}
+          avatar={<Icon type="material" name="star-border" size={24} />}
           chevron={false}
           disabled={true}
           badge={{
