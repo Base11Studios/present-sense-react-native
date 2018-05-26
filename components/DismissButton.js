@@ -13,6 +13,7 @@ export class DismissButton extends React.Component {
         name={Platform.OS === "ios" ? "ios-close" : "md-close"}
         size={Platform.OS === "ios" ? 35 : 24}
         color={Platform.OS === "ios" ? Colors.tintColor : COLOR_BLACK}
+        type="ionicon"
         style={
           Platform.OS === "ios"
             ? { marginBottom: -4, width: 25, marginRight: 9 }

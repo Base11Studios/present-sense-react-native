@@ -28,7 +28,12 @@ class TaskTile extends React.Component {
               }
             ]}
           >
-            <Icon color={COLOR_WHITE} name={this.props.icon} size={30} />
+            <Icon
+              type="feather"
+              color={COLOR_WHITE}
+              name={this.props.icon}
+              size={30}
+            />
           </View>
           <MyText style={styles.dayFilterText}>{this.props.type}</MyText>
         </View>

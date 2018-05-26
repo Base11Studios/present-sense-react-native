@@ -31,7 +31,13 @@ export class FocusTypeIcon extends React.Component {
         source={require("../assets/images/taste.png")}
       />
     ) : this.props.focusType === "Locked" ? (
-      <Icon name="lock" size={26} style={{ padding: 7 }} color={COLOR_BLACK} />
+      <Icon
+        type="fontawesome"
+        name="lock"
+        size={26}
+        style={{ padding: 7 }}
+        color={COLOR_BLACK}
+      />
     ) : (
       ""
     );

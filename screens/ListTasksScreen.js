@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import { FlatList, StyleSheet, TouchableOpacity, View } from "react-native";
 import { ListItem } from "react-native-elements";
 import { connect } from "react-redux";
 import { FocusTypeIcon } from "../components/FocusTypeIcon";
 import { PageContainer } from "../components/PageContainer";
-import { SearchFilterView } from "../components/SearchFilterView";
+import SearchFilterView from "../components/SearchFilterView";
 import {
   listTasks,
   setActiveTaskType,
@@ -17,7 +17,7 @@ import {
   COLOR_TERTIARY
 } from "../styles/common";
 
-class ListTasksScreen extends Component {
+class ListTasksScreen extends React.Component {
   static navigationOptions = {
     title: "Search"
   };
@@ -47,48 +47,44 @@ class ListTasksScreen extends Component {
           <TouchableOpacity
             style={styles.dayFilter}
             onPress={() => this.onPressChangeTaskType("Morning")}
-            underlayColor="white"
           >
             <SearchFilterView
               activeTaskType={activeTaskType}
               filterType="Morning"
-              icon="sunrise"
+              iconName="sunrise"
               color={COLOR_PRIMARY}
             />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.dayFilter}
             onPress={() => this.onPressChangeTaskType("Day")}
-            underlayColor="white"
           >
             <SearchFilterView
               activeTaskType={activeTaskType}
               filterType="Day"
-              icon="sun"
+              iconName="sun"
               color={COLOR_SECONDARY}
             />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.dayFilter}
             onPress={() => this.onPressChangeTaskType("Evening")}
-            underlayColor="white"
           >
             <SearchFilterView
               activeTaskType={activeTaskType}
               filterType="Evening"
-              icon="moon"
+              iconName="moon"
               color={COLOR_TERTIARY}
             />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.dayFilter}
             onPress={() => this.onPressChangeTaskType("Anytime")}
-            underlayColor="white"
           >
             <SearchFilterView
               activeTaskType={activeTaskType}
               filterType="Anytime"
-              icon="more-horizontal"
+              iconName="more-horizontal"
               color={COLOR_HIGHLIGHT}
             />
           </TouchableOpacity>

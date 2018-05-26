@@ -16,7 +16,8 @@ export default class SearchFilterView extends React.Component {
         ]}
       >
         <Icon
-          name={this.props.icon}
+          type="feather"
+          name={this.props.iconName}
           size={30}
           color={
             this.props.activeTaskType === this.props.filterType

@@ -54,7 +54,7 @@ class SettingsScreen extends React.Component {
         <ListItem
           onPress={() => this.onPressResetStore()}
           title="Reset Data"
-          avatar={<Icon name="undo" size={24} />}
+          avatar={<Icon type="evilicons" name="undo" size={24} />}
         />
       )
     };
@@ -65,7 +65,14 @@ class SettingsScreen extends React.Component {
         <ListItem
           onPress={() => this.props.navigation.navigate("Credits")}
           title="Credits"
-          avatar={<Icon name="notebook" size={20} style={{ padding: 2 }} />}
+          avatar={
+            <Icon
+              type="SimpleLineIcons"
+              name="notebook"
+              size={20}
+              style={{ padding: 2 }}
+            />
+          }
         />
       )
     };
@@ -76,13 +83,13 @@ class SettingsScreen extends React.Component {
         <ListItem
           onPress={() => this.props.navigation.navigate("Subscribe")}
           title="Unlock Premium"
-          avatar={<Icon name="star-border" size={24} />}
+          avatar={<Icon type="materialicons" name="star-border" size={24} />}
         />
       ) : (
         <ListItem
           onPress={() => this.props.navigation.navigate("Subscribe")}
           title="Unlock Premium"
-          avatar={<Icon name="star-border" size={24} />}
+          avatar={<Icon type="materialicons" name="star-border" size={24} />}
           chevron={false}
           disabled={true}
           badge={{

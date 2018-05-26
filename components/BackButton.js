@@ -17,6 +17,7 @@ export class BackButton extends React.Component {
             ? { marginBottom: -4, width: 25, marginLeft: 9 }
             : { marginBottom: -4, width: 25, marginLeft: 20 }
         }
+        type="ionicon"
         onPress={() => {
           this.props.navigation.goBack();
         }}

@@ -35,7 +35,7 @@ class AnytimeTasksTile extends React.Component {
             onPress={() => this.onPressMoreTasks()}
             underlayColor="white"
           >
-            <Icon name="more-horizontal" size={30} />
+            <Icon type="feather" name="more-horizontal" size={30} />
           </TouchableHighlight>
         </View>
       </View>

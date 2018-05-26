@@ -1,7 +1,10 @@
 import React from "react";
+import { Platform } from "react-native";
+import { Icon } from "react-native-elements";
 import { StackNavigator, createBottomTabNavigator } from "react-navigation";
 import { BackButton } from "../components/BackButton";
 import { DismissButton } from "../components/DismissButton";
+import Colors from "../constants/Colors";
 import CompletedTasksScreen from "../screens/CompletedTasksScreen";
 import CreditsScreen from "../screens/CreditsScreen";
 import HomeScreen from "../screens/HomeScreen";
@@ -102,52 +105,53 @@ export const TabNavigator = createBottomTabNavigator(
     Settings: {
       screen: SettingsNavigator
     }
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused }) => {
+        const { routeName } = navigation.state;
+        let iconName;
+        switch (routeName) {
+          case "Home":
+            iconName =
+              Platform.OS === "ios"
+                ? `ios-star${focused ? "" : "-outline"}`
+                : "md-star";
+            break;
+          case "Search":
+            iconName =
+              Platform.OS === "ios"
+                ? `ios-list${focused ? "-box" : ""}`
+                : "md-list";
+            break;
+          case "Completed":
+            iconName =
+              Platform.OS === "ios"
+                ? `ios-checkmark-circle${focused ? "" : "-outline"}`
+                : "md-checkmark-circle";
+            break;
+          case "Settings":
+            iconName =
+              Platform.OS === "ios"
+                ? `ios-options${focused ? "" : "-outline"}`
+                : "md-options";
+        }
+        return (
+          <Icon
+            name={iconName}
+            size={28}
+            type="ionicon"
+            style={{ marginBottom: -3, width: 25 }}
+            color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+          />
+        );
+      },
+      tabBarOptions: {
+        activeTintColor: "tomato",
+        inactiveTintColor: "gray"
+      }
+    })
   }
-  // {
-  //   navigationOptions: ({ navigation }) => ({
-  //     tabBarIcon: ({ focused }) => {
-  //       const { routeName } = navigation.state;
-  //       let iconName;
-  //       switch (routeName) {
-  //         case "Home":
-  //           iconName =
-  //             Platform.OS === "ios"
-  //               ? `ios-star${focused ? "" : "-outline"}`
-  //               : "md-star";
-  //           break;
-  //         case "Search":
-  //           iconName =
-  //             Platform.OS === "ios"
-  //               ? `ios-list${focused ? "-box" : ""}`
-  //               : "md-list";
-  //           break;
-  //         case "Completed":
-  //           iconName =
-  //             Platform.OS === "ios"
-  //               ? `ios-checkmark-circle${focused ? "" : "-outline"}`
-  //               : "md-checkmark-circle";
-  //           break;
-  //         case "Settings":
-  //           iconName =
-  //             Platform.OS === "ios"
-  //               ? `ios-options${focused ? "" : "-outline"}`
-  //               : "md-options";
-  //       }
-  //       return (
-  //         <Ionicons
-  //           name={iconName}
-  //           size={28}
-  //           style={{ marginBottom: -3, width: 25 }}
-  //           color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
-  //         />
-  //       );
-  //     },
-  //     tabBarOptions: {
-  //       activeTintColor: "tomato",
-  //       inactiveTintColor: "gray"
-  //     }
-  //   })
-  // }
 );
 
 // header: null,

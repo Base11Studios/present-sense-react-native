@@ -64,6 +64,7 @@ class CompletedTasksScreen extends React.Component {
                         index > MAX_UNSUBSCRIBED_EVENTS ? (
                           <Icon
                             name="lock"
+                            type="fontawesome"
                             size={20}
                             style={{ paddingRight: 10 }}
                             color={COLOR_BLACK}
