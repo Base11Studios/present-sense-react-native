@@ -6,6 +6,10 @@ import { EverydayTasksTile } from "../components/EverydayTasksTile";
 import MindfulQuoteTile from "../components/MindfulQuoteTile";
 import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
 import StatTile from "../components/StatTile";
+import {
+  updateIAPs,
+  updateUserSubscriptions
+} from "../redux/reducers/subscription";
 import { updateTasks } from "../redux/reducers/tasks";
 import { COLOR_WHITE } from "../styles/common";
 // TODO add stars to tile if have done one of the tasks today. Make BG lighter?
@@ -17,6 +21,10 @@ class HomeScreen extends React.Component {
 
   componentDidMount() {
     this.props.updateTasks();
+    this.props.updateUserSubscriptions({
+      userDriven: false
+    });
+    this.props.updateIAPs();
   }
 
   render() {
@@ -58,7 +66,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateTasks: () => dispatch(updateTasks())
+    updateTasks: () => dispatch(updateTasks()),
+    updateUserSubscriptions: data => dispatch(updateUserSubscriptions(data)),
+    updateIAPs: () => dispatch(updateIAPs())
   };
 };
 

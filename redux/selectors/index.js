@@ -1,7 +1,9 @@
-import { createSelector } from "reselect";
 import moment from "moment";
+import { createSelector } from "reselect";
 
 const getTasksCompleted = state => state.tasks.completedTasks;
+
+export const getPremium = state => state.subscription.premium;
 
 export const getTotalTasksCompleted = createSelector(
   [getTasksCompleted],

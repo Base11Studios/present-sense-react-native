@@ -1,122 +1,52 @@
 import React from "react";
-import { Platform, StyleSheet, TouchableOpacity, View } from "react-native";
+import {
+  Alert,
+  Platform,
+  StyleSheet,
+  TouchableOpacity,
+  View
+} from "react-native";
 import * as RNIap from "react-native-iap";
+import { connect } from "react-redux";
 import { MyText } from "../components/MyText";
 import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
 import { SubscribeCarousel } from "../components/SubscribeCarousel";
 import { Title4 } from "../components/Title4";
+import {
+  subscribeUser,
+  updateIAPs,
+  updateUserSubscriptions
+} from "../redux/reducers/subscription";
 import {
   COLOR_DARK_GRAY,
   COLOR_PRIMARY,
   COLOR_TERTIARY,
   COLOR_WHITE
 } from "../styles/common";
-var currencyFormatter = require("currency-formatter");
 
-const yearlySubId = "presmo.subscription.premium.yearly";
-const monthlySubId = "presmo.subscription.premium.monthly";
-
-const itemSkus = Platform.select({
-  ios: [monthlySubId, yearlySubId],
-  android: [monthlySubId, yearlySubId]
-});
-
-export default class SubscriptionScreen extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      productList: [],
-      monthlyProduct: null,
-      yearlyProduct: null,
-      receipt: "",
-      availableItemsMessage: ""
-    };
-  }
-
-  async componentDidMount() {
-    try {
-      await RNIap.prepare();
-      this.getSubscribeItems();
-    } catch (err) {
-      console.warn(err.code, err.message);
-      // TODO set button or give alert
+class SubscriptionScreen extends React.Component {
+  componentDidMount() {
+    if (!this.props.monthlyProduct || !this.props.yearlyProduct) {
+      this.props.updateIAPs();
     }
   }
-
-  getSubscribeItems = async () => {
-    try {
-      const products = await RNIap.getProducts(itemSkus);
-      const subs = await RNIap.getSubscriptions(itemSkus);
-      let yearlyProduct = null;
-      let monthlyProduct = null;
-      let discount = null;
-      products.forEach(product => {
-        if (product.productId === yearlySubId) {
-          yearlyProduct = product;
-          yearlyProduct.monthlyFormat = currencyFormatter.format(
-            yearlyProduct.price / 12,
-            { code: yearlyProduct.currency }
-          );
-        } else if (product.productId === monthlySubId) {
-          monthlyProduct = product;
-          monthlyProduct.monthlyFormat = currencyFormatter.format(
-            monthlyProduct.price,
-            { code: monthlyProduct.currency }
-          );
-        }
-      });
-      if (
-        !!yearlyProduct &&
-        !!yearlyProduct.price &&
-        !!monthlyProduct &&
-        !!monthlyProduct.price
-      ) {
-        discount =
-          100 -
-          Math.round(yearlyProduct.price / (monthlyProduct.price * 12) * 100);
-      }
-      this.setState({
-        monthlyProduct: monthlyProduct,
-        yearlyProduct: yearlyProduct,
-        discount: discount
-      });
-    } catch (err) {
-      console.warn(err.code, err.message);
-    }
-  };
 
   buySubscribeItem = async sku => {
     try {
-      console.warn("buySubscribeItem: " + sku);
       const purchase = await RNIap.buySubscription(sku);
-      console.info(purchase);
-      this.setState({ receipt: purchase.transactionReceipt }, () =>
-        this.goToNext()
-      );
+      this.setState({ receipt: purchase.transactionReceipt }, () => {
+        this.props.subscribeUser();
+      });
     } catch (err) {
-      console.warn(err.code, err.message);
-      Alert.alert(err.message);
+      Alert.alert("Something went wrong! Please try again.");
     }
   };
 
-  getAvailablePurchases = async () => {
-    try {
-      console.info(
-        "Get available purchases (non-consumable or unconsumed consumable)"
-      );
-      const purchases = await RNIap.getAvailablePurchases();
-      console.info("Available purchases :: ", purchases);
-      // TODO this can be restore, check to see if product is in the list and if not, restore it
-      this.setState({
-        availableItemsMessage: `Got ${purchases.length} items.`,
-        receipt: purchases[0].transactionReceipt
-      });
-    } catch (err) {
-      console.warn(err.code, err.message);
-      Alert.alert(err.message);
+  componentWillReceiveProps(nextProps) {
+    if (!!nextProps.premium) {
+      this.props.navigation.navigate("Settings");
     }
-  };
+  }
 
   onPressTerms() {
     this.props.navigation.navigate("Terms");
@@ -127,22 +57,22 @@ export default class SubscriptionScreen extends React.Component {
   }
 
   onPressRestore() {
-    // TODO restore purchase
+    this.props.updateUserSubscriptions({ userDriven: true });
   }
 
   onPressPurchaseMonthly() {
-    if (!!this.monthlyProduct && !!this.monthlyProduct.productId) {
-      this.buySubscribeItem(this.state.monthlyProduct.productId);
+    if (!!this.props.monthlyProduct && !!this.props.monthlyProduct.productId) {
+      this.buySubscribeItem(this.props.monthlyProduct.productId);
     } else {
-      // TODO alert? Or retry load?
+      this.props.updateIAPs();
     }
   }
 
   onPressPurchaseYearly() {
-    if (!!this.monthlyProduct && !!this.monthlyProduct.productId) {
-      this.buySubscribeItem(this.state.yearlyProduct.productId);
+    if (!!this.props.yearlyProduct && !!this.props.yearlyProduct.productId) {
+      this.buySubscribeItem(this.props.yearlyProduct.productId);
     } else {
-      // TODO alert? Or retry load?
+      this.props.updateIAPs();
     }
   }
 
@@ -153,8 +83,7 @@ export default class SubscriptionScreen extends React.Component {
       receipt,
       availableItemsMessage,
       discount
-    } = this.state;
-    const receipt100 = receipt.substring(0, 100);
+    } = this.props;
 
     return (
       <ScrollingPageContainer>
@@ -292,3 +221,23 @@ const styles = StyleSheet.create({
     color: COLOR_PRIMARY
   }
 });
+
+function mapStateToProps(state, ownProps) {
+  return {
+    premium: state.subscription.premium,
+    monthlyProduct: state.subscription.monthlyProduct,
+    yearlyProduct: state.subscription.yearlyProduct,
+    discount: state.subscription.discount
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch,
+    subscribeUser: () => dispatch(subscribeUser()),
+    updateUserSubscriptions: data => dispatch(updateUserSubscriptions(data)),
+    updateIAPs: () => dispatch(updateIAPs())
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SubscriptionScreen);
