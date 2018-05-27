@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, ViewPropTypes } from "react-native";
 import { MyText } from "../components/MyText";
 import {
   COLOR_ALERT,
@@ -125,7 +125,7 @@ TagCloud.propTypes = {
   tagList: PropTypes.array,
   colorList: PropTypes.array,
   minFontSize: PropTypes.number,
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   tagPaddingLeft: PropTypes.number,
   tagPaddingTop: PropTypes.number,
   tagPaddingRight: PropTypes.number,
