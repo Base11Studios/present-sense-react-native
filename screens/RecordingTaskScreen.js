@@ -11,6 +11,7 @@ import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
+import TutorialView from "../components/TutorialView";
 import { completeTask } from "../redux/reducers/tasks";
 import {
   getTaskStreak,
@@ -51,6 +52,13 @@ const InnerCompleteTaskForm = props => {
 
   return (
     <ScrollingPageContainer>
+      <TutorialView
+        tutorialType="taskRecodingIntro"
+        tutorialTitle="Record What You Noticed"
+        tutorialDescription={
+          "If you haven't done the activity yet, go back and finish it. Now, record the things you noticed and how you're feeling. We'll store this so you can view it later."
+        }
+      />
       <PageContainer>
         <Card title={task.title}>
           <View style={{ marginBottom: 16 }}>

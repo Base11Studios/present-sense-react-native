@@ -40,7 +40,7 @@ class ListTasksScreen extends React.Component {
           tutorialType="searchIntro"
           tutorialTitle="Find a Present Moment"
           tutorialDescription={
-            'Click the "time of day" tabs to find a task suited for the time, or try the Anytime tab whenever you want!'
+            'Click the "time of day" tabs to find an activity suited for the time, or try the Anytime tab whenever you want!'
           }
         />
         <View style={styles.dayFilters}>

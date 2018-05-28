@@ -7,6 +7,7 @@ import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
 import { Title4 } from "../components/Title4";
 import { Title5 } from "../components/Title5";
+import TutorialView from "../components/TutorialView";
 import { getFocusTypeColor } from "../constants/Helpers";
 import { startTask } from "../redux/reducers/tasks";
 import { COLOR_WHITE } from "../styles/common";
@@ -23,6 +24,13 @@ class TaskOverviewScreen extends Component {
 
     return (
       <PageContainer>
+        <TutorialView
+          tutorialType="taskOverviewIntro"
+          tutorialTitle="Be Present!"
+          tutorialDescription={
+            'Read the description and the prompt, then go ahead and start the activity. Pay attention to the prompt while you do. Click "Record" when you\'re done.'
+          }
+        />
         <Card title={activeTask.title} containerStyle={styles.card}>
           <FocusBadge
             focusType={activeTask.focusType}

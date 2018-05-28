@@ -4,7 +4,11 @@ import Toast from "react-native-root-toast";
 import { put, select, takeEvery } from "redux-saga/effects";
 import CommonDataManager from "../constants/CommonDataManager";
 import { MONTHLY_SUB_ID, YEARLY_SUB_ID } from "../constants/IAP";
-import { COLOR_ALERT, COLOR_HIGHLIGHT } from "../styles/common";
+import {
+  COLOR_ALERT,
+  COLOR_HIGHLIGHT,
+  COLOR_QUATERNARY
+} from "../styles/common";
 import {
   SUBSCRIBE_USER,
   UNSUBSCRIBE_USER,
@@ -114,6 +118,21 @@ function* completeTask(action) {
     const totalCompleted = yield select(getTotalTasksCompleted);
     const streak = yield select(getTaskStreak);
 
+    let toastComplete = Toast.show("Present Moment Complete!", {
+      duration: Toast.durations.LONG,
+      position: Toast.positions.BOTTOM - 190,
+      backgroundColor: COLOR_QUATERNARY,
+      opacity: 1,
+      shadow: false,
+      animation: true,
+      hideOnPress: true,
+      delay: 400,
+      onShow: () => {},
+      onShown: () => {},
+      onHide: () => {},
+      onHidden: () => {}
+    });
+
     let completeMessage =
       totalCompleted.toString() +
       (totalCompleted === 1
@@ -128,7 +147,7 @@ function* completeTask(action) {
       shadow: false,
       animation: true,
       hideOnPress: true,
-      delay: 2100,
+      delay: 1800,
       onShow: () => {},
       onShown: () => {},
       onHide: () => {},
@@ -142,7 +161,7 @@ function* completeTask(action) {
       shadow: false,
       animation: true,
       hideOnPress: true,
-      delay: 900,
+      delay: 1100,
       onShow: () => {},
       onShown: () => {},
       onHide: () => {},
