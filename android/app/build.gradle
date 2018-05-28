@@ -98,10 +98,10 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.presmo"
-        minSdkVersion 16
+        applicationId "com.base11studios.presentmoment"
+        minSdkVersion 26
         targetSdkVersion 26
-        versionCode 1
+        versionCode 2
         versionName "1.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"

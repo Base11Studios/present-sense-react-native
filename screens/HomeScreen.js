@@ -21,10 +21,13 @@ class HomeScreen extends React.Component {
 
   componentDidMount() {
     this.props.updateTasks();
+    this.props.updateIAPs();
+  }
+
+  componentWillUnmount() {
     this.props.updateUserSubscriptions({
       userDriven: false
     });
-    this.props.updateIAPs();
   }
 
   render() {

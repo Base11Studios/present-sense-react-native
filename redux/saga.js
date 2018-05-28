@@ -2,6 +2,7 @@ import { Platform } from "react-native";
 import * as RNIap from "react-native-iap";
 import Toast from "react-native-root-toast";
 import { put, select, takeEvery } from "redux-saga/effects";
+import CommonDataManager from "../constants/CommonDataManager";
 import { MONTHLY_SUB_ID, YEARLY_SUB_ID } from "../constants/IAP";
 import { COLOR_ALERT, COLOR_HIGHLIGHT } from "../styles/common";
 import {
@@ -21,15 +22,30 @@ var currencyFormatter = require("currency-formatter");
 
 const itemSkus = Platform.select({
   ios: [MONTHLY_SUB_ID, YEARLY_SUB_ID],
-  android: [MONTHLY_SUB_ID, YEARLY_SUB_ID]
+  android: [
+    MONTHLY_SUB_ID,
+    YEARLY_SUB_ID,
+    "com.test.inapp",
+    "com.test.subscription"
+  ]
 });
+
+function* prepareIapIfNeeded() {
+  let commonData = CommonDataManager.getInstance();
+  let prepared = commonData.getIapModulePrepared();
+  if (!prepared) {
+    commonData.setIapModulePrepared(true);
+    yield RNIap.prepare();
+  }
+}
 
 function* updateIaps(action) {
   try {
     const premium = yield select(getPremium);
     if (!premium) {
-      yield RNIap.prepare();
+      yield prepareIapIfNeeded();
       const subs = yield RNIap.getSubscriptions(itemSkus);
+      console.warn(subs + "subs");
       let yearlyProduct = null;
       let monthlyProduct = null;
       let discount = null;
@@ -74,7 +90,7 @@ function* updateSubscriptions(action) {
   try {
     const alreadyPremium = yield select(getPremium);
 
-    yield RNIap.prepare();
+    yield prepareIapIfNeeded();
     const purchases = yield RNIap.getAvailablePurchases();
     let premium = false;
     purchases.forEach(purchase => {

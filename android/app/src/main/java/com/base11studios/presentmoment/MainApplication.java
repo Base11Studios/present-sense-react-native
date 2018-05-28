@@ -1,4 +1,4 @@
-package com.presmo;
+package com.base11studios.presentmoment;
 
 import android.app.Application;
 import com.dooboolab.RNIap.RNIapPackage;

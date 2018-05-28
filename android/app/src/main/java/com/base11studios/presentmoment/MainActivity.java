@@ -1,4 +1,4 @@
-package com.presmo;
+package com.base11studios.presentmoment;
 
 import com.facebook.react.ReactActivity;
 

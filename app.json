@@ -23,7 +23,7 @@
       "bundleIdentifier": "com.base11studios.present-moment"
     },
     "android": {
-      "package": "com.base11studios.present-moment"
+      "package": "com.base11studios.presentmoment"
     }
   }
 }
