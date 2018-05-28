@@ -6,9 +6,6 @@ export const START_TASK = "tasks/START";
 export const UPDATE_TASKS = "tasks/UPDATE";
 export const COMPLETE_TASK = "tasks/COMPLETE";
 export const CANCEL_TASK = "tasks/CANCEL";
-export const LOAD_TASKS = "tasks/LOAD";
-export const LOAD_TASKS_SUCCESS = "tasks/LOAD_SUCCESS";
-export const LOAD_TASKS_FAIL = "tasks/LOAD_FAIL";
 
 export const migrations = {
   0: state => {
@@ -116,28 +113,11 @@ export default function reducer(state = initialState, action) {
         lastTaskFocuses: newTaskFocuses,
         completedTasks: [completedTask, ...state.completedTasks]
       };
-    case LOAD_TASKS:
-      return { ...state, loading: true };
-    case LOAD_TASKS_SUCCESS:
-      return { ...state, loading: false, tasks: action.payload.data };
-    case LOAD_TASKS_FAIL:
-      return {
-        ...state,
-        loading: false,
-        error: "Error while fetching tasks"
-      };
     case PURGE:
       return initialState;
     default:
       return state;
   }
-}
-
-export function listTasks() {
-  return {
-    type: LOAD_TASKS,
-    payload: {}
-  };
 }
 
 export function updateTasks() {

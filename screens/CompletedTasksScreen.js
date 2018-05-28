@@ -16,6 +16,7 @@ import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
 import { Title3 } from "../components/Title3";
 import { Title4 } from "../components/Title4";
 import { Title5 } from "../components/Title5";
+import TutorialView from "../components/TutorialView";
 import { COLOR_BLACK, COLOR_PRIMARY } from "../styles/common";
 
 // TODO show time for today, day of week for past week, month and day for this year, month and day and year for previous
@@ -40,6 +41,13 @@ class CompletedTasksScreen extends React.Component {
     const { completedTasks } = this.props;
     return completedTasks.length > 0 ? (
       <ScrollingPageContainer>
+        <TutorialView
+          tutorialType="completedIntro"
+          tutorialTitle="See Your Progress"
+          tutorialDescription={
+            "Check in here after completing a Present Moment to see your progress and history over time!"
+          }
+        />
         <View>
           <Title4 style={styles.container}>MY AWARENESS</Title4>
           <CloudTile />
@@ -109,6 +117,13 @@ class CompletedTasksScreen extends React.Component {
       </ScrollingPageContainer>
     ) : (
       <PageContainer style={styles.container}>
+        <TutorialView
+          tutorialType="completedIntro"
+          tutorialTitle="See Your Progress"
+          tutorialDescription={
+            "Come here after you've completed your first Present Moment. Check in to see your progress and history over time!"
+          }
+        />
         <Title3>
           You haven't completed any present moments. Find one on the Home or
           Search tabs, then return here to see your stats!

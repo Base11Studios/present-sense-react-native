@@ -5,11 +5,8 @@ import { connect } from "react-redux";
 import { FocusTypeIcon } from "../components/FocusTypeIcon";
 import { PageContainer } from "../components/PageContainer";
 import SearchFilterView from "../components/SearchFilterView";
-import {
-  listTasks,
-  setActiveTaskType,
-  startTask
-} from "../redux/reducers/tasks";
+import TutorialView from "../components/TutorialView";
+import { setActiveTaskType, startTask } from "../redux/reducers/tasks";
 import {
   COLOR_HIGHLIGHT,
   COLOR_PRIMARY,
@@ -21,10 +18,6 @@ class ListTasksScreen extends React.Component {
   static navigationOptions = {
     title: "Search"
   };
-
-  componentDidMount() {
-    this.props.listTasks();
-  }
 
   onPressChangeTaskType = taskType => {
     this.props.setActiveTaskType(taskType);
@@ -43,6 +36,13 @@ class ListTasksScreen extends React.Component {
     const { tasks, activeTaskType } = this.props;
     return (
       <PageContainer style={styles.container}>
+        <TutorialView
+          tutorialType="searchIntro"
+          tutorialTitle="Find a Present Moment"
+          tutorialDescription={
+            'Click the "time of day" tabs to find a task suited for the time, or try the Anytime tab whenever you want!'
+          }
+        />
         <View style={styles.dayFilters}>
           <TouchableOpacity
             style={styles.dayFilter}
@@ -159,7 +159,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    listTasks: () => dispatch(listTasks()),
     setActiveTaskType: type => dispatch(setActiveTaskType(type)),
     startTask: type => dispatch(startTask(type))
   };

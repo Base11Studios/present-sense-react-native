@@ -45,7 +45,6 @@ function* updateIaps(action) {
     if (!premium) {
       yield prepareIapIfNeeded();
       const subs = yield RNIap.getSubscriptions(itemSkus);
-      console.warn(subs + "subs");
       let yearlyProduct = null;
       let monthlyProduct = null;
       let discount = null;

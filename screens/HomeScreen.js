@@ -6,6 +6,7 @@ import { EverydayTasksTile } from "../components/EverydayTasksTile";
 import MindfulQuoteTile from "../components/MindfulQuoteTile";
 import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
 import StatTile from "../components/StatTile";
+import TutorialView from "../components/TutorialView";
 import {
   updateIAPs,
   updateUserSubscriptions
@@ -35,6 +36,13 @@ class HomeScreen extends React.Component {
 
     return (
       <ScrollingPageContainer>
+        <TutorialView
+          tutorialType="homeIntro"
+          tutorialTitle="Welcome to PresMo!"
+          tutorialDescription={
+            'PresMo teaches Mindful Journaling. Complete multiple "Present Moments" a day to build your awareness of the world and start living your life in the present! See the Help section in Settings for all the benefits.'
+          }
+        />
         <StatTile />
         <MindfulQuoteTile />
         <EverydayTasksTile {...this.props} />

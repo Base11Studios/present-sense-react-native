@@ -21,6 +21,9 @@ const RootStackNavigator = StackNavigator(
     Credits: {
       screen: CreditsNavigator
     }
+    // Tutorial: {
+    //   screen: TutorialNavigator
+    // }
   },
   {
     mode: "modal",
