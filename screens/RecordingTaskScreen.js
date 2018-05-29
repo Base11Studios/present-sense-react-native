@@ -55,7 +55,7 @@ const InnerCompleteTaskForm = props => {
         tutorialType="taskRecodingIntro"
         tutorialTitle="Record What You Noticed"
         tutorialDescription={
-          "If you haven't done the activity yet, go back and finish it. Now, record the things you noticed and how you're feeling. We'll store this so you can view it later."
+          "If you haven't done the experience yet, go back and finish it. Now, record the things you noticed and how you're feeling. We'll store this so you can view it later."
         }
       />
       <PageContainer>
@@ -107,7 +107,7 @@ completeTheTask = function(values, props) {
     formValues: { prompt: values.prompt, feel: values.feel }
   });
 
-  props.navigation.navigate("Home");
+  props.navigation.navigate("Journey");
 };
 
 const CompleteTaskForm = withFormik({

@@ -28,7 +28,7 @@ class TaskOverviewScreen extends Component {
           tutorialType="taskOverviewIntro"
           tutorialTitle="Be Present!"
           tutorialDescription={
-            'Read the description and the prompt, then go ahead and start the activity. Pay attention to the prompt while you do. Click "Record" when you\'re done.'
+            'Read the description and the prompt, then go ahead and start the experience. Pay attention to the prompt while you do. Click "Record" when you\'re done.'
           }
         />
         <Card title={activeTask.title} containerStyle={styles.card}>

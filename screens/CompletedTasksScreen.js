@@ -26,7 +26,7 @@ const MAX_UNSUBSCRIBED_EVENTS = 9;
 
 class CompletedTasksScreen extends React.Component {
   static navigationOptions = {
-    title: "Completed"
+    title: "Journey"
   };
 
   onPressHistoricalItem(item, index) {
@@ -44,7 +44,7 @@ class CompletedTasksScreen extends React.Component {
       <ScrollingPageContainer>
         <TutorialView
           tutorialType="completedIntro"
-          tutorialTitle="See Your Progress"
+          tutorialTitle="Your Journey"
           tutorialDescription={
             "Check in here after completing a mindful experience to see your progress and history over time!"
           }
@@ -121,7 +121,7 @@ class CompletedTasksScreen extends React.Component {
       <PageContainer style={styles.container}>
         <TutorialView
           tutorialType="completedIntro"
-          tutorialTitle="See Your Progress"
+          tutorialTitle="Your Journey"
           tutorialDescription={
             "Come here after you've completed your first mindful experience. Check in to see your progress and history over time!"
           }

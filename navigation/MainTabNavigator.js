@@ -111,7 +111,7 @@ export const TabNavigator = createBottomTabNavigator(
     Search: {
       screen: SearchNavigator
     },
-    Completed: {
+    Journey: {
       screen: CompletedNavigator
     },
     Settings: {
@@ -136,7 +136,7 @@ export const TabNavigator = createBottomTabNavigator(
                 ? `ios-list${focused ? "-box" : ""}`
                 : "md-list";
             break;
-          case "Completed":
+          case "Journey":
             iconName =
               Platform.OS === "ios"
                 ? `ios-checkmark-circle${focused ? "" : "-outline"}`
