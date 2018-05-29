@@ -14,9 +14,9 @@ class AnytimeTasksTile extends React.Component {
   }
 
   tasks = [
-    { taskId: "1", key: "1", title: "Brush Your Teeth" },
-    { taskId: "2", key: "2", title: "Brush Your Teeth" },
-    { taskId: "3", key: "3", title: "Brush Your Teeth" }
+    { taskId: "4", key: "1" },
+    { taskId: "8", key: "2" },
+    { taskId: "5", key: "3" }
   ];
 
   render() {

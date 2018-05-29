@@ -2,7 +2,13 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { connect } from "react-redux";
 import { quoteData } from "../redux/reducers/quote-data";
-import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
+import {
+  COLOR_ALERT,
+  COLOR_PRIMARY,
+  COLOR_SECONDARY,
+  COLOR_TERTIARY,
+  COLOR_WHITE
+} from "../styles/common";
 import { MyText } from "./MyText";
 
 class MindfulQuoteTile extends React.Component {
@@ -10,23 +16,42 @@ class MindfulQuoteTile extends React.Component {
 
   render() {
     return (
-      <View style={styles.header}>
+      <View
+        style={[
+          styles.header,
+          { backgroundColor: getBackgroundColor(this.quoteNumber) }
+        ]}
+      >
         <MyText style={styles.quoteText}>
-          "{quoteData[this.quoteNumber].quote}"
+          {quoteData[this.quoteNumber].quote}
         </MyText>
         <MyText style={styles.quoteAuthor}>
-          "-- {quoteData[this.quoteNumber].author}"
+          -- {quoteData[this.quoteNumber].author}
         </MyText>
       </View>
     );
   }
 }
 
+getBackgroundColor = function(quoteNumber) {
+  switch (quoteNumber % 5) {
+    case 0:
+      return COLOR_ALERT;
+    case 1:
+      return COLOR_SECONDARY;
+    case 2:
+      return COLOR_TERTIARY;
+    case 3:
+      return COLOR_HIGHLIGHT;
+    default:
+      return COLOR_PRIMARY;
+  }
+};
+
 const styles = StyleSheet.create({
   header: {
     backgroundColor: COLOR_WHITE,
     flex: 1,
-    backgroundColor: COLOR_PRIMARY,
     justifyContent: "center",
     flexDirection: "column",
     padding: 40,
