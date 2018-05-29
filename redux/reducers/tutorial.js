@@ -1,3 +1,5 @@
+import { PURGE } from "redux-persist";
+
 export const SHOW_TUTORIAL = "tutorial/SHOW";
 
 const initialState = {
@@ -19,6 +21,8 @@ export default function reducer(state = initialState, action) {
       newState.tutorial[action.payload.tutorialType] = true;
 
       return newState;
+    case PURGE:
+      return initialState;
     default:
       return state;
   }

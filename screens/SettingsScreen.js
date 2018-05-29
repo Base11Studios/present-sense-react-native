@@ -77,6 +77,24 @@ class SettingsScreen extends React.Component {
       )
     };
 
+    item4 = {
+      key: "4",
+      view: (
+        <ListItem
+          onPress={() => this.props.navigation.navigate("FAQ")}
+          title="FAQ"
+          avatar={
+            <Icon
+              type="simple-line-icon"
+              name="notebook"
+              size={20}
+              containerStyle={{ padding: 2 }}
+            />
+          }
+        />
+      )
+    };
+
     item3 = {
       key: "3",
       view: !this.props.premium ? (
@@ -104,7 +122,7 @@ class SettingsScreen extends React.Component {
     return (
       <PageContainer>
         <FlatList
-          data={[item3, item2, item1]}
+          data={[item3, item4, item2, item1]}
           renderItem={({ item }) => item.view}
         />
       </PageContainer>

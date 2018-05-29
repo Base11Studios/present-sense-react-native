@@ -66,5 +66,16 @@ export const taskData = [
     hints:
       "Place a piece of food on your tongue. Don't chew it, just let it be. Move it around inside your mouth. Notice the saliva glands starting to work. Take a bite into the food slowly and pay attention to your taste buds. Chew slowly and swallow after chewing thoroughly. Pay attention to the taste lingering in your mouth, and let it go away before you eat another piece.",
     premium: true
+  },
+  {
+    title: "Returning home",
+    id: "7",
+    type: "Anytime",
+    description: "",
+    focusType: "Taste",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you taste?",
+    hints: "",
+    premium: true
   }
 ];

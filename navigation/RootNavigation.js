@@ -3,6 +3,7 @@ import { StackNavigator } from "react-navigation";
 import {
   CreditsNavigator,
   DoTaskNavigator,
+  FAQNavigator,
   SubscribeNavigator,
   TabNavigator
 } from "./MainTabNavigator";
@@ -20,6 +21,9 @@ const RootStackNavigator = StackNavigator(
     },
     Credits: {
       screen: CreditsNavigator
+    },
+    FAQ: {
+      screen: FAQNavigator
     }
     // Tutorial: {
     //   screen: TutorialNavigator

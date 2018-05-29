@@ -7,6 +7,7 @@ import { DismissButton } from "../components/DismissButton";
 import Colors from "../constants/Colors";
 import CompletedTasksScreen from "../screens/CompletedTasksScreen";
 import CreditsScreen from "../screens/CreditsScreen";
+import FAQScreen from "../screens/FAQScreen";
 import HomeScreen from "../screens/HomeScreen";
 import ListTasksScreen from "../screens/ListTasksScreen";
 import PrivacyPolicyScreen from "../screens/PrivacyPolicyScreen";
@@ -63,6 +64,16 @@ export const CreditsNavigator = StackNavigator({
     screen: CreditsScreen,
     navigationOptions: props => ({
       title: "Credits",
+      headerRight: <DismissButton {...props} />
+    })
+  }
+});
+
+export const FAQNavigator = StackNavigator({
+  FAQ: {
+    screen: FAQScreen,
+    navigationOptions: props => ({
+      title: "FAQ",
       headerRight: <DismissButton {...props} />
     })
   }
