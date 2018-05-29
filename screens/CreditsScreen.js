@@ -13,7 +13,10 @@ export default class CreditsScreen extends React.Component {
 
     return (
       <ScrollingPageContainer style={styles.header}>
-        <MyText>"Sense" icons made by Roundicons from www.flaticon.com</MyText>
+        <MyText>
+          "Sense" icons made by Roundicons and DinosoftLabs from
+          www.flaticon.com
+        </MyText>
       </ScrollingPageContainer>
     );
   }

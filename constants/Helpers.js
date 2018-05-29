@@ -2,6 +2,7 @@ import {
   COLOR_ALERT,
   COLOR_HIGHLIGHT,
   COLOR_PRIMARY,
+  COLOR_QUATERNARY,
   COLOR_SECONDARY,
   COLOR_TERTIARY
 } from "../styles/common";
@@ -17,5 +18,7 @@ export const getFocusTypeColor = function(focusType) {
           ? COLOR_TERTIARY
           : focusType === "Taste"
             ? COLOR_SECONDARY
-            : "";
+            : focusType === "Mind"
+              ? COLOR_QUATERNARY
+              : "";
 };

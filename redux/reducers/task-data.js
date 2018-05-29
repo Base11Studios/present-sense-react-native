@@ -1,4 +1,4 @@
-export const taskDataVersion = 1.1;
+export const taskDataVersion = 1.3;
 export const taskData = [
   {
     title: "Brush your teeth",
@@ -77,5 +77,19 @@ export const taskData = [
     prompt: "What did you taste?",
     hints: "",
     premium: true
+  },
+  {
+    title: "Grateful for",
+    id: "8",
+    type: "Anytime",
+    description:
+      "It can be so helpful to our attitude and outlook if we take a step back and recognize the good things we have. Think about 3 things that you're grateful for today.",
+    focusType: "Mind",
+    applicableFocusTypes: ["Mind"],
+    prompt: "What are you 3 things you're grateful for?",
+    mindPrompt: "What are you 3 things you're grateful for?",
+    hints:
+      "These can be big things or little things. For example: Did someone say 'hi' to you today? Did you have water to take a shower? Do you have food to eat when you're hungry? Did you have a nice time spending a moment with a spouse, friend or family member?",
+    premium: false
   }
 ];

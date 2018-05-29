@@ -26,14 +26,6 @@ class AnytimeTile extends React.Component {
   }
 }
 
-const getAvatarIconName = function(focusType) {
-  if (focusType === "Smell") {
-    return "more-horizontal";
-  } else {
-    return "ok";
-  }
-};
-
 const styles = StyleSheet.create({
   dayTile: {
     height: 60,

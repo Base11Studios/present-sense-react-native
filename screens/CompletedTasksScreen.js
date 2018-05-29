@@ -13,6 +13,7 @@ import CloudTile from "../components/CloudTile";
 import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
 import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
+import StatTile from "../components/StatTile";
 import { Title3 } from "../components/Title3";
 import { Title4 } from "../components/Title4";
 import { Title5 } from "../components/Title5";
@@ -48,6 +49,7 @@ class CompletedTasksScreen extends React.Component {
             "Check in here after completing a mindful experience to see your progress and history over time!"
           }
         />
+        <StatTile />
         <View>
           <Title4 style={styles.container}>MY AWARENESS</Title4>
           <CloudTile />

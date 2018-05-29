@@ -5,7 +5,6 @@ import AnytimeTasksTile from "../components/AnytimeTasksTile";
 import { EverydayTasksTile } from "../components/EverydayTasksTile";
 import MindfulQuoteTile from "../components/MindfulQuoteTile";
 import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
-import StatTile from "../components/StatTile";
 import TutorialView from "../components/TutorialView";
 import {
   updateIAPs,
@@ -45,7 +44,6 @@ class HomeScreen extends React.Component {
             'PresMo teaches Mindful Journaling. Complete multiple "Mindful Experiences" a day to build your awareness of the world and start living your life in the present! See the FAQ section in Settings for all the benefits.'
           }
         />
-        <StatTile />
         <MindfulQuoteTile />
         <EverydayTasksTile {...this.props} />
         <AnytimeTasksTile {...this.props} />

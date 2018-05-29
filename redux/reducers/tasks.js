@@ -51,7 +51,8 @@ const getNextFocus = function(task) {
   return task.applicableFocusTypes[indexOfFocus + 1];
 };
 
-const getPrompt = function(type) {
+const getPrompt = function(task) {
+  const type = task.focusType;
   switch (type) {
     case "Sight":
       return "What did you see?";
@@ -61,6 +62,8 @@ const getPrompt = function(type) {
       return "What did you taste?";
     case "Smell":
       return "What did you smell?";
+    case "Mind":
+      return task.mindPrompt;
     default:
       return "What did you touch?";
   }
@@ -106,7 +109,7 @@ export default function reducer(state = initialState, action) {
         return task.id === completedTask.task.id;
       })[0];
       updatedTask.focusType = newTaskFocuses[completedTask.id];
-      updatedTask.prompt = getPrompt(updatedTask.focusType);
+      updatedTask.prompt = getPrompt(updatedTask);
       return {
         ...state,
         tasks: newTasks,
