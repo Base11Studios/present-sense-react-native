@@ -21,7 +21,7 @@ import { COLOR_BLACK, COLOR_PRIMARY } from "../styles/common";
 
 // TODO show time for today, day of week for past week, month and day for this year, month and day and year for previous
 
-const MAX_UNSUBSCRIBED_EVENTS = 4;
+const MAX_UNSUBSCRIBED_EVENTS = 9;
 
 class CompletedTasksScreen extends React.Component {
   static navigationOptions = {
