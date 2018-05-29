@@ -23,7 +23,7 @@ class StatTile extends React.Component {
         </View>
         <View style={styles.stat}>
           <MyText style={styles.statText}>{totalTasksCompleted}</MyText>
-          <MyText style={styles.statLabel}>PRESENT MOMENTS</MyText>
+          <MyText style={styles.statLabel}>MINDFUL EXPERIENCES</MyText>
         </View>
         <View style={styles.stat}>
           <MyText style={styles.statText}>{taskStreak}</MyText>
@@ -31,7 +31,7 @@ class StatTile extends React.Component {
         </View>
         <View style={styles.stat}>
           <MyText style={styles.statText}>{tasksPerDay.toFixed(1)}</MyText>
-          <MyText style={styles.statLabel}>P.M. / DAY</MyText>
+          <MyText style={styles.statLabel}>M.E. / DAY</MyText>
         </View>
       </View>
     );

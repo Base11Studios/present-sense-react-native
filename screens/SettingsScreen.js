@@ -54,7 +54,7 @@ class SettingsScreen extends React.Component {
         <ListItem
           onPress={() => this.onPressResetStore()}
           title="Reset Data"
-          avatar={<Icon type="evilicons" name="undo" size={24} />}
+          avatar={<Icon type="evilicon" name="undo" size={24} />}
         />
       )
     };
@@ -85,10 +85,10 @@ class SettingsScreen extends React.Component {
           title="FAQ"
           avatar={
             <Icon
-              type="simple-line-icon"
-              name="notebook"
-              size={20}
-              containerStyle={{ padding: 2 }}
+              type="font-awesome"
+              name="question-circle-o"
+              size={24}
+              containerStyle={{ paddingLeft: 2, paddingRight: 2 }}
             />
           }
         />

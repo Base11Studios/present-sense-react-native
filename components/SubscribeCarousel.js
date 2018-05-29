@@ -7,9 +7,9 @@ import SliderEntry from "./SliderEntry";
 
 const ENTRIES = [
   {
-    title: "more present moments",
+    title: "more mindful experiences",
     subtitle:
-      "Many more present moments to complete. Discover more ways to be mindful in your daily life.",
+      "Many more mindful experiences to complete. Discover more ways to be mindful in your daily life.",
     illustration: require("../assets/images/sub_tasks.png")
   },
   // {
@@ -21,7 +21,7 @@ const ENTRIES = [
   {
     title: "Full history view",
     subtitle:
-      "See your historical timeline with all present moments you have completed.",
+      "See your historical timeline with all mindful experiences you have completed.",
     illustration: require("../assets/images/sub_history.png")
   }
 ];

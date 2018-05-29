@@ -22,14 +22,14 @@ export const DoTaskNavigator = StackNavigator({
   TaskOverview: {
     screen: TaskOverviewScreen,
     navigationOptions: props => ({
-      title: "Experience Mindfully",
+      title: "Mindful Experience",
       headerRight: <DismissButton {...props} />
     })
   },
   RecordingTask: {
     screen: RecordingTaskScreen,
     navigationOptions: props => ({
-      title: "Record Your Thoughts",
+      title: "Record Experience",
       headerLeft: <BackButton {...props} />
     })
   }

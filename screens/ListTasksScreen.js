@@ -38,7 +38,7 @@ class ListTasksScreen extends React.Component {
       <PageContainer style={styles.container}>
         <TutorialView
           tutorialType="searchIntro"
-          tutorialTitle="Find a Present Moment"
+          tutorialTitle="Find a Mindful Experience"
           tutorialDescription={
             'Click the "time of day" tabs to find an activity suited for the time, or try the Anytime tab whenever you want!'
           }

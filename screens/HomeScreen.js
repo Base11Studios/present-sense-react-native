@@ -42,7 +42,7 @@ class HomeScreen extends React.Component {
           tutorialType="homeIntro"
           tutorialTitle="Welcome to PresMo!"
           tutorialDescription={
-            'PresMo teaches Mindful Journaling. Complete multiple "Present Moments" a day to build your awareness of the world and start living your life in the present! See the FAQ section in Settings for all the benefits.'
+            'PresMo teaches Mindful Journaling. Complete multiple "Mindful Experiences" a day to build your awareness of the world and start living your life in the present! See the FAQ section in Settings for all the benefits.'
           }
         />
         <StatTile />

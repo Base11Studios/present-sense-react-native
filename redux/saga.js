@@ -118,7 +118,7 @@ function* completeTask(action) {
     const totalCompleted = yield select(getTotalTasksCompleted);
     const streak = yield select(getTaskStreak);
 
-    let toastComplete = Toast.show("Present Moment Complete!", {
+    let toastComplete = Toast.show("Mindful Experience Complete!", {
       duration: Toast.durations.LONG,
       position: Toast.positions.BOTTOM - 190,
       backgroundColor: COLOR_QUATERNARY,

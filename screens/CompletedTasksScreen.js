@@ -45,7 +45,7 @@ class CompletedTasksScreen extends React.Component {
           tutorialType="completedIntro"
           tutorialTitle="See Your Progress"
           tutorialDescription={
-            "Check in here after completing a Present Moment to see your progress and history over time!"
+            "Check in here after completing a mindful experience to see your progress and history over time!"
           }
         />
         <View>
@@ -121,11 +121,11 @@ class CompletedTasksScreen extends React.Component {
           tutorialType="completedIntro"
           tutorialTitle="See Your Progress"
           tutorialDescription={
-            "Come here after you've completed your first Present Moment. Check in to see your progress and history over time!"
+            "Come here after you've completed your first mindful experience. Check in to see your progress and history over time!"
           }
         />
         <Title3>
-          You haven't completed any present moments. Find one on the Home or
+          You haven't completed any mindful experiences. Find one on the Home or
           Search tabs, then return here to see your stats!
         </Title3>
       </PageContainer>

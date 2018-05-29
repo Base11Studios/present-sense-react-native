@@ -14,11 +14,11 @@ export default class PrivacyPolicyScreen extends React.Component {
     return (
       <ScrollingPageContainer style={styles.header}>
         <MyText style={styles.text}>
-          Present Moment does not collect any of your response data or store it
+          Present Sense does not collect any of your response data or store it
           off your device.
         </MyText>
         <MyText style={styles.text}>
-          Present Moment may track your usage of the application anonymously so
+          Present Sense may track your usage of the application anonymously so
           that we can improve the product.
         </MyText>
       </ScrollingPageContainer>

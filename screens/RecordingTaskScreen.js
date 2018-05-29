@@ -5,7 +5,6 @@ import { Card } from "react-native-elements";
 import { connect } from "react-redux";
 import Yup from "yup";
 import { AutoExpandingTextInput } from "../components/AutoExpandingTextInput";
-import { DismissButton } from "../components/DismissButton";
 import { ErrorText } from "../components/ErrorText";
 import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
@@ -128,13 +127,13 @@ class RecordingTaskScreen extends Component {
     const params = navigation.state.params || {};
 
     return {
-      headerRight: (
-        <DismissButton
-          reset={true}
-          resetRoute="TaskOverview"
-          navigation={navigation}
-        />
-      )
+      // headerRight: (
+      //   <DismissButton
+      //     reset={true}
+      //     resetRoute="TaskOverview"
+      //     navigation={navigation}
+      //   />
+      // )
     };
   };
 
