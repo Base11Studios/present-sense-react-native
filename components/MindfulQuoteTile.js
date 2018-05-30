@@ -2,13 +2,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { connect } from "react-redux";
 import { quoteData } from "../redux/reducers/quote-data";
-import {
-  COLOR_ALERT,
-  COLOR_PRIMARY,
-  COLOR_SECONDARY,
-  COLOR_TERTIARY,
-  COLOR_WHITE
-} from "../styles/common";
+import { COLOR_ALERT, COLOR_PRIMARY, COLOR_SECONDARY, COLOR_TERTIARY, COLOR_WHITE } from "../styles/common";
 import { MyText } from "./MyText";
 
 class MindfulQuoteTile extends React.Component {
@@ -22,12 +16,23 @@ class MindfulQuoteTile extends React.Component {
           { backgroundColor: getBackgroundColor(this.quoteNumber) }
         ]}
       >
-        <MyText style={styles.quoteText}>
+        <MyText
+          style={[
+            styles.quoteText,
+            !!quoteData[this.quoteNumber].author
+              ? { paddingBottom: 20 }
+              : { paddingBottom: 0 }
+          ]}
+        >
           {quoteData[this.quoteNumber].quote}
         </MyText>
-        <MyText style={styles.quoteAuthor}>
-          -- {quoteData[this.quoteNumber].author}
-        </MyText>
+        {!!quoteData[this.quoteNumber].author ? (
+          <MyText style={styles.quoteAuthor}>
+            -- {quoteData[this.quoteNumber].author}
+          </MyText>
+        ) : (
+          <View />
+        )}
       </View>
     );
   }
@@ -60,7 +65,7 @@ const styles = StyleSheet.create({
   quoteText: {
     flex: 1,
     textAlign: "left",
-    paddingBottom: 20,
+
     color: COLOR_WHITE,
     fontSize: 20
   },
