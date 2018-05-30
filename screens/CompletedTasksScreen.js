@@ -10,6 +10,7 @@ import {
 import { Card } from "react-native-elements";
 import { connect } from "react-redux";
 import CloudTile from "../components/CloudTile";
+import { FocusTypeIcon } from "../components/FocusTypeIcon";
 import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
 import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
@@ -80,7 +81,10 @@ class CompletedTasksScreen extends React.Component {
                             color={COLOR_BLACK}
                           />
                         ) : (
-                          <View />
+                          <FocusTypeIcon
+                            focusType={item.task.focusType}
+                            style={{ marginRight: 10, width: 20, height: 20 }}
+                          />
                         )}
                         <Title3>{item.task.title}</Title3>
                       </View>
@@ -92,7 +96,9 @@ class CompletedTasksScreen extends React.Component {
                     </View>
                     {item.expanded ? (
                       <View>
-                        <Title5>{item.task.prompt}</Title5>
+                        <Title5 style={{ marginTop: 18 }}>
+                          {item.task.prompt}
+                        </Title5>
                         <MyText style={{ marginBottom: 18 }}>
                           {item.formValues.prompt}
                         </MyText>
@@ -147,7 +153,7 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   date: {
-    width: 85,
+    width: 100,
     alignItems: "flex-end"
   },
   card: {

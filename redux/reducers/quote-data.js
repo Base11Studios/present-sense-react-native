@@ -1,7 +1,7 @@
 export const quoteData = [
   {
     quote:
-      'While we don\'t want to let our thoughts wander to focus on the future, it is OK to plan for the future. When you notice future-focused thoughts, ask yourself "Is this helpful?" to determine if it is healthy.',
+      'It is OK to plan for the future, but don\'t let it become worry, rumination, or mind-wandering. Ask yourself "Is this helpful?" to determine if it is healthy planning.',
     author: "Present Sense"
   },
   {
