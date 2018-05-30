@@ -35,6 +35,7 @@ const getUpdatedTasks = function(lastTaskFocuses) {
   taskData.forEach(task => {
     if (!!lastTaskFocuses[task.id]) {
       task.focusType = lastTaskFocuses[task.id];
+      task.prompt = getPrompt(task);
     }
     newTasks.push(task);
   });
