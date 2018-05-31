@@ -12,6 +12,8 @@ target 'PresMo' do
 
   # pod 'RNIap', :path => '../node_modules/react-native-iap'
 
+  pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+
   target 'PresMoTests' do
     inherit! :search_paths
     # Pods for testing

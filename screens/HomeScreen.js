@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
+import SplashScreen from "react-native-splash-screen";
 import { connect } from "react-redux";
 import AnytimeTasksTile from "../components/AnytimeTasksTile";
 import { EverydayTasksTile } from "../components/EverydayTasksTile";
@@ -22,6 +23,7 @@ class HomeScreen extends React.Component {
   componentDidMount() {
     this.props.updateTasks();
     this.props.updateIAPs();
+    SplashScreen.hide();
   }
 
   componentWillUnmount() {
