@@ -86,7 +86,11 @@ class CompletedTasksScreen extends React.Component {
                             style={{ marginRight: 10, width: 20, height: 20 }}
                           />
                         )}
-                        <Title3>{item.task.title}</Title3>
+                      </View>
+                      <View style={styles.title}>
+                        <Title3 style={styles.taskTitle}>
+                          {item.task.title}
+                        </Title3>
                       </View>
                       <View style={styles.date}>
                         <Moment fromNow element={Text}>
@@ -148,6 +152,7 @@ const styles = StyleSheet.create({
   cardTitleContainer: {
     flexDirection: "row"
   },
+  title: { flex: 1 },
   cardTitle: {
     justifyContent: "space-between",
     flexDirection: "row"
