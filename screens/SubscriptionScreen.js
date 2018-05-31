@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   monthDisclaimer: {
     textAlign: "center",
     color: COLOR_WHITE,
-    marginBottom: 18
+    marginBottom: 9
   },
   discount: {
     textAlign: "center",
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "500",
     textAlign: "center",
-    marginVertical: 12,
+    marginVertical: 9,
     color: COLOR_WHITE
   },
   termsContainer: {

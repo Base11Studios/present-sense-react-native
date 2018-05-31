@@ -1,4 +1,4 @@
-export const taskDataVersion = 1.92;
+export const taskDataVersion = 1.93;
 export const taskData = [
   {
     title: "Brush your teeth",
@@ -35,29 +35,6 @@ export const taskData = [
     prompt: "What did you feel?",
     hints:
       "Feel the earth beneath your feet. Notice the tiny movements your muscles make to keep your balanced. The slower you go, the stronger you feel these sensations."
-  },
-  {
-    title: "Deep breathing",
-    id: "4",
-    type: "Anytime",
-    description:
-      "Our breath is always with us, it is a constant in our mindfulness practice. Take several deep breaths, paying attention to the air coming in and going out.",
-    focusType: "Smell",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you smell?",
-    hints:
-      "Slowly breathe in through your nostrils. Breath out using your stomache. Repeat at least 5 times."
-  },
-  {
-    title: "Stressed out",
-    id: "5",
-    type: "Anytime",
-    description:
-      "Take 5 long breaths and repeat this mantra: 'Breathing in, I calm my body. Berathing out, I smile.'",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
-    hints: ""
   },
   {
     title: "Grateful for",
@@ -114,7 +91,6 @@ export const taskData = [
       "Any mindfulness exercise will do. If you don't already know one, try this meditation for 10 minutes: Sit comfortably in a chair, close your eyes, and focus on your breath. Observe the parts of your body that move when you breath in, and those that move when you breath out. Focus on the nostrils, chest, or stomache.",
     premium: false
   },
-  // Premium
   {
     title: "Eating mindfully",
     id: "6",
@@ -125,6 +101,32 @@ export const taskData = [
     prompt: "What did you taste?",
     hints:
       "Place a piece of food on your tongue. Don't chew it, just let it be. Move it around inside your mouth. Notice the saliva glands starting to work. Take a bite into the food slowly and pay attention to your taste buds. Chew slowly and swallow after chewing thoroughly. Pay attention to the taste lingering in your mouth, and let it go away before you eat another piece.",
+    premium: false
+  },
+  // Premium
+  {
+    title: "Deep breathing",
+    id: "4",
+    type: "Anytime",
+    description:
+      "Our breath is always with us, it is a constant in our mindfulness practice. Take several deep breaths, paying attention to the air coming in and going out.",
+    focusType: "Smell",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you smell?",
+    hints:
+      "Slowly breathe in through your nostrils. Breath out using your stomache. Repeat at least 5 times.",
+    premium: true
+  },
+  {
+    title: "Stressed out",
+    id: "5",
+    type: "Anytime",
+    description:
+      "Take 5 long breaths and repeat this mantra: 'Breathing in, I calm my body. Berathing out, I smile.'",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints: "",
     premium: true
   },
   {
