@@ -16,21 +16,29 @@ import SettingsScreen from "../screens/SettingsScreen";
 import SubscriptionScreen from "../screens/SubscriptionScreen";
 import TaskOverviewScreen from "../screens/TaskOverviewScreen";
 import TermsAndConditions from "../screens/TermsAndConditions";
-import { COLOR_PRIMARY } from "../styles/common";
+import { COLOR_BLACK, COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
 
 export const DoTaskNavigator = StackNavigator({
   TaskOverview: {
     screen: TaskOverviewScreen,
     navigationOptions: props => ({
       title: "Mindful Experience",
-      headerRight: <DismissButton {...props} />
+      headerRight: <DismissButton {...props} />,
+      headerTintColor: COLOR_BLACK,
+      headerStyle: {
+        backgroundColor: COLOR_WHITE
+      }
     })
   },
   RecordingTask: {
     screen: RecordingTaskScreen,
     navigationOptions: props => ({
       title: "Record Experience",
-      headerLeft: <BackButton {...props} />
+      headerLeft: <BackButton {...props} />,
+      headerTintColor: COLOR_BLACK,
+      headerStyle: {
+        backgroundColor: COLOR_WHITE
+      }
     })
   }
 });
@@ -40,21 +48,33 @@ export const SubscribeNavigator = StackNavigator({
     screen: SubscriptionScreen,
     navigationOptions: props => ({
       title: "Subscribe",
-      headerRight: <DismissButton {...props} />
+      headerRight: <DismissButton {...props} />,
+      headerTintColor: COLOR_BLACK,
+      headerStyle: {
+        backgroundColor: COLOR_WHITE
+      }
     })
   },
   Privacy: {
     screen: PrivacyPolicyScreen,
     navigationOptions: props => ({
       title: "Privacy Policy",
-      headerLeft: <BackButton {...props} />
+      headerLeft: <BackButton {...props} />,
+      headerTintColor: COLOR_BLACK,
+      headerStyle: {
+        backgroundColor: COLOR_WHITE
+      }
     })
   },
   Terms: {
     screen: TermsAndConditions,
     navigationOptions: props => ({
       title: "Terms and Conditions",
-      headerLeft: <BackButton {...props} />
+      headerLeft: <BackButton {...props} />,
+      headerTintColor: COLOR_BLACK,
+      headerStyle: {
+        backgroundColor: COLOR_WHITE
+      }
     })
   }
 });
@@ -64,7 +84,11 @@ export const CreditsNavigator = StackNavigator({
     screen: CreditsScreen,
     navigationOptions: props => ({
       title: "Credits",
-      headerRight: <DismissButton {...props} />
+      headerRight: <DismissButton {...props} />,
+      headerTintColor: COLOR_BLACK,
+      headerStyle: {
+        backgroundColor: COLOR_WHITE
+      }
     })
   }
 });
@@ -74,32 +98,60 @@ export const FAQNavigator = StackNavigator({
     screen: FAQScreen,
     navigationOptions: props => ({
       title: "FAQ",
-      headerRight: <DismissButton {...props} />
+      headerRight: <DismissButton {...props} />,
+      headerTintColor: COLOR_BLACK,
+      headerStyle: {
+        backgroundColor: COLOR_WHITE
+      }
     })
   }
 });
 
 export const CompletedNavigator = StackNavigator({
   Completed: {
-    screen: CompletedTasksScreen
+    screen: CompletedTasksScreen,
+    navigationOptions: props => ({
+      headerTintColor: COLOR_BLACK,
+      headerStyle: {
+        backgroundColor: COLOR_WHITE
+      }
+    })
   }
 });
 
 export const SettingsNavigator = StackNavigator({
   Settings: {
-    screen: SettingsScreen
+    screen: SettingsScreen,
+    navigationOptions: props => ({
+      headerTintColor: COLOR_BLACK,
+      headerStyle: {
+        backgroundColor: COLOR_WHITE
+      }
+    })
   }
 });
 
 export const HomeNavigator = StackNavigator({
   Home: {
-    screen: HomeScreen
+    screen: HomeScreen,
+    navigationOptions: props => ({
+      headerTintColor: COLOR_BLACK,
+      headerStyle: {
+        backgroundColor: COLOR_WHITE
+      }
+    })
   }
 });
 
 export const SearchNavigator = StackNavigator({
   Search: {
-    screen: ListTasksScreen
+    screen: ListTasksScreen,
+    navigationOptions: props => ({
+      headerTintColor: COLOR_BLACK,
+      headerStyle: {
+        backgroundColor: COLOR_WHITE
+      }
+    })
   }
 });
 
@@ -160,7 +212,10 @@ export const TabNavigator = createBottomTabNavigator(
       },
       tabBarOptions: {
         activeTintColor: COLOR_PRIMARY,
-        inactiveTintColor: "gray"
+        inactiveTintColor: "gray",
+        style: {
+          backgroundColor: COLOR_WHITE
+        }
       }
     })
   }
