@@ -7,7 +7,7 @@ import {
   TouchableWithoutFeedback,
   View
 } from "react-native";
-import { Card } from "react-native-elements";
+import { Card, Icon } from "react-native-elements";
 import { connect } from "react-redux";
 import CloudTile from "../components/CloudTile";
 import { FocusTypeIcon } from "../components/FocusTypeIcon";

@@ -40,7 +40,7 @@ class ListTasksScreen extends React.Component {
           tutorialType="searchIntro"
           tutorialTitle="Find a Mindful Experience"
           tutorialDescription={
-            'Click the "time of day" tabs to find an activity suited for the time, or try the Anytime tab whenever you want!'
+            "Click the tabs to find an activity suited for the time of day! Categorization by time is a suggestion, but feel free to do a Mindful Experience anytime of day it seems appropriate!"
           }
         />
         <View style={styles.dayFilters}>

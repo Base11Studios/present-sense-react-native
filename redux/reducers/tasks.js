@@ -33,7 +33,10 @@ const initialState = {
 const getUpdatedTasks = function(lastTaskFocuses) {
   let newTasks = [];
   taskData.forEach(task => {
+    console.warn("task" + task.title);
     if (!!lastTaskFocuses[task.id]) {
+      console.warn("taskFT" + task.focusType);
+      console.warn("lasttaskFT" + lastTaskFocuses[task.id]);
       task.focusType = lastTaskFocuses[task.id];
       task.prompt = getPrompt(task);
     }
@@ -104,12 +107,12 @@ export default function reducer(state = initialState, action) {
       completedTask.id = state.completedTasks.length.toString();
       completedTask.completeDate = new Date();
       let newTaskFocuses = { ...state.lastTaskFocuses };
-      newTaskFocuses[completedTask.id] = getNextFocus(completedTask.task);
+      newTaskFocuses[completedTask.task.id] = getNextFocus(completedTask.task);
       let newTasks = [...state.tasks];
       let updatedTask = newTasks.filter(task => {
         return task.id === completedTask.task.id;
       })[0];
-      updatedTask.focusType = newTaskFocuses[completedTask.id];
+      updatedTask.focusType = newTaskFocuses[completedTask.task.id];
       updatedTask.prompt = getPrompt(updatedTask);
       return {
         ...state,
