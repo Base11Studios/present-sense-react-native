@@ -95,6 +95,26 @@ class SettingsScreen extends React.Component {
       )
     };
 
+    item5 = {
+      key: "5",
+      view: (
+        <ListItem
+          onPress={() => {
+            // TODO email
+          }}
+          title="Contact Us"
+          avatar={
+            <Icon
+              type="material-community"
+              name="email-outline"
+              size={24}
+              containerStyle={{ paddingLeft: 2, paddingRight: 2 }}
+            />
+          }
+        />
+      )
+    };
+
     item3 = {
       key: "3",
       view: !this.props.premium ? (
@@ -122,7 +142,7 @@ class SettingsScreen extends React.Component {
     return (
       <PageContainer>
         <FlatList
-          data={[item3, item4, item2, item1]}
+          data={[item3, item4, item5, item2, item1]}
           renderItem={({ item }) => item.view}
         />
       </PageContainer>
