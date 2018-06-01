@@ -31,7 +31,7 @@ export default class SliderEntry extends Component {
         {title.toUpperCase()}
       </MyText>
     ) : (
-      false
+      <View />
     );
 
     return (

@@ -33,10 +33,7 @@ const initialState = {
 const getUpdatedTasks = function(lastTaskFocuses) {
   let newTasks = [];
   taskData.forEach(task => {
-    console.warn("task" + task.title);
     if (!!lastTaskFocuses[task.id]) {
-      console.warn("taskFT" + task.focusType);
-      console.warn("lasttaskFT" + lastTaskFocuses[task.id]);
       task.focusType = lastTaskFocuses[task.id];
       task.prompt = getPrompt(task);
     }

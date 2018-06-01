@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { Card, Icon } from "react-native-elements";
 import { connect } from "react-redux";
+import AdvancedStatTile from "../components/AdvancedStatTile";
 import CloudTile from "../components/CloudTile";
 import { FocusTypeIcon } from "../components/FocusTypeIcon";
 import { MyText } from "../components/MyText";
@@ -55,6 +56,14 @@ class CompletedTasksScreen extends React.Component {
           <Title4 style={styles.container}>MY AWARENESS</Title4>
           <CloudTile />
         </View>
+        {this.props.premium ? (
+          <View>
+            <Title4 style={styles.container}>MY FOCUS</Title4>
+            <AdvancedStatTile />
+          </View>
+        ) : (
+          <View />
+        )}
         <Title4 style={styles.container}>MY EXPERIENCES</Title4>
         <FlatList
           style={{ flex: 1 }}
@@ -109,7 +118,9 @@ class CompletedTasksScreen extends React.Component {
                         <Title5>How do you feel?</Title5>
                         <MyText>{item.formValues.feel}</MyText>
                       </View>
-                    ) : null}
+                    ) : (
+                      <View />
+                    )}
                   </Card>
                 </View>
               </View>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import { Icon } from "react-native-elements";
 import { COLOR_BLACK } from "../styles/common";
 
@@ -44,7 +44,7 @@ export class FocusTypeIcon extends React.Component {
         color={COLOR_BLACK}
       />
     ) : (
-      ""
+      <View />
     );
   }
 }

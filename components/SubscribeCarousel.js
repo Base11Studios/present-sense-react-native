@@ -12,12 +12,11 @@ const ENTRIES = [
       "Many more mindful experiences to complete. Discover more ways to be mindful in your daily life.",
     illustration: require("../assets/images/sub_tasks.png")
   },
-  // {
-  //   title: "Advanced Stats",
-  //   subtitle:
-  //     "View your responses in a word cloud, to see what you notice the most!",
-  //   illustration: require("../assets/images/sub_cloud.png")
-  // },
+  {
+    title: "Advanced Stats",
+    subtitle: "See your journey from different angles!",
+    illustration: require("../assets/images/sub_stats.png")
+  },
   {
     title: "Full history view",
     subtitle:

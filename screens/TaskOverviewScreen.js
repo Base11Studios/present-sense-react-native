@@ -4,7 +4,7 @@ import { Card } from "react-native-elements";
 import { connect } from "react-redux";
 import { FocusBadge } from "../components/FocusBadge";
 import { MyText } from "../components/MyText";
-import { PageContainer } from "../components/PageContainer";
+import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
 import { Title4 } from "../components/Title4";
 import { Title5 } from "../components/Title5";
 import TutorialView from "../components/TutorialView";
@@ -23,7 +23,7 @@ class TaskOverviewScreen extends Component {
     const { activeTask } = this.props;
 
     return (
-      <PageContainer>
+      <ScrollingPageContainer>
         <TutorialView
           tutorialType="taskOverviewIntro"
           tutorialTitle="Be Present!"
@@ -88,7 +88,7 @@ class TaskOverviewScreen extends Component {
             />
           </View>
         </Card>
-      </PageContainer>
+      </ScrollingPageContainer>
     );
   }
 }

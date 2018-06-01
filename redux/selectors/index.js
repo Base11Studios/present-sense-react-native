@@ -12,6 +12,53 @@ export const getTotalTasksCompleted = createSelector(
   }
 );
 
+export const getMindTasksCompleted = createSelector(
+  [getTasksCompleted],
+  tasksCompleted => {
+    return tasksCompleted.filter(task => task.task.focusType === "Mind").length;
+  }
+);
+
+export const getTasteTasksCompleted = createSelector(
+  [getTasksCompleted],
+  tasksCompleted => {
+    return tasksCompleted.filter(task => task.task.focusType === "Taste")
+      .length;
+  }
+);
+
+export const getSmellTasksCompleted = createSelector(
+  [getTasksCompleted],
+  tasksCompleted => {
+    return tasksCompleted.filter(task => task.task.focusType === "Smell")
+      .length;
+  }
+);
+
+export const getSightTasksCompleted = createSelector(
+  [getTasksCompleted],
+  tasksCompleted => {
+    return tasksCompleted.filter(task => task.task.focusType === "Sight")
+      .length;
+  }
+);
+
+export const getSoundTasksCompleted = createSelector(
+  [getTasksCompleted],
+  tasksCompleted => {
+    return tasksCompleted.filter(task => task.task.focusType === "Sound")
+      .length;
+  }
+);
+
+export const getTouchTasksCompleted = createSelector(
+  [getTasksCompleted],
+  tasksCompleted => {
+    return tasksCompleted.filter(task => task.task.focusType === "Touch")
+      .length;
+  }
+);
+
 // TODO make this only go back X days, like 30?
 export const getTasksPerDay = createSelector(
   [getTasksCompleted],
