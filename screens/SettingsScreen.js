@@ -1,5 +1,5 @@
 import React from "react";
-import { Alert, FlatList } from "react-native";
+import { Alert, FlatList, Linking, Platform } from "react-native";
 import { Icon, ListItem } from "react-native-elements";
 import { connect } from "react-redux";
 import { PURGE } from "redux-persist";
@@ -14,6 +14,15 @@ class SettingsScreen extends React.Component {
 
   constructor(props) {
     super(props);
+  }
+
+  // Opens a link
+  async openURL(url) {
+    try {
+      await Linking.openURL(url);
+    } catch (error) {
+      console.warn(error);
+    }
   }
 
   onPressResetStore() {
@@ -99,16 +108,20 @@ class SettingsScreen extends React.Component {
       key: "5",
       view: (
         <ListItem
-          onPress={() => {
-            // TODO email
-          }}
+          onPress={() =>
+            this.openURL(
+              "mailto:dan@base11studios.com?subject=Present Sense " +
+                Platform.OS +
+                " App"
+            )
+          }
           title="Contact Us"
           avatar={
             <Icon
               type="material-community"
               name="email-outline"
-              size={24}
-              containerStyle={{ paddingLeft: 2, paddingRight: 2 }}
+              size={22}
+              containerStyle={{ paddingLeft: 2, paddingRight: 0 }}
             />
           }
         />
