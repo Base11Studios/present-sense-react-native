@@ -4,7 +4,6 @@ import { Icon } from "react-native-elements";
 import { StackNavigator, createBottomTabNavigator } from "react-navigation";
 import { BackButton } from "../components/BackButton";
 import { DismissButton } from "../components/DismissButton";
-import Colors from "../constants/Colors";
 import CompletedTasksScreen from "../screens/CompletedTasksScreen";
 import CreditsScreen from "../screens/CreditsScreen";
 import FAQScreen from "../screens/FAQScreen";
@@ -16,7 +15,12 @@ import SettingsScreen from "../screens/SettingsScreen";
 import SubscriptionScreen from "../screens/SubscriptionScreen";
 import TaskOverviewScreen from "../screens/TaskOverviewScreen";
 import TermsAndConditions from "../screens/TermsAndConditions";
-import { COLOR_BLACK, COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
+import {
+  COLOR_BLACK,
+  COLOR_PRIMARY,
+  COLOR_SECONDARY,
+  COLOR_WHITE
+} from "../styles/common";
 
 export const DoTaskNavigator = StackNavigator({
   TaskOverview: {
@@ -206,7 +210,7 @@ export const TabNavigator = createBottomTabNavigator(
             size={28}
             type="ionicon"
             containerStyle={{ marginBottom: -3, width: 25 }}
-            color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+            color={focused ? COLOR_PRIMARY : COLOR_SECONDARY}
           />
         );
       },

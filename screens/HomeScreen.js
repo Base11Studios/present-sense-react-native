@@ -12,7 +12,6 @@ import {
   updateUserSubscriptions
 } from "../redux/reducers/subscription";
 import { updateTasks } from "../redux/reducers/tasks";
-import { COLOR_WHITE } from "../styles/common";
 // TODO add stars to tile if have done one of the tasks today. Make BG lighter?
 
 class HomeScreen extends React.Component {
@@ -54,22 +53,7 @@ class HomeScreen extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: COLOR_WHITE
-  },
-  contentContainer: {
-    paddingTop: 30
-  },
-  header: {
-    height: 200,
-    backgroundColor: COLOR_WHITE,
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});
+const styles = StyleSheet.create({});
 
 const mapStateToProps = state => {
   return {

@@ -1,10 +1,8 @@
 import React from "react";
-import { StyleSheet, TouchableHighlight, View } from "react-native";
-import { Icon } from "react-native-elements";
+import { Image, StyleSheet, TouchableHighlight, View } from "react-native";
 import { connect } from "react-redux";
 import { setActiveTaskType } from "../redux/reducers/tasks";
 import { COLOR_WHITE } from "../styles/common";
-import { MyText } from "./MyText";
 
 class TaskTile extends React.Component {
   onPressTaskTile(type) {
@@ -18,24 +16,24 @@ class TaskTile extends React.Component {
         onPress={() => this.onPressTaskTile(this.props.type)}
         underlayColor="white"
       >
-        <View style={[styles.dayTile]}>
-          <View
-            style={[
-              styles.circle,
-              {
-                borderColor: this.props.color,
-                backgroundColor: this.props.color
-              }
-            ]}
-          >
-            <Icon
-              type="feather"
-              color={COLOR_WHITE}
-              name={this.props.icon}
-              size={30}
+        <View style={styles.dayTile}>
+          {this.props.icon === "am" ? (
+            <Image
+              style={styles.avatar}
+              source={require("../assets/images/am.png")}
             />
-          </View>
-          <MyText style={styles.dayFilterText}>{this.props.type}</MyText>
+          ) : this.props.icon === "pm" ? (
+            <Image
+              style={styles.avatar}
+              source={require("../assets/images/pm.png")}
+            />
+          ) : (
+            <Image
+              style={styles.avatar}
+              source={require("../assets/images/noon.png")}
+            />
+          )}
+          {/* <MyText style={styles.dayFilterText}>{this.props.type}</MyText> */}
         </View>
       </TouchableHighlight>
     );
@@ -44,18 +42,14 @@ class TaskTile extends React.Component {
 
 const styles = StyleSheet.create({
   dayTile: {
-    height: 60,
+    height: 80,
     flex: 1,
     alignItems: "center",
     justifyContent: "center"
   },
-  circle: {
-    height: 60,
-    width: 60,
-    borderRadius: 30,
-    borderWidth: 1,
-    justifyContent: "center",
-    alignItems: "center"
+  avatar: {
+    height: 80,
+    width: 80
   },
   buttonText: {
     // padding: 20,

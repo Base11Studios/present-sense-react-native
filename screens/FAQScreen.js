@@ -18,12 +18,12 @@ export default class FAQScreen extends React.Component {
         <MyText style={{ marginBottom: 24 }}>
           Have you ever found yourself ruminating in the past, replaying an
           event, or worrying about the future? A lot of times the thing we're
-          worrying about never comes to pass and it was all worry for nothing.
-          It happens to all of us, and usually doesn't result in us feeling at
-          peace. By bringing our awareness to the present, something that is
-          definitely happening, we can appreciate what we do have right now.
-          Focusing on the present allows us to actualy live our lives and enjoy
-          the world around us.
+          worrying about never comes to pass or can't be changed and it was all
+          worry for nothing. It happens to all of us, and usually doesn't result
+          in us feeling at peace. By bringing our awareness to the present,
+          something that is definitely happening, we can appreciate what we do
+          have right now. Focusing on the present allows us to actualy live our
+          lives and enjoy the world around us.
         </MyText>
         <Title3>Why mindful journaling?</Title3>
         <MyText style={{ marginBottom: 24 }}>

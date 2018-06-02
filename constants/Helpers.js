@@ -22,3 +22,15 @@ export const getFocusTypeColor = function(focusType) {
               ? COLOR_QUATERNARY
               : "";
 };
+
+export const getBackgroundColorByDay = function(day) {
+  return day === "Day"
+    ? COLOR_ALERT
+    : day === "Morning"
+      ? COLOR_PRIMARY
+      : day === "Anytime"
+        ? COLOR_SECONDARY
+        : day === "Evening"
+          ? COLOR_HIGHLIGHT
+          : "";
+};

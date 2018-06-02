@@ -10,7 +10,7 @@ export class ScrollingPageContainer extends React.Component {
         <ScrollView
           keyboardShouldPersistTaps={"always"}
           {...this.props}
-          style={styles.container}
+          style={[styles.container, this.props.style]}
         />
       </PageContainer>
     );

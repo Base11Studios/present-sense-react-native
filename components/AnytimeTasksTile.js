@@ -57,8 +57,8 @@ const styles = StyleSheet.create({
     paddingRight: 20
   },
   flatList: {
-    borderTopColor: "gray",
-    borderTopWidth: 1
+    // borderTopColor: "gray",
+    // borderTopWidth: 1
   },
   tile: {
     marginBottom: 20

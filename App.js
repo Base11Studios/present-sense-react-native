@@ -17,7 +17,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/lib/integration/react";
 import RootNavigation from "./navigation/RootNavigation";
 import { persistor, store } from "./redux/store";
-import { COLOR_WHITE } from "./styles/common";
+import { COLOR_ALERT } from "./styles/common";
 
 // TODO remove in next react-native stable version
 YellowBox.ignoreWarnings(["Warning: isMounted(...) is deprecated"]);
@@ -40,6 +40,6 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLOR_WHITE
+    backgroundColor: COLOR_ALERT
   }
 });

@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { connect } from "react-redux";
 import { quoteData } from "../redux/reducers/quote-data";
-import { COLOR_ALERT, COLOR_PRIMARY, COLOR_SECONDARY, COLOR_TERTIARY, COLOR_WHITE } from "../styles/common";
+import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
 import { MyText } from "./MyText";
 
 class MindfulQuoteTile extends React.Component {
@@ -39,18 +39,19 @@ class MindfulQuoteTile extends React.Component {
 }
 
 getBackgroundColor = function(quoteNumber) {
-  switch (quoteNumber % 5) {
-    case 0:
-      return COLOR_ALERT;
-    case 1:
-      return COLOR_SECONDARY;
-    case 2:
-      return COLOR_TERTIARY;
-    case 3:
-      return COLOR_HIGHLIGHT;
-    default:
-      return COLOR_PRIMARY;
-  }
+  return COLOR_PRIMARY;
+  // switch (quoteNumber % 5) {
+  //   case 0:
+  //     return COLOR_ALERT;
+  //   case 1:
+  //     return COLOR_SECONDARY;
+  //   case 2:
+  //     return COLOR_TERTIARY;
+  //   case 3:
+  //     return COLOR_HIGHLIGHT;
+  //   default:
+  //     return COLOR_PRIMARY;
+  // }
 };
 
 const styles = StyleSheet.create({

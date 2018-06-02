@@ -20,7 +20,7 @@ export class EverydayTasksTile extends React.Component {
               tileType={1}
               navigation={this.props.navigation}
               type="Morning"
-              icon="sunrise"
+              icon="am"
               color={COLOR_PRIMARY}
             />
             <TaskTile
@@ -28,7 +28,7 @@ export class EverydayTasksTile extends React.Component {
               tileType={2}
               navigation={this.props.navigation}
               type="Day"
-              icon="sun"
+              icon="noon"
               color={COLOR_SECONDARY}
             />
             <TaskTile
@@ -36,7 +36,7 @@ export class EverydayTasksTile extends React.Component {
               tileType={3}
               navigation={this.props.navigation}
               type="Evening"
-              icon="moon"
+              icon="pm"
               color={COLOR_TERTIARY}
             />
           </View>
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around",
-    height: 110
+    height: 80
   },
   container: {
     padding: 20
