@@ -1,8 +1,6 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
-import { Icon } from "react-native-elements";
-import { COLOR_BLACK, COLOR_WHITE } from "../styles/common";
-import { MyText } from "./MyText";
+import { Image, StyleSheet, View } from "react-native";
+import { COLOR_WHITE } from "../styles/common";
 
 export default class SearchFilterView extends React.Component {
   render() {
@@ -12,42 +10,39 @@ export default class SearchFilterView extends React.Component {
           styles.dayFilter,
           this.props.activeTaskType === this.props.filterType
             ? { backgroundColor: this.props.color }
-            : {}
+            : { backgroundColor: COLOR_WHITE }
         ]}
       >
-        <Icon
-          type="feather"
-          name={this.props.iconName}
-          size={30}
-          color={
-            this.props.activeTaskType === this.props.filterType
-              ? COLOR_WHITE
-              : COLOR_BLACK
-          }
-          containerStyle={[styles.icon]}
-        />
-        <MyText
-          style={[
-            styles.dayFilterText,
-            this.props.activeTaskType === this.props.filterType
-              ? { color: COLOR_WHITE }
-              : {}
-          ]}
-        >
-          {this.props.filterType}
-        </MyText>
+        {this.props.icon === "am" ? (
+          <Image
+            style={styles.avatar}
+            source={require("../assets/images/am.png")}
+          />
+        ) : this.props.icon === "pm" ? (
+          <Image
+            style={styles.avatar}
+            source={require("../assets/images/pm.png")}
+          />
+        ) : this.props.icon === "anytime" ? (
+          <Image
+            style={styles.avatar}
+            source={require("../assets/images/anytime.png")}
+          />
+        ) : (
+          <Image
+            style={styles.avatar}
+            source={require("../assets/images/noon.png")}
+          />
+        )}
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  dayFilterText: {
-    marginTop: 8,
-    textAlign: "center"
-  },
-  icon: {
-    marginTop: 4
+  avatar: {
+    height: 60,
+    width: 60
   },
   dayFilter: {
     flex: 1,

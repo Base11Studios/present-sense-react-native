@@ -1,17 +1,18 @@
 import React from "react";
 import { FlatList, StyleSheet, TouchableOpacity, View } from "react-native";
-import { ListItem } from "react-native-elements";
 import { connect } from "react-redux";
-import { FocusTypeIcon } from "../components/FocusTypeIcon";
+import AnytimeTile from "../components/AnytimeTile";
 import { PageContainer } from "../components/PageContainer";
 import SearchFilterView from "../components/SearchFilterView";
 import TutorialView from "../components/TutorialView";
+import { getLightBackgroundColorByDay } from "../constants/Helpers";
 import { setActiveTaskType, startTask } from "../redux/reducers/tasks";
 import {
-  COLOR_HIGHLIGHT,
-  COLOR_PRIMARY,
-  COLOR_SECONDARY,
-  COLOR_TERTIARY
+  COLOR_ALERT_LIGHT,
+  COLOR_HIGHLIGHT_LIGHT,
+  COLOR_LIGHT_GREY,
+  COLOR_PRIMARY_LIGHT,
+  COLOR_SECONDARY_LIGHT
 } from "../styles/common";
 
 class ListTasksScreen extends React.Component {
@@ -21,15 +22,6 @@ class ListTasksScreen extends React.Component {
 
   onPressChangeTaskType = taskType => {
     this.props.setActiveTaskType(taskType);
-  };
-
-  onPressViewTask = task => {
-    if (!!task.premium && !this.props.premium) {
-      this.props.navigation.navigate("Subscribe");
-    } else {
-      this.props.startTask(task);
-      this.props.navigation.navigate("DoTask");
-    }
   };
 
   render() {
@@ -51,8 +43,8 @@ class ListTasksScreen extends React.Component {
             <SearchFilterView
               activeTaskType={activeTaskType}
               filterType="Morning"
-              iconName="sunrise"
-              color={COLOR_PRIMARY}
+              icon="am"
+              color={COLOR_PRIMARY_LIGHT}
             />
           </TouchableOpacity>
           <TouchableOpacity
@@ -62,8 +54,8 @@ class ListTasksScreen extends React.Component {
             <SearchFilterView
               activeTaskType={activeTaskType}
               filterType="Day"
-              iconName="sun"
-              color={COLOR_SECONDARY}
+              icon="noon"
+              color={COLOR_ALERT_LIGHT}
             />
           </TouchableOpacity>
           <TouchableOpacity
@@ -73,8 +65,8 @@ class ListTasksScreen extends React.Component {
             <SearchFilterView
               activeTaskType={activeTaskType}
               filterType="Evening"
-              iconName="moon"
-              color={COLOR_TERTIARY}
+              icon="pm"
+              color={COLOR_HIGHLIGHT_LIGHT}
             />
           </TouchableOpacity>
           <TouchableOpacity
@@ -84,28 +76,33 @@ class ListTasksScreen extends React.Component {
             <SearchFilterView
               activeTaskType={activeTaskType}
               filterType="Anytime"
-              iconName="more-horizontal"
-              color={COLOR_HIGHLIGHT}
+              icon="anytime"
+              color={COLOR_SECONDARY_LIGHT}
             />
           </TouchableOpacity>
         </View>
-        <View style={styles.searchList}>
+        <View
+          style={[
+            styles.searchList,
+            {
+              borderColor: getLightBackgroundColorByDay(
+                this.props.activeTaskType
+              )
+            }
+          ]}
+        >
           <FlatList
             data={tasks}
             renderItem={({ item }) => (
-              <ListItem
-                containerStyle={{ padding: 4, marginTop: 4, height: 60 }}
-                onPress={() => this.onPressViewTask(item)}
-                title={item.title}
-                avatar={
-                  <FocusTypeIcon
-                    focusType={
-                      !!item.premium && !this.props.premium
-                        ? "Locked"
-                        : item.focusType
-                    }
-                  />
+              <AnytimeTile
+                {...this.props}
+                focusType={
+                  !!item.premium && !this.props.premium
+                    ? "Locked"
+                    : item.focusType
                 }
+                taskId={item.id}
+                listItem={item}
               />
             )}
           />
@@ -130,7 +127,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-start",
     flexDirection: "column",
-    borderTopWidth: 1
+    borderTopWidth: 1,
+    borderColor: COLOR_LIGHT_GREY,
+    paddingTop: 12
   },
   dayFilters: {
     flexDirection: "row",
@@ -142,7 +141,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   activeDayFilter: {
-    backgroundColor: COLOR_HIGHLIGHT
+    backgroundColor: COLOR_HIGHLIGHT_LIGHT
   }
 });
 

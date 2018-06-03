@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
 import { Icon } from "react-native-elements";
-import { COLOR_BLACK } from "../styles/common";
+import { COLOR_WHITE } from "../styles/common";
 
 export class FocusTypeIcon extends React.Component {
   render() {
@@ -40,8 +40,8 @@ export class FocusTypeIcon extends React.Component {
         type="font-awesome"
         name="lock"
         size={26}
-        containerStyle={{ padding: 7 }}
-        color={COLOR_BLACK}
+        containerStyle={[{ padding: 7 }, this.props.style]}
+        color={COLOR_WHITE}
       />
     ) : (
       <View />

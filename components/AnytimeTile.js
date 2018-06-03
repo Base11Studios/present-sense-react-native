@@ -9,8 +9,12 @@ import { MyText } from "./MyText";
 
 class AnytimeTile extends React.Component {
   onPressStartTask(task) {
-    this.props.startTask(task);
-    this.props.navigation.navigate("DoTask"); // TODO change
+    if (!!task.premium && !this.props.premium) {
+      this.props.navigation.navigate("Subscribe");
+    } else {
+      this.props.startTask(task);
+      this.props.navigation.navigate("DoTask");
+    }
   }
 
   render() {
@@ -27,7 +31,7 @@ class AnytimeTile extends React.Component {
         >
           <FocusTypeIcon
             style={styles.avatar}
-            focusType={this.props.task.focusType}
+            focusType={this.props.focusType}
           />
           <View style={{ alignItems: "center", flex: 1 }}>
             <MyText
@@ -82,7 +86,8 @@ function mapStateToProps(state, props) {
     .map(task => ({ key: task.id, ...task }))
     .filter(task => task.id === props.taskId);
   return {
-    task: storedTasks[0]
+    task: storedTasks[0],
+    premium: state.subscription.premium
   };
 }
 

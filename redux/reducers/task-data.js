@@ -1,4 +1,4 @@
-export const taskDataVersion = 1.99;
+export const taskDataVersion = 2.0;
 export const taskData = [
   {
     title: "Brush your teeth",
@@ -71,7 +71,7 @@ export const taskData = [
     description:
       "Sit comfortably in a chair, close your eyes, and focus on your breath. Observe the parts of your body that move when you breath in, and those that move when you breath out. Focus on the nostrils, chest, or stomache.",
     focusType: "Sound",
-    applicableFocusTypes: ["Sound, Smell, Sight"],
+    applicableFocusTypes: ["Sound", "Smell", "Sight"],
     prompt: "",
     mindPrompt: "",
     hints:
@@ -85,7 +85,7 @@ export const taskData = [
     description:
       "There are many mindfulness practices you can follow. Choose your favorite one, and start meditating. Use the prompt to bring a new observation to your practice.",
     focusType: "Sound",
-    applicableFocusTypes: ["Sound, Smell, Sight"],
+    applicableFocusTypes: ["Sound", "Smell", "Sight"],
     prompt: "What did you hear?",
     hints:
       "Any mindfulness exercise will do. If you don't already know one, try this meditation for 10 minutes: Sit comfortably in a chair, close your eyes, and focus on your breath. Observe the parts of your body that move when you breath in, and those that move when you breath out. Focus on the nostrils, chest, or stomache.",
