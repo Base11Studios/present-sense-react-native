@@ -1,9 +1,8 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { getFocusTypeColor } from "../constants/Helpers";
+import { COLOR_WHITE } from "../styles/common";
 import { FocusTypeIcon } from "./FocusTypeIcon";
 import { MyText } from "./MyText";
-import { Title4 } from "./Title4";
 
 export class FocusBadge extends React.Component {
   render() {
@@ -11,6 +10,7 @@ export class FocusBadge extends React.Component {
       <View
         style={[
           {
+            paddingTop: 16,
             flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "center"
@@ -18,7 +18,6 @@ export class FocusBadge extends React.Component {
           this.props.style
         ]}
       >
-        <Title4>FOCUS</Title4>
         <View
           style={{
             flexDirection: "row",
@@ -28,7 +27,7 @@ export class FocusBadge extends React.Component {
         >
           <MyText
             style={{
-              color: getFocusTypeColor(this.props.focusType),
+              color: COLOR_WHITE,
               fontSize: 14,
               fontWeight: "800",
               marginRight: 10

@@ -1,5 +1,4 @@
 import React from "react";
-import { Text } from "react-native";
 import { Button } from "react-native";
 import { COLOR_PRIMARY } from "../styles/common";
 
@@ -8,6 +7,7 @@ export class PrimaryButton extends React.Component {
     return (
       <Button
         {...this.props}
+        color={COLOR_PRIMARY}
         containerViewStyle={{ width: "100%", marginLeft: 0 }}
       />
     );

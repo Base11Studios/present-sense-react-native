@@ -37,7 +37,7 @@ export const DoTaskNavigator = StackNavigator({
   RecordingTask: {
     screen: RecordingTaskScreen,
     navigationOptions: props => ({
-      title: "Record Experience",
+      title: "Journal Experience",
       headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {

@@ -53,9 +53,9 @@ const InnerCompleteTaskForm = props => {
     <ScrollingPageContainer>
       <TutorialView
         tutorialType="taskRecodingIntro"
-        tutorialTitle="Record What You Noticed"
+        tutorialTitle="Journal About What You Noticed"
         tutorialDescription={
-          "If you haven't done the experience yet, go back and finish it. Now, record the things you noticed and how you're feeling. We'll store this so you can view it later."
+          "If you haven't done the experience yet, go back and finish it. Now, write the things you noticed and how you're feeling. We'll store this so you can view it later."
         }
       />
       <PageContainer>
