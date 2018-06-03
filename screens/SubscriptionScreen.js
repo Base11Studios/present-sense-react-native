@@ -17,7 +17,7 @@ import {
   updateIAPs,
   updateUserSubscriptions
 } from "../redux/reducers/subscription";
-import { COLOR_DARK_GRAY, COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
+import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_WHITE } from "../styles/common";
 
 class SubscriptionScreen extends React.Component {
   componentDidMount() {
@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 10,
     borderRadius: 6,
-    backgroundColor: COLOR_DARK_GRAY,
+    backgroundColor: COLOR_SECONDARY,
     height: 150
   },
   yearlySubscribeButton: {

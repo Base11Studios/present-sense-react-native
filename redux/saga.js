@@ -4,7 +4,7 @@ import Toast from "react-native-root-toast";
 import { put, select, takeEvery } from "redux-saga/effects";
 import CommonDataManager from "../constants/CommonDataManager";
 import { MONTHLY_SUB_ID, YEARLY_SUB_ID } from "../constants/IAP";
-import { COLOR_ALERT, COLOR_QUATERNARY } from "../styles/common";
+import { COLOR_ALERT } from "../styles/common";
 import {
   SUBSCRIBE_USER,
   UNSUBSCRIBE_USER,
@@ -117,7 +117,7 @@ function* completeTask(action) {
     let toastComplete = Toast.show("Mindful Experience Complete!", {
       duration: Toast.durations.LONG,
       position: Toast.positions.BOTTOM - 190,
-      backgroundColor: COLOR_QUATERNARY,
+      backgroundColor: COLOR_ALERT,
       opacity: 1,
       shadow: false,
       animation: true,
@@ -138,7 +138,7 @@ function* completeTask(action) {
     let toastTotalComplete = Toast.show(completeMessage, {
       duration: Toast.durations.LONG,
       position: Toast.positions.BOTTOM - 90,
-      backgroundColor: COLOR_QUATERNARY,
+      backgroundColor: COLOR_ALERT,
       opacity: 1,
       shadow: false,
       animation: true,
@@ -152,7 +152,7 @@ function* completeTask(action) {
     let toastStreak = Toast.show(streak + " Day Streak!", {
       duration: Toast.durations.LONG,
       position: Toast.positions.BOTTOM - 140,
-      backgroundColor: COLOR_QUATERNARY,
+      backgroundColor: COLOR_ALERT,
       opacity: 1,
       shadow: false,
       animation: true,

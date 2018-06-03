@@ -20,7 +20,7 @@ import { Title4 } from "../components/Title4";
 import { Title5 } from "../components/Title5";
 import TutorialView from "../components/TutorialView";
 import { getBackgroundColorByDay } from "../constants/Helpers";
-import { COLOR_PRIMARY, COLOR_TERTIARY, COLOR_WHITE } from "../styles/common";
+import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
 
 // TODO show time for today, day of week for past week, month and day for this year, month and day and year for previous
 
@@ -64,8 +64,8 @@ class CompletedTasksScreen extends React.Component {
           <Title4 style={styles.container}>MY AWARENESS</Title4>
           <CloudTile />
         </View>
-        {!this.props.premium ? (
-          <View style={{ backgroundColor: COLOR_TERTIARY }}>
+        {this.props.premium ? (
+          <View style={{ backgroundColor: COLOR_PRIMARY }}>
             <Title4 style={styles.container} textStyle={{ color: COLOR_WHITE }}>
               MY FOCUS
             </Title4>
@@ -100,7 +100,7 @@ class CompletedTasksScreen extends React.Component {
                       <FocusTypeIcon
                         style={styles.avatar}
                         focusType={
-                          !!item.task.premium && !this.props.premium
+                          !this.props.premium && index > MAX_UNSUBSCRIBED_EVENTS
                             ? "Locked"
                             : item.task.focusType
                         }
@@ -112,7 +112,7 @@ class CompletedTasksScreen extends React.Component {
                             fontSize: 15,
                             fontWeight: "600",
                             marginRight: 6,
-                            marginLeft: 4
+                            marginLeft: 6
                           }}
                         >
                           {item.task.title}
@@ -196,7 +196,8 @@ const styles = StyleSheet.create({
     padding: 20
   },
   headline: {
-    flexDirection: "row"
+    flexDirection: "row",
+    alignItems: "center"
   },
   cardTitleContainer: {
     flexDirection: "row"
