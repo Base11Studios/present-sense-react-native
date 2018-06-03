@@ -7,7 +7,6 @@ import {
   TouchableWithoutFeedback,
   View
 } from "react-native";
-import { Card, Icon } from "react-native-elements";
 import { connect } from "react-redux";
 import AdvancedStatTile from "../components/AdvancedStatTile";
 import CloudTile from "../components/CloudTile";
@@ -20,7 +19,8 @@ import { Title3 } from "../components/Title3";
 import { Title4 } from "../components/Title4";
 import { Title5 } from "../components/Title5";
 import TutorialView from "../components/TutorialView";
-import { COLOR_BLACK, COLOR_PRIMARY } from "../styles/common";
+import { getBackgroundColorByDay } from "../constants/Helpers";
+import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
 
 // TODO show time for today, day of week for past week, month and day for this year, month and day and year for previous
 
@@ -30,6 +30,14 @@ class CompletedTasksScreen extends React.Component {
   static navigationOptions = {
     title: "Journey"
   };
+
+  getDateFormat(date) {
+    if (!!date && new Date(date).getFullYear() === new Date().getFullYear()) {
+      return "MM/DD";
+    }
+
+    return "MM/DD/YYYY";
+  }
 
   onPressHistoricalItem(item, index) {
     if (index > MAX_UNSUBSCRIBED_EVENTS && !this.props.premium) {
@@ -76,8 +84,79 @@ class CompletedTasksScreen extends React.Component {
                 <View style={styles.circleView}>
                   <View style={styles.circle} />
                 </View>
-                <View style={styles.card}>
-                  <Card>
+                <View style={styles.contentWrapper}>
+                  <View
+                    style={[
+                      styles.card,
+                      {
+                        backgroundColor: getBackgroundColorByDay(item.task.type)
+                      }
+                    ]}
+                  >
+                    <View style={styles.headline}>
+                      <FocusTypeIcon
+                        style={styles.avatar}
+                        focusType={
+                          !!item.task.premium && !this.props.premium
+                            ? "Locked"
+                            : item.task.focusType
+                        }
+                      />
+                      <View style={{ alignItems: "flex-start", flex: 1 }}>
+                        <MyText
+                          style={{
+                            color: COLOR_WHITE,
+                            fontSize: 14,
+                            fontWeight: "600",
+                            marginRight: 6,
+                            marginLeft: 4
+                          }}
+                        >
+                          {item.task.title}
+                        </MyText>
+                      </View>
+                      <View style={styles.date}>
+                        <Moment
+                          format={this.getDateFormat(item.completeDate)}
+                          element={Text}
+                          style={{ color: COLOR_WHITE, fontWeight: "600" }}
+                        >
+                          {item.completeDate}
+                        </Moment>
+                        <Moment
+                          format="h:mm a"
+                          element={Text}
+                          style={{ color: COLOR_WHITE }}
+                        >
+                          {item.completeDate}
+                        </Moment>
+                      </View>
+                    </View>
+
+                    {item.expanded ? (
+                      <View>
+                        <Title5 style={{ marginTop: 18, color: COLOR_WHITE }}>
+                          {item.task.prompt}
+                        </Title5>
+                        <MyText
+                          style={{ marginBottom: 18, color: COLOR_WHITE }}
+                        >
+                          {item.formValues.prompt}
+                        </MyText>
+                        <Title5 style={{ color: COLOR_WHITE }}>
+                          How do you feel?
+                        </Title5>
+                        <MyText style={{ color: COLOR_WHITE }}>
+                          {item.formValues.feel}
+                        </MyText>
+                      </View>
+                    ) : (
+                      <View />
+                    )}
+                  </View>
+                </View>
+
+                {/* <Card>
                     <View style={styles.cardTitle}>
                       <View style={styles.cardTitleContainer}>
                         {!this.props.premium &&
@@ -121,8 +200,7 @@ class CompletedTasksScreen extends React.Component {
                     ) : (
                       <View />
                     )}
-                  </Card>
-                </View>
+                  </Card> */}
               </View>
             </TouchableWithoutFeedback>
           )}
@@ -160,6 +238,9 @@ const styles = StyleSheet.create({
   container: {
     padding: 20
   },
+  headline: {
+    flexDirection: "row"
+  },
   cardTitleContainer: {
     flexDirection: "row"
   },
@@ -169,13 +250,23 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   date: {
-    width: 100,
-    alignItems: "flex-end"
+    width: 90,
+    alignItems: "flex-end",
+    flexDirection: "column"
   },
-  card: {
+  contentWrapper: {
     flex: 1,
     borderLeftWidth: 2,
     borderLeftColor: COLOR_PRIMARY
+  },
+  card: {
+    flex: 1,
+    marginHorizontal: 16,
+    marginVertical: 4,
+    padding: 8,
+    borderRadius: 6,
+    flexDirection: "column",
+    alignItems: "flex-start"
   },
   circle: {
     position: "absolute",
