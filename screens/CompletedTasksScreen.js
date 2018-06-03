@@ -20,7 +20,7 @@ import { Title4 } from "../components/Title4";
 import { Title5 } from "../components/Title5";
 import TutorialView from "../components/TutorialView";
 import { getBackgroundColorByDay } from "../constants/Helpers";
-import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
+import { COLOR_PRIMARY, COLOR_TERTIARY, COLOR_WHITE } from "../styles/common";
 
 // TODO show time for today, day of week for past week, month and day for this year, month and day and year for previous
 
@@ -64,10 +64,13 @@ class CompletedTasksScreen extends React.Component {
           <Title4 style={styles.container}>MY AWARENESS</Title4>
           <CloudTile />
         </View>
-        {this.props.premium ? (
-          <View>
-            <Title4 style={styles.container}>MY FOCUS</Title4>
+        {!this.props.premium ? (
+          <View style={{ backgroundColor: COLOR_TERTIARY }}>
+            <Title4 style={styles.container} textStyle={{ color: COLOR_WHITE }}>
+              MY FOCUS
+            </Title4>
             <AdvancedStatTile />
+            <View style={{ marginBottom: 18 }} />
           </View>
         ) : (
           <View />
@@ -106,7 +109,7 @@ class CompletedTasksScreen extends React.Component {
                         <MyText
                           style={{
                             color: COLOR_WHITE,
-                            fontSize: 14,
+                            fontSize: 15,
                             fontWeight: "600",
                             marginRight: 6,
                             marginLeft: 4
@@ -155,52 +158,6 @@ class CompletedTasksScreen extends React.Component {
                     )}
                   </View>
                 </View>
-
-                {/* <Card>
-                    <View style={styles.cardTitle}>
-                      <View style={styles.cardTitleContainer}>
-                        {!this.props.premium &&
-                        index > MAX_UNSUBSCRIBED_EVENTS ? (
-                          <Icon
-                            name="lock"
-                            type="font-awesome"
-                            size={20}
-                            containerStyle={{ paddingRight: 10 }}
-                            color={COLOR_BLACK}
-                          />
-                        ) : (
-                          <FocusTypeIcon
-                            focusType={item.task.focusType}
-                            style={{ marginRight: 10, width: 20, height: 20 }}
-                          />
-                        )}
-                      </View>
-                      <View style={styles.title}>
-                        <Title3 style={styles.taskTitle}>
-                          {item.task.title}
-                        </Title3>
-                      </View>
-                      <View style={styles.date}>
-                        <Moment fromNow element={Text}>
-                          {item.completeDate}
-                        </Moment>
-                      </View>
-                    </View>
-                    {item.expanded ? (
-                      <View>
-                        <Title5 style={{ marginTop: 18 }}>
-                          {item.task.prompt}
-                        </Title5>
-                        <MyText style={{ marginBottom: 18 }}>
-                          {item.formValues.prompt}
-                        </MyText>
-                        <Title5>How do you feel?</Title5>
-                        <MyText>{item.formValues.feel}</MyText>
-                      </View>
-                    ) : (
-                      <View />
-                    )}
-                  </Card> */}
               </View>
             </TouchableWithoutFeedback>
           )}

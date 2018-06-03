@@ -57,8 +57,6 @@ class StatTile extends React.Component {
 
 const styles = StyleSheet.create({
   header: {
-    // height: 80,
-    backgroundColor: COLOR_WHITE,
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row"
@@ -70,7 +68,8 @@ const styles = StyleSheet.create({
   statText: {
     marginTop: 4,
     fontSize: 19,
-    fontWeight: "400"
+    fontWeight: "400",
+    color: COLOR_WHITE
   }
 });
 
