@@ -2,8 +2,33 @@ import moment from "moment";
 import { createSelector } from "reselect";
 
 const getTasksCompleted = state => state.tasks.completedTasks;
+const getTasks = state => state.tasks.tasks;
 
 export const getPremium = state => state.subscription.premium;
+
+export const getLeastUsedTasks = createSelector(
+  [getTasks, getPremium],
+  (tasks, premium) => {
+    // Shuffle array for randomness
+    for (let i = tasks.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [tasks[i], tasks[j]] = [tasks[j], tasks[i]];
+    }
+
+    return tasks
+      .filter(task => {
+        if (task.premium && !premium) {
+          return false;
+        } else {
+          return true;
+        }
+      })
+      .sort(function(a, b) {
+        return a.count - b.count;
+      })
+      .slice(0, 3);
+  }
+);
 
 export const getTotalTasksCompleted = createSelector(
   [getTasksCompleted],

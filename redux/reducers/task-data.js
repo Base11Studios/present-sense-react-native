@@ -1,4 +1,4 @@
-export const taskDataVersion = 2.0;
+export const taskDataVersion = 2.02;
 export const taskData = [
   {
     title: "Brush your teeth",
@@ -10,7 +10,8 @@ export const taskData = [
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
     prompt: "What did you see?",
     hints:
-      "Brush slower than normal. Observe everything involved: the toothpaste, toothbrush against your gums and tongue, the movement of your arms, etc."
+      "Brush slower than normal. Observe everything involved: the toothpaste, toothbrush against your gums and tongue, the movement of your arms, etc.",
+    count: 0
   },
   {
     title: "Walk to the car",
@@ -22,7 +23,8 @@ export const taskData = [
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
     prompt: "What did you hear?",
     hint:
-      "Walk very slowly and observe the world around you. Were you focused on your destination like school or work? Bring your thoughts to your walking, or if you're already to your car, sit in your car for a few moments and breathe before starting the car."
+      "Walk very slowly and observe the world around you. Were you focused on your destination like school or work? Bring your thoughts to your walking, or if you're already to your car, sit in your car for a few moments and breathe before starting the car.",
+    count: 0
   },
   {
     title: "Walk mindfully",
@@ -34,7 +36,8 @@ export const taskData = [
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
     prompt: "What did you feel?",
     hints:
-      "Feel the earth beneath your feet. Notice the tiny movements your muscles make to keep your balanced. The slower you go, the stronger you feel these sensations."
+      "Feel the earth beneath your feet. Notice the tiny movements your muscles make to keep your balanced. The slower you go, the stronger you feel these sensations.",
+    count: 0
   },
   {
     title: "Grateful for",
@@ -48,7 +51,8 @@ export const taskData = [
     mindPrompt: "What are you 3 things you're grateful for?",
     hints:
       "These can be big things or little things. For example: Did someone say 'hi' to you today? Did you have water to take a shower? Do you have food to eat when you're hungry? Did you have a nice time spending a moment with a spouse, friend or family member?",
-    premium: false
+    premium: false,
+    count: 0
   },
   {
     title: "3 minute check-in",
@@ -62,7 +66,8 @@ export const taskData = [
     mindPrompt: "What did you notice?",
     hints:
       "If you have trouble focusing, fall back to observing your breath. Each time your focus wanders, gently bring your focus back and begin again.",
-    premium: false
+    premium: false,
+    count: 0
   },
   {
     title: "5 minute breathing",
@@ -76,7 +81,8 @@ export const taskData = [
     mindPrompt: "",
     hints:
       "Slowly breathe in through your nostrils. Breath out using your stomache. Repeat for 5 minutes.",
-    premium: false
+    premium: false,
+    count: 0
   },
   {
     title: "Mindfulness meditation",
@@ -89,7 +95,8 @@ export const taskData = [
     prompt: "What did you hear?",
     hints:
       "Any mindfulness exercise will do. If you don't already know one, try this meditation for 10 minutes: Sit comfortably in a chair, close your eyes, and focus on your breath. Observe the parts of your body that move when you breath in, and those that move when you breath out. Focus on the nostrils, chest, or stomache.",
-    premium: false
+    premium: false,
+    count: 0
   },
   {
     title: "Eating mindfully",
@@ -101,7 +108,8 @@ export const taskData = [
     prompt: "What did you taste?",
     hints:
       "Place a piece of food on your tongue. Don't chew it, just let it be. Move it around inside your mouth. Notice the saliva glands starting to work. Take a bite into the food slowly and pay attention to your taste buds. Chew slowly and swallow after chewing thoroughly. Pay attention to the taste lingering in your mouth, and let it go away before you eat another piece.",
-    premium: false
+    premium: false,
+    count: 0
   },
   // Premium
   {
@@ -115,7 +123,8 @@ export const taskData = [
     prompt: "What did you smell?",
     hints:
       "Slowly breathe in through your nostrils. Breath out using your stomache. Repeat at least 5 times.",
-    premium: true
+    premium: true,
+    count: 0
   },
   {
     title: "Stressed out",
@@ -127,7 +136,8 @@ export const taskData = [
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
     prompt: "What did you feel?",
     hints: "",
-    premium: true
+    premium: true,
+    count: 0
   },
   {
     title: "Returning home",
@@ -140,6 +150,7 @@ export const taskData = [
     prompt: "What did you taste?",
     hints:
       "Take deep breaths, walk mindfully, and walk to the door slowly. Get some awareness of what emotions you're carrying so you know how it may impact your interactions if someone is home.",
-    premium: true
+    premium: true,
+    count: 0
   }
 ];

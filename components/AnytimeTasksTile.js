@@ -3,6 +3,7 @@ import { FlatList, StyleSheet, TouchableHighlight, View } from "react-native";
 import { Icon } from "react-native-elements";
 import { connect } from "react-redux";
 import { setActiveTaskType } from "../redux/reducers/tasks";
+import { getLeastUsedTasks } from "../redux/selectors";
 import { COLOR_PRIMARY, COLOR_SECONDARY } from "../styles/common";
 import AnytimeTile from "./AnytimeTile";
 import { Title4 } from "./Title4";
@@ -13,20 +14,14 @@ class AnytimeTasksTile extends React.Component {
     this.props.navigation.navigate("Search");
   }
 
-  // tasks = [
-  //   { taskId: "4", key: "1" },
-  //   { taskId: "8", key: "2" },
-  //   { taskId: "5", key: "3" }
-  // ];
-
   render() {
-    const { tasks } = this.props;
+    const { leastUsedTasks } = this.props;
     return (
       <View style={styles.tile}>
         <Title4 style={styles.container}>TRY THESE</Title4>
         <FlatList
           style={styles.flatList}
-          data={tasks}
+          data={leastUsedTasks}
           renderItem={({ item }) => (
             <AnytimeTile
               {...this.props}
@@ -81,12 +76,9 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps(state) {
-  let storedTasks = state.tasks.tasks
-    .map(task => ({ ...task, key: task.id }))
-    .filter(task => task.id === "4" || task.id === "5" || task.id === "8");
   return {
-    tasks: storedTasks,
-    premium: state.subscription.premium
+    premium: state.subscription.premium,
+    leastUsedTasks: getLeastUsedTasks(state)
   };
 }
 
