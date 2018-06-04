@@ -68,6 +68,15 @@ class TaskOverviewScreen extends Component {
             </View>
           </View>
 
+          {!!activeTask.hint ? (
+            <View style={styles.cardPadded}>
+              <Title4 style={{ marginBottom: 10 }}>TIPS</Title4>
+              <MyText style={{ marginBottom: 20 }}>{activeTask.hint}</MyText>
+            </View>
+          ) : (
+            <View />
+          )}
+
           <View style={styles.cardPadded}>
             <Title4 style={{ marginBottom: 10 }}>INSTRUCTIONS</Title4>
             <MyText style={{ marginBottom: 20 }}>

@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     flexDirection: "column",
-    padding: 40,
+    padding: 30,
     marginBottom: 10
   },
   quoteText: {
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     textAlign: "left",
 
     color: COLOR_WHITE,
-    fontSize: 20
+    fontSize: 18
   },
   quoteAuthor: {
     flex: 1,
