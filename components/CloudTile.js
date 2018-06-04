@@ -9,14 +9,29 @@ var removeWords = require("remove-words");
 class CloudTile extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
+      feelingTagList: this.getFilteredWordCounts(props.tasksCompleted, "feel"),
+      senseTagList: this.getFilteredWordCounts(props.tasksCompleted, "prompt"),
+      minFontSize: 12,
+      style: {
+        paddingLeft: 0,
+        paddingRight: 0
+      }
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.updateLists(nextProps);
+  }
+
+  updateLists(nextProps) {
+    this.setState({
       feelingTagList: this.getFilteredWordCounts(
-        this.props.tasksCompleted,
+        nextProps.tasksCompleted,
         "feel"
       ),
       senseTagList: this.getFilteredWordCounts(
-        this.props.tasksCompleted,
+        nextProps.tasksCompleted,
         "prompt"
       ),
       minFontSize: 12,
@@ -24,7 +39,7 @@ class CloudTile extends React.Component {
         paddingLeft: 0,
         paddingRight: 0
       }
-    };
+    });
   }
 
   // TODO cap the list items at like 30?

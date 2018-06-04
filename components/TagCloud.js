@@ -27,18 +27,25 @@ const styles = StyleSheet.create({
 export default class TagCloud extends React.Component {
   constructor(props) {
     super(props);
+    this.updateClouds(this.props);
+  }
 
-    let pointArray = this.props.tagList.map(tag => tag.point);
+  componentWillReceiveProps(nextProps) {
+    this.updateClouds(nextProps);
+  }
+
+  updateClouds(nextProps) {
+    let pointArray = nextProps.tagList.map(tag => tag.point);
     let pointMin = Math.min(...pointArray);
     let pointMax = Math.max(...pointArray);
     let pointRange = pointMax - pointMin;
 
-    this.TagCloud = this.orderData().map((item, key) => {
+    this.TagCloud = this.orderData(nextProps).map((item, key) => {
       const tagContainerStyle = {
-        paddingLeft: this.props.tagPaddingLeft,
-        paddingTop: this.props.tagPaddingTop,
-        paddingRight: this.props.tagPaddingRight,
-        paddingBottom: this.props.tagPaddingBottom
+        paddingLeft: nextProps.tagPaddingLeft,
+        paddingTop: nextProps.tagPaddingTop,
+        paddingRight: nextProps.tagPaddingRight,
+        paddingBottom: nextProps.tagPaddingBottom
       };
 
       let itemValue = item.point - pointMin;
@@ -60,8 +67,8 @@ export default class TagCloud extends React.Component {
       }
 
       const tagStyle = {
-        fontSize: this.props.minFontSize + itemRanking * 4,
-        color: this.props.colorList[itemRanking]
+        fontSize: nextProps.minFontSize + itemRanking * 4,
+        color: nextProps.colorList[itemRanking]
       };
 
       return (
@@ -70,10 +77,12 @@ export default class TagCloud extends React.Component {
         </View>
       );
     });
+
+    this.forceUpdate();
   }
 
-  orderData() {
-    return this.shuffle(this.props.tagList);
+  orderData(props) {
+    return this.shuffle(props.tagList);
   }
 
   shuffle = function(array) {
@@ -95,22 +104,6 @@ export default class TagCloud extends React.Component {
 
     return array;
   };
-
-  getRandomPaddingLeft() {
-    return Math.floor(Math.random() * this.props.tagPaddingLeft);
-  }
-
-  getRandomPaddingTop() {
-    return Math.floor(Math.random() * this.props.tagPaddingTop);
-  }
-
-  getRandomPaddingRight() {
-    return Math.floor(Math.random() * this.props.tagPaddingRight);
-  }
-
-  getRandomPaddingBottom() {
-    return Math.floor(Math.random() * this.props.tagPaddingBottom);
-  }
 
   render() {
     return (
