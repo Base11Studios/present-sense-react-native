@@ -148,7 +148,14 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
   let storedTasks = state.tasks.tasks
     .map(task => ({ ...task, key: task.id }))
-    .filter(task => task.type === state.tasks.activeTaskType);
+    .filter(task => task.type === state.tasks.activeTaskType)
+    .sort(function(a, b) {
+      return (!!a.premium && !!b.premium) || (!a.premium && !b.premium)
+        ? 0
+        : !!a.premium && !b.premium
+          ? 1
+          : -1;
+    });
   return {
     tasks: storedTasks,
     activeTaskType: state.tasks.activeTaskType,
@@ -163,4 +170,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListTasksScreen);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ListTasksScreen);

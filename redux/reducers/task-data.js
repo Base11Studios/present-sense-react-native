@@ -1,4 +1,4 @@
-export const taskDataVersion = 2.02;
+export const taskDataVersion = 2.04;
 export const taskData = [
   {
     title: "Brush your teeth",
@@ -57,15 +57,15 @@ export const taskData = [
   {
     title: "3 minute check-in",
     id: "9",
-    type: "Morning",
+    type: "Anytime",
     description:
-      "The morning is a great side to start off the day with a great intention. Sit comfortably in a chair, close your eyes, and spend 3 minutes feeling into your body. Scan from your head to your toes and observe each part of the body. How does it feel? Is there pain or tension?",
+      "Take a chance to slow down and check in. Sit comfortably in a chair, close your eyes, and spend 3 minutes feeling into your body. Scan from your head to your toes and observe each part of the body. How does it feel? Is there pain or tension?",
     focusType: "Mind",
     applicableFocusTypes: ["Mind"],
     prompt: "What did you notice?",
     mindPrompt: "What did you notice?",
     hints:
-      "If you have trouble focusing, fall back to observing your breath. Each time your focus wanders, gently bring your focus back and begin again.",
+      "You can do this anytime and it is especially helpful when you're feeling overwhelmed or stressed. If you have trouble focusing, fall back to observing your breath. Each time your focus wanders, gently bring your focus back and begin again.",
     premium: false,
     count: 0
   },
@@ -77,7 +77,7 @@ export const taskData = [
       "Sit comfortably in a chair, close your eyes, and focus on your breath. Observe the parts of your body that move when you breath in, and those that move when you breath out. Focus on the nostrils, chest, or stomache.",
     focusType: "Sound",
     applicableFocusTypes: ["Sound", "Smell", "Sight"],
-    prompt: "",
+    prompt: "What did you hear?",
     mindPrompt: "",
     hints:
       "Slowly breathe in through your nostrils. Breath out using your stomache. Repeat for 5 minutes.",
@@ -114,7 +114,7 @@ export const taskData = [
   {
     title: "Showering",
     id: "12",
-    type: "Morning",
+    type: "Anytime",
     description:
       "Many people use their daily shower time to think about the day ahead of them. Instead, it can be an incredible time to relax, feeling the water on your body, smelling the shampoo and soak, or listening to the water run.",
     focusType: "Taste",
@@ -178,6 +178,49 @@ export const taskData = [
     prompt: "What did you taste?",
     hints:
       "Take deep breaths, walk mindfully, and walk to the door slowly. Get some awareness of what emotions you're carrying so you know how it may impact your interactions if someone is home.",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Telephone meditation",
+    id: "14",
+    type: "Day",
+    description:
+      "When was the last time your phone went off and you didn't check it? It can actually be liberating to let it be! The next time your phone rings, buzzes, or sounds for a notification, don't answer it and don't check it. Just let it be.",
+    focusType: "Mind",
+    applicableFocusTypes: ["Mind"],
+    prompt: "What did you notice?",
+    mindPrompt: "What did you notice?",
+    hints:
+      "After your phone rings, spend some time checking in on your thoughts and feelings until the need to check it goes away. Over time you will become less dependent on it if you start to create space between you and it.",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Mindful listening",
+    id: "15",
+    type: "Evening",
+    description:
+      "After a long day and finally having time to yourself, it can be really difficult to truely listen to someone else. You may be thinking about the stress of the day, or what will come tomorrow. After dinner is a great time to set your mind to actively listening to your spouse, family, roommate, etc.",
+    focusType: "Sound",
+    applicableFocusTypes: ["Sound"],
+    prompt: "What did you hear?",
+    hints:
+      'Set aside 3-5 minutes where you will only listen to someone else. Don\'t think about how you will respond, just say things like "I understand", "OK", or just nod your head. Invest your energy in actively listening to what the other person is saying.',
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Daily intention",
+    id: "16",
+    type: "Morning",
+    description:
+      'Give your day a focus by setting an intention in the morning. This is something small you want to focus on or achieve, like "Be kind", "Help a stranger", "Smile often", "Be positive", "Leave work on time", "Eat 3 pieces of fruit", "Don\'t eat candy", etc.',
+    focusType: "Mind",
+    applicableFocusTypes: ["Mind"],
+    prompt: "What is your intention for the day?",
+    mindPrompt: "What is your intention for the day?",
+    hints: "Make your intention something small you can achieve.",
     premium: true,
     count: 0
   }
