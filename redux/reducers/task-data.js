@@ -1,4 +1,4 @@
-export const taskDataVersion = 2.04;
+export const taskDataVersion = 2.05;
 export const taskData = [
   {
     title: "Brush your teeth",
@@ -137,7 +137,7 @@ export const taskData = [
     prompt: "What did you feel?",
     hints:
       "Set a second alarm at night for 10-15 minutes after the first in case you doze back asleep while doing this meditation.",
-    premium: false,
+    premium: true,
     count: 0
   },
   {
@@ -207,7 +207,7 @@ export const taskData = [
     prompt: "What did you hear?",
     hints:
       'Set aside 3-5 minutes where you will only listen to someone else. Don\'t think about how you will respond, just say things like "I understand", "OK", or just nod your head. Invest your energy in actively listening to what the other person is saying.',
-    premium: true,
+    premium: false,
     count: 0
   },
   {
