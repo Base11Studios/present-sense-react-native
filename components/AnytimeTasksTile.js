@@ -76,9 +76,13 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps(state) {
+  let tasks = getLeastUsedTasks(state).map(task => ({
+    key: task.id,
+    ...task
+  }));
   return {
     premium: state.subscription.premium,
-    leastUsedTasks: getLeastUsedTasks(state)
+    leastUsedTasks: tasks
   };
 }
 
@@ -88,4 +92,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AnytimeTasksTile);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AnytimeTasksTile);

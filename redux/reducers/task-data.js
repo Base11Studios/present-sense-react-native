@@ -111,7 +111,35 @@ export const taskData = [
     premium: false,
     count: 0
   },
+  {
+    title: "Showering",
+    id: "12",
+    type: "Morning",
+    description:
+      "Many people use their daily shower time to think about the day ahead of them. Instead, it can be an incredible time to relax, feeling the water on your body, smelling the shampoo and soak, or listening to the water run.",
+    focusType: "Taste",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
+    prompt: "What did you see?",
+    hints:
+      "You can do this at night too. Really soak in the sensations around you. Deep breathing can be really helpful. When your thoughts wander, take note and bring your attention back to the prompt.",
+    premium: false,
+    count: 0
+  },
   // Premium
+  {
+    title: "Waking up",
+    id: "13",
+    type: "Morning",
+    description:
+      "Right when you wake up, before you do or think about anything else this morning, take some time to set the day on the right track. Feel into your body, be very aware of the thoughts in your head and watch them come and go.",
+    focusType: "Touch",
+    applicableFocusTypes: ["Touch"],
+    prompt: "What did you feel?",
+    hints:
+      "Set a second alarm at night for 10-15 minutes after the first in case you doze back asleep while doing this meditation.",
+    premium: false,
+    count: 0
+  },
   {
     title: "Deep breathing",
     id: "4",
