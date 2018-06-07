@@ -68,10 +68,10 @@ class TaskOverviewScreen extends Component {
             </View>
           </View>
 
-          {!!activeTask.hint ? (
+          {!!activeTask.hints ? (
             <View style={styles.cardPadded}>
               <Title4 style={{ marginBottom: 10 }}>TIPS</Title4>
-              <MyText style={{ marginBottom: 20 }}>{activeTask.hint}</MyText>
+              <MyText style={{ marginBottom: 20 }}>{activeTask.hints}</MyText>
             </View>
           ) : (
             <View />
@@ -119,4 +119,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskOverviewScreen);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TaskOverviewScreen);

@@ -21,7 +21,7 @@ Add an icon (ideally at least 192x192 pixels) named icon.png to your project roo
 
 ## Android
 
-`cd android && ./gradew assembleRelease`
+`cd android && ./gradlew assembleRelease`
 
 ## iOS
 

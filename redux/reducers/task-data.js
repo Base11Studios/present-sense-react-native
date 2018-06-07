@@ -1,11 +1,11 @@
-export const taskDataVersion = 2.05;
+export const taskDataVersion = 2.07;
 export const taskData = [
   {
     title: "Brush your teeth",
     id: "1",
     type: "Morning",
     description:
-      "When was the last time you brushed your teeth while paying attention to the act of brushing your teeth?",
+      "When was the last time you brushed your teeth while paying attention to the act of brushing your teeth? Let's try that now.",
     focusType: "Sight",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
     prompt: "What did you see?",
@@ -18,12 +18,12 @@ export const taskData = [
     id: "2",
     type: "Morning",
     description:
-      "Slow down and be in the moment. Too often we rush to where we need to be, focusing on the destination rather than the journey.",
+      "Too often we rush to where we need to be, focusing on the destination rather than the journey. Next time you get ready to leave the house and walk to your car, slow down and be in the moment. Be conscious of your movement, one step at a time.",
     focusType: "Sound",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
     prompt: "What did you hear?",
-    hint:
-      "Walk very slowly and observe the world around you. Were you focused on your destination like school or work? Bring your thoughts to your walking, or if you're already to your car, sit in your car for a few moments and breathe before starting the car.",
+    hints:
+      "Walk very slowly and observe the world around you. Are you focused on your destination like school or work? Bring your thoughts to your walking, or if you're already to your car, sit in your car for a few moments and breathe before starting the car.",
     count: 0
   },
   {
@@ -31,7 +31,7 @@ export const taskData = [
     id: "3",
     type: "Day",
     description:
-      "When we ground ourselves in our step, we can become part of the earth. Walk slowly and deliberately, paying attention to each step.",
+      "When we ground ourselves in our step, we can become part of the earth. Walk slowly and deliberately, paying attention to each step. Do this anytime you need a break, like at work or school, to reconnect with yourself and slow down.",
     focusType: "Touch",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
     prompt: "What did you feel?",
@@ -102,7 +102,8 @@ export const taskData = [
     title: "Eating mindfully",
     id: "6",
     type: "Anytime",
-    description: "",
+    description:
+      "Food can be so enjoyable, but if you don't slow down and pay attention to it, you will miss everything it has to offer. This meal, commit to eating very slowly. Use all of your senses to experience your food.",
     focusType: "Taste",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
     prompt: "What did you taste?",
@@ -116,7 +117,7 @@ export const taskData = [
     id: "12",
     type: "Anytime",
     description:
-      "Many people use their daily shower time to think about the day ahead of them. Instead, it can be an incredible time to relax, feeling the water on your body, smelling the shampoo and soak, or listening to the water run.",
+      "Many people use their daily shower time to think about the day ahead of them. Instead, it can be an incredible time to relax, feeling the water on your body, smelling the shampoo and soak, or listening to the water run. Pay attention in the shower, and try to focus on your sense rather than letting your mind wander.",
     focusType: "Taste",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
     prompt: "What did you see?",
@@ -131,7 +132,7 @@ export const taskData = [
     id: "13",
     type: "Morning",
     description:
-      "Right when you wake up, before you do or think about anything else this morning, take some time to set the day on the right track. Feel into your body, be very aware of the thoughts in your head and watch them come and go.",
+      "Right when you wake up, before you do or think about anything else this morning, take some time to set the day on the right track. Feel into your body, be very aware of the thoughts in your head and watch them come and go. Send 2-3 minutes examining your body and being aware of your thoughts.",
     focusType: "Touch",
     applicableFocusTypes: ["Touch"],
     prompt: "What did you feel?",
@@ -145,12 +146,12 @@ export const taskData = [
     id: "4",
     type: "Anytime",
     description:
-      "Our breath is always with us, it is a constant in our mindfulness practice. Take several deep breaths, paying attention to the air coming in and going out.",
+      "Our breath is always with us, it is a constant in our mindfulness practice. Take a deep breath, paying attention to the air coming in and going out. Repeat 10 times.",
     focusType: "Smell",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
     prompt: "What did you smell?",
     hints:
-      "Slowly breathe in through your nostrils. Breath out using your stomache. Repeat at least 5 times.",
+      "Slowly breathe in through your nostrils. Breath out using your stomache. You may notice the breath in your nose, in your lungs, in your stomach, or somewhere else in your body. Focus on being aware of those sensations as you breath.",
     premium: true,
     count: 0
   },
@@ -159,11 +160,12 @@ export const taskData = [
     id: "5",
     type: "Anytime",
     description:
-      "Take 5 long breaths and repeat this mantra: 'Breathing in, I calm my body. Berathing out, I smile.'",
+      "Take 5 long breaths and repeat this mantra: 'Breathing in, I calm my body. Breathing out, I smile.'",
     focusType: "Touch",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
     prompt: "What did you feel?",
-    hints: "",
+    hints:
+      "Try to keep your focus on your breath. If your mind wanders, take note and gently bring back your attention to your breath.",
     premium: true,
     count: 0
   },
@@ -172,7 +174,7 @@ export const taskData = [
     id: "7",
     type: "Evening",
     description:
-      "Sometimes the drive home is stressful, sometimes we bring work or school home with us, sometimes we arrive home carrying an emotion from the day. Our spouse or roommates deserve you arriving in your best, so slow down, take a few deep breaths, and smile.",
+      "Sometimes our day or our drive home is stressful or emotional and we arrive home carrying that emotion causing impact to those at home. They deserve more, so today when you return home slow down, take a few deep breaths, and smile.",
     focusType: "Taste",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
     prompt: "What did you taste?",
@@ -201,12 +203,12 @@ export const taskData = [
     id: "15",
     type: "Evening",
     description:
-      "After a long day and finally having time to yourself, it can be really difficult to truely listen to someone else. You may be thinking about the stress of the day, or what will come tomorrow. After dinner is a great time to set your mind to actively listening to your spouse, family, roommate, etc.",
+      'Set aside 3-5 minutes where you will only listen to someone else. Don\'t think about how you will respond, just say things like "I understand", "OK", or just nod your head. Invest your energy in actively listening to what the other person is saying.',
     focusType: "Sound",
     applicableFocusTypes: ["Sound"],
     prompt: "What did you hear?",
     hints:
-      'Set aside 3-5 minutes where you will only listen to someone else. Don\'t think about how you will respond, just say things like "I understand", "OK", or just nod your head. Invest your energy in actively listening to what the other person is saying.',
+      "After a long day and finally having time to yourself, it can be really difficult to truely listen to someone else. You may be thinking about the stress of the day, or what will come tomorrow. After dinner is a great time to set your mind to actively listening to your spouse, family, roommate, etc.",
     premium: false,
     count: 0
   },
@@ -220,7 +222,36 @@ export const taskData = [
     applicableFocusTypes: ["Mind"],
     prompt: "What is your intention for the day?",
     mindPrompt: "What is your intention for the day?",
-    hints: "Make your intention something small you can achieve.",
+    hints:
+      "Make your intention something small you can achieve. Try to bring awareness to your goal throughout the day to check in on how you're doing. It is OK to fail - recognize what went wrong and try again tomorrow!",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Washing the dishes",
+    id: "17",
+    type: "Evening",
+    description:
+      "Chores aren't known to be fun, but they actually can be. In fact, they can be as exciting as anything else if you make the effort to do them mindfully. When you was the dishes, pay attention to the act of washing the dishes.",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
+    prompt: "What did you feel?",
+    hints:
+      "Really be in the moment, present and aware, and when you notice your thoughts wandering wishing you were somewhere else, simply bring your focus back to the dishes. Feel the water or bubbles against your skin, notice your arms moving to scrub, breath in the scent of the dish soap. ",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Boredom",
+    id: "18",
+    type: "Day",
+    description:
+      "Find this mindful experience the next time you feel bored. Generally the reason we get bored is because we're wishing we were somewhere other than where we are right now. Take some time to focus on your body. Become aware of your thoughts. Observe them.",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
+    prompt: "What did you feel?",
+    hints:
+      "Don't worry about what you're doing to do next, just focus on being present while doing what you're already doing. Once you realize you are happy where you are, the boredom will start to dissipate. It's OK if the boredom returns, just bring your focus back to the present moment.",
     premium: true,
     count: 0
   }
