@@ -18,6 +18,7 @@ import PrivacyPolicyScreen from "../screens/PrivacyPolicyScreen";
 import RecordingTaskScreen from "../screens/RecordingTaskScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 import SubscriptionScreen from "../screens/SubscriptionScreen";
+import TaskHelpScreen from "../screens/TaskHelpScreen";
 import TaskOverviewScreen from "../screens/TaskOverviewScreen";
 import TermsAndConditions from "../screens/TermsAndConditions";
 import {
@@ -164,6 +165,20 @@ export const CreditsNavigator = StackNavigator({
     screen: CreditsScreen,
     navigationOptions: props => ({
       title: "Credits",
+      headerRight: <DismissButton {...props} />,
+      headerTintColor: COLOR_BLACK,
+      headerStyle: {
+        backgroundColor: COLOR_WHITE
+      }
+    })
+  }
+});
+
+export const TaskHelpNavigator = StackNavigator({
+  TaskHelp: {
+    screen: TaskHelpScreen,
+    navigationOptions: props => ({
+      title: "Mindfulness Help",
       headerRight: <DismissButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {

@@ -17,7 +17,9 @@ class TaskOverviewScreen extends Component {
     this.props.navigation.navigate("RecordingTask", { task: selectedTask });
   };
 
-  onPressGetHelp() {}
+  onPressGetHelp(props) {
+    this.props.navigation.navigate("TaskHelp");
+  }
 
   render() {
     // TODO get from store
@@ -51,7 +53,7 @@ class TaskOverviewScreen extends Component {
             >
               {activeTask.title}
             </MyText>
-            <TouchableOpacity onPress={this.onPressGetHelp}>
+            <TouchableOpacity onPress={() => this.onPressGetHelp()}>
               <Icon
                 type="font-awesome"
                 name="question-circle-o"

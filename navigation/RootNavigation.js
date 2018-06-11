@@ -6,7 +6,8 @@ import {
   FAQNavigator,
   IntroNavigator,
   SubscribeNavigator,
-  TabNavigator
+  TabNavigator,
+  TaskHelpNavigator
 } from "./MainTabNavigator";
 
 const RootStackNavigator = StackNavigator(
@@ -25,6 +26,9 @@ const RootStackNavigator = StackNavigator(
     },
     FAQ: {
       screen: FAQNavigator
+    },
+    TaskHelp: {
+      screen: TaskHelpNavigator
     },
     Intro: {
       screen: IntroNavigator,
