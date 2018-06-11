@@ -74,13 +74,13 @@ export const taskData = [
     id: "10",
     type: "Day",
     description:
-      "Sit comfortably in a chair, close your eyes, and focus on your breath. Observe the parts of your body that move when you breath in, and those that move when you breath out. Focus on the nostrils, chest, or stomache.",
+      "Sit comfortably in a chair, close your eyes, and focus on your breath. Observe the parts of your body that move when you breathe in, and those that move when you breathe out. Focus on the nostrils, chest, or stomache.",
     focusType: "Sound",
     applicableFocusTypes: ["Sound", "Smell", "Sight"],
     prompt: "What did you hear?",
     mindPrompt: "",
     hints:
-      "Slowly breathe in through your nostrils. Breath out using your stomache. Repeat for 5 minutes.",
+      "Slowly breathe in through your nostrils. Breathe out using your stomache. Repeat for 5 minutes.",
     premium: false,
     count: 0
   },
@@ -94,7 +94,7 @@ export const taskData = [
     applicableFocusTypes: ["Sound", "Smell", "Sight"],
     prompt: "What did you hear?",
     hints:
-      "Any mindfulness exercise will do. If you don't already know one, try this meditation for 10 minutes: Sit comfortably in a chair, close your eyes, and focus on your breath. Observe the parts of your body that move when you breath in, and those that move when you breath out. Focus on the nostrils, chest, or stomache.",
+      "Any mindfulness exercise will do. If you don't already know one, try this meditation for 10 minutes: Sit comfortably in a chair, close your eyes, and focus on your breath. Observe the parts of your body that move when you breathe in, and those that move when you breathe out. Focus on the nostrils, chest, or stomache.",
     premium: false,
     count: 0
   },
@@ -117,7 +117,7 @@ export const taskData = [
     id: "12",
     type: "Anytime",
     description:
-      "Many people use their daily shower time to think about the day ahead of them. Instead, it can be an incredible time to relax, feeling the water on your body, smelling the shampoo and soak, or listening to the water run. Pay attention in the shower, and try to focus on your sense rather than letting your mind wander.",
+      "Many people use their daily shower time to think about the day ahead of them. Instead, it can be an incredible time to relax, feeling the water on your body, smelling the shampoo and soap, or listening to the water run. Pay attention in the shower, and try to focus on your sense rather than letting your mind wander.",
     focusType: "Taste",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
     prompt: "What did you see?",
@@ -151,7 +151,7 @@ export const taskData = [
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
     prompt: "What did you feel?",
     hints:
-      "Slowly breathe in through your nostrils. Breath out using your stomache or nose. You may notice the breath in your nose, in your lungs, in your stomach, or somewhere else in your body. Focus on being aware of those sensations as you breath.",
+      "Slowly breathe in through your nostrils. Breathe out using your stomache or nose. You may notice the breath in your nose, in your lungs, in your stomach, or somewhere else in your body. Focus on being aware of those sensations as you breathe.",
     premium: true,
     count: 0
   },
@@ -208,7 +208,7 @@ export const taskData = [
     applicableFocusTypes: ["Sound"],
     prompt: "What did you hear?",
     hints:
-      "After a long day and finally having time to yourself, it can be really difficult to truely listen to someone else. You may be thinking about the stress of the day, or what will come tomorrow. After dinner is a great time to set your mind to actively listening to your spouse, family, roommate, etc.",
+      "After a long day and finally having time to yourself, it can be really difficult to truly listen to someone else. You may be thinking about the stress of the day, or what will come tomorrow. After dinner is a great time to set your mind to actively listening to your spouse, family, roommate, etc.",
     premium: false,
     count: 0
   },
@@ -237,7 +237,7 @@ export const taskData = [
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
     prompt: "What did you feel?",
     hints:
-      "Really be in the moment, present and aware, and when you notice your thoughts wandering wishing you were somewhere else, simply bring your focus back to the dishes. Feel the water or bubbles against your skin, notice your arms moving to scrub, breath in the scent of the dish soap. ",
+      "Really be in the moment, present and aware, and when you notice your thoughts wandering wishing you were somewhere else, simply bring your focus back to the dishes. Feel the water or bubbles against your skin, notice your arms moving to scrub, breathe in the scent of the dish soap. ",
     premium: true,
     count: 0
   },
