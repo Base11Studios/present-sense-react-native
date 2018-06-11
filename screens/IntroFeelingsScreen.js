@@ -71,7 +71,9 @@ const InnerCompleteTaskForm = props => {
           >
             Awesome! An important part of mindfulness is being aware of your
             thoughts, feelings, and body. Now that you've completed the 6
-            breaths, take a moment to check in with yourself.
+            breaths, take a moment to check in with yourself. Close your eyes
+            and scan from head to toe. How do you feel physically, emotionally,
+            and mentally?
           </MyText>
         </View>
         <View style={[styles.header, { flex: 1 }]}>

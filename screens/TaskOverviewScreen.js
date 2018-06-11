@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { StyleSheet, View } from "react-native";
-import { Card } from "react-native-elements";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { Card, Icon } from "react-native-elements";
 import { connect } from "react-redux";
 import { FocusBadge } from "../components/FocusBadge";
 import { MyText } from "../components/MyText";
@@ -9,13 +9,15 @@ import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
 import { Title4 } from "../components/Title4";
 import { getBackgroundColorByDay } from "../constants/Helpers";
 import { startTask } from "../redux/reducers/tasks";
-import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
+import { COLOR_BLACK, COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
 
 class TaskOverviewScreen extends Component {
   onPressStartTask = selectedTask => {
     this.props.startTask(selectedTask);
     this.props.navigation.navigate("RecordingTask", { task: selectedTask });
   };
+
+  onPressGetHelp() {}
 
   render() {
     // TODO get from store
@@ -30,7 +32,35 @@ class TaskOverviewScreen extends Component {
             'Read the description and the prompt, then go ahead and start the experience. Pay attention to the prompt while you do. Click "Record" when you\'re done.'
           }
         /> */}
-        <Card title={activeTask.title} containerStyle={styles.card}>
+        <Card containerStyle={styles.card}>
+          <View
+            style={{
+              flexDirection: "row",
+              paddingLeft: 16,
+              paddingRight: 16,
+              paddingBottom: 20
+            }}
+          >
+            <MyText
+              style={{
+                flex: 1,
+                fontWeight: "bold",
+                fontSize: 16,
+                color: COLOR_BLACK
+              }}
+            >
+              {activeTask.title}
+            </MyText>
+            <TouchableOpacity onPress={this.onPressGetHelp}>
+              <Icon
+                type="font-awesome"
+                name="question-circle-o"
+                size={21}
+                containerStyle={[{ padding: 0 }, this.props.style]}
+                color={COLOR_PRIMARY}
+              />
+            </TouchableOpacity>
+          </View>
           <MyText style={[{ marginBottom: 26 }, styles.cardPadded]}>
             {activeTask.description}
           </MyText>

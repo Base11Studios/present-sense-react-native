@@ -34,7 +34,9 @@ export default class IntroActivityScreen extends React.Component {
             }}
           >
             Let's start by taking 6 deep breaths through your nose. Focus on
-            feeling the sensations in your nostrils as the air moves by.
+            feeling the sensations in your nostrils as the air moves by. If you
+            notice your mind wandering, gently bring your focus back to your
+            breath.
           </MyText>
         </View>
         <View
