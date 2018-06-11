@@ -55,4 +55,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TutorialView);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TutorialView);

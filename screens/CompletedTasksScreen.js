@@ -52,13 +52,13 @@ class CompletedTasksScreen extends React.Component {
     const { completedTasks } = this.props;
     return completedTasks.length > 0 ? (
       <ScrollingPageContainer>
-        <TutorialView
+        {/* <TutorialView
           tutorialType="completedIntro"
           tutorialTitle="Your Journey"
           tutorialDescription={
             "Check in here after completing a mindful experience to see your progress and history over time!"
           }
-        />
+        /> */}
         <StatTile />
         <View>
           <Title4 style={styles.container}>MY AWARENESS</Title4>
@@ -264,8 +264,9 @@ const mapDispatchToProps = dispatch => {
   return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-  CompletedTasksScreen
-);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CompletedTasksScreen);
 
 // TODO if there aren't any tasks, show msg instead of table

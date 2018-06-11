@@ -1,6 +1,11 @@
 import { withFormik } from "formik";
 import React, { Component } from "react";
-import { StyleSheet, View } from "react-native";
+import {
+  Keyboard,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View
+} from "react-native";
 import { Card } from "react-native-elements";
 import { connect } from "react-redux";
 import Yup from "yup";
@@ -10,7 +15,6 @@ import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
-import TutorialView from "../components/TutorialView";
 import { completeTask } from "../redux/reducers/tasks";
 import {
   getTaskStreak,
@@ -50,54 +54,56 @@ const InnerCompleteTaskForm = props => {
   state = { promptInputHeight: 20, feelInputHeight: 20 };
 
   return (
-    <ScrollingPageContainer>
-      <TutorialView
-        tutorialType="taskRecodingIntro"
-        tutorialTitle="Journal About What You Noticed"
-        tutorialDescription={
-          "If you haven't done the experience yet, go back and finish it. Now, write the things you noticed and how you're feeling. We'll store this so you can view it later."
-        }
-      />
-      <PageContainer>
-        <Card title={task.title}>
-          <View style={{ marginBottom: 16 }}>
-            <MyText
-              style={{
-                fontSize: 15,
-                fontWeight: "bold",
-                marginBottom: 12
-              }}
-            >
-              {task.prompt}
-            </MyText>
-            <AutoExpandingTextInput
-              onChangeText={text => props.setFieldValue("prompt", text)}
-              value={props.values.prompt}
-            />
-            {promptErrors}
-          </View>
-          <View style={{ marginBottom: 16 }}>
-            <MyText
-              style={{
-                fontSize: 15,
-                fontWeight: "bold",
-                marginBottom: 10
-              }}
-            >
-              How do you feel?
-            </MyText>
-            <AutoExpandingTextInput
-              onChangeText={text => props.setFieldValue("feel", text)}
-              value={props.values.feel}
-            />
-            {feelErrors}
-          </View>
-          <View>
-            <PrimaryButton onPress={props.handleSubmit} title="SUBMIT" />
-          </View>
-        </Card>
-      </PageContainer>
-    </ScrollingPageContainer>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <ScrollingPageContainer>
+        {/* <TutorialView
+          tutorialType="taskRecodingIntro"
+          tutorialTitle="Journal About What You Noticed"
+          tutorialDescription={
+            "If you haven't done the experience yet, go back and finish it. Now, write the things you noticed and how you're feeling. We'll store this so you can view it later."
+          }
+        /> */}
+        <PageContainer>
+          <Card title={task.title}>
+            <View style={{ marginBottom: 16 }}>
+              <MyText
+                style={{
+                  fontSize: 15,
+                  fontWeight: "bold",
+                  marginBottom: 12
+                }}
+              >
+                {task.prompt}
+              </MyText>
+              <AutoExpandingTextInput
+                onChangeText={text => props.setFieldValue("prompt", text)}
+                value={props.values.prompt}
+              />
+              {promptErrors}
+            </View>
+            <View style={{ marginBottom: 16 }}>
+              <MyText
+                style={{
+                  fontSize: 15,
+                  fontWeight: "bold",
+                  marginBottom: 10
+                }}
+              >
+                How do you feel?
+              </MyText>
+              <AutoExpandingTextInput
+                onChangeText={text => props.setFieldValue("feel", text)}
+                value={props.values.feel}
+              />
+              {feelErrors}
+            </View>
+            <View>
+              <PrimaryButton onPress={props.handleSubmit} title="SUBMIT" />
+            </View>
+          </Card>
+        </PageContainer>
+      </ScrollingPageContainer>
+    </TouchableWithoutFeedback>
   );
 };
 
@@ -126,15 +132,7 @@ class RecordingTaskScreen extends Component {
   static navigationOptions = ({ navigation }) => {
     const params = navigation.state.params || {};
 
-    return {
-      // headerRight: (
-      //   <DismissButton
-      //     reset={true}
-      //     resetRoute="TaskOverview"
-      //     navigation={navigation}
-      //   />
-      // )
-    };
+    return {};
   };
 
   render() {
@@ -158,6 +156,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-  RecordingTaskScreen
-);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RecordingTaskScreen);

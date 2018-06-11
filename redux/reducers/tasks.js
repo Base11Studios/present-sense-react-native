@@ -164,7 +164,8 @@ export function completeTask(completion) {
     type: COMPLETE_TASK,
     payload: {
       task: completion.task,
-      formValues: completion.formValues
+      formValues: completion.formValues,
+      hideToast: completion.hideToast
     }
   };
 }

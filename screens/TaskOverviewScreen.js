@@ -7,7 +7,6 @@ import { MyText } from "../components/MyText";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
 import { Title4 } from "../components/Title4";
-import TutorialView from "../components/TutorialView";
 import { getBackgroundColorByDay } from "../constants/Helpers";
 import { startTask } from "../redux/reducers/tasks";
 import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
@@ -24,13 +23,13 @@ class TaskOverviewScreen extends Component {
 
     return (
       <ScrollingPageContainer>
-        <TutorialView
+        {/* <TutorialView
           tutorialType="taskOverviewIntro"
           tutorialTitle="Be Present!"
           tutorialDescription={
             'Read the description and the prompt, then go ahead and start the experience. Pay attention to the prompt while you do. Click "Record" when you\'re done.'
           }
-        />
+        /> */}
         <Card title={activeTask.title} containerStyle={styles.card}>
           <MyText style={[{ marginBottom: 26 }, styles.cardPadded]}>
             {activeTask.description}
@@ -78,11 +77,9 @@ class TaskOverviewScreen extends Component {
           )}
 
           <View style={styles.cardPadded}>
-            <Title4 style={{ marginBottom: 10 }}>INSTRUCTIONS</Title4>
             <MyText style={{ marginBottom: 20 }}>
-              Start your experience. Pay attention to the prompt. If your
-              thoughts wander, it's OK, gently bring back your focus and simply
-              begin again. Click JOURNAL when you're done.
+              If your thoughts wander, it's OK, gently bring back your focus and
+              simply begin again.
             </MyText>
 
             <PrimaryButton

@@ -99,7 +99,7 @@ export const taskData = [
     count: 0
   },
   {
-    title: "Eating mindfully",
+    title: "Eat mindfully",
     id: "6",
     type: "Anytime",
     description:
@@ -113,7 +113,7 @@ export const taskData = [
     count: 0
   },
   {
-    title: "Showering",
+    title: "Shower",
     id: "12",
     type: "Anytime",
     description:
@@ -122,13 +122,13 @@ export const taskData = [
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
     prompt: "What did you see?",
     hints:
-      "You can do this at night too. Really soak in the sensations around you. Deep breathing can be really helpful. When your thoughts wander, take note and bring your attention back to the prompt.",
+      "You can do this at night too. Really soak in the sensations around you. Deep breathing can be really helpful.",
     premium: false,
     count: 0
   },
   // Premium
   {
-    title: "Waking up",
+    title: "Wake up",
     id: "13",
     type: "Morning",
     description:
@@ -142,16 +142,16 @@ export const taskData = [
     count: 0
   },
   {
-    title: "Deep breathing",
+    title: "6 breaths",
     id: "4",
     type: "Anytime",
     description:
-      "Our breath is always with us, it is a constant in our mindfulness practice. Take a deep breath, paying attention to the air coming in and going out. Repeat 10 times.",
-    focusType: "Smell",
+      "Our breath is always with us, it is a constant in our mindfulness practice. Take a deep breath, paying attention to the air coming in and going out. Repeat for a total of 6 times.",
+    focusType: "Touch",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you smell?",
+    prompt: "What did you feel?",
     hints:
-      "Slowly breathe in through your nostrils. Breath out using your stomache. You may notice the breath in your nose, in your lungs, in your stomach, or somewhere else in your body. Focus on being aware of those sensations as you breath.",
+      "Slowly breathe in through your nostrils. Breath out using your stomache or nose. You may notice the breath in your nose, in your lungs, in your stomach, or somewhere else in your body. Focus on being aware of those sensations as you breath.",
     premium: true,
     count: 0
   },
@@ -170,7 +170,7 @@ export const taskData = [
     count: 0
   },
   {
-    title: "Returning home",
+    title: "Return home",
     id: "7",
     type: "Evening",
     description:
@@ -199,7 +199,7 @@ export const taskData = [
     count: 0
   },
   {
-    title: "Mindful listening",
+    title: "Listen mindfully",
     id: "15",
     type: "Evening",
     description:
@@ -228,7 +228,7 @@ export const taskData = [
     count: 0
   },
   {
-    title: "Washing the dishes",
+    title: "Wash the dishes",
     id: "17",
     type: "Evening",
     description:
@@ -252,6 +252,226 @@ export const taskData = [
     prompt: "What did you feel?",
     hints:
       "Don't worry about what you're doing to do next, just focus on being present while doing what you're already doing. Once you realize you are happy where you are, the boredom will start to dissipate. It's OK if the boredom returns, just bring your focus back to the present moment.",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Drink a glass of water",
+    id: "19",
+    type: "Morning",
+    description:
+      "This is a refreshing way to start your morning by waking up and cleasing your body for a new day. Fill a glass with fresh water then pick a space to be still while you drink.",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Taste"],
+    prompt: "What did you feel?",
+    hints:
+      "Take your time drinking. Stay in your space so you can focus on the act of drinking your water. Try taking a sip with your eyes, then try it with your eyes open.",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Morning tea or coffee",
+    id: "20",
+    type: "Morning",
+    description:
+      "Before taking your first sip, choose a space to sit down. Pay attention to the way your body feels with your first sip. Drink slowly like there's no where to be but where you already are.",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints:
+      "Breathe in the aroma of your drink. Feel the cup on your hands. Watch the movement in the liquid as your drink.",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Sit outside",
+    id: "21",
+    type: "Day",
+    description: "",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints: "",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Drive to work",
+    id: "22",
+    type: "Morning",
+    description: "",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints: "",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Sit in a new place",
+    id: "23",
+    type: "Anytime",
+    description: "",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints: "",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Sit under the stars",
+    id: "24",
+    type: "Evening",
+    description: "",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints: "",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Sit against a tree",
+    id: "25",
+    type: "Morning",
+    description: "",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints: "",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Walk in a park",
+    id: "26",
+    type: "Day",
+    description: "",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints: "",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Wash your face",
+    id: "27",
+    type: "Evening",
+    description: "",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints: "",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Cut vegetables",
+    id: "28",
+    type: "Evening",
+    description: "",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints: "",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Stretch",
+    id: "29",
+    type: "Evening",
+    description: "",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints: "",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Drive with the windows down",
+    id: "30",
+    type: "Day",
+    description: "",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints: "",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Listen to soothing music",
+    id: "31",
+    type: "Anytime",
+    description: "",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints: "",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Observe people around you",
+    id: "32",
+    type: "Anytime",
+    description: "",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints: "",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Turn off your electronics",
+    id: "34",
+    type: "Anytime",
+    description: "",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints: "",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Wait in line",
+    id: "35",
+    type: "Day",
+    description: "",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints: "",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Set alarm for checkin",
+    id: "36",
+    type: "Anytime",
+    description: "",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints: "",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Look into someone's eyes",
+    id: "37",
+    type: "Anytime",
+    description: "",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints: "",
     premium: true,
     count: 0
   }

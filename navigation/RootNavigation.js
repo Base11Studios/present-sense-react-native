@@ -4,6 +4,7 @@ import {
   CreditsNavigator,
   DoTaskNavigator,
   FAQNavigator,
+  IntroNavigator,
   SubscribeNavigator,
   TabNavigator
 } from "./MainTabNavigator";
@@ -24,10 +25,13 @@ const RootStackNavigator = StackNavigator(
     },
     FAQ: {
       screen: FAQNavigator
+    },
+    Intro: {
+      screen: IntroNavigator,
+      navigationOptions: props => ({
+        gesturesEnabled: false
+      })
     }
-    // Tutorial: {
-    //   screen: TutorialNavigator
-    // }
   },
   {
     mode: "modal",

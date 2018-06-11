@@ -1,7 +1,7 @@
 import React from "react";
 import { Platform } from "react-native";
 import { Icon } from "react-native-elements";
-import { NavigationActions } from "react-navigation";
+import { NavigationActions, StackActions } from "react-navigation";
 import Colors from "../constants/Colors";
 import { COLOR_BLACK } from "../styles/common";
 // TODO if iOS, wrap with touch hightlight, if android wrap with https://medium.com/differential/better-cross-platform-react-native-components-cb8aadeba472
@@ -22,7 +22,7 @@ export class DismissButton extends React.Component {
         onPress={() => {
           if (!!this.props.reset) {
             this.props.navigation.dispatch(
-              NavigationActions.reset({
+              StackActions.reset({
                 index: 0,
                 actions: [
                   NavigationActions.navigate({

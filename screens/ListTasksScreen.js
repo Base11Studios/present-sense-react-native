@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import AnytimeTile from "../components/AnytimeTile";
 import { PageContainer } from "../components/PageContainer";
 import SearchFilterView from "../components/SearchFilterView";
-import TutorialView from "../components/TutorialView";
 import { getLightBackgroundColorByDay } from "../constants/Helpers";
 import { setActiveTaskType, startTask } from "../redux/reducers/tasks";
 import {
@@ -28,13 +27,13 @@ class ListTasksScreen extends React.Component {
     const { tasks, activeTaskType } = this.props;
     return (
       <PageContainer style={styles.container}>
-        <TutorialView
+        {/* <TutorialView
           tutorialType="searchIntro"
           tutorialTitle="Find a Mindful Experience"
           tutorialDescription={
             "Click the tabs to find an activity suited for the time of day! Categorization by time is a suggestion, but feel free to do a Mindful Experience anytime of day it seems appropriate!"
           }
-        />
+        /> */}
         <View style={styles.dayFilters}>
           <TouchableOpacity
             style={styles.dayFilter}

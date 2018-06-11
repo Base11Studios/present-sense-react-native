@@ -71,7 +71,7 @@ function* updateIaps(action) {
       ) {
         discount =
           100 -
-          Math.round(yearlyProduct.price / (monthlyProduct.price * 12) * 100);
+          Math.round((yearlyProduct.price / (monthlyProduct.price * 12)) * 100);
       }
       yield put({
         type: UPDATE_IAPS_SUCCESS,
@@ -111,58 +111,60 @@ function* updateSubscriptions(action) {
 
 function* completeTask(action) {
   try {
-    const totalCompleted = yield select(getTotalTasksCompleted);
-    const streak = yield select(getTaskStreak);
+    if (!action.payload.hideToast) {
+      const totalCompleted = yield select(getTotalTasksCompleted);
+      const streak = yield select(getTaskStreak);
 
-    let toastComplete = Toast.show("Mindful Experience Complete!", {
-      duration: Toast.durations.LONG,
-      position: Toast.positions.BOTTOM - 190,
-      backgroundColor: COLOR_ALERT,
-      opacity: 1,
-      shadow: false,
-      animation: true,
-      hideOnPress: true,
-      delay: 400,
-      onShow: () => {},
-      onShown: () => {},
-      onHide: () => {},
-      onHidden: () => {}
-    });
+      let toastComplete = Toast.show("Mindful Experience Complete!", {
+        duration: Toast.durations.LONG,
+        position: Toast.positions.BOTTOM - 190,
+        backgroundColor: COLOR_ALERT,
+        opacity: 1,
+        shadow: false,
+        animation: true,
+        hideOnPress: true,
+        delay: 400,
+        onShow: () => {},
+        onShown: () => {},
+        onHide: () => {},
+        onHidden: () => {}
+      });
 
-    let completeMessage =
-      totalCompleted.toString() +
-      (totalCompleted === 1
-        ? " Mindful Experience Completed"
-        : " Mindful Experiences Completed");
+      let completeMessage =
+        totalCompleted.toString() +
+        (totalCompleted === 1
+          ? " Mindful Experience Completed"
+          : " Mindful Experiences Completed");
 
-    let toastTotalComplete = Toast.show(completeMessage, {
-      duration: Toast.durations.LONG,
-      position: Toast.positions.BOTTOM - 90,
-      backgroundColor: COLOR_ALERT,
-      opacity: 1,
-      shadow: false,
-      animation: true,
-      hideOnPress: true,
-      delay: 1800,
-      onShow: () => {},
-      onShown: () => {},
-      onHide: () => {},
-      onHidden: () => {}
-    });
-    let toastStreak = Toast.show(streak + " Day Streak!", {
-      duration: Toast.durations.LONG,
-      position: Toast.positions.BOTTOM - 140,
-      backgroundColor: COLOR_ALERT,
-      opacity: 1,
-      shadow: false,
-      animation: true,
-      hideOnPress: true,
-      delay: 1100,
-      onShow: () => {},
-      onShown: () => {},
-      onHide: () => {},
-      onHidden: () => {}
-    });
+      let toastTotalComplete = Toast.show(completeMessage, {
+        duration: Toast.durations.LONG,
+        position: Toast.positions.BOTTOM - 90,
+        backgroundColor: COLOR_ALERT,
+        opacity: 1,
+        shadow: false,
+        animation: true,
+        hideOnPress: true,
+        delay: 1800,
+        onShow: () => {},
+        onShown: () => {},
+        onHide: () => {},
+        onHidden: () => {}
+      });
+      let toastStreak = Toast.show(streak + " Day Streak!", {
+        duration: Toast.durations.LONG,
+        position: Toast.positions.BOTTOM - 140,
+        backgroundColor: COLOR_ALERT,
+        opacity: 1,
+        shadow: false,
+        animation: true,
+        hideOnPress: true,
+        delay: 1100,
+        onShow: () => {},
+        onShown: () => {},
+        onHide: () => {},
+        onHidden: () => {}
+      });
+    }
   } catch (e) {}
 }
 

@@ -28,7 +28,7 @@ class MindfulQuoteTile extends React.Component {
         </MyText>
         {!!quoteData[this.quoteNumber].author ? (
           <MyText style={styles.quoteAuthor}>
-            -- {quoteData[this.quoteNumber].author}
+            - {quoteData[this.quoteNumber].author} -
           </MyText>
         ) : (
           <View />
@@ -86,4 +86,7 @@ function mapDispatchToProps(dispatch) {
   return {};
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MindfulQuoteTile);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MindfulQuoteTile);

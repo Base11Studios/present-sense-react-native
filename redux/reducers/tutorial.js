@@ -4,6 +4,7 @@ export const SHOW_TUTORIAL = "tutorial/SHOW";
 
 const initialState = {
   tutorial: {
+    appIntro: false,
     homeIntro: false,
     searchIntro: false,
     completedIntro: false,
@@ -19,7 +20,6 @@ export default function reducer(state = initialState, action) {
     case SHOW_TUTORIAL:
       const newState = { ...state };
       newState.tutorial[action.payload.tutorialType] = true;
-
       return newState;
     case PURGE:
       return initialState;

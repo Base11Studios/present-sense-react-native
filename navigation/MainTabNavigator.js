@@ -1,5 +1,5 @@
 import React from "react";
-import { Platform } from "react-native";
+import { Animated, Easing, Platform } from "react-native";
 import { Icon } from "react-native-elements";
 import { StackNavigator, createBottomTabNavigator } from "react-navigation";
 import { BackButton } from "../components/BackButton";
@@ -8,6 +8,11 @@ import CompletedTasksScreen from "../screens/CompletedTasksScreen";
 import CreditsScreen from "../screens/CreditsScreen";
 import FAQScreen from "../screens/FAQScreen";
 import HomeScreen from "../screens/HomeScreen";
+import IntroActivityScreen from "../screens/IntroActivityScreen";
+import IntroConclusionScreen from "../screens/IntroConclusionScreen";
+import IntroFeelingsScreen from "../screens/IntroFeelingsScreen";
+import IntroObservationsScreen from "../screens/IntroObservationsScreen";
+import IntroScreen from "../screens/IntroScreen";
 import ListTasksScreen from "../screens/ListTasksScreen";
 import PrivacyPolicyScreen from "../screens/PrivacyPolicyScreen";
 import RecordingTaskScreen from "../screens/RecordingTaskScreen";
@@ -82,6 +87,77 @@ export const SubscribeNavigator = StackNavigator({
     })
   }
 });
+
+export const IntroNavigator = StackNavigator(
+  {
+    Intro: {
+      screen: IntroScreen,
+      navigationOptions: props => ({
+        headerTintColor: COLOR_BLACK,
+        headerStyle: {
+          backgroundColor: COLOR_WHITE
+        },
+        gesturesEnabled: false
+      })
+    },
+    IntroActivity: {
+      screen: IntroActivityScreen,
+      navigationOptions: props => ({
+        headerLeft: <BackButton {...props} />,
+        headerTintColor: COLOR_BLACK,
+        headerStyle: {
+          backgroundColor: COLOR_WHITE
+        },
+        gesturesEnabled: false
+      })
+    },
+    IntroObservations: {
+      screen: IntroObservationsScreen,
+      navigationOptions: props => ({
+        headerLeft: <BackButton {...props} />,
+        headerTintColor: COLOR_BLACK,
+        headerStyle: {
+          backgroundColor: COLOR_WHITE
+        },
+        gesturesEnabled: false
+      })
+    },
+    IntroFeelings: {
+      screen: IntroFeelingsScreen,
+      navigationOptions: props => ({
+        headerLeft: <BackButton {...props} />,
+        headerTintColor: COLOR_BLACK,
+        headerStyle: {
+          backgroundColor: COLOR_WHITE
+        },
+        gesturesEnabled: false
+      })
+    },
+    IntroConclusion: {
+      screen: IntroConclusionScreen,
+      navigationOptions: props => ({
+        headerLeft: <BackButton {...props} />,
+        headerTintColor: COLOR_BLACK,
+        headerStyle: {
+          backgroundColor: COLOR_WHITE
+        },
+        gesturesEnabled: false
+      })
+    }
+  },
+  {
+    header: null,
+    headerMode: "none",
+    modal: false,
+    transitionConfig: () => ({
+      transitionSpec: {
+        duration: 0,
+        timing: Animated.timing,
+        easing: Easing.step0
+      }
+    })
+  }
+);
 
 export const CreditsNavigator = StackNavigator({
   Credits: {

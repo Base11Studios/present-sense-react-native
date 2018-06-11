@@ -6,7 +6,6 @@ import AnytimeTasksTile from "../components/AnytimeTasksTile";
 import { EverydayTasksTile } from "../components/EverydayTasksTile";
 import MindfulQuoteTile from "../components/MindfulQuoteTile";
 import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
-import TutorialView from "../components/TutorialView";
 import {
   updateIAPs,
   updateUserSubscriptions
@@ -22,6 +21,11 @@ class HomeScreen extends React.Component {
   componentDidMount() {
     this.props.updateTasks();
     this.props.updateIAPs();
+    if (!this.props.tutorial["appIntro"]) {
+      this.props.navigation.navigate("Intro");
+      // TODO fire this off at the end of the intro screens
+      //this.props.showTutorial({ type: "appIntro" });
+    }
     SplashScreen.hide();
   }
 
@@ -36,7 +40,7 @@ class HomeScreen extends React.Component {
 
     return (
       <ScrollingPageContainer>
-        <TutorialView
+        {/* <TutorialView
           {...this.props}
           tutorialNavigation={"FAQ"}
           tutorialType="homeIntro"
@@ -44,7 +48,7 @@ class HomeScreen extends React.Component {
           tutorialDescription={
             'Present Sense teaches Mindful Journaling. Complete multiple "Mindful Experiences" a day to build your awareness of the world and start living your life in the present! See the FAQ section in Settings for all the benefits.'
           }
-        />
+        /> */}
         <MindfulQuoteTile />
         <EverydayTasksTile {...this.props} />
         <AnytimeTasksTile {...this.props} />
@@ -57,6 +61,7 @@ const styles = StyleSheet.create({});
 
 const mapStateToProps = state => {
   return {
+    tutorial: state.tutorial.tutorial,
     activeTask: state.tasks.activeTask
   };
 };
@@ -65,8 +70,12 @@ const mapDispatchToProps = dispatch => {
   return {
     updateTasks: () => dispatch(updateTasks()),
     updateUserSubscriptions: data => dispatch(updateUserSubscriptions(data)),
-    updateIAPs: () => dispatch(updateIAPs())
+    updateIAPs: () => dispatch(updateIAPs()),
+    showTutorial: tutorial => dispatch(showTutorial(tutorial))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomeScreen);
