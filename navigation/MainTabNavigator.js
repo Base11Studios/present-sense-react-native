@@ -12,6 +12,7 @@ import IntroActivityScreen from "../screens/IntroActivityScreen";
 import IntroConclusionScreen from "../screens/IntroConclusionScreen";
 import IntroFeelingsScreen from "../screens/IntroFeelingsScreen";
 import IntroObservationsScreen from "../screens/IntroObservationsScreen";
+import IntroOverviewScreen from "../screens/IntroOverviewScreen";
 import IntroScreen from "../screens/IntroScreen";
 import ListTasksScreen from "../screens/ListTasksScreen";
 import PrivacyPolicyScreen from "../screens/PrivacyPolicyScreen";
@@ -93,6 +94,16 @@ export const IntroNavigator = StackNavigator(
   {
     Intro: {
       screen: IntroScreen,
+      navigationOptions: props => ({
+        headerTintColor: COLOR_BLACK,
+        headerStyle: {
+          backgroundColor: COLOR_WHITE
+        },
+        gesturesEnabled: false
+      })
+    },
+    IntroOverview: {
+      screen: IntroOverviewScreen,
       navigationOptions: props => ({
         headerTintColor: COLOR_BLACK,
         headerStyle: {

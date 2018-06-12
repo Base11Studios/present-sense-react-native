@@ -7,7 +7,7 @@ import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
 
 export default class IntroScreen extends React.Component {
   pressNext() {
-    this.props.navigation.navigate("IntroActivity");
+    this.props.navigation.navigate("IntroOverview");
   }
 
   render() {

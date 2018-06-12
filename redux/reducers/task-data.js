@@ -74,13 +74,13 @@ export const taskData = [
     id: "10",
     type: "Day",
     description:
-      "Sit comfortably in a chair, close your eyes, and focus on your breath. Observe the parts of your body that move when you breathe in, and those that move when you breathe out. Focus on the nostrils, chest, or stomache.",
+      "Sit comfortably in a chair, close your eyes, and focus on your breath. Observe the parts of your body that move when you breathe in, and those that move when you breathe out. Focus on the nostrils, chest, or stomach.",
     focusType: "Sound",
     applicableFocusTypes: ["Sound", "Smell", "Sight"],
     prompt: "What did you hear?",
     mindPrompt: "",
     hints:
-      "Slowly breathe in through your nostrils. Breathe out using your stomache. Repeat for 5 minutes.",
+      "Slowly breathe in through your nostrils. Breathe out using your stomach. Repeat for 5 minutes.",
     premium: false,
     count: 0
   },
@@ -94,7 +94,7 @@ export const taskData = [
     applicableFocusTypes: ["Sound", "Smell", "Sight"],
     prompt: "What did you hear?",
     hints:
-      "Any mindfulness exercise will do. If you don't already know one, try this meditation for 10 minutes: Sit comfortably in a chair, close your eyes, and focus on your breath. Observe the parts of your body that move when you breathe in, and those that move when you breathe out. Focus on the nostrils, chest, or stomache.",
+      "Any mindfulness exercise will do. If you don't already know one, try this meditation for 10 minutes: Sit comfortably in a chair, close your eyes, and focus on your breath. Observe the parts of your body that move when you breathe in, and those that move when you breathe out. Focus on the nostrils, chest, or stomach.",
     premium: false,
     count: 0
   },
@@ -151,7 +151,7 @@ export const taskData = [
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
     prompt: "What did you feel?",
     hints:
-      "Slowly breathe in through your nostrils. Breathe out using your stomache or nose. You may notice the breath in your nose, in your lungs, in your stomach, or somewhere else in your body. Focus on being aware of those sensations as you breathe.",
+      "Slowly breathe in through your nostrils. Breathe out using your stomach or nose. You may notice the breath in your nose, in your lungs, in your stomach, or somewhere else in your body. Focus on being aware of those sensations as you breathe.",
     premium: true,
     count: 0
   },

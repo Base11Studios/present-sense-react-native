@@ -54,7 +54,8 @@ class CloudTile extends React.Component {
           ...removeWords(
             completedTask.formValues.feel
               .replace(/[.,\/#!;:()]/g, "")
-              .replace(/\s{2,}/g, " "),
+              .replace(/\s{2,}/g, " ")
+              .replace(/\n|\r|\t/g, " "),
             false
           )
         );
@@ -63,7 +64,8 @@ class CloudTile extends React.Component {
           ...removeWords(
             completedTask.formValues.prompt
               .replace(/[.,\/#!;:()]/g, "")
-              .replace(/\s{2,}/g, " "),
+              .replace(/\s{2,}/g, " ")
+              .replace(/\n|\r|\t/g, " "),
             false
           )
         );
@@ -158,4 +160,7 @@ function mapDispatchToProps(dispatch) {
   return {};
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CloudTile);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CloudTile);

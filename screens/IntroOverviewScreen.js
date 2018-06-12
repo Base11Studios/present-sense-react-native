@@ -1,13 +1,13 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import { Button } from "react-native-elements";
 import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
 import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
 
-export default class IntroActivityScreen extends React.Component {
+export default class IntroOverviewScreen extends React.Component {
   pressNext() {
-    this.props.navigation.navigate("IntroObservations");
+    this.props.navigation.navigate("IntroActivity");
   }
 
   render() {
@@ -21,9 +21,13 @@ export default class IntroActivityScreen extends React.Component {
             justifyContent: "center"
           }}
         >
-          <MyText />
+          <Image
+            style={{ width: 140, height: 140 }}
+            source={require("../assets/images/icon.png")}
+          />
         </View>
-        <View style={[styles.header, { flex: 1 }]}>
+
+        <View style={styles.header}>
           <MyText
             style={{
               marginTop: 10,
@@ -32,10 +36,9 @@ export default class IntroActivityScreen extends React.Component {
               fontSize: 21
             }}
           >
-            Let's start by taking 6 deep breaths through your nose. Focus on
-            feeling the sensations in your nostrils as the air moves by. If you
-            notice your mind wandering, gently bring your focus back to your
-            breath.
+            Present Sense uses Mindfulness to teach you to experience the world
+            around you. Mindfulness is the ability to be aware of where we are
+            and what we're doing in the present moment.
           </MyText>
         </View>
         <View
@@ -49,7 +52,7 @@ export default class IntroActivityScreen extends React.Component {
           <Button
             iconRight={{ name: "keyboard-arrow-right", type: "material" }}
             onPress={() => this.pressNext()}
-            title="6 Breaths, Taken"
+            title="Let's Start"
             color={COLOR_WHITE}
             buttonStyle={{
               backgroundColor: COLOR_PRIMARY
@@ -65,8 +68,8 @@ export default class IntroActivityScreen extends React.Component {
 const styles = StyleSheet.create({
   header: {
     padding: 20,
-    flex: 1
-    // alignContent: "center",
-    // justifyContent: "center"
+    flex: 1,
+    alignContent: "center",
+    justifyContent: "center"
   }
 });
