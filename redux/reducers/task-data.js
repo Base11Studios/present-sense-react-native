@@ -1,4 +1,4 @@
-export const taskDataVersion = 2.07;
+export const taskDataVersion = 2.08;
 export const taskData = [
   {
     title: "Brush your teeth",
@@ -473,6 +473,33 @@ export const taskData = [
     prompt: "What did you feel?",
     hints: "",
     premium: true,
+    count: 0
+  },
+  {
+    title: "Tutorial: Wandering Mind",
+    id: "38",
+    type: "Tutorial",
+    focusType: "Mind",
+    applicableFocusTypes: ["Mind"],
+    prompt: "What did you notice?",
+    feelPrompt: "How do you feel?",
+    introText1:
+      "Mindfulness can be difficult, especially when we're already feeling emotions like anxiety, worry, and stress.",
+    introText2:
+      "It is completely normal for your thoughts to wander. In fact, the act of noticing and bringing your attention back to the present is what the practice is all about!",
+    introText3:
+      "Every time you practice, you're training your mind to recognize when you've lost focus of the present moment.",
+    introText4:
+      "Let's try a meditation completely focused on noticing when our mind wanders, and practicing gently guiding it back to the present!",
+    activityText:
+      "Set a timer for 5 minutes. Close your eyes, and become an observer of the thoughts in your head. Watch them come and go. When you get caught up in a thought, gently bring your focus back to observing.",
+    observationText:
+      "Great job! What did you notice as you were observing your thoughts?",
+    feelingText:
+      "Awesome! Now that you've completed the exercise, how do you feel?",
+    conclusionText:
+      "It can be overwhelming and challenging when you start out. Over time, you will get better at identifying the times your mind wanders and bringing back your focus to the present.",
+    premium: false,
     count: 0
   }
 ];
