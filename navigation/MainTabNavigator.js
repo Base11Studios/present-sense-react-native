@@ -22,6 +22,11 @@ import SubscriptionScreen from "../screens/SubscriptionScreen";
 import TaskHelpScreen from "../screens/TaskHelpScreen";
 import TaskOverviewScreen from "../screens/TaskOverviewScreen";
 import TermsAndConditions from "../screens/TermsAndConditions";
+import TutorialActivityScreen from "../screens/TutorialActivityScreen";
+import TutorialConclusionScreen from "../screens/TutorialConclusionScreen";
+import TutorialFeelingsScreen from "../screens/TutorialFeelingsScreen";
+import TutorialHelperScreen from "../screens/TutorialHelperScreen";
+import TutorialObservationsScreen from "../screens/TutorialObservationsScreen";
 import {
   COLOR_BLACK,
   COLOR_PRIMARY,
@@ -89,6 +94,95 @@ export const SubscribeNavigator = StackNavigator({
     })
   }
 });
+
+export const TutorialNavigator = StackNavigator(
+  {
+    TutorialHelper1: {
+      screen: TutorialHelperScreen,
+      navigationOptions: props => ({
+        headerTintColor: COLOR_BLACK,
+        headerStyle: {
+          backgroundColor: COLOR_WHITE
+        }
+      })
+    },
+    TutorialHelper2: {
+      screen: TutorialHelperScreen,
+      navigationOptions: props => ({
+        headerTintColor: COLOR_BLACK,
+        headerStyle: {
+          backgroundColor: COLOR_WHITE
+        }
+      })
+    },
+    TutorialHelper3: {
+      screen: TutorialHelperScreen,
+      navigationOptions: props => ({
+        headerTintColor: COLOR_BLACK,
+        headerStyle: {
+          backgroundColor: COLOR_WHITE
+        }
+      })
+    },
+    TutorialHelper4: {
+      screen: TutorialHelperScreen,
+      navigationOptions: props => ({
+        headerTintColor: COLOR_BLACK,
+        headerStyle: {
+          backgroundColor: COLOR_WHITE
+        }
+      })
+    },
+    TutorialActivity: {
+      screen: TutorialActivityScreen,
+      navigationOptions: props => ({
+        headerTintColor: COLOR_BLACK,
+        headerStyle: {
+          backgroundColor: COLOR_WHITE
+        }
+      })
+    },
+    TutorialObservations: {
+      screen: TutorialObservationsScreen,
+      navigationOptions: props => ({
+        headerTintColor: COLOR_BLACK,
+        headerStyle: {
+          backgroundColor: COLOR_WHITE
+        }
+      })
+    },
+    TutorialFeelings: {
+      screen: TutorialFeelingsScreen,
+      navigationOptions: props => ({
+        headerTintColor: COLOR_BLACK,
+        headerStyle: {
+          backgroundColor: COLOR_WHITE
+        }
+      })
+    },
+    TutorialConclusion: {
+      screen: TutorialConclusionScreen,
+      navigationOptions: props => ({
+        headerTintColor: COLOR_BLACK,
+        headerStyle: {
+          backgroundColor: COLOR_WHITE
+        }
+      })
+    }
+  },
+  {
+    header: null,
+    headerMode: "none",
+    modal: true,
+    transitionConfig: () => ({
+      transitionSpec: {
+        duration: 0,
+        timing: Animated.timing,
+        easing: Easing.step0
+      }
+    })
+  }
+);
 
 export const IntroNavigator = StackNavigator(
   {

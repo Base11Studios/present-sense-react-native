@@ -35,6 +35,14 @@ export class FocusTypeIcon extends React.Component {
         style={[styles.avatar, this.props.style]}
         source={require("../assets/images/mind.png")}
       />
+    ) : this.props.focusType === "Tutorial" ? (
+      <Icon
+        type="simple-line-icon"
+        name="book-open"
+        size={24}
+        containerStyle={[{ padding: 7 }, this.props.style]}
+        color={COLOR_WHITE}
+      />
     ) : this.props.focusType === "Locked" ? (
       <Icon
         type="font-awesome"

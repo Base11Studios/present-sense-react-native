@@ -66,6 +66,8 @@ const getPrompt = function(task) {
       return "What did you smell?";
     case "Mind":
       return task.mindPrompt;
+    case "Tutorial":
+      return task.prompt;
     default:
       return "What did you touch?";
   }

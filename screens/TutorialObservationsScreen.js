@@ -45,6 +45,8 @@ const InnerCompleteTaskForm = props => {
 
   state = { promptInputHeight: 20, feelInputHeight: 20 };
 
+  console.warn(task);
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <PageContainer style={{ backgroundColor: COLOR_PRIMARY }}>
@@ -69,9 +71,7 @@ const InnerCompleteTaskForm = props => {
               fontSize: 21
             }}
           >
-            Great job! The second part is writing down what you observed. This
-            helps you create a habit and visualize your experience. Write a few
-            sentences about what you observed during your 6 breaths.
+            {task.observationText}
           </MyText>
         </View>
         <View style={[styles.header, { flex: 1 }]}>
@@ -135,12 +135,13 @@ const CompleteTaskForm = withFormik({
       task: props.task,
       formValues: { prompt: values.prompt, feel: "" }
     };
-    props.navigation.navigate("IntroFeelings", { result: result });
+
+    props.navigation.navigate("TutorialFeelings", { result: result });
   },
-  displayName: "PromptForm" // helps with React DevTools
+  displayName: "TutorialPromptForm" // helps with React DevTools
 })(InnerCompleteTaskForm);
 
-class IntroObservationsScreen extends React.Component {
+class TutorialObservationsScreen extends React.Component {
   render() {
     return <CompleteTaskForm {...this.props} />;
   }
@@ -156,16 +157,8 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps(state) {
-  let breathTask;
-  state.tasks.tasks.forEach(task => {
-    // 6 breaths ID
-    if (task.id === "4") {
-      breathTask = task;
-    }
-  });
-
   return {
-    task: breathTask
+    task: state.tasks.activeTask
   };
 }
 
@@ -178,4 +171,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(IntroObservationsScreen);
+)(TutorialObservationsScreen);

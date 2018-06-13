@@ -37,6 +37,16 @@ export const getTotalTasksCompleted = createSelector(
   }
 );
 
+// TODO
+export const getNextTutorialTask = createSelector([getTasks], tasks => {
+  let tutorialTasks = tasks.filter(task => task.type === "Tutorial");
+  if (tutorialTasks.length > 0) {
+    return tutorialTasks[0];
+  } else {
+    return null;
+  }
+});
+
 export const getMindTasksCompleted = createSelector(
   [getTasksCompleted],
   tasksCompleted => {

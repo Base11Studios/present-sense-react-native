@@ -36,11 +36,11 @@ const InnerCompleteTaskForm = props => {
   } = props;
   const { task } = props;
 
-  const promptErrors =
-    !!touched.prompt && !!errors.prompt ? (
-      <ErrorText style={{ marginBottom: 20 }}>{errors.prompt}</ErrorText>
+  const feelErrors =
+    !!touched.feel && !!errors.feel ? (
+      <ErrorText style={{ marginBottom: 26 }}>{errors.feel}</ErrorText>
     ) : (
-      <View />
+      <View style={{ marginBottom: 26 }} />
     );
 
   state = { promptInputHeight: 20, feelInputHeight: 20 };
@@ -69,9 +69,7 @@ const InnerCompleteTaskForm = props => {
               fontSize: 21
             }}
           >
-            Great job! The second part is writing down what you observed. This
-            helps you create a habit and visualize your experience. Write a few
-            sentences about what you observed during your 6 breaths.
+            {task.feelingText}
           </MyText>
         </View>
         <View style={[styles.header, { flex: 1 }]}>
@@ -83,11 +81,11 @@ const InnerCompleteTaskForm = props => {
                 color: COLOR_WHITE
               }}
             >
-              {task.prompt}
+              {task.feelPrompt}
             </MyText>
             <AutoExpandingTextInput
-              onChangeText={text => props.setFieldValue("prompt", text)}
-              value={props.values.prompt}
+              onChangeText={text => props.setFieldValue("feel", text)}
+              value={props.values.feel}
               style={{
                 borderColor: COLOR_WHITE,
                 color: COLOR_BLACK,
@@ -97,7 +95,7 @@ const InnerCompleteTaskForm = props => {
               underlineColorAndroid={COLOR_WHITE}
               selectionColor={COLOR_WHITE}
             />
-            {promptErrors}
+            {feelErrors}
           </View>
         </View>
         <View
@@ -110,7 +108,7 @@ const InnerCompleteTaskForm = props => {
         >
           <Button
             iconRight={{ name: "keyboard-arrow-right", type: "material" }}
-            title="Observations, Journaled"
+            title="Feelings, Journaled"
             color={COLOR_WHITE}
             buttonStyle={{
               backgroundColor: COLOR_PRIMARY
@@ -126,21 +124,22 @@ const InnerCompleteTaskForm = props => {
 };
 
 const CompleteTaskForm = withFormik({
-  mapPropsToValues: () => ({ prompt: "" }),
+  mapPropsToValues: () => ({ feel: "" }),
   validationSchema: Yup.object().shape({
-    prompt: Yup.string().required("Response is required!")
+    feel: Yup.string().required("Response is required!")
   }),
   handleSubmit: (values, { props, setSubmitting }) => {
-    const result = {
-      task: props.task,
-      formValues: { prompt: values.prompt, feel: "" }
-    };
-    props.navigation.navigate("IntroFeelings", { result: result });
+    let completed = { ...props.navigation.state.params.result };
+    completed.formValues.feel = values.feel;
+    completed.hideToast = true;
+
+    props.completeTask(completed);
+    props.navigation.navigate("TutorialConclusion");
   },
-  displayName: "PromptForm" // helps with React DevTools
+  displayName: "TutorialFeelForm" // helps with React DevTools
 })(InnerCompleteTaskForm);
 
-class IntroObservationsScreen extends React.Component {
+class TutorialFeelingsScreen extends React.Component {
   render() {
     return <CompleteTaskForm {...this.props} />;
   }
@@ -156,16 +155,8 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps(state) {
-  let breathTask;
-  state.tasks.tasks.forEach(task => {
-    // 6 breaths ID
-    if (task.id === "4") {
-      breathTask = task;
-    }
-  });
-
   return {
-    task: breathTask
+    task: state.tasks.activeTask
   };
 }
 
@@ -178,4 +169,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(IntroObservationsScreen);
+)(TutorialFeelingsScreen);

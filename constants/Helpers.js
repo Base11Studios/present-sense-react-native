@@ -5,27 +5,10 @@ import {
   COLOR_HIGHLIGHT_LIGHT,
   COLOR_PRIMARY,
   COLOR_PRIMARY_LIGHT,
-  COLOR_QUATERNARY,
   COLOR_SECONDARY,
   COLOR_SECONDARY_LIGHT,
   COLOR_TERTIARY
 } from "../styles/common";
-
-export const getFocusTypeColor = function(focusType) {
-  return focusType === "Sound"
-    ? COLOR_PRIMARY
-    : focusType === "Sight"
-      ? COLOR_HIGHLIGHT
-      : focusType === "Touch"
-        ? COLOR_ALERT
-        : focusType === "Smell"
-          ? COLOR_TERTIARY
-          : focusType === "Taste"
-            ? COLOR_SECONDARY
-            : focusType === "Mind"
-              ? COLOR_QUATERNARY
-              : "";
-};
 
 export const getBackgroundColorByDay = function(day) {
   return day === "Day"
@@ -36,7 +19,9 @@ export const getBackgroundColorByDay = function(day) {
         ? COLOR_SECONDARY
         : day === "Evening"
           ? COLOR_HIGHLIGHT
-          : "";
+          : day === "Tutorial"
+            ? COLOR_TERTIARY
+            : "";
 };
 
 export const getLightBackgroundColorByDay = function(day) {

@@ -7,7 +7,8 @@ import {
   IntroNavigator,
   SubscribeNavigator,
   TabNavigator,
-  TaskHelpNavigator
+  TaskHelpNavigator,
+  TutorialNavigator
 } from "./MainTabNavigator";
 
 const RootStackNavigator = StackNavigator(
@@ -35,6 +36,9 @@ const RootStackNavigator = StackNavigator(
       navigationOptions: props => ({
         gesturesEnabled: false
       })
+    },
+    Tutorial: {
+      screen: TutorialNavigator
     }
   },
   {

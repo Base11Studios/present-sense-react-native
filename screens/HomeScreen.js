@@ -4,6 +4,7 @@ import SplashScreen from "react-native-splash-screen";
 import { connect } from "react-redux";
 import AnytimeTasksTile from "../components/AnytimeTasksTile";
 import { EverydayTasksTile } from "../components/EverydayTasksTile";
+import LearnHowTile from "../components/LearnHowTile";
 import MindfulQuoteTile from "../components/MindfulQuoteTile";
 import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
 import {
@@ -50,6 +51,7 @@ class HomeScreen extends React.Component {
           }
         /> */}
         <MindfulQuoteTile />
+        <LearnHowTile {...this.props} />
         <EverydayTasksTile {...this.props} />
         <AnytimeTasksTile {...this.props} />
       </ScrollingPageContainer>

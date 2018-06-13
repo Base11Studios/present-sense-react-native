@@ -126,17 +126,6 @@ const InnerCompleteTaskForm = props => {
   );
 };
 
-saveForm = function(values, props) {
-  console.warn(props);
-  // let completed = { ...props.navigation.state.params.result };
-  // completed.formValues.feel = values.feel;
-
-  console.warn(completed);
-
-  // props.completeTask(completed);
-  // props.navigation.navigate("IntroConclusion");
-};
-
 const CompleteTaskForm = withFormik({
   mapPropsToValues: () => ({ feel: "" }),
   validationSchema: Yup.object().shape({
