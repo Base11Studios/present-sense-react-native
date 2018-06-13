@@ -17,7 +17,7 @@ import { completeTask } from "../redux/reducers/tasks";
 import {
   COLOR_BLACK,
   COLOR_LIGHT_GREY,
-  COLOR_PRIMARY,
+  COLOR_TERTIARY,
   COLOR_WHITE
 } from "../styles/common";
 
@@ -47,7 +47,7 @@ const InnerCompleteTaskForm = props => {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <PageContainer style={{ backgroundColor: COLOR_PRIMARY }}>
+      <PageContainer style={{ backgroundColor: COLOR_TERTIARY }}>
         {/* <KeyboardAvoidingView
         behavior="height"
         enabled
@@ -111,7 +111,7 @@ const InnerCompleteTaskForm = props => {
             title="Feelings, Journaled"
             color={COLOR_WHITE}
             buttonStyle={{
-              backgroundColor: COLOR_PRIMARY
+              backgroundColor: COLOR_TERTIARY
             }}
             large={true}
             onPress={props.handleSubmit}

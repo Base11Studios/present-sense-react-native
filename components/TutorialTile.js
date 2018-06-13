@@ -22,9 +22,15 @@ class TutorialTile extends React.Component {
           <Icon
             type="simple-line-icon"
             name="book-open"
-            size={28}
+            size={26}
             containerStyle={[
-              { paddingTop: 9, paddingBottom: 4, paddingHorizontal: 9 },
+              {
+                paddingTop: 9,
+                paddingBottom: 4,
+                paddingHorizontal: 7,
+                marginRight: 8,
+                marginLeft: 16
+              },
               this.props.style
             ]}
             color={COLOR_WHITE}

@@ -1,4 +1,4 @@
-export const taskDataVersion = 2.1;
+export const taskDataVersion = 2.11;
 export const taskData = [
   {
     title: "Brush your teeth",
@@ -59,13 +59,13 @@ export const taskData = [
     id: "9",
     type: "Anytime",
     description:
-      "Take a chance to slow down and check in. Sit comfortably in a chair, close your eyes, and spend 3 minutes feeling into your body. Scan from your head to your toes and observe each part of the body. How does it feel? Is there pain or tension?",
+      "Take a chance to slow down and check in. Sit comfortably in a chair, close your eyes, and spend 3 minutes feeling into your body. Scan from your head to your toes and observe each part of the body. How does it feel?",
     focusType: "Mind",
     applicableFocusTypes: ["Mind"],
     prompt: "What did you notice?",
     mindPrompt: "What did you notice?",
     hints:
-      "You can do this anytime and it is especially helpful when you're feeling overwhelmed or stressed. If you have trouble focusing, fall back to observing your breath. Each time your focus wanders, gently bring your focus back and begin again.",
+      "You can do this anytime and it is especially helpful when you're feeling overwhelmed or stressed. If you have trouble focusing, fall back to observing your breath. Do you feel any calm or relaxation in your muscles as you draw your focus?",
     premium: false,
     count: 0
   },
@@ -479,6 +479,58 @@ export const taskData = [
     title: "Tutorial: Wandering Mind",
     id: "38",
     tutorialNumber: 1,
+    type: "Tutorial",
+    focusType: "Tutorial",
+    applicableFocusTypes: ["Tutorial"],
+    prompt: "What did you notice?",
+    feelPrompt: "How do you feel?",
+    helperText: [
+      "Mindfulness can be difficult, especially when we're already feeling emotions like anxiety, worry, and stress.",
+      "It is completely normal for your thoughts to wander. In fact, the act of noticing and bringing your attention back to the present is what the practice is all about!",
+      "Every time you practice, you're training your mind to recognize when you've lost focus of the present moment.",
+      "Let's try a meditation completely focused on noticing when our mind wanders, and practicing gently guiding it back to the present!"
+    ],
+    activityText:
+      "Set a timer for 5 minutes. Close your eyes, and become an observer of the thoughts in your head. Watch them come and go. When you get caught up in a thought, gently bring your focus back to observing.",
+    observationText:
+      "Great job! What did you notice as you were observing your thoughts?",
+    feelingText:
+      "Awesome! Now that you've completed the exercise, how do you feel?",
+    conclusionText:
+      "It can be overwhelming and challenging when you start out. Over time, you will get better at identifying the times your mind wanders and bringing back your focus to the present.",
+    premium: false,
+    count: 0
+  },
+  {
+    title: "Tutorial: Body Scan",
+    id: "39",
+    tutorialNumber: 2,
+    type: "Tutorial",
+    focusType: "Tutorial",
+    applicableFocusTypes: ["Tutorial"],
+    prompt: "What did you notice?",
+    feelPrompt: "How do you feel?",
+    helperText: [
+      "Mindfulness can be difficult, especially when we're already feeling emotions like anxiety, worry, and stress.",
+      "It is completely normal for your thoughts to wander. In fact, the act of noticing and bringing your attention back to the present is what the practice is all about!",
+      "Every time you practice, you're training your mind to recognize when you've lost focus of the present moment.",
+      "Let's try a meditation completely focused on noticing when our mind wanders, and practicing gently guiding it back to the present!"
+    ],
+    activityText:
+      "Set a timer for 5 minutes. Close your eyes, and become an observer of the thoughts in your head. Watch them come and go. When you get caught up in a thought, gently bring your focus back to observing.",
+    observationText:
+      "Great job! What did you notice as you were observing your thoughts?",
+    feelingText:
+      "Awesome! Now that you've completed the exercise, how do you feel?",
+    conclusionText:
+      "It can be overwhelming and challenging when you start out. Over time, you will get better at identifying the times your mind wanders and bringing back your focus to the present.",
+    premium: false,
+    count: 0
+  },
+  {
+    title: "Tutorial: Mystery",
+    id: "40",
+    tutorialNumber: 3,
     type: "Tutorial",
     focusType: "Tutorial",
     applicableFocusTypes: ["Tutorial"],

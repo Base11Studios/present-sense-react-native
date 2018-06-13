@@ -4,7 +4,7 @@ import { Button } from "react-native-elements";
 import { connect } from "react-redux";
 import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
-import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
+import { COLOR_TERTIARY, COLOR_WHITE } from "../styles/common";
 
 class TutorialActivityScreen extends React.Component {
   pressNext() {
@@ -14,7 +14,7 @@ class TutorialActivityScreen extends React.Component {
   render() {
     const { activeTask } = this.props;
     return (
-      <PageContainer style={{ backgroundColor: COLOR_PRIMARY }}>
+      <PageContainer style={{ backgroundColor: COLOR_TERTIARY }}>
         <View
           style={{
             padding: 20,
@@ -51,7 +51,7 @@ class TutorialActivityScreen extends React.Component {
             title="Activity, Done"
             color={COLOR_WHITE}
             buttonStyle={{
-              backgroundColor: COLOR_PRIMARY
+              backgroundColor: COLOR_TERTIARY
             }}
             large={true}
           />

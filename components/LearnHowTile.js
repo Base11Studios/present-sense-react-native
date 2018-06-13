@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
 function mapStateToProps(state) {
   let tutorialTask = getNextTutorialTask(state);
   if (tutorialTask !== null) {
-    tutorialTask.key = 1;
+    tutorialTask["key"] = "1";
   }
   return {
     task: tutorialTask

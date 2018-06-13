@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
 import { showTutorial } from "../redux/reducers/tutorial";
-import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
+import { COLOR_TERTIARY, COLOR_WHITE } from "../styles/common";
 
 class TutorialConclusionScreen extends React.Component {
   pressNext() {
@@ -28,7 +28,7 @@ class TutorialConclusionScreen extends React.Component {
   render() {
     const { activeTask } = this.props;
     return (
-      <PageContainer style={{ backgroundColor: COLOR_PRIMARY }}>
+      <PageContainer style={{ backgroundColor: COLOR_TERTIARY }}>
         <View
           style={{
             padding: 20,
@@ -63,10 +63,10 @@ class TutorialConclusionScreen extends React.Component {
           <Button
             iconRight={{ name: "keyboard-arrow-right", type: "material" }}
             onPress={() => this.pressNext()}
-            title="Mindful Experience, Completed"
+            title="Tutorial, Completed"
             color={COLOR_WHITE}
             buttonStyle={{
-              backgroundColor: COLOR_PRIMARY
+              backgroundColor: COLOR_TERTIARY
             }}
             large={true}
           />

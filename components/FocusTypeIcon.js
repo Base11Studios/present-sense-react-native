@@ -39,7 +39,7 @@ export class FocusTypeIcon extends React.Component {
       <Icon
         type="simple-line-icon"
         name="book-open"
-        size={24}
+        size={26}
         containerStyle={[{ padding: 7 }, this.props.style]}
         color={COLOR_WHITE}
       />

@@ -27,13 +27,13 @@ class ListTasksScreen extends React.Component {
     const { tasks, activeTaskType } = this.props;
     return (
       <PageContainer style={styles.container}>
-        {/* <TutorialView
+        <TutorialView
           tutorialType="searchIntro"
           tutorialTitle="Find a Mindful Experience"
           tutorialDescription={
-            "Click the tabs to find an activity suited for the time of day! Categorization by time is a suggestion, but feel free to do a Mindful Experience anytime of day it seems appropriate!"
+            "We recommend completing the tutorials in the Learn How section on the Home tab first, then return here to find your next experience!"
           }
-        /> */}
+        />
         <View style={styles.dayFilters}>
           <TouchableOpacity
             style={styles.dayFilter}

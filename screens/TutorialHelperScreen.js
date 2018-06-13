@@ -4,7 +4,7 @@ import { Button } from "react-native-elements";
 import { connect } from "react-redux";
 import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
-import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
+import { COLOR_TERTIARY, COLOR_WHITE } from "../styles/common";
 
 class TutorialHelperScreen extends React.Component {
   pressNext() {
@@ -29,7 +29,7 @@ class TutorialHelperScreen extends React.Component {
         ? this.props.navigation.state.params.number
         : 0;
     return (
-      <PageContainer style={{ backgroundColor: COLOR_PRIMARY }}>
+      <PageContainer style={{ backgroundColor: COLOR_TERTIARY }}>
         <View
           style={{
             padding: 20,
@@ -67,7 +67,7 @@ class TutorialHelperScreen extends React.Component {
             title="Continue"
             color={COLOR_WHITE}
             buttonStyle={{
-              backgroundColor: COLOR_PRIMARY
+              backgroundColor: COLOR_TERTIARY
             }}
             large={true}
           />

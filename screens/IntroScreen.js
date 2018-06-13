@@ -17,7 +17,7 @@ export default class IntroScreen extends React.Component {
           style={{
             padding: 20,
             height: 180,
-            alignContent: "center",
+            alignItems: "center",
             justifyContent: "center"
           }}
         >

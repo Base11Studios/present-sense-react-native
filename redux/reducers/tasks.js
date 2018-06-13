@@ -27,7 +27,8 @@ const initialState = {
   tasks: [],
   activeTask: { focusType: "" },
   completedTasks: [],
-  activeTaskType: "Anytime"
+  activeTaskType: "Anytime",
+  completedTutorialTasks: []
 };
 
 const getUpdatedTasks = function(lastTaskFocuses) {
@@ -124,7 +125,8 @@ export default function reducer(state = initialState, action) {
         ...state,
         tasks: newTasks,
         lastTaskFocuses: newTaskFocuses,
-        completedTasks: [completedTask, ...state.completedTasks]
+        completedTasks: [completedTask, ...state.completedTasks],
+        completedTutorialTasks: [...state.completedTutorialTasks, completedTask]
       };
     case PURGE:
       return initialState;

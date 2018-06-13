@@ -2,6 +2,7 @@ import moment from "moment";
 import { createSelector } from "reselect";
 
 const getTasksCompleted = state => state.tasks.completedTasks;
+const getTutorialTasksCompleted = state => state.tasks.completedTutorialTasks;
 const getTasks = state => state.tasks.tasks;
 
 export const getPremium = state => state.subscription.premium;
@@ -38,14 +39,27 @@ export const getTotalTasksCompleted = createSelector(
 );
 
 // TODO
-export const getNextTutorialTask = createSelector([getTasks], tasks => {
-  let tutorialTasks = tasks.filter(task => task.type === "Tutorial");
-  if (tutorialTasks.length > 0) {
-    return tutorialTasks[0];
-  } else {
-    return null;
+export const getNextTutorialTask = createSelector(
+  [getTasks, getTutorialTasksCompleted],
+  (tasks, completedTutorialTasks) => {
+    let completedTutorialTaskIds = completedTutorialTasks.map(
+      task => task.task.id
+    );
+    let tutorialTasks = tasks.filter(
+      task =>
+        task.type === "Tutorial" &&
+        completedTutorialTaskIds.indexOf(task.id) < 0
+    );
+    if (tutorialTasks.length > 0) {
+      tutorialTasks.sort(function(taskA, taskB) {
+        return +taskA.id - +taskB.id;
+      });
+      return tutorialTasks[0];
+    } else {
+      return null;
+    }
   }
-});
+);
 
 export const getMindTasksCompleted = createSelector(
   [getTasksCompleted],
