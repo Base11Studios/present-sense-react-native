@@ -60,19 +60,20 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     flexDirection: "column",
+    alignItems: "center",
     padding: 30,
     marginBottom: 10
   },
   quoteText: {
     flex: 1,
-    textAlign: "left",
+    textAlign: "center",
 
     color: COLOR_WHITE,
     fontSize: 18
   },
   quoteAuthor: {
     flex: 1,
-    textAlign: "left",
+    textAlign: "center",
     color: COLOR_WHITE,
     fontSize: 16
   }

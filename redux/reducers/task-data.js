@@ -502,7 +502,7 @@ export const taskData = [
     count: 0
   },
   {
-    title: "Tutorial: Body Scan",
+    title: "Tutorial: Focused Breathing",
     id: "39",
     tutorialNumber: 2,
     type: "Tutorial",
@@ -511,25 +511,51 @@ export const taskData = [
     prompt: "What did you notice?",
     feelPrompt: "How do you feel?",
     helperText: [
-      "Mindfulness can be difficult, especially when we're already feeling emotions like anxiety, worry, and stress.",
-      "It is completely normal for your thoughts to wander. In fact, the act of noticing and bringing your attention back to the present is what the practice is all about!",
-      "Every time you practice, you're training your mind to recognize when you've lost focus of the present moment.",
-      "Let's try a meditation completely focused on noticing when our mind wanders, and practicing gently guiding it back to the present!"
+      "We can be mindful at any moment, anywhere, but if you learn mindfulness through meditation practice, it may be difficult to find that awareness in everyday situations.",
+      "We can use our breath, something that is always with us, as an anchor for our awareness. Whenever we want to be mindful, we simply focus on our breathing.",
+      "By practicing maintaining a focus on our breath in a formal setting, it will make it easier to be able to do here and there.",
+      "Let's try a meditation completely focused on breathing with intention and observing each breath in our body."
     ],
     activityText:
-      "Set a timer for 5 minutes. Close your eyes, and become an observer of the thoughts in your head. Watch them come and go. When you get caught up in a thought, gently bring your focus back to observing.",
+      "Set a timer for 3 minutes. Take a deep breath in through your nose, then completely out through your mouth. Tie your breathing to your belly - move it in when you inhale, move it out when you exhale. Repeat until the timer is up.",
     observationText:
-      "Great job! What did you notice as you were observing your thoughts?",
+      "Great job! What did you notice as you were observing your breath?",
     feelingText:
       "Awesome! Now that you've completed the exercise, how do you feel?",
     conclusionText:
-      "It can be overwhelming and challenging when you start out. Over time, you will get better at identifying the times your mind wanders and bringing back your focus to the present.",
+      "Keep practicing breathing mindfully. When you feel stressed, anxious, happy, or just want to make sure you appreciate each moment, tune into your breath to bring your awareness to the now!",
     premium: false,
     count: 0
   },
   {
-    title: "Tutorial: Mystery",
+    title: "Tutorial: Body Scan",
     id: "40",
+    tutorialNumber: 2,
+    type: "Tutorial",
+    focusType: "Tutorial",
+    applicableFocusTypes: ["Tutorial"],
+    prompt: "What did you notice?",
+    feelPrompt: "How do you feel?",
+    helperText: [
+      "In order to be mindful of the world around us, it is important to be mindful of ourselves so we know how our state may impact what and how we observe.",
+      "An easy to use technique to gain mindfulness of self is a body scan - a head to toe check-in on each part of the body.",
+      "It goes like this: start with the top of your head - how does it feel? Now check in on your neck, then your shoulders, and repeat for each section of the body until you get to your toes.",
+      "You may notice stress, tension, calm, relaxation, or something else. Whatever it is, it's OK. We're not trying to change how we feel, just be aware of it."
+    ],
+    activityText:
+      "Take a few deep breaths. Close your eyes. Do a body scan from head to toes. Spend an inhale and an exhale checking in on each body part.",
+    observationText:
+      "Great job! What did you notice as you were doing the body scan?",
+    feelingText:
+      "Awesome! Now that you've completed the exercise, how do you feel?",
+    conclusionText:
+      "Body scans are a great way to become aware of how you're feeling in this moment. Use them both in formal meditation practice and in everyday moments to bring awareness to the present.",
+    premium: false,
+    count: 0
+  },
+  {
+    title: "Tutorial: Noting",
+    id: "41",
     tutorialNumber: 3,
     type: "Tutorial",
     focusType: "Tutorial",
