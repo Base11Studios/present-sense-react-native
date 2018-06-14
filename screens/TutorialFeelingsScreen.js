@@ -13,6 +13,7 @@ import { AutoExpandingTextInput } from "../components/AutoExpandingTextInput";
 import { ErrorText } from "../components/ErrorText";
 import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
+import { ProgressStepper } from "../components/ProgressStepper";
 import { completeTask } from "../redux/reducers/tasks";
 import {
   COLOR_BLACK,
@@ -53,6 +54,7 @@ const InnerCompleteTaskForm = props => {
         enabled
         keyboardVerticalOffset={0}
       > */}
+        <ProgressStepper totalSteps={8} stepNumber={7} />
         <View
           style={{
             padding: 20,

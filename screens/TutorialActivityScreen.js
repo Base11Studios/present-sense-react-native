@@ -4,6 +4,7 @@ import { Button } from "react-native-elements";
 import { connect } from "react-redux";
 import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
+import { ProgressStepper } from "../components/ProgressStepper";
 import { COLOR_TERTIARY, COLOR_WHITE } from "../styles/common";
 
 class TutorialActivityScreen extends React.Component {
@@ -15,15 +16,23 @@ class TutorialActivityScreen extends React.Component {
     const { activeTask } = this.props;
     return (
       <PageContainer style={{ backgroundColor: COLOR_TERTIARY }}>
+        <ProgressStepper totalSteps={8} stepNumber={5} />
         <View
           style={{
             padding: 20,
             height: 180,
-            alignContent: "center",
+            alignItems: "center",
             justifyContent: "center"
           }}
         >
-          <MyText />
+          <MyText
+            style={{
+              color: COLOR_WHITE,
+              fontSize: 28
+            }}
+          >
+            Begin Experience
+          </MyText>
         </View>
         <View style={[styles.header, { flex: 1 }]}>
           <MyText
@@ -41,14 +50,14 @@ class TutorialActivityScreen extends React.Component {
           style={{
             padding: 20,
             height: 180,
-            alignContent: "center",
+            alignItems: "center",
             justifyContent: "center"
           }}
         >
           <Button
             iconRight={{ name: "keyboard-arrow-right", type: "material" }}
             onPress={() => this.pressNext()}
-            title="Activity, Done"
+            title="Experience, Done"
             color={COLOR_WHITE}
             buttonStyle={{
               backgroundColor: COLOR_TERTIARY

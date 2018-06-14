@@ -4,6 +4,7 @@ import { Button } from "react-native-elements";
 import { connect } from "react-redux";
 import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
+import { ProgressStepper } from "../components/ProgressStepper";
 import { COLOR_TERTIARY, COLOR_WHITE } from "../styles/common";
 
 class TutorialHelperScreen extends React.Component {
@@ -30,6 +31,10 @@ class TutorialHelperScreen extends React.Component {
         : 0;
     return (
       <PageContainer style={{ backgroundColor: COLOR_TERTIARY }}>
+        <ProgressStepper
+          totalSteps={8}
+          stepNumber={this.props.navigation.state.params.number}
+        />
         <View
           style={{
             padding: 20,

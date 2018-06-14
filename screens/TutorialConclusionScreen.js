@@ -5,6 +5,7 @@ import { NavigationActions, StackActions } from "react-navigation";
 import { connect } from "react-redux";
 import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
+import { ProgressStepper } from "../components/ProgressStepper";
 import { showTutorial } from "../redux/reducers/tutorial";
 import { COLOR_TERTIARY, COLOR_WHITE } from "../styles/common";
 
@@ -29,6 +30,7 @@ class TutorialConclusionScreen extends React.Component {
     const { activeTask } = this.props;
     return (
       <PageContainer style={{ backgroundColor: COLOR_TERTIARY }}>
+        <ProgressStepper totalSteps={8} stepNumber={8} />
         <View
           style={{
             padding: 20,

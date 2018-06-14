@@ -11,6 +11,7 @@ export const COLOR_TERTIARY_LIGHT = "#C6EFE6";
 export const COLOR_QUATERNARY_LIGHT = "#FCD3DF";
 export const COLOR_ALERT_LIGHT = "#FBD475";
 export const COLOR_WHITE = "#FFF";
+export const COLOR_WHITE_TRANS = "#FFFFFF40";
 export const COLOR_LIGHT_GREY = "#DDD";
 export const COLOR_BLACK = "#333";
 export const COLOR_DARK_GRAY = "#555";
