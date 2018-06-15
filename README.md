@@ -21,6 +21,7 @@ Add an icon (ideally at least 192x192 pixels) named icon.png to your project roo
 
 ## Android
 
+Increment version code in app/build.gradle
 `cd android && ./gradlew assembleRelease`
 
 ## iOS

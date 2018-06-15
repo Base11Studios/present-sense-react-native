@@ -7,6 +7,7 @@ import { EverydayTasksTile } from "../components/EverydayTasksTile";
 import LearnHowTile from "../components/LearnHowTile";
 import MindfulQuoteTile from "../components/MindfulQuoteTile";
 import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
+import TutorialView from "../components/TutorialView";
 import {
   updateIAPs,
   updateUserSubscriptions
@@ -24,8 +25,6 @@ class HomeScreen extends React.Component {
     this.props.updateIAPs();
     if (!this.props.tutorial["appIntro"]) {
       this.props.navigation.navigate("Intro");
-      // TODO fire this off at the end of the intro screens
-      //this.props.showTutorial({ type: "appIntro" });
     }
     SplashScreen.hide();
   }
@@ -41,15 +40,15 @@ class HomeScreen extends React.Component {
 
     return (
       <ScrollingPageContainer>
-        {/* <TutorialView
+        <TutorialView
           {...this.props}
           tutorialNavigation={"FAQ"}
           tutorialType="homeIntro"
           tutorialTitle="Welcome to Present Sense!"
           tutorialDescription={
-            'Present Sense teaches Mindful Journaling. Complete multiple "Mindful Experiences" a day to build your awareness of the world and start living your life in the present! See the FAQ section in Settings for all the benefits.'
+            "Start with the tutorials in the Learn How section to continue your learning journey. If you want to learn the 'why' behind mindfulness, see the FAQ section in Settings."
           }
-        /> */}
+        />
         <MindfulQuoteTile />
         <LearnHowTile {...this.props} />
         <EverydayTasksTile {...this.props} />

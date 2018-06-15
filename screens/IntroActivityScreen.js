@@ -19,11 +19,18 @@ export default class IntroActivityScreen extends React.Component {
           style={{
             padding: 20,
             height: 180,
-            alignContent: "center",
+            alignItems: "center",
             justifyContent: "center"
           }}
         >
-          <MyText />
+          <MyText
+            style={{
+              color: COLOR_WHITE,
+              fontSize: 28
+            }}
+          >
+            Try Mindfulness
+          </MyText>
         </View>
         <View style={[styles.header, { flex: 1 }]}>
           <MyText

@@ -46,8 +46,6 @@ const InnerCompleteTaskForm = props => {
 
   state = { promptInputHeight: 20, feelInputHeight: 20 };
 
-  console.warn(task);
-
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <PageContainer style={{ backgroundColor: COLOR_TERTIARY }}>
