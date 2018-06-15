@@ -13,6 +13,7 @@ import { AutoExpandingTextInput } from "../components/AutoExpandingTextInput";
 import { ErrorText } from "../components/ErrorText";
 import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
+import { ProgressStepper } from "../components/ProgressStepper";
 import { completeTask } from "../redux/reducers/tasks";
 import {
   COLOR_BLACK,
@@ -48,6 +49,7 @@ const InnerCompleteTaskForm = props => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <PageContainer style={{ backgroundColor: COLOR_PRIMARY }}>
+        <ProgressStepper totalSteps={6} stepNumber={5} />
         {/* <KeyboardAvoidingView
         behavior="height"
         enabled

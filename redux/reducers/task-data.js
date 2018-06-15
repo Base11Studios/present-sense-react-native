@@ -1,4 +1,4 @@
-export const taskDataVersion = 2.11;
+export const taskDataVersion = 2.12;
 export const taskData = [
   {
     title: "Brush your teeth",
@@ -563,19 +563,18 @@ export const taskData = [
     prompt: "What did you notice?",
     feelPrompt: "How do you feel?",
     helperText: [
-      "Mindfulness can be difficult, especially when we're already feeling emotions like anxiety, worry, and stress.",
-      "It is completely normal for your thoughts to wander. In fact, the act of noticing and bringing your attention back to the present is what the practice is all about!",
-      "Every time you practice, you're training your mind to recognize when you've lost focus of the present moment.",
-      "Let's try a meditation completely focused on noticing when our mind wanders, and practicing gently guiding it back to the present!"
+      "Noticing when your mind wanders can be tricky when you first start practicing mindfulness and there are techniques we can use to make it easier.",
+      "One technique, 'mental noting', is the practice of using a simple note to calmly name what we're experiencing.",
+      "Mental noting should be as gentle as a whisper is the mind - such as 'feeling', 'thinking', 'hearing', 'seeing', and 'touching'.",
+      "Mental noting should not take the place of being mindful - it is simply a reminder to bring your attention back to the present."
     ],
     activityText:
-      "Set a timer for 5 minutes. Close your eyes, and become an observer of the thoughts in your head. Watch them come and go. When you get caught up in a thought, gently bring your focus back to observing.",
-    observationText:
-      "Great job! What did you notice as you were observing your thoughts?",
+      "Set a timer for 5 minutes. Close your eyes, and take a few deep breaths. When you notice you attention drifting, gently note it (such as 'oh, thinking' or 'feeling', 'hearing', 'seeing', 'touching'). After a mental note, gently bring your focus back to the present.",
+    observationText: "Great job! What did you notice during the experience?",
     feelingText:
       "Awesome! Now that you've completed the exercise, how do you feel?",
     conclusionText:
-      "It can be overwhelming and challenging when you start out. Over time, you will get better at identifying the times your mind wanders and bringing back your focus to the present.",
+      "You can use mental noting throughout your day to help bring your attention to the present moment. When you notice that you're not present, take a gentle mental note and bring your focus back to the now.",
     premium: false,
     count: 0
   }

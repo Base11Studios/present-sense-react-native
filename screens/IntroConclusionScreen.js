@@ -5,6 +5,7 @@ import { NavigationActions, StackActions } from "react-navigation";
 import { connect } from "react-redux";
 import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
+import { ProgressStepper } from "../components/ProgressStepper";
 import { showTutorial } from "../redux/reducers/tutorial";
 import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
 
@@ -30,6 +31,7 @@ class IntroConclusionScreen extends React.Component {
   render() {
     return (
       <PageContainer style={{ backgroundColor: COLOR_PRIMARY }}>
+        <ProgressStepper totalSteps={6} stepNumber={6} />
         <View
           style={{
             padding: 20,

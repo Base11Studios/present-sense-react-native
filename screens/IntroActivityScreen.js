@@ -3,6 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { Button } from "react-native-elements";
 import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
+import { ProgressStepper } from "../components/ProgressStepper";
 import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
 
 export default class IntroActivityScreen extends React.Component {
@@ -13,6 +14,7 @@ export default class IntroActivityScreen extends React.Component {
   render() {
     return (
       <PageContainer style={{ backgroundColor: COLOR_PRIMARY }}>
+        <ProgressStepper totalSteps={6} stepNumber={3} />
         <View
           style={{
             padding: 20,

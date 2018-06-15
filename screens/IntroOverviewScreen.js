@@ -1,8 +1,9 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Button } from "react-native-elements";
 import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
+import { ProgressStepper } from "../components/ProgressStepper";
 import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
 
 export default class IntroOverviewScreen extends React.Component {
@@ -13,6 +14,7 @@ export default class IntroOverviewScreen extends React.Component {
   render() {
     return (
       <PageContainer style={{ backgroundColor: COLOR_PRIMARY }}>
+        <ProgressStepper totalSteps={6} stepNumber={2} />
         <View
           style={{
             padding: 20,
@@ -21,10 +23,7 @@ export default class IntroOverviewScreen extends React.Component {
             justifyContent: "center"
           }}
         >
-          <Image
-            style={{ width: 140, height: 140 }}
-            source={require("../assets/images/icon.png")}
-          />
+          <MyText />
         </View>
 
         <View style={styles.header}>
