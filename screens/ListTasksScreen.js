@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import AnytimeTile from "../components/AnytimeTile";
 import { PageContainer } from "../components/PageContainer";
 import SearchFilterView from "../components/SearchFilterView";
+import TutorialView from "../components/TutorialView";
 import { getLightBackgroundColorByDay } from "../constants/Helpers";
 import { setActiveTaskType, startTask } from "../redux/reducers/tasks";
 import {

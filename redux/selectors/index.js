@@ -18,7 +18,7 @@ export const getLeastUsedTasks = createSelector(
 
     return tasks
       .filter(task => {
-        if (task.premium && !premium) {
+        if ((task.premium && !premium) || task.type === "Tutorial") {
           return false;
         } else {
           return true;
