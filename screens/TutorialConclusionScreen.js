@@ -41,6 +41,7 @@ class TutorialConclusionScreen extends React.Component {
             color={COLOR_WHITE}
             {...this.props}
             resetRoute="Tutorial"
+            underlayColor={COLOR_TERTIARY}
           />
         </View>
         <View

@@ -56,7 +56,12 @@ const InnerCompleteTaskForm = props => {
           style={{ marginBottom: 0 }}
         />
         <View style={{ alignItems: "flex-end", marginBottom: 20 }}>
-          <DismissButton color={COLOR_WHITE} {...props} resetRoute="Tutorial" />
+          <DismissButton
+            color={COLOR_WHITE}
+            {...props}
+            resetRoute="Tutorial"
+            underlayColor={COLOR_TERTIARY}
+          />
         </View>
         <View
           style={{
