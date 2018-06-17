@@ -11,11 +11,14 @@ export class ProgressStepper extends React.Component {
 
     return (
       <View
-        style={{
-          flexDirection: "row",
-          marginTop: 0,
-          marginBottom: 20
-        }}
+        style={[
+          {
+            flexDirection: "row",
+            marginTop: 0,
+            marginBottom: 20
+          },
+          this.props.style
+        ]}
       >
         {steps.map(stepNumIter => (
           <View

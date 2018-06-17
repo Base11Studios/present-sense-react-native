@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Button } from "react-native-elements";
 import { connect } from "react-redux";
+import { DismissButton } from "../components/DismissButton";
 import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
 import { ProgressStepper } from "../components/ProgressStepper";
@@ -16,7 +17,18 @@ class TutorialActivityScreen extends React.Component {
     const { activeTask } = this.props;
     return (
       <PageContainer style={{ backgroundColor: COLOR_TERTIARY }}>
-        <ProgressStepper totalSteps={8} stepNumber={5} />
+        <ProgressStepper
+          totalSteps={8}
+          stepNumber={5}
+          style={{ marginBottom: 0 }}
+        />
+        <View style={{ alignItems: "flex-end", marginBottom: 20 }}>
+          <DismissButton
+            color={COLOR_WHITE}
+            {...this.props}
+            resetRoute="Tutorial"
+          />
+        </View>
         <View
           style={{
             padding: 20,
@@ -40,7 +52,7 @@ class TutorialActivityScreen extends React.Component {
               marginTop: 10,
               marginBottom: 24,
               color: COLOR_WHITE,
-              fontSize: 21
+              fontSize: 20
             }}
           >
             {activeTask.activityText}
@@ -73,9 +85,9 @@ class TutorialActivityScreen extends React.Component {
 const styles = StyleSheet.create({
   header: {
     padding: 20,
-    flex: 1
-    // alignContent: "center",
-    // justifyContent: "center"
+    flex: 1,
+    alignItems: "flex-start",
+    justifyContent: "flex-start"
   }
 });
 

@@ -68,12 +68,12 @@ const InnerCompleteTaskForm = props => {
               marginTop: 10,
               marginBottom: 24,
               color: COLOR_WHITE,
-              fontSize: 21
+              fontSize: 20
             }}
           >
-            Great job! The second part is writing down what you observed. This
-            helps you create a habit and visualize your experience. Write a few
-            sentences about what you observed during your 6 breaths.
+            Great job! Now, let's write down what you observed during your 6
+            breaths. This helps you create a habit and visualize your
+            experience.
           </MyText>
         </View>
         <View style={[styles.header, { flex: 1 }]}>

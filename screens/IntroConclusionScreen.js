@@ -49,12 +49,12 @@ class IntroConclusionScreen extends React.Component {
               marginTop: 10,
               marginBottom: 24,
               color: COLOR_WHITE,
-              fontSize: 21
+              fontSize: 20
             }}
           >
-            You've completed your first Mindful Experience with Present Sense!
-            Do a few everyday to bring mindfulness into your daily life and
-            experience every moment life has to offer.
+            You just completed your first Mindful Experience! Do a few everyday
+            to bring mindfulness into your life and experience every moment life
+            can offer.
           </MyText>
         </View>
         <View
@@ -85,8 +85,8 @@ const styles = StyleSheet.create({
   header: {
     padding: 20,
     flex: 1,
-    alignContent: "center",
-    justifyContent: "center"
+    alignItems: "flex-start",
+    justifyContent: "flex-start"
   }
 });
 

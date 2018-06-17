@@ -10,6 +10,7 @@ import { Button } from "react-native-elements";
 import { connect } from "react-redux";
 import Yup from "yup";
 import { AutoExpandingTextInput } from "../components/AutoExpandingTextInput";
+import { DismissButton } from "../components/DismissButton";
 import { ErrorText } from "../components/ErrorText";
 import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
@@ -49,17 +50,19 @@ const InnerCompleteTaskForm = props => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <PageContainer style={{ backgroundColor: COLOR_TERTIARY }}>
-        <ProgressStepper totalSteps={8} stepNumber={6} />
-        {/* <KeyboardAvoidingView
-        behavior="height"
-        enabled
-        keyboardVerticalOffset={0}
-      > */}
+        <ProgressStepper
+          totalSteps={8}
+          stepNumber={6}
+          style={{ marginBottom: 0 }}
+        />
+        <View style={{ alignItems: "flex-end", marginBottom: 20 }}>
+          <DismissButton color={COLOR_WHITE} {...props} resetRoute="Tutorial" />
+        </View>
         <View
           style={{
             padding: 20,
             height: 280,
-            alignContent: "center",
+            alignItems: "center",
             justifyContent: "center"
           }}
         >
@@ -68,7 +71,7 @@ const InnerCompleteTaskForm = props => {
               marginTop: 10,
               marginBottom: 24,
               color: COLOR_WHITE,
-              fontSize: 21
+              fontSize: 20
             }}
           >
             {task.observationText}

@@ -38,13 +38,12 @@ export default class IntroActivityScreen extends React.Component {
               marginTop: 10,
               marginBottom: 24,
               color: COLOR_WHITE,
-              fontSize: 21
+              fontSize: 20
             }}
           >
-            Let's start by taking 6 deep breaths through your nose. Focus on
-            feeling the sensations in your nostrils as the air moves by. If you
-            notice your mind wandering, gently bring your focus back to your
-            breath.
+            Let's practice mindfulness by taking 6 deep breaths through your
+            nose. Focus on feeling the sensations in your nostrils as the air
+            moves in and out.
           </MyText>
         </View>
         <View
@@ -74,8 +73,8 @@ export default class IntroActivityScreen extends React.Component {
 const styles = StyleSheet.create({
   header: {
     padding: 20,
-    flex: 1
-    // alignContent: "center",
-    // justifyContent: "center"
+    flex: 1,
+    alignItems: "flex-start",
+    justifyContent: "flex-start"
   }
 });

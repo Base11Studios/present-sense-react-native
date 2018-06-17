@@ -32,12 +32,11 @@ export default class IntroOverviewScreen extends React.Component {
               marginTop: 10,
               marginBottom: 24,
               color: COLOR_WHITE,
-              fontSize: 21
+              fontSize: 20
             }}
           >
-            Present Sense uses Mindfulness to teach you to experience the world
-            around you. Mindfulness is the ability to be aware of where we are
-            and what we're doing in the present moment.
+            Present Sense teaches Mindfulness: the ability to be aware of where
+            we are and what we're doing in the present moment.
           </MyText>
         </View>
         <View
@@ -68,7 +67,7 @@ const styles = StyleSheet.create({
   header: {
     padding: 20,
     flex: 1,
-    alignContent: "center",
-    justifyContent: "center"
+    alignItems: "flex-start",
+    justifyContent: "flex-start"
   }
 });

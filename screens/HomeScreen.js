@@ -7,7 +7,6 @@ import { EverydayTasksTile } from "../components/EverydayTasksTile";
 import LearnHowTile from "../components/LearnHowTile";
 import MindfulQuoteTile from "../components/MindfulQuoteTile";
 import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
-import TutorialView from "../components/TutorialView";
 import {
   updateIAPs,
   updateUserSubscriptions
@@ -40,7 +39,7 @@ class HomeScreen extends React.Component {
 
     return (
       <ScrollingPageContainer>
-        <TutorialView
+        {/* <TutorialView
           {...this.props}
           tutorialNavigation={"FAQ"}
           tutorialType="homeIntro"
@@ -48,7 +47,7 @@ class HomeScreen extends React.Component {
           tutorialDescription={
             "Start with the tutorials in the Learn How section to continue your learning journey. If you want to learn the 'why' behind mindfulness, see the FAQ section in Settings."
           }
-        />
+        /> */}
         <MindfulQuoteTile />
         <LearnHowTile {...this.props} />
         <EverydayTasksTile {...this.props} />

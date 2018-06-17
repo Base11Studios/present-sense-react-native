@@ -68,13 +68,12 @@ const InnerCompleteTaskForm = props => {
               marginTop: 10,
               marginBottom: 24,
               color: COLOR_WHITE,
-              fontSize: 21
+              fontSize: 20
             }}
           >
-            Awesome! An important part of mindfulness is being aware of your
-            thoughts, feelings, and body. Now, close your eyes and briefly scan
-            from head to toe. How do you feel physically, emotionally, and
-            mentally?
+            Awesome! It is also important to be aware of your thoughts,
+            feelings, and body. Close your eyes and briefly scan from head to
+            toe.
           </MyText>
         </View>
         <View style={[styles.header, { flex: 1 }]}>
@@ -86,7 +85,7 @@ const InnerCompleteTaskForm = props => {
                 color: COLOR_WHITE
               }}
             >
-              How do you feel?
+              How do you feel physically, emotionally, and mentally?
             </MyText>
             <AutoExpandingTextInput
               onChangeText={text => props.setFieldValue("feel", text)}

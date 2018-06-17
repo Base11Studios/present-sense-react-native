@@ -35,7 +35,7 @@ export default class IntroScreen extends React.Component {
               marginTop: 10,
               marginBottom: 24,
               color: COLOR_WHITE,
-              fontSize: 21
+              fontSize: 20
             }}
           >
             Welcome to Present Sense. An app that teaches you to experience the
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   header: {
     padding: 20,
     flex: 1,
-    alignContent: "center",
-    justifyContent: "center"
+    alignItems: "flex-start",
+    justifyContent: "flex-start"
   }
 });
