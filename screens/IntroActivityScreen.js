@@ -18,7 +18,7 @@ export default class IntroActivityScreen extends React.Component {
         <View
           style={{
             padding: 20,
-            height: 180,
+            height: 100,
             alignItems: "center",
             justifyContent: "center"
           }}

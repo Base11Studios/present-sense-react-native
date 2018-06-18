@@ -18,7 +18,7 @@ export default class IntroOverviewScreen extends React.Component {
         <View
           style={{
             padding: 20,
-            height: 180,
+            height: 100,
             alignContent: "center",
             justifyContent: "center"
           }}

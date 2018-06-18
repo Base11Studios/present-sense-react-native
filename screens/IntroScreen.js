@@ -18,13 +18,13 @@ export default class IntroScreen extends React.Component {
         <View
           style={{
             padding: 20,
-            height: 180,
+            height: 100,
             alignItems: "center",
             justifyContent: "center"
           }}
         >
           <Image
-            style={{ width: 140, height: 140 }}
+            style={{ width: 90, height: 90 }}
             source={require("../assets/images/icon.png")}
           />
         </View>
