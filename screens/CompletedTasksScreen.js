@@ -18,7 +18,6 @@ import StatTile from "../components/StatTile";
 import { Title3 } from "../components/Title3";
 import { Title4 } from "../components/Title4";
 import { Title5 } from "../components/Title5";
-import TutorialView from "../components/TutorialView";
 import { getBackgroundColorByDay } from "../constants/Helpers";
 import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
 
@@ -175,13 +174,13 @@ class CompletedTasksScreen extends React.Component {
       </ScrollingPageContainer>
     ) : (
       <PageContainer style={styles.container}>
-        <TutorialView
+        {/* <TutorialView
           tutorialType="completedIntro"
           tutorialTitle="Your Journey"
           tutorialDescription={
             "Come here after you've completed your first mindful experience. Check in to see your progress and history over time!"
           }
-        />
+        /> */}
         <Title3>
           You haven't completed any mindful experiences. Find one on the Home or
           Search tabs, then return here to see your stats!
