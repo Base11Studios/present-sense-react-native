@@ -379,14 +379,14 @@ export const TabNavigator = createBottomTabNavigator(
           case "Home":
             iconName =
               Platform.OS === "ios"
-                ? `ios-star${focused ? "" : "-outline"}`
-                : "md-star";
+                ? `ios-home${focused ? "" : "-outline"}`
+                : "md-home";
             break;
           case "Search":
             iconName =
               Platform.OS === "ios"
-                ? `ios-list${focused ? "-box" : ""}`
-                : "md-list";
+                ? `ios-search${focused ? "" : "-outline"}`
+                : "md-search";
             break;
           case "Journey":
             iconName =
