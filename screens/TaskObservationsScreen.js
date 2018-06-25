@@ -63,7 +63,7 @@ const InnerCompleteTaskForm = props => {
         </View>
         <View
           style={{
-            padding: 0,
+            padding: 20,
             flex: 2,
             alignItems: "center",
             justifyContent: "center"

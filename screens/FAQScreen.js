@@ -24,7 +24,7 @@ export default class FAQScreen extends React.Component {
             result in us feeling at peace. By bringing our awareness to the
             present, something that is definitely happening, we can appreciate
             what we do have right now. Focusing on the present allows us to
-            actualy live our lives and enjoy the world around us.
+            actually live our lives and enjoy the world around us.
           </MyText>
           <Title3>Why mindful journaling?</Title3>
           <MyText style={{ marginBottom: 24 }}>

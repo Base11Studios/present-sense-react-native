@@ -101,7 +101,7 @@ android {
         applicationId "com.base11studios.presentmoment"
         minSdkVersion 26
         targetSdkVersion 26
-        versionCode 5
+        versionCode 7
         versionName "1.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
