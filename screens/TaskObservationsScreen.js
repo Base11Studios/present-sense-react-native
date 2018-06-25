@@ -15,13 +15,9 @@ import { ErrorText } from "../components/ErrorText";
 import { KeyboardAwareScrollingPageContainer } from "../components/KeyboardAwareScrollingPageContainer";
 import { MyText } from "../components/MyText";
 import { ProgressStepper } from "../components/ProgressStepper";
+import { getBackgroundColorByDay } from "../constants/Helpers";
 import { completeTask } from "../redux/reducers/tasks";
-import {
-  COLOR_BLACK,
-  COLOR_LIGHT_GREY,
-  COLOR_TERTIARY,
-  COLOR_WHITE
-} from "../styles/common";
+import { COLOR_BLACK, COLOR_LIGHT_GREY, COLOR_WHITE } from "../styles/common";
 
 // Our inner form component. Will be wrapped with Formik({..})
 const InnerCompleteTaskForm = props => {
@@ -38,11 +34,11 @@ const InnerCompleteTaskForm = props => {
   } = props;
   const { task } = props;
 
-  const feelErrors =
-    !!touched.feel && !!errors.feel ? (
-      <ErrorText style={{ marginBottom: 26 }}>{errors.feel}</ErrorText>
+  const promptErrors =
+    !!touched.prompt && !!errors.prompt ? (
+      <ErrorText style={{ marginBottom: 20 }}>{errors.prompt}</ErrorText>
     ) : (
-      <View style={{ marginBottom: 26 }} />
+      <View />
     );
 
   state = { promptInputHeight: 20, feelInputHeight: 20 };
@@ -50,24 +46,24 @@ const InnerCompleteTaskForm = props => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <KeyboardAwareScrollingPageContainer
-        style={{ backgroundColor: COLOR_TERTIARY }}
+        style={{ backgroundColor: getBackgroundColorByDay(task.type) }}
       >
         <ProgressStepper
-          totalSteps={8}
-          stepNumber={7}
+          totalSteps={2}
+          stepNumber={1}
           style={{ marginBottom: 0 }}
         />
         <View style={{ alignItems: "flex-end", marginBottom: 20 }}>
           <DismissButton
             color={COLOR_WHITE}
             {...props}
-            resetRoute="Tutorial"
-            underlayColor={COLOR_TERTIARY}
+            resetRoute="DoTask"
+            underlayColor={getBackgroundColorByDay(task.type)}
           />
         </View>
         <View
           style={{
-            padding: 20,
+            padding: 0,
             flex: 2,
             alignItems: "center",
             justifyContent: "center"
@@ -81,7 +77,8 @@ const InnerCompleteTaskForm = props => {
               fontSize: 20
             }}
           >
-            {task.feelingText}
+            Way to go! Now let's journal about your observations during{" "}
+            {task.title}.
           </MyText>
         </View>
         <View style={[styles.header, { flex: 1 }]}>
@@ -93,11 +90,11 @@ const InnerCompleteTaskForm = props => {
                 color: COLOR_WHITE
               }}
             >
-              {task.feelPrompt}
+              {task.prompt}
             </MyText>
             <AutoExpandingTextInput
-              onChangeText={text => props.setFieldValue("feel", text)}
-              value={props.values.feel}
+              onChangeText={text => props.setFieldValue("prompt", text)}
+              value={props.values.prompt}
               style={{
                 borderColor: COLOR_WHITE,
                 color: COLOR_BLACK,
@@ -107,7 +104,7 @@ const InnerCompleteTaskForm = props => {
               underlineColorAndroid={COLOR_WHITE}
               selectionColor={COLOR_WHITE}
             />
-            {feelErrors}
+            {promptErrors}
           </View>
         </View>
         <View
@@ -120,37 +117,38 @@ const InnerCompleteTaskForm = props => {
         >
           <Button
             iconRight={{ name: "keyboard-arrow-right", type: "material" }}
-            title="Feelings, Journaled"
+            title="Observations, Journaled"
             color={COLOR_WHITE}
             buttonStyle={{
-              backgroundColor: COLOR_TERTIARY
+              backgroundColor: getBackgroundColorByDay(task.type)
             }}
             large={true}
             onPress={props.handleSubmit}
           />
         </View>
+        {/* </KeyboardAvoidingView> */}
       </KeyboardAwareScrollingPageContainer>
     </TouchableWithoutFeedback>
   );
 };
 
 const CompleteTaskForm = withFormik({
-  mapPropsToValues: () => ({ feel: "" }),
+  mapPropsToValues: () => ({ prompt: "" }),
   validationSchema: Yup.object().shape({
-    feel: Yup.string().required("Response is required!")
+    prompt: Yup.string().required("Response is required!")
   }),
   handleSubmit: (values, { props, setSubmitting }) => {
-    let completed = { ...props.navigation.state.params.result };
-    completed.formValues.feel = values.feel;
-    completed.hideToast = true;
+    const result = {
+      task: props.task,
+      formValues: { prompt: values.prompt, feel: "" }
+    };
 
-    props.completeTask(completed);
-    props.navigation.navigate("TutorialConclusion");
+    props.navigation.navigate("TaskFeelings", { result: result });
   },
-  displayName: "TutorialFeelForm" // helps with React DevTools
+  displayName: "TaskPromptForm" // helps with React DevTools
 })(InnerCompleteTaskForm);
 
-class TutorialFeelingsScreen extends React.Component {
+class TaskObservationsScreen extends React.Component {
   render() {
     return <CompleteTaskForm {...this.props} />;
   }
@@ -180,4 +178,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TutorialFeelingsScreen);
+)(TaskObservationsScreen);

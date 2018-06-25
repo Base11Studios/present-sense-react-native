@@ -8,13 +8,17 @@ import {
   SubscribeNavigator,
   TabNavigator,
   TaskHelpNavigator,
-  TutorialNavigator
+  TutorialNavigator,
+  ViewTaskNavigator
 } from "./MainTabNavigator";
 
 const RootStackNavigator = StackNavigator(
   {
     Main: {
       screen: TabNavigator
+    },
+    ViewTask: {
+      screen: ViewTaskNavigator
     },
     DoTask: {
       screen: DoTaskNavigator

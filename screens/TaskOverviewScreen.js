@@ -14,7 +14,7 @@ import { COLOR_BLACK, COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
 class TaskOverviewScreen extends Component {
   onPressStartTask = selectedTask => {
     this.props.startTask(selectedTask);
-    this.props.navigation.navigate("RecordingTask", { task: selectedTask });
+    this.props.navigation.navigate("TaskObservations", { task: selectedTask });
   };
 
   onPressGetHelp(props) {

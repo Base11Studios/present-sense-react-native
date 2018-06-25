@@ -48,8 +48,8 @@ class TutorialHelperScreen extends React.Component {
         <View
           style={{
             padding: 20,
-            height: 100,
-            alignContent: "center",
+            flex: 1,
+            alignItems: "center",
             justifyContent: "center"
           }}
         >
@@ -71,8 +71,8 @@ class TutorialHelperScreen extends React.Component {
         <View
           style={{
             padding: 20,
-            height: 180,
-            alignContent: "center",
+            flex: 2,
+            alignItems: "center",
             justifyContent: "center"
           }}
         >
@@ -95,7 +95,7 @@ class TutorialHelperScreen extends React.Component {
 const styles = StyleSheet.create({
   header: {
     padding: 20,
-    flex: 1,
+    flex: 5,
     alignItems: "flex-start",
     justifyContent: "flex-start"
   }

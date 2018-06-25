@@ -12,7 +12,6 @@ import Yup from "yup";
 import { AutoExpandingTextInput } from "../components/AutoExpandingTextInput";
 import { ErrorText } from "../components/ErrorText";
 import { MyText } from "../components/MyText";
-import { PageContainer } from "../components/PageContainer";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
 import { completeTask } from "../redux/reducers/tasks";
@@ -63,45 +62,43 @@ const InnerCompleteTaskForm = props => {
             "If you haven't done the experience yet, go back and finish it. Now, write the things you noticed and how you're feeling. We'll store this so you can view it later."
           }
         /> */}
-        <PageContainer>
-          <Card title={task.title}>
-            <View style={{ marginBottom: 16 }}>
-              <MyText
-                style={{
-                  fontSize: 15,
-                  fontWeight: "bold",
-                  marginBottom: 12
-                }}
-              >
-                {task.prompt}
-              </MyText>
-              <AutoExpandingTextInput
-                onChangeText={text => props.setFieldValue("prompt", text)}
-                value={props.values.prompt}
-              />
-              {promptErrors}
-            </View>
-            <View style={{ marginBottom: 16 }}>
-              <MyText
-                style={{
-                  fontSize: 15,
-                  fontWeight: "bold",
-                  marginBottom: 10
-                }}
-              >
-                How do you feel?
-              </MyText>
-              <AutoExpandingTextInput
-                onChangeText={text => props.setFieldValue("feel", text)}
-                value={props.values.feel}
-              />
-              {feelErrors}
-            </View>
-            <View>
-              <PrimaryButton onPress={props.handleSubmit} title="SUBMIT" />
-            </View>
-          </Card>
-        </PageContainer>
+        <Card title={task.title}>
+          <View style={{ marginBottom: 16 }}>
+            <MyText
+              style={{
+                fontSize: 15,
+                fontWeight: "bold",
+                marginBottom: 12
+              }}
+            >
+              {task.prompt}
+            </MyText>
+            <AutoExpandingTextInput
+              onChangeText={text => props.setFieldValue("prompt", text)}
+              value={props.values.prompt}
+            />
+            {promptErrors}
+          </View>
+          <View style={{ marginBottom: 16 }}>
+            <MyText
+              style={{
+                fontSize: 15,
+                fontWeight: "bold",
+                marginBottom: 10
+              }}
+            >
+              How do you feel?
+            </MyText>
+            <AutoExpandingTextInput
+              onChangeText={text => props.setFieldValue("feel", text)}
+              value={props.values.feel}
+            />
+            {feelErrors}
+          </View>
+          <View>
+            <PrimaryButton onPress={props.handleSubmit} title="SUBMIT" />
+          </View>
+        </Card>
       </ScrollingPageContainer>
     </TouchableWithoutFeedback>
   );
@@ -137,6 +134,11 @@ class RecordingTaskScreen extends Component {
 
   render() {
     return <CompleteTaskForm {...this.props} />;
+  }
+
+  componentDidUpdate() {
+    let keyboardScrollView = this.refs.KeyboardAwareScrollView;
+    if (keyboardScrollView) keyboardScrollView.update();
   }
 }
 

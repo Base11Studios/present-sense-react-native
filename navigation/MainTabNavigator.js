@@ -1,7 +1,7 @@
 import React from "react";
 import { Animated, Easing, Platform } from "react-native";
 import { Icon } from "react-native-elements";
-import { StackNavigator, createBottomTabNavigator } from "react-navigation";
+import { createBottomTabNavigator, StackNavigator } from "react-navigation";
 import { BackButton } from "../components/BackButton";
 import { DismissButton } from "../components/DismissButton";
 import CompletedTasksScreen from "../screens/CompletedTasksScreen";
@@ -16,10 +16,11 @@ import IntroOverviewScreen from "../screens/IntroOverviewScreen";
 import IntroScreen from "../screens/IntroScreen";
 import ListTasksScreen from "../screens/ListTasksScreen";
 import PrivacyPolicyScreen from "../screens/PrivacyPolicyScreen";
-import RecordingTaskScreen from "../screens/RecordingTaskScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 import SubscriptionScreen from "../screens/SubscriptionScreen";
+import TaskFeelingsScreen from "../screens/TaskFeelingsScreen";
 import TaskHelpScreen from "../screens/TaskHelpScreen";
+import TaskObservationsScreen from "../screens/TaskObservationsScreen";
 import TaskOverviewScreen from "../screens/TaskOverviewScreen";
 import TermsAndConditions from "../screens/TermsAndConditions";
 import TutorialActivityScreen from "../screens/TutorialActivityScreen";
@@ -34,23 +35,13 @@ import {
   COLOR_WHITE
 } from "../styles/common";
 
-export const DoTaskNavigator = StackNavigator({
+export const ViewTaskNavigator = StackNavigator({
   TaskOverview: {
     screen: TaskOverviewScreen,
     navigationOptions: props => ({
       title: "Mindful Experience",
+      headerMode: "float",
       headerRight: <DismissButton {...props} />,
-      headerTintColor: COLOR_BLACK,
-      headerStyle: {
-        backgroundColor: COLOR_WHITE
-      }
-    })
-  },
-  RecordingTask: {
-    screen: RecordingTaskScreen,
-    navigationOptions: props => ({
-      title: "Journal Experience",
-      headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
         backgroundColor: COLOR_WHITE
@@ -58,6 +49,45 @@ export const DoTaskNavigator = StackNavigator({
     })
   }
 });
+
+export const DoTaskNavigator = StackNavigator(
+  {
+    TaskObservations: {
+      screen: TaskObservationsScreen,
+      navigationOptions: props => ({
+        title: "Journal Observations",
+        // header: null,
+        // headerMode: "none",
+        headerTintColor: COLOR_BLACK,
+        headerStyle: {
+          backgroundColor: COLOR_WHITE
+        }
+      })
+    },
+    TaskFeelings: {
+      screen: TaskFeelingsScreen,
+      navigationOptions: props => ({
+        title: "Journal Feelings",
+        headerLeft: <BackButton {...props} />,
+        headerTintColor: COLOR_BLACK,
+        headerStyle: {
+          backgroundColor: COLOR_WHITE
+        }
+      })
+    }
+  },
+  {
+    headerMode: "none",
+    modal: true,
+    transitionConfig: () => ({
+      transitionSpec: {
+        duration: 0,
+        timing: Animated.timing,
+        easing: Easing.step0
+      }
+    })
+  }
+);
 
 export const SubscribeNavigator = StackNavigator({
   Subscribe: {

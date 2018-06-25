@@ -1,4 +1,4 @@
-export const taskDataVersion = 2.1;
+export const taskDataVersion = 2.4;
 export const taskData = [
   {
     title: "Brush your teeth",
@@ -138,7 +138,7 @@ export const taskData = [
     prompt: "What did you feel?",
     hints:
       "Set a second alarm at night for 10-15 minutes after the first in case you doze back asleep while doing this meditation.",
-    premium: true,
+    premium: false,
     count: 0
   },
   {
@@ -280,201 +280,215 @@ export const taskData = [
     prompt: "What did you feel?",
     hints:
       "Breathe in the aroma of your drink. Feel the cup on your hands. Watch the movement in the liquid as your drink.",
-    premium: true,
+    premium: false,
     count: 0
   },
+  // {
+  //   title: "Sit outside",
+  //   id: "21",
+  //   type: "Day",
+  //   description: "",
+  //   focusType: "Touch",
+  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+  //   prompt: "What did you feel?",
+  //   hints: "",
+  //   premium: true,
+  //   count: 0
+  // },
+  // {
+  //   title: "Drive to work",
+  //   id: "22",
+  //   type: "Morning",
+  //   description: "",
+  //   focusType: "Touch",
+  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+  //   prompt: "What did you feel?",
+  //   hints: "",
+  //   premium: true,
+  //   count: 0
+  // },
+  // {
+  //   title: "Sit in a new place",
+  //   id: "23",
+  //   type: "Anytime",
+  //   description: "",
+  //   focusType: "Touch",
+  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+  //   prompt: "What did you feel?",
+  //   hints: "",
+  //   premium: true,
+  //   count: 0
+  // },
+  // {
+  //   title: "Sit under the stars",
+  //   id: "24",
+  //   type: "Evening",
+  //   description: "",
+  //   focusType: "Touch",
+  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+  //   prompt: "What did you feel?",
+  //   hints: "",
+  //   premium: true,
+  //   count: 0
+  // },
+  // {
+  //   title: "Sit against a tree",
+  //   id: "25",
+  //   type: "Morning",
+  //   description: "",
+  //   focusType: "Touch",
+  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+  //   prompt: "What did you feel?",
+  //   hints: "",
+  //   premium: true,
+  //   count: 0
+  // },
+  // {
+  //   title: "Walk in a park",
+  //   id: "26",
+  //   type: "Day",
+  //   description: "",
+  //   focusType: "Touch",
+  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+  //   prompt: "What did you feel?",
+  //   hints: "",
+  //   premium: true,
+  //   count: 0
+  // },
+  // {
+  //   title: "Wash your face",
+  //   id: "27",
+  //   type: "Evening",
+  //   description: "",
+  //   focusType: "Touch",
+  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+  //   prompt: "What did you feel?",
+  //   hints: "",
+  //   premium: true,
+  //   count: 0
+  // },
+  // {
+  //   title: "Cut vegetables",
+  //   id: "28",
+  //   type: "Evening",
+  //   description: "",
+  //   focusType: "Touch",
+  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+  //   prompt: "What did you feel?",
+  //   hints: "",
+  //   premium: true,
+  //   count: 0
+  // },
+  // {
+  //   title: "Stretch",
+  //   id: "29",
+  //   type: "Evening",
+  //   description: "",
+  //   focusType: "Touch",
+  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+  //   prompt: "What did you feel?",
+  //   hints: "",
+  //   premium: true,
+  //   count: 0
+  // },
+  // {
+  //   title: "Drive with the windows down",
+  //   id: "30",
+  //   type: "Day",
+  //   description: "",
+  //   focusType: "Touch",
+  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+  //   prompt: "What did you feel?",
+  //   hints: "",
+  //   premium: true,
+  //   count: 0
+  // },
+  // {
+  //   title: "Listen to soothing music",
+  //   id: "31",
+  //   type: "Anytime",
+  //   description: "",
+  //   focusType: "Touch",
+  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+  //   prompt: "What did you feel?",
+  //   hints: "",
+  //   premium: true,
+  //   count: 0
+  // },
+  // {
+  //   title: "Observe people around you",
+  //   id: "32",
+  //   type: "Anytime",
+  //   description: "",
+  //   focusType: "Touch",
+  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+  //   prompt: "What did you feel?",
+  //   hints: "",
+  //   premium: true,
+  //   count: 0
+  // },
   {
-    title: "Sit outside",
-    id: "21",
-    type: "Day",
-    description: "",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
-    hints: "",
-    premium: true,
-    count: 0
-  },
-  {
-    title: "Drive to work",
-    id: "22",
-    type: "Morning",
-    description: "",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
-    hints: "",
-    premium: true,
-    count: 0
-  },
-  {
-    title: "Sit in a new place",
-    id: "23",
-    type: "Anytime",
-    description: "",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
-    hints: "",
-    premium: true,
-    count: 0
-  },
-  {
-    title: "Sit under the stars",
-    id: "24",
-    type: "Evening",
-    description: "",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
-    hints: "",
-    premium: true,
-    count: 0
-  },
-  {
-    title: "Sit against a tree",
-    id: "25",
-    type: "Morning",
-    description: "",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
-    hints: "",
-    premium: true,
-    count: 0
-  },
-  {
-    title: "Walk in a park",
-    id: "26",
-    type: "Day",
-    description: "",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
-    hints: "",
-    premium: true,
-    count: 0
-  },
-  {
-    title: "Wash your face",
-    id: "27",
-    type: "Evening",
-    description: "",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
-    hints: "",
-    premium: true,
-    count: 0
-  },
-  {
-    title: "Cut vegetables",
-    id: "28",
-    type: "Evening",
-    description: "",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
-    hints: "",
-    premium: true,
-    count: 0
-  },
-  {
-    title: "Stretch",
-    id: "29",
-    type: "Evening",
-    description: "",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
-    hints: "",
-    premium: true,
-    count: 0
-  },
-  {
-    title: "Drive with the windows down",
-    id: "30",
-    type: "Day",
-    description: "",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
-    hints: "",
-    premium: true,
-    count: 0
-  },
-  {
-    title: "Listen to soothing music",
-    id: "31",
-    type: "Anytime",
-    description: "",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
-    hints: "",
-    premium: true,
-    count: 0
-  },
-  {
-    title: "Observe people around you",
-    id: "32",
-    type: "Anytime",
-    description: "",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
-    hints: "",
-    premium: true,
-    count: 0
-  },
-  {
-    title: "Turn off your electronics",
+    title: "Turn off your cell phone",
     id: "34",
     type: "Anytime",
-    description: "",
+    description:
+      "70% of people say they wish they used their phones less. Well, do it! Turn it completely off. Do anything and be mindful during your experience. Look around and appreciate the world around you.",
     focusType: "Touch",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
     prompt: "What did you feel?",
-    hints: "",
+    hints:
+      "Try this throughout the day. When you get the urge to pick up your phone, recognize the urge, then smile to yourself and take a deep breath when you don't reach for it.",
     premium: true,
     count: 0
   },
-  {
-    title: "Wait in line",
-    id: "35",
-    type: "Day",
-    description: "",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
-    hints: "",
-    premium: true,
-    count: 0
-  },
-  {
-    title: "Set alarm for checkin",
-    id: "36",
-    type: "Anytime",
-    description: "",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
-    hints: "",
-    premium: true,
-    count: 0
-  },
-  {
-    title: "Look into someone's eyes",
-    id: "37",
-    type: "Anytime",
-    description: "",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
-    hints: "",
-    premium: true,
-    count: 0
-  },
+  // {
+  //   title: "Wait in line",
+  //   id: "35",
+  //   type: "Day",
+  //   description: "",
+  //   focusType: "Touch",
+  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+  //   prompt: "What did you feel?",
+  //   hints: "",
+  //   premium: true,
+  //   count: 0
+  // },
+  // {
+  //   title: "Set alarm for checkin",
+  //   id: "36",
+  //   type: "Anytime",
+  //   description: "",
+  //   focusType: "Touch",
+  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+  //   prompt: "What did you feel?",
+  //   hints: "",
+  //   premium: true,
+  //   count: 0
+  // },
+  // {
+  //   title: "Look into someone's eyes",
+  //   id: "37",
+  //   type: "Anytime",
+  //   description: "",
+  //   focusType: "Touch",
+  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+  //   prompt: "What did you feel?",
+  //   hints: "",
+  //   premium: true,
+  //   count: 0
+  // },
+  // {
+  //   title: "Look into someone's eyes",
+  //   id: "37",
+  //   type: "Anytime",
+  //   description: "",
+  //   focusType: "Touch",
+  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+  //   prompt: "What did you feel?",
+  //   hints: "",
+  //   premium: true,
+  //   count: 0
+  // },
   {
     title: "Tutorial: Wandering Mind",
     id: "38",
@@ -511,19 +525,19 @@ export const taskData = [
     prompt: "What did you notice?",
     feelPrompt: "How do you feel?",
     helperText: [
-      "We can be mindful at any moment, anywhere, but if you learn mindfulness through meditation practice, it may be difficult to find that awareness in everyday situations.",
+      "We can be mindful at any moment, anywhere, but sometimes it is difficult to find awareness of ourselves in everyday situations.",
       "We can use our breath, something that is always with us, as an anchor for our awareness. Whenever we want to be mindful, we simply focus on our breathing.",
-      "By practicing maintaining a focus on our breath in a formal setting, it will make it easier to be able to do here and there.",
+      "By maintaining a focus on our breath in a formal practice, it will make it easier to be able to do when you're not practicing.",
       "Let's try a meditation completely focused on breathing with intention and observing each breath in our body."
     ],
     activityText:
-      "Set a timer for 3 minutes. Take a deep breath in through your nose, then completely out through your mouth. Tie your breathing to your belly - move it in when you inhale, move it out when you exhale. Repeat until the timer is up.",
+      "Set a timer for 3 minutes. Take deep breaths in through your nose, then completely out through your mouth. Tie your breathing to your belly - move it in when you inhale, move it out when you exhale.",
     observationText:
       "Great job! What did you notice as you were observing your breath?",
     feelingText:
       "Awesome! Now that you've completed the exercise, how do you feel?",
     conclusionText:
-      "Keep practicing breathing mindfully. When you feel stressed, anxious, happy, or just want to make sure you appreciate each moment, tune into your breath to bring your awareness to the now!",
+      "Keep practicing breathing mindfully. When you feel stressed, anxious, happy, or just want to appreciate each moment, tune into your breath to bring your awareness to the now!",
     premium: false,
     count: 0
   },
@@ -549,7 +563,7 @@ export const taskData = [
     feelingText:
       "Awesome! Now that you've completed the exercise, how do you feel?",
     conclusionText:
-      "Body scans are a great way to become aware of how you're feeling in this moment. Use them both in formal meditation practice and in everyday moments to bring awareness to the present.",
+      "Body scans are a great way to be aware of how you're feeling in this moment. Use them both in formal meditation practice and in everyday moments to bring awareness to the present.",
     premium: false,
     count: 0
   },
@@ -569,12 +583,12 @@ export const taskData = [
       "Mental noting should not take the place of being mindful - it is simply a reminder to bring your attention back to the present."
     ],
     activityText:
-      "Set a timer for 5 minutes. Close your eyes, and take a few deep breaths. When you notice you attention drifting, gently note it (such as 'oh, thinking' or 'feeling', 'hearing', 'seeing', 'touching'). After a mental note, gently bring your focus back to the present.",
+      "Set a timer for 5 minutes. Close your eyes and breathe. When you notice you attention drifting, gently note it (such as 'oh, thinking' or 'oh, feeling'). After a mental note, gently bring your focus back to the present.",
     observationText: "Great job! What did you notice during the experience?",
     feelingText:
       "Awesome! Now that you've completed the exercise, how do you feel?",
     conclusionText:
-      "You can use mental noting throughout your day to help bring your attention to the present moment. When you notice that you're not present, take a gentle mental note and bring your focus back to the now.",
+      "You can use mental noting throughout your day to help be mindful. When you notice your mind wandering, take a gentle mental note and bring your focus back to the now.",
     premium: false,
     count: 0
   }

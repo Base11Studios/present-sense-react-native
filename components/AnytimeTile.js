@@ -13,7 +13,7 @@ class AnytimeTile extends React.Component {
       this.props.navigation.navigate("Subscribe");
     } else {
       this.props.startTask(task);
-      this.props.navigation.navigate("DoTask");
+      this.props.navigation.navigate("ViewTask");
     }
   }
 
@@ -97,4 +97,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AnytimeTile);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AnytimeTile);

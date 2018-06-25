@@ -18,13 +18,13 @@ export default class IntroScreen extends React.Component {
         <View
           style={{
             padding: 20,
-            height: 100,
+            flex: 1,
             alignItems: "center",
             justifyContent: "center"
           }}
         >
           <Image
-            style={{ width: 90, height: 90 }}
+            style={{ minWidth: 60, minHeight: 60, maxWidth: 90, maxHeight: 90 }}
             source={require("../assets/images/icon.png")}
           />
         </View>
@@ -45,8 +45,8 @@ export default class IntroScreen extends React.Component {
         <View
           style={{
             padding: 20,
-            height: 180,
-            alignContent: "center",
+            flex: 2,
+            alignItems: "center",
             justifyContent: "center"
           }}
         >
@@ -69,7 +69,7 @@ export default class IntroScreen extends React.Component {
 const styles = StyleSheet.create({
   header: {
     padding: 20,
-    flex: 1,
+    flex: 5,
     alignItems: "flex-start",
     justifyContent: "flex-start"
   }

@@ -33,7 +33,7 @@ class TutorialActivityScreen extends React.Component {
         <View
           style={{
             padding: 20,
-            height: 100,
+            flex: 1,
             alignItems: "center",
             justifyContent: "center"
           }}
@@ -47,7 +47,7 @@ class TutorialActivityScreen extends React.Component {
             Begin Experience
           </MyText>
         </View>
-        <View style={[styles.header, { flex: 1 }]}>
+        <View style={[styles.header, { flex: 5 }]}>
           <MyText
             style={{
               marginTop: 10,
@@ -62,7 +62,7 @@ class TutorialActivityScreen extends React.Component {
         <View
           style={{
             padding: 20,
-            height: 180,
+            flex: 2,
             alignItems: "center",
             justifyContent: "center"
           }}

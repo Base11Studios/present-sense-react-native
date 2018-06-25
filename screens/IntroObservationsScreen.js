@@ -11,8 +11,8 @@ import { connect } from "react-redux";
 import Yup from "yup";
 import { AutoExpandingTextInput } from "../components/AutoExpandingTextInput";
 import { ErrorText } from "../components/ErrorText";
+import { KeyboardAwareScrollingPageContainer } from "../components/KeyboardAwareScrollingPageContainer";
 import { MyText } from "../components/MyText";
-import { PageContainer } from "../components/PageContainer";
 import { ProgressStepper } from "../components/ProgressStepper";
 import { completeTask } from "../redux/reducers/tasks";
 import {
@@ -48,7 +48,9 @@ const InnerCompleteTaskForm = props => {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <PageContainer style={{ backgroundColor: COLOR_PRIMARY }}>
+      <KeyboardAwareScrollingPageContainer
+        style={{ backgroundColor: COLOR_PRIMARY }}
+      >
         <ProgressStepper totalSteps={6} stepNumber={4} />
         {/* <KeyboardAvoidingView
         behavior="height"
@@ -58,8 +60,8 @@ const InnerCompleteTaskForm = props => {
         <View
           style={{
             padding: 20,
-            height: 250,
-            alignContent: "center",
+            flex: 2,
+            alignItems: "center",
             justifyContent: "center"
           }}
         >
@@ -105,8 +107,8 @@ const InnerCompleteTaskForm = props => {
         <View
           style={{
             padding: 20,
-            height: 180,
-            alignContent: "center",
+            flex: 1,
+            alignItems: "center",
             justifyContent: "center"
           }}
         >
@@ -122,7 +124,7 @@ const InnerCompleteTaskForm = props => {
           />
         </View>
         {/* </KeyboardAvoidingView> */}
-      </PageContainer>
+      </KeyboardAwareScrollingPageContainer>
     </TouchableWithoutFeedback>
   );
 };
@@ -152,7 +154,7 @@ const styles = StyleSheet.create({
   header: {
     padding: 20,
     flex: 1
-    // alignContent: "center",
+    // alignItems: "center",
     // justifyContent: "center"
   }
 });
