@@ -11,11 +11,20 @@ export class BackButton extends React.Component {
       <Icon
         name={Platform.OS === "ios" ? "ios-arrow-back" : "md-arrow-back"}
         size={Platform.OS === "ios" ? 35 : 24}
-        color={Platform.OS === "ios" ? Colors.tintColor : COLOR_BLACK}
+        color={
+          !!this.props.color
+            ? this.props.color
+            : Platform.OS === "ios"
+              ? Colors.tintColor
+              : COLOR_BLACK
+        }
         containerStyle={
           Platform.OS === "ios"
             ? { marginBottom: -4, width: 25, marginLeft: 9 }
             : { marginBottom: -4, width: 25, marginLeft: 20 }
+        }
+        underlayColor={
+          !!this.props.underlayColor ? this.props.underlayColor : COLOR_WHITE
         }
         type="ionicon"
         onPress={() => {

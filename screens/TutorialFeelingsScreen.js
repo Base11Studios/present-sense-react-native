@@ -69,8 +69,8 @@ const InnerCompleteTaskForm = props => {
           style={{
             padding: 20,
             flex: 2,
-            alignItems: "center",
-            justifyContent: "center"
+            alignItems: "flex-start",
+            justifyContent: "flex-start"
           }}
         >
           <MyText

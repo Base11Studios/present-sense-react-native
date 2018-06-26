@@ -65,8 +65,8 @@ const InnerCompleteTaskForm = props => {
           style={{
             padding: 20,
             flex: 2,
-            alignItems: "center",
-            justifyContent: "center"
+            alignItems: "flex-start",
+            justifyContent: "flex-start"
           }}
         >
           <MyText
@@ -77,8 +77,8 @@ const InnerCompleteTaskForm = props => {
               fontSize: 20
             }}
           >
-            Way to go! Now let's journal about your observations during{" "}
-            {task.title}.
+            {`Way to go! Now let's journal about your observations during ` +
+              task.title}.
           </MyText>
         </View>
         <View style={[styles.header, { flex: 1 }]}>
