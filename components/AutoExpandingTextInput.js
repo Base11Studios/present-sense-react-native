@@ -12,6 +12,7 @@ export class AutoExpandingTextInput extends React.Component {
       <TextInput
         {...this.props}
         placeholder={"Enter Response"}
+        placeholderTextColor={COLOR_WHITE}
         style={[
           {
             borderColor: "gray",

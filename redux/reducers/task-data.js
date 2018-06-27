@@ -592,4 +592,16 @@ export const taskData = [
     premium: false,
     count: 0
   }
+  // {
+  //   title: "Chronic pain",
+  //   id: "42",
+  //   type: "Anytime",
+  //   description: "",
+  //   focusType: "Touch",
+  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+  //   prompt: "What did you feel?",
+  //   hints: "",
+  //   premium: true,
+  //   count: 0
+  // }
 ];

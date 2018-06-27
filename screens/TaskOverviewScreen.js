@@ -128,7 +128,8 @@ class TaskOverviewScreen extends Component {
 
 const styles = StyleSheet.create({
   card: {
-    paddingHorizontal: 0
+    paddingHorizontal: 0,
+    marginBottom: 20
   },
   cardPadded: {
     marginLeft: 16,

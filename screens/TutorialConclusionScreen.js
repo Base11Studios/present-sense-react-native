@@ -25,6 +25,7 @@ class TutorialConclusionScreen extends React.Component {
     );
 
     this.props.navigation.dispatch(NavigationActions.back());
+    this.props.navigation.navigate("Journey");
   }
 
   render() {

@@ -51,7 +51,7 @@ export default class FAQScreen extends React.Component {
           <Title3>What's coming next in Present Sense?</Title3>
           <MyText style={{ marginBottom: 24 }}>
             We have tons of ideas, but would love you hear from you. Drop us a
-            line at dan@base11studios.com with comments or suggestions!
+            line at support@base11studios.com with comments or suggestions!
           </MyText>
         </View>
       </ScrollingPageContainer>

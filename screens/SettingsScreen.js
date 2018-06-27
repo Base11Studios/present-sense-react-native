@@ -110,7 +110,7 @@ class SettingsScreen extends React.Component {
         <ListItem
           onPress={() =>
             this.openURL(
-              "mailto:dan@base11studios.com?subject=Present Sense " +
+              "mailto:support@base11studios.com?subject=Present Sense " +
                 Platform.OS +
                 " App"
             )
@@ -176,4 +176,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SettingsScreen);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SettingsScreen);
