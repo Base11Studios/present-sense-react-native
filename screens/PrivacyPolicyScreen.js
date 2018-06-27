@@ -15,11 +15,12 @@ export default class PrivacyPolicyScreen extends React.Component {
       <ScrollingPageContainer style={styles.header}>
         <MyText style={styles.text}>
           Present Sense does not collect any of your response data or store it
-          off your device.
+          off your device. All your data is stored locally on your phone.
         </MyText>
         <MyText style={styles.text}>
           Present Sense may track your usage of the application anonymously so
-          that we can improve the product.
+          that we can improve the product. We will not attempt to identify you
+          by name for any of our analytics.
         </MyText>
       </ScrollingPageContainer>
     );
@@ -28,7 +29,7 @@ export default class PrivacyPolicyScreen extends React.Component {
 
 const styles = StyleSheet.create({
   header: {
-    padding: 20
+    padding: 10
   },
   text: {
     paddingBottom: 16

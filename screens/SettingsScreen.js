@@ -128,6 +128,42 @@ class SettingsScreen extends React.Component {
       )
     };
 
+    item6 = {
+      key: "6",
+      view: (
+        <ListItem
+          onPress={() => this.props.navigation.navigate("SettingsPrivacy")}
+          title="Privacy Policy"
+          avatar={
+            <Icon
+              type="font-awesome"
+              name="lock"
+              size={26}
+              containerStyle={{ paddingLeft: 4, paddingRight: 4 }}
+            />
+          }
+        />
+      )
+    };
+
+    item7 = {
+      key: "7",
+      view: (
+        <ListItem
+          onPress={() => this.props.navigation.navigate("SettingsTerms")}
+          title="Terms & Conditions"
+          avatar={
+            <Icon
+              type="font-awesome"
+              name="file-text-o"
+              size={23}
+              containerStyle={{ paddingLeft: 2, paddingRight: 2 }}
+            />
+          }
+        />
+      )
+    };
+
     item3 = {
       key: "3",
       view: !this.props.premium ? (
@@ -155,7 +191,7 @@ class SettingsScreen extends React.Component {
     return (
       <PageContainer>
         <FlatList
-          data={[item3, item4, item5, item2, item1]}
+          data={[item3, item4, item5, item2, item6, item7, item1]}
           renderItem={({ item }) => item.view}
         />
       </PageContainer>

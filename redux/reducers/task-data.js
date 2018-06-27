@@ -132,7 +132,7 @@ export const taskData = [
     id: "13",
     type: "Morning",
     description:
-      "Right when you wake up, before you do or think about anything else this morning, take some time to set the day on the right track. Feel into your body, be very aware of the thoughts in your head and watch them come and go. Send 2-3 minutes examining your body and being aware of your thoughts.",
+      "Right when you wake up, before you do or think about anything else this morning, take some time to set the day on the right track. Feel into your body, be very aware of the thoughts in your head and watch them come and go. Spend 2-3 minutes examining your body and being aware of your thoughts.",
     focusType: "Touch",
     applicableFocusTypes: ["Touch"],
     prompt: "What did you feel?",

@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Alert,
-  Platform,
-  StyleSheet,
-  TouchableOpacity,
-  View
-} from "react-native";
+import { Alert, StyleSheet, TouchableOpacity, View } from "react-native";
 import * as RNIap from "react-native-iap";
 import { connect } from "react-redux";
 import { MyText } from "../components/MyText";
@@ -126,13 +120,9 @@ class SubscriptionScreen extends React.Component {
         <View style={styles.legalContainer}>
           <MyText>Recurring billing. Cancel anytime.</MyText>
           <View style={styles.termsContainer}>
-            {Platform.OS === "ios" ? (
-              <TouchableOpacity onPress={() => this.onPressTerms()}>
-                <MyText style={styles.termsText}>Terms / Conditions</MyText>
-              </TouchableOpacity>
-            ) : (
-              <View />
-            )}
+            <TouchableOpacity onPress={() => this.onPressTerms()}>
+              <MyText style={styles.termsText}>Terms & Conditions</MyText>
+            </TouchableOpacity>
             <TouchableOpacity onPress={() => this.onPressPrivacy()}>
               <MyText style={styles.termsText}>Privacy Policy</MyText>
             </TouchableOpacity>
@@ -235,4 +225,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SubscriptionScreen);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SubscriptionScreen);

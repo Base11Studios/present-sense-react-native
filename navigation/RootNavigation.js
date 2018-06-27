@@ -5,9 +5,11 @@ import {
   DoTaskNavigator,
   FAQNavigator,
   IntroNavigator,
+  PrivacyNavigator,
   SubscribeNavigator,
   TabNavigator,
   TaskHelpNavigator,
+  TermsNavigator,
   TutorialNavigator,
   ViewTaskNavigator
 } from "./MainTabNavigator";
@@ -34,6 +36,12 @@ const RootStackNavigator = StackNavigator(
     },
     TaskHelp: {
       screen: TaskHelpNavigator
+    },
+    SettingsPrivacy: {
+      screen: PrivacyNavigator
+    },
+    SettingsTerms: {
+      screen: TermsNavigator
     },
     Intro: {
       screen: IntroNavigator,

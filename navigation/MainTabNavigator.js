@@ -50,14 +50,40 @@ export const ViewTaskNavigator = StackNavigator({
   }
 });
 
+export const PrivacyNavigator = StackNavigator({
+  SettingsPrivacy: {
+    screen: PrivacyPolicyScreen,
+    navigationOptions: props => ({
+      title: "Privacy Policy",
+      headerLeft: <BackButton {...props} />,
+      headerTintColor: COLOR_BLACK,
+      headerStyle: {
+        backgroundColor: COLOR_WHITE
+      }
+    })
+  }
+});
+
+export const TermsNavigator = StackNavigator({
+  SettingsTerms: {
+    screen: TermsAndConditions,
+    navigationOptions: props => ({
+      title: "Terms & Conditions",
+      headerLeft: <BackButton {...props} />,
+      headerTintColor: COLOR_BLACK,
+      headerStyle: {
+        backgroundColor: COLOR_WHITE
+      }
+    })
+  }
+});
+
 export const DoTaskNavigator = StackNavigator(
   {
     TaskObservations: {
       screen: TaskObservationsScreen,
       navigationOptions: props => ({
         title: "Journal Observations",
-        // header: null,
-        // headerMode: "none",
         headerTintColor: COLOR_BLACK,
         headerStyle: {
           backgroundColor: COLOR_WHITE
@@ -115,7 +141,7 @@ export const SubscribeNavigator = StackNavigator({
   Terms: {
     screen: TermsAndConditions,
     navigationOptions: props => ({
-      title: "Terms and Conditions",
+      title: "Terms & Conditions",
       headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
