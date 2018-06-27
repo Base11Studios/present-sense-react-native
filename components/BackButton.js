@@ -1,6 +1,7 @@
 import React from "react";
 import { Platform } from "react-native";
 import { Icon } from "react-native-elements";
+import { NavigationActions } from "react-navigation";
 import Colors from "../constants/Colors";
 import { COLOR_BLACK } from "../styles/common";
 
@@ -28,7 +29,8 @@ export class BackButton extends React.Component {
         }
         type="ionicon"
         onPress={() => {
-          this.props.navigation.goBack();
+          // this.props.navigation.goBack();
+          this.props.navigation.dispatch(NavigationActions.back());
         }}
       />
     );

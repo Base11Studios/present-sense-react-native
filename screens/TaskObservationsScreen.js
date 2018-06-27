@@ -10,6 +10,7 @@ import { Button } from "react-native-elements";
 import { connect } from "react-redux";
 import Yup from "yup";
 import { AutoExpandingTextInput } from "../components/AutoExpandingTextInput";
+import { BackButton } from "../components/BackButton";
 import { DismissButton } from "../components/DismissButton";
 import { ErrorText } from "../components/ErrorText";
 import { KeyboardAwareScrollingPageContainer } from "../components/KeyboardAwareScrollingPageContainer";
@@ -53,7 +54,18 @@ const InnerCompleteTaskForm = props => {
           stepNumber={1}
           style={{ marginBottom: 0 }}
         />
-        <View style={{ alignItems: "flex-end", marginBottom: 20 }}>
+        <View
+          style={{
+            justifyContent: "space-between",
+            flexDirection: "row",
+            marginBottom: 20
+          }}
+        >
+          <BackButton
+            {...props}
+            color={COLOR_WHITE}
+            underlayColor={getBackgroundColorByDay(task.type)}
+          />
           <DismissButton
             color={COLOR_WHITE}
             {...props}

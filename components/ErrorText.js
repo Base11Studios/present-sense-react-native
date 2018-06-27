@@ -1,5 +1,5 @@
 import React from "react";
-import { COLOR_ALERT } from "../styles/common";
+import { COLOR_QUATERNARY } from "../styles/common";
 import { MyText } from "./MyText";
 
 export class ErrorText extends React.Component {
@@ -12,7 +12,7 @@ export class ErrorText extends React.Component {
           {
             fontSize: 14,
             fontWeight: "bold",
-            color: COLOR_ALERT
+            color: COLOR_QUATERNARY
           }
         ]}
       />

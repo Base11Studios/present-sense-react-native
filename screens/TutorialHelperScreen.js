@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Button } from "react-native-elements";
 import { connect } from "react-redux";
+import { BackButton } from "../components/BackButton";
 import { DismissButton } from "../components/DismissButton";
 import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
@@ -37,11 +38,22 @@ class TutorialHelperScreen extends React.Component {
           stepNumber={this.props.navigation.state.params.number}
           style={{ marginBottom: 0 }}
         />
-        <View style={{ alignItems: "flex-end", marginBottom: 20 }}>
+        <View
+          style={{
+            justifyContent: "space-between",
+            flexDirection: "row",
+            marginBottom: 20
+          }}
+        >
+          <BackButton
+            {...this.props}
+            color={COLOR_WHITE}
+            underlayColor={COLOR_TERTIARY}
+          />
           <DismissButton
             color={COLOR_WHITE}
             {...this.props}
-            resetRoute="Tutorial"
+            resetRoute="DoTask"
             underlayColor={COLOR_TERTIARY}
           />
         </View>

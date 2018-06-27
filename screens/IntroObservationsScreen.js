@@ -10,6 +10,7 @@ import { Button } from "react-native-elements";
 import { connect } from "react-redux";
 import Yup from "yup";
 import { AutoExpandingTextInput } from "../components/AutoExpandingTextInput";
+import { BackButton } from "../components/BackButton";
 import { ErrorText } from "../components/ErrorText";
 import { KeyboardAwareScrollingPageContainer } from "../components/KeyboardAwareScrollingPageContainer";
 import { MyText } from "../components/MyText";
@@ -51,12 +52,24 @@ const InnerCompleteTaskForm = props => {
       <KeyboardAwareScrollingPageContainer
         style={{ backgroundColor: COLOR_PRIMARY }}
       >
-        <ProgressStepper totalSteps={6} stepNumber={4} />
-        {/* <KeyboardAvoidingView
-        behavior="height"
-        enabled
-        keyboardVerticalOffset={0}
-      > */}
+        <ProgressStepper
+          totalSteps={6}
+          stepNumber={4}
+          style={{ marginBottom: 0 }}
+        />
+        <View
+          style={{
+            justifyContent: "flex-start",
+            flexDirection: "row",
+            marginBottom: 20
+          }}
+        >
+          <BackButton
+            {...props}
+            color={COLOR_WHITE}
+            underlayColor={COLOR_PRIMARY}
+          />
+        </View>
         <View
           style={{
             padding: 20,

@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Button } from "react-native-elements";
+import { BackButton } from "../components/BackButton";
 import { MyText } from "../components/MyText";
 import { PageContainer } from "../components/PageContainer";
 import { ProgressStepper } from "../components/ProgressStepper";
@@ -14,7 +15,24 @@ export default class IntroOverviewScreen extends React.Component {
   render() {
     return (
       <PageContainer style={{ backgroundColor: COLOR_PRIMARY }}>
-        <ProgressStepper totalSteps={6} stepNumber={2} />
+        <ProgressStepper
+          totalSteps={6}
+          stepNumber={2}
+          style={{ marginBottom: 0 }}
+        />
+        <View
+          style={{
+            justifyContent: "flex-start",
+            flexDirection: "row",
+            marginBottom: 20
+          }}
+        >
+          <BackButton
+            {...this.props}
+            color={COLOR_WHITE}
+            underlayColor={COLOR_PRIMARY}
+          />
+        </View>
         <View
           style={{
             padding: 20,

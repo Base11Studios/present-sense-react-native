@@ -91,7 +91,7 @@ class TaskOverviewScreen extends Component {
                 {activeTask.prompt}
               </MyText>
             </View>
-            <View style={{ width: 100 }}>
+            <View style={{ width: 150, alignItems: "flex-end" }}>
               <FocusBadge
                 focusType={activeTask.focusType}
                 style={[{ marginBottom: 10 }, styles.cardPadded]}
