@@ -1,4 +1,4 @@
-export const taskDataVersion = 2.4;
+export const taskDataVersion = 2.5;
 export const taskData = [
   {
     title: "Brush your teeth",
@@ -283,114 +283,132 @@ export const taskData = [
     premium: false,
     count: 0
   },
-  // {
-  //   title: "Sit outside",
-  //   id: "21",
-  //   type: "Day",
-  //   description: "",
-  //   focusType: "Touch",
-  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-  //   prompt: "What did you feel?",
-  //   hints: "",
-  //   premium: true,
-  //   count: 0
-  // },
-  // {
-  //   title: "Drive to work",
-  //   id: "22",
-  //   type: "Morning",
-  //   description: "",
-  //   focusType: "Touch",
-  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-  //   prompt: "What did you feel?",
-  //   hints: "",
-  //   premium: true,
-  //   count: 0
-  // },
-  // {
-  //   title: "Sit in a new place",
-  //   id: "23",
-  //   type: "Anytime",
-  //   description: "",
-  //   focusType: "Touch",
-  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-  //   prompt: "What did you feel?",
-  //   hints: "",
-  //   premium: true,
-  //   count: 0
-  // },
-  // {
-  //   title: "Sit under the stars",
-  //   id: "24",
-  //   type: "Evening",
-  //   description: "",
-  //   focusType: "Touch",
-  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-  //   prompt: "What did you feel?",
-  //   hints: "",
-  //   premium: true,
-  //   count: 0
-  // },
-  // {
-  //   title: "Sit against a tree",
-  //   id: "25",
-  //   type: "Morning",
-  //   description: "",
-  //   focusType: "Touch",
-  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-  //   prompt: "What did you feel?",
-  //   hints: "",
-  //   premium: true,
-  //   count: 0
-  // },
-  // {
-  //   title: "Walk in a park",
-  //   id: "26",
-  //   type: "Day",
-  //   description: "",
-  //   focusType: "Touch",
-  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-  //   prompt: "What did you feel?",
-  //   hints: "",
-  //   premium: true,
-  //   count: 0
-  // },
-  // {
-  //   title: "Wash your face",
-  //   id: "27",
-  //   type: "Evening",
-  //   description: "",
-  //   focusType: "Touch",
-  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-  //   prompt: "What did you feel?",
-  //   hints: "",
-  //   premium: true,
-  //   count: 0
-  // },
-  // {
-  //   title: "Cut vegetables",
-  //   id: "28",
-  //   type: "Evening",
-  //   description: "",
-  //   focusType: "Touch",
-  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-  //   prompt: "What did you feel?",
-  //   hints: "",
-  //   premium: true,
-  //   count: 0
-  // },
-  // {
-  //   title: "Stretch",
-  //   id: "29",
-  //   type: "Evening",
-  //   description: "",
-  //   focusType: "Touch",
-  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-  //   prompt: "What did you feel?",
-  //   hints: "",
-  //   premium: true,
-  //   count: 0
-  // },
+  {
+    title: "Sit outside",
+    id: "21",
+    type: "Day",
+    description:
+      "The air outside is beautiful. Spend some time sitting outside, in a chair , on the ground, wherever is comfortable. Eyes open or closed. Be mindful of your breath and your senses.",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints:
+      "Dress prepared for the weather, but if you feel slightly cold or warm, really soak in the feeling. We get uncomfortable because we resist the feeling, but when you accept that you're not the perfect temperature, it actually becomes bearable.",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Drive to work",
+    id: "22",
+    type: "Morning",
+    description:
+      "Don't rush to your destination. Be thankful for each stoplight or train you encounter. When you stop, smile, take a deep breath, and be thankful for the opportunity to be mindful.",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints:
+      "Try driving in silence. Think about how incredible it is that you can move so fast. Even though the car is moving, notice how your body is still.",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Sit in a new place",
+    id: "23",
+    type: "Anytime",
+    description:
+      "Life becomes routine and sometimes we need a reminder to break out of it to experience each moment. Sit somewhere you don't normally sit - in your house, at work, wherever you are. Does your perspective change?",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints:
+      "If you're at home or feel comfortable to do so, try closing your eyes. What new experiences can you find in this place?",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Sit under the stars",
+    id: "24",
+    type: "Evening",
+    description:
+      "The Earth is just a speck in the universe's billions of billions of planets. The stars in the sky are light years away. We can see them but not travel to them. Sit and observe the awesomeness of outer space.",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints:
+      "Examine the colors, the patterns the stars make, the movement in the sky. Feel your grounding on the Earth around you. What sounds come out at night?",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Sit against a tree",
+    id: "25",
+    type: "Morning",
+    description:
+      "A great way to disconnect from your normal thoughts and experiences is in nature, and connecting to a tree can take you there. Sit and observe the world around you, taking note, and using your breath as needed to become aware.",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints:
+      "Trees are grounded, they can weather the storm, they flex but not break, they are consistent and purposeful. We can learn a lot from trees and model our actions after them.",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Walk in a park",
+    id: "26",
+    type: "Day",
+    description:
+      "Walk slowly, feel yourself grounded with the Earth on each step. Notice nature around you. What do you notice with your senses here, in this park? Breathe in the fresh air as you walk - how does it make you feel?",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints:
+      "Getting outside of our normal routine and into nature can be liberating. The Earth is beautiful, wonderful, inspirational - take a moment to appreciate it!",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Wash your face",
+    id: "27",
+    type: "Evening",
+    description:
+      "An everyday task, washing your face can become thoughtless, but not anymore. Pay attention to the sensations you have when you apply the soap, lather it in, rinse it off. What differences are there now that your face is clean?",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints:
+      "Different soaps and wash clothes feel, smell, look different. Take note of each step of the process.",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Cut vegetables",
+    id: "28",
+    type: "Evening",
+    description:
+      "When you're making dinner, focus on each task. How does the food smell as you cut it, what is the consistency, or how does it taste?",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints:
+      "Think about how this vegetable came to be here, now. It was a seed, planted, then grown with care. It was harvested, sold, and now you're lucky to enjoy it.",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Stretch",
+    id: "29",
+    type: "Evening",
+    description:
+      "Stay flexible and fit by doing a quick 5 minute stretching routine each day. Use each stretch as an opportunity to be mindful. Each time your body is in a position it is not normally in is a chance to see a different perspective on life.",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints:
+      "Try to bend over and touch your toes. Stretch your arms, legs, back, roll your neck, whatever stretches you know.",
+    premium: true,
+    count: 0
+  },
   // {
   //   title: "Drive with the windows down",
   //   id: "30",
@@ -456,18 +474,6 @@ export const taskData = [
   // {
   //   title: "Set alarm for checkin",
   //   id: "36",
-  //   type: "Anytime",
-  //   description: "",
-  //   focusType: "Touch",
-  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-  //   prompt: "What did you feel?",
-  //   hints: "",
-  //   premium: true,
-  //   count: 0
-  // },
-  // {
-  //   title: "Look into someone's eyes",
-  //   id: "37",
   //   type: "Anytime",
   //   description: "",
   //   focusType: "Touch",
@@ -591,17 +597,19 @@ export const taskData = [
       "You can use mental noting throughout your day to help be mindful. When you notice your mind wandering, take a gentle mental note and bring your focus back to the now.",
     premium: false,
     count: 0
+  },
+  {
+    title: "Chronic pain",
+    id: "42",
+    type: "Anytime",
+    description:
+      "Our instinct to avert pain creates resistance, and resistance in turn can intensify your pain. You can't avoid what already is. Stop resisting. Sit somewhere comfortable, do a body scan, and focus on your areas of pain. Breathe into the pain, feel it lessen as you focus on it. Accept the pain.",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints:
+      "You can imagine your breath as a healing power. Each breath, focus the healing energy on your pain. Do you notice the pain hurts less when you allow it to just be without judgement or resistance?",
+    premium: true,
+    count: 0
   }
-  // {
-  //   title: "Chronic pain",
-  //   id: "42",
-  //   type: "Anytime",
-  //   description: "",
-  //   focusType: "Touch",
-  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-  //   prompt: "What did you feel?",
-  //   hints: "",
-  //   premium: true,
-  //   count: 0
-  // }
 ];
