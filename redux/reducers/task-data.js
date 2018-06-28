@@ -1,4 +1,4 @@
-export const taskDataVersion = 2.5;
+export const taskDataVersion = 2.61;
 export const taskData = [
   {
     title: "Brush your teeth",
@@ -180,7 +180,7 @@ export const taskData = [
     prompt: "What did you taste?",
     hints:
       "Take deep breaths, walk mindfully, and walk to the door slowly. Get some awareness of what emotions you're carrying so you know how it may impact your interactions if someone is home.",
-    premium: true,
+    premium: false,
     count: 0
   },
   {
@@ -238,7 +238,7 @@ export const taskData = [
     prompt: "What did you feel?",
     hints:
       "Really be in the moment, present and aware, and when you notice your thoughts wandering wishing you were somewhere else, simply bring your focus back to the dishes. Feel the water or bubbles against your skin, notice your arms moving to scrub, breathe in the scent of the dish soap. ",
-    premium: true,
+    premium: false,
     count: 0
   },
   {
@@ -252,7 +252,7 @@ export const taskData = [
     prompt: "What did you feel?",
     hints:
       "Don't worry about what you're doing to do next, just focus on being present while doing what you're already doing. Once you realize you are happy where you are, the boredom will start to dissipate. It's OK if the boredom returns, just bring your focus back to the present moment.",
-    premium: true,
+    premium: false,
     count: 0
   },
   {
@@ -409,30 +409,34 @@ export const taskData = [
     premium: true,
     count: 0
   },
-  // {
-  //   title: "Drive with the windows down",
-  //   id: "30",
-  //   type: "Day",
-  //   description: "",
-  //   focusType: "Touch",
-  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-  //   prompt: "What did you feel?",
-  //   hints: "",
-  //   premium: true,
-  //   count: 0
-  // },
-  // {
-  //   title: "Listen to soothing music",
-  //   id: "31",
-  //   type: "Anytime",
-  //   description: "",
-  //   focusType: "Touch",
-  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-  //   prompt: "What did you feel?",
-  //   hints: "",
-  //   premium: true,
-  //   count: 0
-  // },
+  {
+    title: "Drive with the windows down",
+    id: "30",
+    type: "Day",
+    description:
+      "Experience the outdoors while you go zoom! Soak in the fresh air and be a little closer to nature. Be mindful of your breathing and smile often.",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints:
+      "Try turning off your radio and listening to the sound of the wind. Can you feel it make contact with your body? How does it feel with your arm out the window?",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "Listen to soothing music",
+    id: "31",
+    type: "Anytime",
+    description:
+      "Put on music that you find soothing, sit comfortably, and listen. Hear the notes. What do you picture? Take deep breaths to maintain focus. Feel your body sink into your seat and support your weight.",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints:
+      "Try searching 'spa', 'study', 'calm' or 'classical' in your favorite music app. We love Spotify and Pandora's mixes.",
+    premium: false,
+    count: 0
+  },
   // {
   //   title: "Observe people around you",
   //   id: "32",
@@ -459,30 +463,34 @@ export const taskData = [
     premium: true,
     count: 0
   },
-  // {
-  //   title: "Wait in line",
-  //   id: "35",
-  //   type: "Day",
-  //   description: "",
-  //   focusType: "Touch",
-  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-  //   prompt: "What did you feel?",
-  //   hints: "",
-  //   premium: true,
-  //   count: 0
-  // },
-  // {
-  //   title: "Set alarm for checkin",
-  //   id: "36",
-  //   type: "Anytime",
-  //   description: "",
-  //   focusType: "Touch",
-  //   applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-  //   prompt: "What did you feel?",
-  //   hints: "",
-  //   premium: true,
-  //   count: 0
-  // },
+  {
+    title: "Wait in line",
+    id: "35",
+    type: "Day",
+    description:
+      "Take a break from always doing something and do nothing! Waiting is a chance to remove yourself from the daily hustle. Take deep breaths and just be happy in the now.",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints:
+      "Boredom comes from wanting to do something or be somewhere that you're not. Accept where you are to find peace.",
+    premium: false,
+    count: 0
+  },
+  {
+    title: "Set alarm for checkin",
+    id: "36",
+    type: "Anytime",
+    description:
+      "Set an alarm or reminder for the future. When it goes off, take a couple minutes to stop what you're doing and check in. Take 3 deep breaths and do a quick head to toe body scan. How are you feeling?",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints:
+      "If you find this helpful, make the reminder recurring so you can inject mindfulness into your daily life.",
+    premium: true,
+    count: 0
+  },
   // {
   //   title: "Look into someone's eyes",
   //   id: "37",
@@ -609,6 +617,20 @@ export const taskData = [
     prompt: "What did you feel?",
     hints:
       "You can imagine your breath as a healing power. Each breath, focus the healing energy on your pain. Do you notice the pain hurts less when you allow it to just be without judgement or resistance?",
+    premium: true,
+    count: 0
+  },
+  {
+    title: "World connection",
+    id: "43",
+    type: "Anytime",
+    description:
+      "Sit comfortable in a chair and close you eyes. Feel the peaceful energy emanating from your body. Visualize that energy growing to create a 3 foot aura around you. Let it grow further to fill the room you're in. Next, let it fill the building you're in, then the neighborhood. Let it grow to your city, state, country, continenent. Finally let your energy circle the Earth.",
+    focusType: "Touch",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    prompt: "What did you feel?",
+    hints:
+      "You have the power to make a difference in the world if you set your mind to it. This exercise helps us understand the scope of what the can change. After the meditation, use this energy to go out and share your peace with others.",
     premium: true,
     count: 0
   }

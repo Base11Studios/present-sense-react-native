@@ -24,6 +24,6 @@ export default class CreditsScreen extends React.Component {
 
 const styles = StyleSheet.create({
   header: {
-    padding: 20
+    padding: 10
   }
 });
