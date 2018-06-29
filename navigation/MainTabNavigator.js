@@ -67,7 +67,7 @@ export const TermsNavigator = StackNavigator({
   SettingsTerms: {
     screen: TermsAndConditions,
     navigationOptions: props => ({
-      title: "Terms",
+      title: "T & C",
       headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
@@ -140,7 +140,7 @@ export const SubscribeNavigator = StackNavigator({
   Terms: {
     screen: TermsAndConditions,
     navigationOptions: props => ({
-      title: "Terms",
+      title: "T & C",
       headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
