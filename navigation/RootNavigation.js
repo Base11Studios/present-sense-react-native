@@ -17,31 +17,58 @@ import {
 const RootStackNavigator = StackNavigator(
   {
     Main: {
-      screen: TabNavigator
+      screen: TabNavigator,
+      navigationOptions: props => ({
+        gesturesEnabled: false
+      })
     },
     ViewTask: {
-      screen: ViewTaskNavigator
+      screen: ViewTaskNavigator,
+      navigationOptions: props => ({
+        gesturesEnabled: false
+      })
     },
     DoTask: {
-      screen: DoTaskNavigator
+      screen: DoTaskNavigator,
+      navigationOptions: props => ({
+        gesturesEnabled: false
+      })
     },
     Subscribe: {
-      screen: SubscribeNavigator
+      screen: SubscribeNavigator,
+      navigationOptions: props => ({
+        gesturesEnabled: false
+      })
     },
     Credits: {
-      screen: CreditsNavigator
+      screen: CreditsNavigator,
+      navigationOptions: props => ({
+        gesturesEnabled: false
+      })
     },
     FAQ: {
-      screen: FAQNavigator
+      screen: FAQNavigator,
+      navigationOptions: props => ({
+        gesturesEnabled: false
+      })
     },
     TaskHelp: {
-      screen: TaskHelpNavigator
+      screen: TaskHelpNavigator,
+      navigationOptions: props => ({
+        gesturesEnabled: false
+      })
     },
     SettingsPrivacy: {
-      screen: PrivacyNavigator
+      screen: PrivacyNavigator,
+      navigationOptions: props => ({
+        gesturesEnabled: false
+      })
     },
     SettingsTerms: {
-      screen: TermsNavigator
+      screen: TermsNavigator,
+      navigationOptions: props => ({
+        gesturesEnabled: false
+      })
     },
     Intro: {
       screen: IntroNavigator,
@@ -50,7 +77,10 @@ const RootStackNavigator = StackNavigator(
       })
     },
     Tutorial: {
-      screen: TutorialNavigator
+      screen: TutorialNavigator,
+      navigationOptions: props => ({
+        gesturesEnabled: false
+      })
     }
   },
   {

@@ -40,9 +40,9 @@ const InnerCompleteTaskForm = props => {
 
   const feelErrors =
     !!touched.feel && !!errors.feel ? (
-      <ErrorText style={{ marginBottom: 26 }}>{errors.feel}</ErrorText>
+      <ErrorText style={{ marginBottom: 20 }}>{errors.feel}</ErrorText>
     ) : (
-      <View style={{ marginBottom: 26 }} />
+      <View style={{ marginBottom: 20 }} />
     );
 
   state = { promptInputHeight: 20, feelInputHeight: 20 };
@@ -61,7 +61,7 @@ const InnerCompleteTaskForm = props => {
           style={{
             justifyContent: "flex-start",
             flexDirection: "row",
-            marginBottom: 20
+            marginBottom: 10
           }}
         >
           <BackButton
@@ -81,14 +81,13 @@ const InnerCompleteTaskForm = props => {
           <MyText
             style={{
               marginTop: 10,
-              marginBottom: 24,
+              marginBottom: 12,
               color: COLOR_WHITE,
               fontSize: 20
             }}
           >
-            Awesome! It is also important to be aware of your thoughts,
-            feelings, and body. Close your eyes and briefly scan from head to
-            toe.
+            Awesome! It's important to be aware of your thoughts, feelings, and
+            body. Close your eyes and briefly scan from head to toe.
           </MyText>
         </View>
         <View style={[styles.header, { flex: 1 }]}>
@@ -100,7 +99,7 @@ const InnerCompleteTaskForm = props => {
                 color: COLOR_WHITE
               }}
             >
-              How do you feel physically, emotionally, and mentally?
+              {task.feelPrompt}
             </MyText>
             <AutoExpandingTextInput
               onChangeText={text => props.setFieldValue("feel", text)}
@@ -176,8 +175,8 @@ const styles = StyleSheet.create({
 function mapStateToProps(state) {
   let breathTask;
   state.tasks.tasks.forEach(task => {
-    // 6 breaths ID
-    if (task.id === "4") {
+    // Tutorial 6 breaths ID
+    if (task.id === "44") {
       breathTask = task;
     }
   });

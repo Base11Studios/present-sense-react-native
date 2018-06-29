@@ -68,7 +68,7 @@ export default class IntroOverviewScreen extends React.Component {
           <Button
             iconRight={{ name: "keyboard-arrow-right", type: "material" }}
             onPress={() => this.pressNext()}
-            title="Let's Start"
+            title="Continue"
             color={COLOR_WHITE}
             buttonStyle={{
               backgroundColor: COLOR_PRIMARY

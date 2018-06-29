@@ -3,7 +3,6 @@ import { Animated, Easing, Platform } from "react-native";
 import { Icon } from "react-native-elements";
 import { createBottomTabNavigator, StackNavigator } from "react-navigation";
 import { BackButton } from "../components/BackButton";
-import { DismissButton } from "../components/DismissButton";
 import CompletedTasksScreen from "../screens/CompletedTasksScreen";
 import CreditsScreen from "../screens/CreditsScreen";
 import FAQScreen from "../screens/FAQScreen";
@@ -39,9 +38,9 @@ export const ViewTaskNavigator = StackNavigator({
   TaskOverview: {
     screen: TaskOverviewScreen,
     navigationOptions: props => ({
-      title: "Mindful Experience",
+      title: "Be Mindful",
       headerMode: "float",
-      headerRight: <DismissButton {...props} />,
+      headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
         backgroundColor: COLOR_WHITE
@@ -68,7 +67,7 @@ export const TermsNavigator = StackNavigator({
   SettingsTerms: {
     screen: TermsAndConditions,
     navigationOptions: props => ({
-      title: "Terms & Conditions",
+      title: "Terms",
       headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
@@ -120,7 +119,7 @@ export const SubscribeNavigator = StackNavigator({
     screen: SubscriptionScreen,
     navigationOptions: props => ({
       title: "Subscribe",
-      headerRight: <DismissButton {...props} />,
+      headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
         backgroundColor: COLOR_WHITE
@@ -141,7 +140,7 @@ export const SubscribeNavigator = StackNavigator({
   Terms: {
     screen: TermsAndConditions,
     navigationOptions: props => ({
-      title: "Terms & Conditions",
+      title: "Terms",
       headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
@@ -310,14 +309,7 @@ export const IntroNavigator = StackNavigator(
   {
     header: null,
     headerMode: "none",
-    modal: false,
-    transitionConfig: () => ({
-      transitionSpec: {
-        duration: 0,
-        timing: Animated.timing,
-        easing: Easing.step0
-      }
-    })
+    modal: false
   }
 );
 
@@ -326,7 +318,7 @@ export const CreditsNavigator = StackNavigator({
     screen: CreditsScreen,
     navigationOptions: props => ({
       title: "Credits",
-      headerRight: <DismissButton {...props} />,
+      headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
         backgroundColor: COLOR_WHITE
@@ -340,7 +332,7 @@ export const TaskHelpNavigator = StackNavigator({
     screen: TaskHelpScreen,
     navigationOptions: props => ({
       title: "Mindfulness Help",
-      headerRight: <DismissButton {...props} />,
+      headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
         backgroundColor: COLOR_WHITE
@@ -354,7 +346,7 @@ export const FAQNavigator = StackNavigator({
     screen: FAQScreen,
     navigationOptions: props => ({
       title: "FAQ",
-      headerRight: <DismissButton {...props} />,
+      headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
         backgroundColor: COLOR_WHITE

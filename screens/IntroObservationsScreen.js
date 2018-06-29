@@ -61,7 +61,7 @@ const InnerCompleteTaskForm = props => {
           style={{
             justifyContent: "flex-start",
             flexDirection: "row",
-            marginBottom: 20
+            marginBottom: 10
           }}
         >
           <BackButton
@@ -81,14 +81,13 @@ const InnerCompleteTaskForm = props => {
           <MyText
             style={{
               marginTop: 10,
-              marginBottom: 24,
+              marginBottom: 12,
               color: COLOR_WHITE,
               fontSize: 20
             }}
           >
-            Great job! Now, let's write down what you observed during your 6
-            breaths. This helps you create a habit and visualize your
-            experience.
+            Great job! Write down what you observed during your 6 breaths. This
+            helps you create a habit and visualize your experience.
           </MyText>
         </View>
         <View style={[styles.header, { flex: 1 }]}>
@@ -176,7 +175,7 @@ function mapStateToProps(state) {
   let breathTask;
   state.tasks.tasks.forEach(task => {
     // 6 breaths ID
-    if (task.id === "4") {
+    if (task.id === "44") {
       breathTask = task;
     }
   });

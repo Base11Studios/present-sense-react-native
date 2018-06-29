@@ -1,4 +1,4 @@
-export const taskDataVersion = 2.61;
+export const taskDataVersion = 2.62;
 export const taskData = [
   {
     title: "Brush your teeth",
@@ -146,12 +146,12 @@ export const taskData = [
     id: "4",
     type: "Anytime",
     description:
-      "Our breath is always with us, it is a constant in our mindfulness practice. Take a deep breath, paying attention to the air coming in and going out. Repeat for a total of 6 times.",
+      "Our breath is always with us, it is a constant in our mindfulness practice. Take 6 deep breaths - in through your nose, out through your mouth. Pay attention to the air as it comes in and out.",
     focusType: "Touch",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
     prompt: "What did you feel?",
     hints:
-      "Slowly breathe in through your nostrils. Breathe out using your stomach or nose. You may notice the breath in your nose, in your lungs, in your stomach, or somewhere else in your body. Focus on being aware of those sensations as you breathe.",
+      "Slowly breathe in through your nostrils. Breathe out using your stomach. You may notice the breath in your nose, in your lungs, in your stomach, or somewhere else in your body. Focus on being aware of those sensations as you breathe.",
     premium: true,
     count: 0
   },
@@ -503,6 +503,27 @@ export const taskData = [
   //   premium: true,
   //   count: 0
   // },
+  {
+    title: "Tutorial: 6 Breaths",
+    id: "44",
+    tutorialNumber: 0,
+    type: "Tutorial",
+    focusType: "Tutorial",
+    applicableFocusTypes: ["Tutorial"],
+    prompt: "What did you notice?",
+    feelPrompt: "How do you feel?",
+    helperText: [],
+    activityText:
+      "Let's practice mindfulness by taking 6 deep breaths through your nose. Focus on feeling the sensations in your nostrils as the air moves in and out.",
+    observationText:
+      "Great job! Now, let's write down what you observed during your 6 breaths. This helps you create a habit and visualize your experience.",
+    feelingText:
+      "Awesome! It is also important to be aware of your thoughts, feelings, and body. Close your eyes and briefly scan from head to toe.",
+    conclusionText:
+      "You just completed your first Mindful Experience! Do a few everyday to bring mindfulness into your life and experience every moment life can offer.",
+    premium: false,
+    count: 0
+  },
   {
     title: "Tutorial: Wandering Mind",
     id: "38",
