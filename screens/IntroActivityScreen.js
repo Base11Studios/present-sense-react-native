@@ -47,7 +47,7 @@ export default class IntroActivityScreen extends React.Component {
               fontSize: 28
             }}
           >
-            Try Mindfulness
+            Let's Try Mindfulness
           </MyText>
         </View>
         <View style={[styles.header, { flex: 5 }]}>
@@ -75,7 +75,7 @@ export default class IntroActivityScreen extends React.Component {
           <Button
             iconRight={{ name: "keyboard-arrow-right", type: "material" }}
             onPress={() => this.pressNext()}
-            title="6 Breaths, Taken"
+            title="6 Breaths: Taken"
             color={COLOR_WHITE}
             buttonStyle={{
               backgroundColor: COLOR_PRIMARY

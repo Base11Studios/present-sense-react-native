@@ -68,7 +68,7 @@ class IntroConclusionScreen extends React.Component {
           <Button
             iconRight={{ name: "keyboard-arrow-right", type: "material" }}
             onPress={() => this.pressNext()}
-            title="Mindful Experience, Completed"
+            title="Experience: Completed"
             color={COLOR_WHITE}
             buttonStyle={{
               backgroundColor: COLOR_PRIMARY

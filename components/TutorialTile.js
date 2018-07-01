@@ -38,6 +38,7 @@ class TutorialTile extends React.Component {
           <View style={{ alignItems: "center", flex: 1 }}>
             <MyText
               style={{
+                textAlign: "center",
                 color: COLOR_WHITE,
                 fontSize: 18,
                 fontWeight: "600",

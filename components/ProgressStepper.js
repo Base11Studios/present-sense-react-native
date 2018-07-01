@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { Platform, View } from "react-native";
 import { COLOR_WHITE, COLOR_WHITE_TRANS } from "../styles/common";
 
 export class ProgressStepper extends React.Component {
@@ -15,7 +15,7 @@ export class ProgressStepper extends React.Component {
           {
             flexDirection: "row",
             marginTop: 0,
-            marginBottom: 20
+            marginBottom: Platform.OS === "ios" ? 20 : 30
           },
           this.props.style
         ]}

@@ -39,7 +39,7 @@ export default class IntroScreen extends React.Component {
             }}
           >
             Welcome to Present Sense. An app that teaches you to experience the
-            joy in everyday moments. Let's make you, happier.
+            joy in everyday moments. Let's make you: present.
           </MyText>
         </View>
         <View
@@ -53,7 +53,7 @@ export default class IntroScreen extends React.Component {
           <Button
             iconRight={{ name: "keyboard-arrow-right", type: "material" }}
             onPress={() => this.pressNext()}
-            title="Let's Start"
+            title="Start Tutorial"
             color={COLOR_WHITE}
             buttonStyle={{
               backgroundColor: COLOR_PRIMARY

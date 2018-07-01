@@ -79,7 +79,7 @@ class TutorialConclusionScreen extends React.Component {
           <Button
             iconRight={{ name: "keyboard-arrow-right", type: "material" }}
             onPress={() => this.pressNext()}
-            title="Tutorial, Completed"
+            title="Tutorial: Completed"
             color={COLOR_WHITE}
             buttonStyle={{
               backgroundColor: COLOR_TERTIARY

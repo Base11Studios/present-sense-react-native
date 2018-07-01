@@ -82,7 +82,7 @@ class TutorialActivityScreen extends React.Component {
           <Button
             iconRight={{ name: "keyboard-arrow-right", type: "material" }}
             onPress={() => this.pressNext()}
-            title="Experience, Done"
+            title="Experience: Done"
             color={COLOR_WHITE}
             buttonStyle={{
               backgroundColor: COLOR_TERTIARY

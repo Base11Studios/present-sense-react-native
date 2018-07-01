@@ -126,7 +126,7 @@ const InnerCompleteTaskForm = props => {
         >
           <Button
             iconRight={{ name: "keyboard-arrow-right", type: "material" }}
-            title="Feelings, Journaled"
+            title="Feelings: Journaled"
             color={COLOR_WHITE}
             buttonStyle={{
               backgroundColor: COLOR_PRIMARY
