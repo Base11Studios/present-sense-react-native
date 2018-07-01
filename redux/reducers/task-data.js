@@ -108,7 +108,7 @@ export const taskData = [
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
     prompt: "What did you taste?",
     hints:
-      "Place a piece of food on your tongue. Don't chew it, just let it be. Move it around inside your mouth. Notice the saliva glands starting to work. Take a bite into the food slowly and pay attention to your taste buds. Chew slowly and swallow after chewing thoroughly. Pay attention to the taste lingering in your mouth, and let it go away before you eat another piece.",
+      "Place a piece of food on your tongue and don't chew it. Move it around inside your mouth. Notice your saliva glands starting to work. Slowly take a bite into the food and focus on taste. Continue to chew slowly then swallow. Pay attention to the taste lingering in your mouth and let it go away before you eat another piece.",
     premium: false,
     count: 0
   },
@@ -646,7 +646,7 @@ export const taskData = [
     id: "43",
     type: "Anytime",
     description:
-      "Sit comfortable in a chair and close you eyes. Feel the peaceful energy emanating from your body. Visualize that energy growing to create a 3 foot aura around you. Let it grow further to fill the room you're in. Next, let it fill the building you're in, then the neighborhood. Let it grow to your city, state, country, continenent. Finally let your energy circle the Earth.",
+      "Sit comfortably and close your eyes. Feel the peaceful energy emanating from your body. Visualize that energy growing to create a 3 foot aura around you. Let it grow further to fill the room you're in. Next let it fill the building you're in, then the neighborhood. Let it grow to your city, state, country, continenent. Finally feel your energy surround the Earth.",
     focusType: "Mind",
     applicableFocusTypes: ["Mind"],
     prompt: "What did you notice?",
