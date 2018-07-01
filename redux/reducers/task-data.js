@@ -1,4 +1,4 @@
-export const taskDataVersion = 2.62;
+export const taskDataVersion = 2.64;
 export const taskData = [
   {
     title: "Brush your teeth",
