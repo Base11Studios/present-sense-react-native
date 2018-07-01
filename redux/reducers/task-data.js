@@ -33,7 +33,7 @@ export const taskData = [
     description:
       "When we ground ourselves in our step, we can become part of the earth. Walk slowly and deliberately, paying attention to each step. Do this anytime you need a break, like at work or school, to reconnect with yourself and slow down.",
     focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
     prompt: "What did you feel?",
     hints:
       "Feel the earth beneath your feet. Notice the tiny movements your muscles make to keep your balanced. The slower you go, the stronger you feel these sensations.",
@@ -76,7 +76,7 @@ export const taskData = [
     description:
       "Sit comfortably in a chair, close your eyes, and focus on your breath. Observe the parts of your body that move when you breathe in, and those that move when you breathe out. Focus on the nostrils, chest, or stomach.",
     focusType: "Sound",
-    applicableFocusTypes: ["Sound", "Smell", "Sight"],
+    applicableFocusTypes: ["Sound", "Smell", "Sight", "Touch"],
     prompt: "What did you hear?",
     mindPrompt: "",
     hints:
@@ -91,7 +91,7 @@ export const taskData = [
     description:
       "There are many mindfulness practices you can follow. Choose your favorite one, and start meditating. Use the prompt to bring a new observation to your practice.",
     focusType: "Sound",
-    applicableFocusTypes: ["Sound", "Smell", "Sight"],
+    applicableFocusTypes: ["Sound", "Smell", "Sight", "Touch"],
     prompt: "What did you hear?",
     hints:
       "Any mindfulness exercise will do. If you don't already know one, try this meditation for 10 minutes: Sit comfortably in a chair, close your eyes, and focus on your breath. Observe the parts of your body that move when you breathe in, and those that move when you breathe out. Focus on the nostrils, chest, or stomach.",
@@ -118,9 +118,9 @@ export const taskData = [
     type: "Anytime",
     description:
       "Many people use their daily shower time to think about the day ahead of them. Instead, it can be an incredible time to relax, feeling the water on your body, smelling the shampoo and soap, or listening to the water run. Pay attention in the shower, and try to focus on your sense rather than letting your mind wander.",
-    focusType: "Taste",
+    focusType: "Smell",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
-    prompt: "What did you see?",
+    prompt: "What did you smell?",
     hints:
       "You can do this at night too. Really soak in the sensations around you. Deep breathing can be really helpful.",
     premium: false,
@@ -148,7 +148,7 @@ export const taskData = [
     description:
       "Our breath is always with us, it is a constant in our mindfulness practice. Take 6 deep breaths - in through your nose, out through your mouth. Pay attention to the air as it comes in and out.",
     focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
     prompt: "What did you feel?",
     hints:
       "Slowly breathe in through your nostrils. Breathe out using your stomach. You may notice the breath in your nose, in your lungs, in your stomach, or somewhere else in your body. Focus on being aware of those sensations as you breathe.",
@@ -162,7 +162,7 @@ export const taskData = [
     description:
       "Take 5 long breaths and repeat this mantra: 'Breathing in, I calm my body. Breathing out, I smile.'",
     focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
     prompt: "What did you feel?",
     hints:
       "Try to keep your focus on your breath. If your mind wanders, take note and gently bring back your attention to your breath.",
@@ -175,9 +175,9 @@ export const taskData = [
     type: "Evening",
     description:
       "Sometimes our day or our drive home is stressful or emotional and we arrive home carrying that emotion causing impact to those at home. They deserve more, so today when you return home slow down, take a few deep breaths, and smile.",
-    focusType: "Taste",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you taste?",
+    focusType: "Sound",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
+    prompt: "What did you hear?",
     hints:
       "Take deep breaths, walk mindfully, and walk to the door slowly. Get some awareness of what emotions you're carrying so you know how it may impact your interactions if someone is home.",
     premium: false,
@@ -247,9 +247,9 @@ export const taskData = [
     type: "Day",
     description:
       "Find this mindful experience the next time you feel bored. Generally the reason we get bored is because we're wishing we were somewhere other than where we are right now. Take some time to focus on your body. Become aware of your thoughts. Observe them.",
-    focusType: "Touch",
+    focusType: "Smell",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
-    prompt: "What did you feel?",
+    prompt: "What did you smell?",
     hints:
       "Don't worry about what you're doing to do next, just focus on being present while doing what you're already doing. Once you realize you are happy where you are, the boredom will start to dissipate. It's OK if the boredom returns, just bring your focus back to the present moment.",
     premium: false,
@@ -261,9 +261,9 @@ export const taskData = [
     type: "Morning",
     description:
       "This is a refreshing way to start your morning by waking up and cleasing your body for a new day. Fill a glass with fresh water then pick a space to be still while you drink.",
-    focusType: "Touch",
+    focusType: "Taste",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Taste"],
-    prompt: "What did you feel?",
+    prompt: "What did you taste?",
     hints:
       "Take your time drinking. Stay in your space so you can focus on the act of drinking your water. Try taking a sip with your eyes, then try it with your eyes open.",
     premium: true,
@@ -275,9 +275,9 @@ export const taskData = [
     type: "Morning",
     description:
       "Before taking your first sip, choose a space to sit down. Pay attention to the way your body feels with your first sip. Drink slowly like there's no where to be but where you already are.",
-    focusType: "Touch",
+    focusType: "Taste",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
+    prompt: "What did you taste?",
     hints:
       "Breathe in the aroma of your drink. Feel the cup on your hands. Watch the movement in the liquid as your drink.",
     premium: false,
@@ -289,9 +289,9 @@ export const taskData = [
     type: "Day",
     description:
       "The air outside is beautiful. Spend some time sitting outside, in a chair , on the ground, wherever is comfortable. Eyes open or closed. Be mindful of your breath and your senses.",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
+    focusType: "Sight",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
+    prompt: "What did you see?",
     hints:
       "Dress prepared for the weather, but if you feel slightly cold or warm, really soak in the feeling. We get uncomfortable because we resist the feeling, but when you accept that you're not the perfect temperature, it actually becomes bearable.",
     premium: true,
@@ -304,7 +304,7 @@ export const taskData = [
     description:
       "Don't rush to your destination. Be thankful for each stoplight or train you encounter. When you stop, smile, take a deep breath, and be thankful for the opportunity to be mindful.",
     focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
     prompt: "What did you feel?",
     hints:
       "Try driving in silence. Think about how incredible it is that you can move so fast. Even though the car is moving, notice how your body is still.",
@@ -317,9 +317,9 @@ export const taskData = [
     type: "Anytime",
     description:
       "Life becomes routine and sometimes we need a reminder to break out of it to experience each moment. Sit somewhere you don't normally sit - in your house, at work, wherever you are. Does your perspective change?",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
+    focusType: "Sound",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
+    prompt: "What did you hear?",
     hints:
       "If you're at home or feel comfortable to do so, try closing your eyes. What new experiences can you find in this place?",
     premium: true,
@@ -331,9 +331,9 @@ export const taskData = [
     type: "Evening",
     description:
       "The Earth is just a speck in the universe's billions of billions of planets. The stars in the sky are light years away. We can see them but not travel to them. Sit and observe the awesomeness of outer space.",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
+    focusType: "Sight",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
+    prompt: "What did you see?",
     hints:
       "Examine the colors, the patterns the stars make, the movement in the sky. Feel your grounding on the Earth around you. What sounds come out at night?",
     premium: true,
@@ -346,7 +346,7 @@ export const taskData = [
     description:
       "A great way to disconnect from your normal thoughts and experiences is in nature, and connecting to a tree can take you there. Sit and observe the world around you, taking note, and using your breath as needed to become aware.",
     focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
     prompt: "What did you feel?",
     hints:
       "Trees are grounded, they can weather the storm, they flex but not break, they are consistent and purposeful. We can learn a lot from trees and model our actions after them.",
@@ -360,7 +360,7 @@ export const taskData = [
     description:
       "Walk slowly, feel yourself grounded with the Earth on each step. Notice nature around you. What do you notice with your senses here, in this park? Breathe in the fresh air as you walk - how does it make you feel?",
     focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
     prompt: "What did you feel?",
     hints:
       "Getting outside of our normal routine and into nature can be liberating. The Earth is beautiful, wonderful, inspirational - take a moment to appreciate it!",
@@ -373,9 +373,9 @@ export const taskData = [
     type: "Evening",
     description:
       "An everyday task, washing your face can become thoughtless, but not anymore. Pay attention to the sensations you have when you apply the soap, lather it in, rinse it off. What differences are there now that your face is clean?",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
+    focusType: "Smell",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
+    prompt: "What did you smell?",
     hints:
       "Different soaps and wash clothes feel, smell, look different. Take note of each step of the process.",
     premium: true,
@@ -386,7 +386,7 @@ export const taskData = [
     id: "28",
     type: "Evening",
     description:
-      "When you're making dinner, focus on each task. How does the food smell as you cut it, what is the consistency, or how does it taste?",
+      "When you're making dinner, focus on each task. How does the food smell as you cut it, what is the consistency, or how does it taste uncooked?",
     focusType: "Touch",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
     prompt: "What did you feel?",
@@ -402,7 +402,7 @@ export const taskData = [
     description:
       "Stay flexible and fit by doing a quick 5 minute stretching routine each day. Use each stretch as an opportunity to be mindful. Each time your body is in a position it is not normally in is a chance to see a different perspective on life.",
     focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
     prompt: "What did you feel?",
     hints:
       "Try to bend over and touch your toes. Stretch your arms, legs, back, roll your neck, whatever stretches you know.",
@@ -415,9 +415,9 @@ export const taskData = [
     type: "Day",
     description:
       "Experience the outdoors while you go zoom! Soak in the fresh air and be a little closer to nature. Be mindful of your breathing and smile often.",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
+    focusType: "Sound",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
+    prompt: "What did you hear?",
     hints:
       "Try turning off your radio and listening to the sound of the wind. Can you feel it make contact with your body? How does it feel with your arm out the window?",
     premium: true,
@@ -429,9 +429,9 @@ export const taskData = [
     type: "Anytime",
     description:
       "Put on music that you find soothing, sit comfortably, and listen. Hear the notes. What do you picture? Take deep breaths to maintain focus. Feel your body sink into your seat and support your weight.",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
+    focusType: "Sound",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
+    prompt: "What did you hear?",
     hints:
       "Try searching 'spa', 'study', 'calm' or 'classical' in your favorite music app. We love Spotify and Pandora's mixes.",
     premium: false,
@@ -456,7 +456,7 @@ export const taskData = [
     description:
       "70% of people say they wish they used their phones less. Well, do it! Turn it completely off. Do anything and be mindful during your experience. Look around and appreciate the world around you.",
     focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
     prompt: "What did you feel?",
     hints:
       "Try this throughout the day. When you get the urge to pick up your phone, recognize the urge, then smile to yourself and take a deep breath when you don't reach for it.",
@@ -469,9 +469,9 @@ export const taskData = [
     type: "Day",
     description:
       "Take a break from always doing something and do nothing! Waiting is a chance to remove yourself from the daily hustle. Take deep breaths and just be happy in the now.",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
+    focusType: "Mind",
+    applicableFocusTypes: ["Mind"],
+    prompt: "What did you notice?",
     hints:
       "Boredom comes from wanting to do something or be somewhere that you're not. Accept where you are to find peace.",
     premium: false,
@@ -483,9 +483,9 @@ export const taskData = [
     type: "Anytime",
     description:
       "Set an alarm or reminder for the future. When it goes off, take a couple minutes to stop what you're doing and check in. Take 3 deep breaths and do a quick head to toe body scan. How are you feeling?",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
+    focusType: "Sound",
+    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
+    prompt: "What did you hear?",
     hints:
       "If you find this helpful, make the reminder recurring so you can inject mindfulness into your daily life.",
     premium: true,
@@ -633,9 +633,9 @@ export const taskData = [
     type: "Anytime",
     description:
       "Our instinct to avert pain creates resistance, and resistance in turn can intensify your pain. You can't avoid what already is. Stop resisting. Sit somewhere comfortable, do a body scan, and focus on your areas of pain. Breathe into the pain, feel it lessen as you focus on it. Accept the pain.",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
+    focusType: "Mind",
+    applicableFocusTypes: ["Mind"],
+    prompt: "What did you notice?",
     hints:
       "You can imagine your breath as a healing power. Each breath, focus the healing energy on your pain. Do you notice the pain hurts less when you allow it to just be without judgement or resistance?",
     premium: true,
@@ -647,9 +647,9 @@ export const taskData = [
     type: "Anytime",
     description:
       "Sit comfortable in a chair and close you eyes. Feel the peaceful energy emanating from your body. Visualize that energy growing to create a 3 foot aura around you. Let it grow further to fill the room you're in. Next, let it fill the building you're in, then the neighborhood. Let it grow to your city, state, country, continenent. Finally let your energy circle the Earth.",
-    focusType: "Touch",
-    applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
-    prompt: "What did you feel?",
+    focusType: "Mind",
+    applicableFocusTypes: ["Mind"],
+    prompt: "What did you notice?",
     hints:
       "You have the power to make a difference in the world if you set your mind to it. This exercise helps us understand the scope of what the can change. After the meditation, use this energy to go out and share your peace with others.",
     premium: true,
