@@ -1,11 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
 import { connect } from "react-redux";
-import {
-  getTaskStreak,
-  getTasksPerDay,
-  getTotalTasksCompleted
-} from "../redux/selectors/index";
+import { getTasksPerDay, getTaskStreak, getTotalTasksCompleted } from "../redux/selectors/index";
 import { COLOR_WHITE } from "../styles/common";
 import { MyText } from "./MyText";
 
@@ -23,15 +19,15 @@ class StatTile extends React.Component {
         </View>
         <View style={styles.stat}>
           <MyText style={styles.statText}>{totalTasksCompleted}</MyText>
-          <MyText style={styles.statLabel}>MINDFUL EXPERIENCES</MyText>
+          <MyText style={styles.statLabel}>MINDFUL{'\n'}EXPERIENCES</MyText>
         </View>
         <View style={styles.stat}>
           <MyText style={styles.statText}>{taskStreak}</MyText>
-          <MyText style={styles.statLabel}>DAY STREAK</MyText>
+          <MyText style={styles.statLabel}>DAY{'\n'}STREAK</MyText>
         </View>
         <View style={styles.stat}>
           <MyText style={styles.statText}>{tasksPerDay.toFixed(1)}</MyText>
-          <MyText style={styles.statLabel}>M.E. / DAY</MyText>
+          <MyText style={styles.statLabel}>M.E.{'\n'}/ DAY</MyText>
         </View>
       </View>
     );
@@ -40,9 +36,9 @@ class StatTile extends React.Component {
 
 const styles = StyleSheet.create({
   header: {
-    height: 110,
+    // height: 110,
     backgroundColor: COLOR_WHITE,
-    alignItems: "center",
+    alignItems: "flex-start",
     justifyContent: "center",
     flexDirection: "row"
   },
@@ -66,7 +62,7 @@ const styles = StyleSheet.create({
   },
   statLabel: {
     textAlign: "center",
-    height: 36,
+    // height: 36,
     fontSize: 12,
     paddingLeft: 6,
     paddingRight: 6,
