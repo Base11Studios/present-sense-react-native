@@ -1,16 +1,12 @@
 import React from "react";
-import { Alert, StyleSheet, TouchableOpacity, View } from "react-native";
+import { Alert, Platform, StyleSheet, TouchableOpacity, View } from "react-native";
 import * as RNIap from "react-native-iap";
 import { connect } from "react-redux";
 import { MyText } from "../components/MyText";
 import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
 import { SubscribeCarousel } from "../components/SubscribeCarousel";
 import { Title4 } from "../components/Title4";
-import {
-  subscribeUser,
-  updateIAPs,
-  updateUserSubscriptions
-} from "../redux/reducers/subscription";
+import { subscribeUser, updateIAPs, updateUserSubscriptions } from "../redux/reducers/subscription";
 import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_WHITE } from "../styles/common";
 
 class SubscriptionScreen extends React.Component {
@@ -132,6 +128,38 @@ class SubscriptionScreen extends React.Component {
           </TouchableOpacity>
           <MyText>* Billed as one payment</MyText>
         </View>
+        {Platform.OS === "ios" ? (
+          <View style={styles.subscribe}>
+            <MyText style={styles.text}>
+              Payment will be charged to your iTunes account at confirmation of
+              purchase. Subscription automatically renews unless auto-renew is
+              turned off at least 24-hours before the end of the current period.
+              Account will be charged for renewal within 24-hours prior to the
+              end of the current period.
+            </MyText>
+            <MyText style={styles.text}>
+              Subscriptions may be managed by the user and auto-renewal may be
+              turned off by going to the user’s Account Settings after purchase.
+            </MyText>
+            <MyText style={styles.text}>
+              Any unused portion of a free trial period, if offered, will be
+              forfeited when the user purchases a subscription to that
+              publication, where applicable.
+            </MyText>
+          </View>
+        ) : (
+          <View>
+            <MyText style={styles.text}>
+              Payment will be charged to your Google Play account at
+              confirmation of purchase. Subscription automatically renews unless
+              auto-renew is turned off.
+            </MyText>
+            <MyText style={styles.text}>
+              Subscriptions may be managed by the user by going to Google Play
+              after purchase.
+            </MyText>
+          </View>
+        )}
       </ScrollingPageContainer>
     );
   }
@@ -151,6 +179,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: COLOR_WHITE,
     marginBottom: 9
+  },
+  subscribe: {
+    padding: 16
+  },
+  text: {
+    paddingBottom: 16
   },
   discount: {
     textAlign: "center",
