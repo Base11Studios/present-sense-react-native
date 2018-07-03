@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import { BackButton } from "../components/BackButton";
 import { DismissButton } from "../components/DismissButton";
 import { MyText } from "../components/MyText";
-import { PageContainer } from "../components/PageContainer";
 import { ProgressStepper } from "../components/ProgressStepper";
+import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
 import { COLOR_TERTIARY, COLOR_WHITE } from "../styles/common";
 
 class TutorialHelperScreen extends React.Component {
@@ -32,7 +32,7 @@ class TutorialHelperScreen extends React.Component {
         ? this.props.navigation.state.params.number
         : 0;
     return (
-      <PageContainer style={{ backgroundColor: COLOR_TERTIARY }}>
+      <ScrollingPageContainer style={{ backgroundColor: COLOR_TERTIARY }}>
         <ProgressStepper
           totalSteps={8}
           stepNumber={this.props.navigation.state.params.number}
@@ -57,16 +57,6 @@ class TutorialHelperScreen extends React.Component {
             underlayColor={COLOR_TERTIARY}
           />
         </View>
-        <View
-          style={{
-            padding: 20,
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center"
-          }}
-        >
-          <MyText />
-        </View>
 
         <View style={styles.header}>
           <MyText
@@ -83,7 +73,7 @@ class TutorialHelperScreen extends React.Component {
         <View
           style={{
             padding: 20,
-            flex: 2,
+            // flex: 2,
             alignItems: "center",
             justifyContent: "center"
           }}
@@ -99,7 +89,7 @@ class TutorialHelperScreen extends React.Component {
             large={true}
           />
         </View>
-      </PageContainer>
+      </ScrollingPageContainer>
     );
   }
 }
@@ -107,7 +97,7 @@ class TutorialHelperScreen extends React.Component {
 const styles = StyleSheet.create({
   header: {
     padding: 20,
-    flex: 5,
+    // flex: 5,
     alignItems: "flex-start",
     justifyContent: "flex-start"
   }

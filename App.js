@@ -5,14 +5,7 @@
  */
 
 import React from "react";
-import {
-  ActivityIndicator,
-  Platform,
-  StatusBar,
-  StyleSheet,
-  View,
-  YellowBox
-} from "react-native";
+import { ActivityIndicator, Platform, StatusBar, StyleSheet, View, YellowBox } from "react-native";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/lib/integration/react";
 import RootNavigation from "./navigation/RootNavigation";

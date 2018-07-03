@@ -1,11 +1,6 @@
 import { withFormik } from "formik";
 import { default as React } from "react";
-import {
-  Keyboard,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View
-} from "react-native";
+import { Keyboard, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 import { Button } from "react-native-elements";
 import { connect } from "react-redux";
 import Yup from "yup";
@@ -16,12 +11,7 @@ import { KeyboardAwareScrollingPageContainer } from "../components/KeyboardAware
 import { MyText } from "../components/MyText";
 import { ProgressStepper } from "../components/ProgressStepper";
 import { completeTask } from "../redux/reducers/tasks";
-import {
-  COLOR_BLACK,
-  COLOR_LIGHT_GREY,
-  COLOR_PRIMARY,
-  COLOR_WHITE
-} from "../styles/common";
+import { COLOR_BLACK, COLOR_LIGHT_GREY, COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
 
 // Our inner form component. Will be wrapped with Formik({..})
 const InnerCompleteTaskForm = props => {
@@ -73,7 +63,7 @@ const InnerCompleteTaskForm = props => {
         <View
           style={{
             padding: 20,
-            flex: 2,
+            // flex: 2,
             alignItems: "flex-start",
             justifyContent: "flex-start"
           }}
@@ -90,7 +80,7 @@ const InnerCompleteTaskForm = props => {
             helps you create a habit and visualize your experience.
           </MyText>
         </View>
-        <View style={[styles.header, { flex: 1 }]}>
+        <View style={[styles.header]}>
           <View style={{ marginBottom: 16 }}>
             <MyText
               style={{
@@ -119,7 +109,7 @@ const InnerCompleteTaskForm = props => {
         <View
           style={{
             padding: 20,
-            flex: 1,
+            // flex: 1,
             alignItems: "center",
             justifyContent: "center"
           }}
@@ -165,7 +155,7 @@ class IntroObservationsScreen extends React.Component {
 const styles = StyleSheet.create({
   header: {
     padding: 20,
-    flex: 1
+    // flex: 1
     // alignItems: "center",
     // justifyContent: "center"
   }

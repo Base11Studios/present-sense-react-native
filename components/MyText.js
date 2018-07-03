@@ -7,6 +7,7 @@ export class MyText extends React.Component {
     return (
       <Text
         {...this.props}
+        // allowFontScaling={false}
         style={[
           {
             color: COLOR_BLACK

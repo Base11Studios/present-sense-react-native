@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import { BackButton } from "../components/BackButton";
 import { DismissButton } from "../components/DismissButton";
 import { MyText } from "../components/MyText";
-import { PageContainer } from "../components/PageContainer";
 import { ProgressStepper } from "../components/ProgressStepper";
+import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
 import { COLOR_TERTIARY, COLOR_WHITE } from "../styles/common";
 
 class TutorialActivityScreen extends React.Component {
@@ -17,7 +17,7 @@ class TutorialActivityScreen extends React.Component {
   render() {
     const { activeTask } = this.props;
     return (
-      <PageContainer style={{ backgroundColor: COLOR_TERTIARY }}>
+      <ScrollingPageContainer style={{ backgroundColor: COLOR_TERTIARY }}>
         <ProgressStepper
           totalSteps={8}
           stepNumber={5}
@@ -45,9 +45,9 @@ class TutorialActivityScreen extends React.Component {
         <View
           style={{
             padding: 20,
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center"
+            // flex: 1,
+            alignItems: "flex-start",
+            justifyContent: "flex-start"
           }}
         >
           <MyText
@@ -59,7 +59,7 @@ class TutorialActivityScreen extends React.Component {
             Begin Experience
           </MyText>
         </View>
-        <View style={[styles.header, { flex: 5 }]}>
+        <View style={[styles.header]}>
           <MyText
             style={{
               marginTop: 10,
@@ -74,7 +74,7 @@ class TutorialActivityScreen extends React.Component {
         <View
           style={{
             padding: 20,
-            flex: 2,
+            // flex: 2,
             alignItems: "center",
             justifyContent: "center"
           }}
@@ -90,7 +90,7 @@ class TutorialActivityScreen extends React.Component {
             large={true}
           />
         </View>
-      </PageContainer>
+      </ScrollingPageContainer>
     );
   }
 }
@@ -98,7 +98,7 @@ class TutorialActivityScreen extends React.Component {
 const styles = StyleSheet.create({
   header: {
     padding: 20,
-    flex: 1,
+    // flex: 1,
     alignItems: "flex-start",
     justifyContent: "flex-start"
   }

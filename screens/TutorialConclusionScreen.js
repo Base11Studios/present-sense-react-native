@@ -5,8 +5,8 @@ import { NavigationActions, StackActions } from "react-navigation";
 import { connect } from "react-redux";
 import { DismissButton } from "../components/DismissButton";
 import { MyText } from "../components/MyText";
-import { PageContainer } from "../components/PageContainer";
 import { ProgressStepper } from "../components/ProgressStepper";
+import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
 import { showTutorial } from "../redux/reducers/tutorial";
 import { COLOR_TERTIARY, COLOR_WHITE } from "../styles/common";
 
@@ -31,7 +31,7 @@ class TutorialConclusionScreen extends React.Component {
   render() {
     const { activeTask } = this.props;
     return (
-      <PageContainer style={{ backgroundColor: COLOR_TERTIARY }}>
+      <ScrollingPageContainer style={{ backgroundColor: COLOR_TERTIARY }}>
         <ProgressStepper
           totalSteps={8}
           stepNumber={8}
@@ -44,16 +44,6 @@ class TutorialConclusionScreen extends React.Component {
             resetRoute="Tutorial"
             underlayColor={COLOR_TERTIARY}
           />
-        </View>
-        <View
-          style={{
-            padding: 20,
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center"
-          }}
-        >
-          <MyText />
         </View>
 
         <View style={styles.header}>
@@ -71,7 +61,7 @@ class TutorialConclusionScreen extends React.Component {
         <View
           style={{
             padding: 20,
-            flex: 2,
+            // flex: 2,
             alignItems: "center",
             justifyContent: "center"
           }}
@@ -87,7 +77,7 @@ class TutorialConclusionScreen extends React.Component {
             large={true}
           />
         </View>
-      </PageContainer>
+      </ScrollingPageContainer>
     );
   }
 }
@@ -95,7 +85,7 @@ class TutorialConclusionScreen extends React.Component {
 const styles = StyleSheet.create({
   header: {
     padding: 20,
-    flex: 5,
+    // flex: 5,
     alignItems: "flex-start",
     justifyContent: "flex-start"
   }

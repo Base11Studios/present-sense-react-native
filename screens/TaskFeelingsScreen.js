@@ -1,11 +1,6 @@
 import { withFormik } from "formik";
 import { default as React } from "react";
-import {
-  Keyboard,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View
-} from "react-native";
+import { Keyboard, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 import { Button } from "react-native-elements";
 import { connect } from "react-redux";
 import Yup from "yup";
@@ -75,7 +70,7 @@ const InnerCompleteTaskForm = props => {
         <View
           style={{
             padding: 20,
-            flex: 2,
+            // flex: 2,
             alignItems: "flex-start",
             justifyContent: "flex-start"
           }}
@@ -91,7 +86,7 @@ const InnerCompleteTaskForm = props => {
             Awesome! Now that you've completed {task.title}, how do you feel?
           </MyText>
         </View>
-        <View style={[styles.header, { flex: 1 }]}>
+        <View style={[styles.header]}>
           <View style={{ marginBottom: 16 }}>
             <MyText
               style={{
@@ -120,7 +115,7 @@ const InnerCompleteTaskForm = props => {
         <View
           style={{
             padding: 20,
-            flex: 1,
+            // flex: 1,
             alignItems: "center",
             justifyContent: "center"
           }}
@@ -166,7 +161,7 @@ class TaskFeelingsScreen extends React.Component {
 const styles = StyleSheet.create({
   header: {
     padding: 20,
-    flex: 1
+    // flex: 1
     // alignItems: "center",
     // justifyContent: "center"
   }

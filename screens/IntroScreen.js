@@ -2,8 +2,8 @@ import React from "react";
 import { Image, StyleSheet, View } from "react-native";
 import { Button } from "react-native-elements";
 import { MyText } from "../components/MyText";
-import { PageContainer } from "../components/PageContainer";
 import { ProgressStepper } from "../components/ProgressStepper";
+import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
 import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
 
 export default class IntroScreen extends React.Component {
@@ -13,18 +13,18 @@ export default class IntroScreen extends React.Component {
 
   render() {
     return (
-      <PageContainer style={{ backgroundColor: COLOR_PRIMARY }}>
+      <ScrollingPageContainer style={{ backgroundColor: COLOR_PRIMARY }}>
         <ProgressStepper totalSteps={6} stepNumber={1} />
         <View
           style={{
             padding: 20,
-            flex: 1,
+            // flex: 1,
             alignItems: "center",
             justifyContent: "center"
           }}
         >
           <Image
-            style={{ minWidth: 60, minHeight: 60, maxWidth: 90, maxHeight: 90 }}
+            style={{ width: 90, height: 90 }}
             source={require("../assets/images/icon.png")}
           />
         </View>
@@ -45,7 +45,7 @@ export default class IntroScreen extends React.Component {
         <View
           style={{
             padding: 20,
-            flex: 2,
+            // flex: 2,
             alignItems: "center",
             justifyContent: "center"
           }}
@@ -61,7 +61,7 @@ export default class IntroScreen extends React.Component {
             large={true}
           />
         </View>
-      </PageContainer>
+      </ScrollingPageContainer>
     );
   }
 }
@@ -69,7 +69,7 @@ export default class IntroScreen extends React.Component {
 const styles = StyleSheet.create({
   header: {
     padding: 20,
-    flex: 5,
+    // flex: 5,
     alignItems: "flex-start",
     justifyContent: "flex-start"
   }

@@ -4,8 +4,8 @@ import { Button } from "react-native-elements";
 import { NavigationActions, StackActions } from "react-navigation";
 import { connect } from "react-redux";
 import { MyText } from "../components/MyText";
-import { PageContainer } from "../components/PageContainer";
 import { ProgressStepper } from "../components/ProgressStepper";
+import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
 import { showTutorial } from "../redux/reducers/tutorial";
 import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
 
@@ -30,19 +30,8 @@ class IntroConclusionScreen extends React.Component {
 
   render() {
     return (
-      <PageContainer style={{ backgroundColor: COLOR_PRIMARY }}>
+      <ScrollingPageContainer style={{ backgroundColor: COLOR_PRIMARY }}>
         <ProgressStepper totalSteps={6} stepNumber={6} />
-        <View
-          style={{
-            padding: 20,
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center"
-          }}
-        >
-          <MyText />
-        </View>
-
         <View style={styles.header}>
           <MyText
             style={{
@@ -60,7 +49,7 @@ class IntroConclusionScreen extends React.Component {
         <View
           style={{
             padding: 20,
-            flex: 2,
+            // flex: 2,
             alignItems: "center",
             justifyContent: "center"
           }}
@@ -76,7 +65,7 @@ class IntroConclusionScreen extends React.Component {
             large={true}
           />
         </View>
-      </PageContainer>
+      </ScrollingPageContainer>
     );
   }
 }
@@ -84,7 +73,7 @@ class IntroConclusionScreen extends React.Component {
 const styles = StyleSheet.create({
   header: {
     padding: 20,
-    flex: 5,
+    // flex: 5,
     alignItems: "flex-start",
     justifyContent: "flex-start"
   }

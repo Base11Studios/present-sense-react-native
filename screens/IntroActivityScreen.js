@@ -3,8 +3,8 @@ import { StyleSheet, View } from "react-native";
 import { Button } from "react-native-elements";
 import { BackButton } from "../components/BackButton";
 import { MyText } from "../components/MyText";
-import { PageContainer } from "../components/PageContainer";
 import { ProgressStepper } from "../components/ProgressStepper";
+import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
 import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
 
 export default class IntroActivityScreen extends React.Component {
@@ -14,7 +14,7 @@ export default class IntroActivityScreen extends React.Component {
 
   render() {
     return (
-      <PageContainer style={{ backgroundColor: COLOR_PRIMARY }}>
+      <ScrollingPageContainer style={{ backgroundColor: COLOR_PRIMARY }}>
         <ProgressStepper
           totalSteps={6}
           stepNumber={3}
@@ -36,9 +36,9 @@ export default class IntroActivityScreen extends React.Component {
         <View
           style={{
             padding: 20,
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center"
+            // flex: 1,
+            alignItems: "flex-start",
+            justifyContent: "flex-start"
           }}
         >
           <MyText
@@ -50,7 +50,7 @@ export default class IntroActivityScreen extends React.Component {
             Let's Try Mindfulness
           </MyText>
         </View>
-        <View style={[styles.header, { flex: 5 }]}>
+        <View style={[styles.header]}>
           <MyText
             style={{
               marginTop: 10,
@@ -67,7 +67,7 @@ export default class IntroActivityScreen extends React.Component {
         <View
           style={{
             padding: 20,
-            flex: 2,
+            // flex: 2,
             alignItems: "center",
             justifyContent: "center"
           }}
@@ -83,7 +83,7 @@ export default class IntroActivityScreen extends React.Component {
             large={true}
           />
         </View>
-      </PageContainer>
+      </ScrollingPageContainer>
     );
   }
 }
@@ -91,7 +91,7 @@ export default class IntroActivityScreen extends React.Component {
 const styles = StyleSheet.create({
   header: {
     padding: 20,
-    flex: 1,
+    // flex: 1,
     alignItems: "flex-start",
     justifyContent: "flex-start"
   }

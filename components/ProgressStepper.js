@@ -15,9 +15,8 @@ export class ProgressStepper extends React.Component {
           {
             flexDirection: "row",
             marginTop: 0,
-            marginBottom: Platform.OS === "ios" ? 20 : 30
-          },
-          this.props.style
+            marginBottom: Platform.OS === "ios" ? 4 : 12
+          }
         ]}
       >
         {steps.map(stepNumIter => (
