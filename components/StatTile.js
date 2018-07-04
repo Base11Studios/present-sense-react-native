@@ -44,13 +44,14 @@ const styles = StyleSheet.create({
   },
   avatar: {
     width: 60,
-    height: 60
+    height: 60,
+    marginTop: 4
   },
   profile: {
     width: 76,
     justifyContent: "flex-start",
     alignItems: "center",
-    height: 75
+    height: 75,
   },
   stat: {
     flex: 1,

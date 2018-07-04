@@ -102,11 +102,11 @@ class SubscriptionScreen extends React.Component {
                 YEARLY
               </Title4>
               <MyText style={styles.price}>
-                {!!yearlyProduct && !!yearlyProduct.monthlyFormat
-                  ? yearlyProduct.monthlyFormat
+                {!!yearlyProduct && !!yearlyProduct.yearlyFormat
+                  ? yearlyProduct.yearlyFormat
                   : "N/A"}
               </MyText>
-              <MyText style={styles.monthDisclaimer}>*per month</MyText>
+              <MyText style={styles.monthDisclaimer}>per year</MyText>
               <MyText style={styles.discount}>
                 {!!discount ? discount + "% OFF" : ""}
               </MyText>
@@ -126,7 +126,6 @@ class SubscriptionScreen extends React.Component {
           <TouchableOpacity onPress={() => this.onPressRestore()}>
             <MyText style={styles.restoreText}>Restore Purchase</MyText>
           </TouchableOpacity>
-          <MyText>* Billed as one payment</MyText>
         </View>
         {Platform.OS === "ios" ? (
           <View style={styles.subscribe}>
@@ -148,7 +147,7 @@ class SubscriptionScreen extends React.Component {
             </MyText>
           </View>
         ) : (
-          <View>
+          <View style={styles.subscribe}>
             <MyText style={styles.text}>
               Payment will be charged to your Google Play account at
               confirmation of purchase. Subscription automatically renews unless
@@ -189,7 +188,7 @@ const styles = StyleSheet.create({
   discount: {
     textAlign: "center",
     color: COLOR_WHITE,
-    fontSize: 22,
+    fontSize: 16,
     fontWeight: "900"
   },
   price: {

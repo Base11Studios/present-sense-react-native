@@ -1,3 +1,5 @@
+import { PURGE } from "redux-persist";
+
 export const SUBSCRIBE_USER = "user/SUBSCRIBE";
 export const UNSUBSCRIBE_USER = "user/UNSUBSCRIBE";
 export const UPDATE_SUBSCRIPTIONS = "user/UPDATE_SUBSCRIPTIONS";
@@ -30,6 +32,8 @@ export default function reducer(state = initialState, action) {
         yearlyProduct: action.payload.yearlyProduct,
         discount: action.payload.discount
       };
+    case PURGE:
+      return initialState;
     default:
       return state;
   }

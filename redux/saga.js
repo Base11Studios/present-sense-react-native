@@ -5,19 +5,9 @@ import { put, select, takeEvery } from "redux-saga/effects";
 import CommonDataManager from "../constants/CommonDataManager";
 import { MONTHLY_SUB_ID, YEARLY_SUB_ID } from "../constants/IAP";
 import { COLOR_QUATERNARY } from "../styles/common";
-import {
-  SUBSCRIBE_USER,
-  UNSUBSCRIBE_USER,
-  UPDATE_IAPS,
-  UPDATE_IAPS_SUCCESS,
-  UPDATE_SUBSCRIPTIONS
-} from "./reducers/subscription";
+import { SUBSCRIBE_USER, UNSUBSCRIBE_USER, UPDATE_IAPS, UPDATE_IAPS_SUCCESS, UPDATE_SUBSCRIPTIONS } from "./reducers/subscription";
 import { COMPLETE_TASK } from "./reducers/tasks";
-import {
-  getPremium,
-  getTaskStreak,
-  getTotalTasksCompleted
-} from "./selectors/index";
+import { getPremium, getTaskStreak, getTotalTasksCompleted } from "./selectors/index";
 var currencyFormatter = require("currency-formatter");
 
 const itemSkus = Platform.select({
@@ -52,7 +42,11 @@ function* updateIaps(action) {
         if (product.productId === YEARLY_SUB_ID) {
           yearlyProduct = product;
           yearlyProduct.monthlyFormat = currencyFormatter.format(
-            yearlyProduct.price / 12,
+            yearlyProduct.price,
+            { code: yearlyProduct.currency }
+          );
+          yearlyProduct.yearlyFormat = currencyFormatter.format(
+            yearlyProduct.price,
             { code: yearlyProduct.currency }
           );
         } else if (product.productId === MONTHLY_SUB_ID) {
