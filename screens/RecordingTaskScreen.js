@@ -1,11 +1,6 @@
 import { withFormik } from "formik";
 import React, { Component } from "react";
-import {
-  Keyboard,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View
-} from "react-native";
+import { Keyboard, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 import { Card } from "react-native-elements";
 import { connect } from "react-redux";
 import Yup from "yup";
@@ -15,10 +10,7 @@ import { MyText } from "../components/MyText";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
 import { completeTask } from "../redux/reducers/tasks";
-import {
-  getTaskStreak,
-  getTotalTasksCompleted
-} from "../redux/selectors/index";
+import { getTaskStreak, getTotalTasksCompleted } from "../redux/selectors/index";
 // TODO persist answers if going back to Task Overview screen
 
 // Our inner form component. Will be wrapped with Formik({..})
@@ -117,7 +109,7 @@ const CompleteTaskForm = withFormik({
   mapPropsToValues: () => ({ prompt: "", feel: "" }),
   validationSchema: Yup.object().shape({
     prompt: Yup.string().required("Response is required!"),
-    feel: Yup.string().required("Reponse is required!")
+    feel: Yup.string().required("Response is required!")
   }),
   handleSubmit: (values, { props, setSubmitting }) => {
     completeTheTask(values, props);

@@ -1,4 +1,4 @@
-export const taskDataVersion = 2.64;
+export const taskDataVersion = 2.65;
 export const taskData = [
   {
     title: "Brush your teeth",
@@ -10,7 +10,7 @@ export const taskData = [
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
     prompt: "What did you see?",
     hints:
-      "Brush slower than normal. Observe everything involved: the toothpaste, toothbrush against your gums and tongue, the movement of your arms, etc.",
+      "Brush slower than normal. Observe everything involved: the toothpaste, the toothbrush against your gums and tongue, the movement of your arm, etc.",
     count: 0
   },
   {
@@ -89,7 +89,7 @@ export const taskData = [
     id: "11",
     type: "Anytime",
     description:
-      "There are many mindfulness practices you can follow. Choose your favorite one, and start meditating. Use the prompt to bring a new observation to your practice.",
+      "There are many mindfulness practices you can follow. Choose your favorite one and start meditating. Use the prompt to bring a new observation to your practice.",
     focusType: "Sound",
     applicableFocusTypes: ["Sound", "Smell", "Sight", "Touch"],
     prompt: "What did you hear?",
@@ -117,7 +117,7 @@ export const taskData = [
     id: "12",
     type: "Anytime",
     description:
-      "Many people use their daily shower time to think about the day ahead of them. Instead, it can be an incredible time to relax, feeling the water on your body, smelling the shampoo and soap, or listening to the water run. Pay attention in the shower, and try to focus on your sense rather than letting your mind wander.",
+      "Many people use their daily shower time to think about the day ahead of them. Instead, it can be an incredible time to relax, feeling the water on your body, smelling the shampoo and soap, or listening to the water run. Pay attention in the shower and try to focus on your sense rather than letting your mind wander.",
     focusType: "Smell",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
     prompt: "What did you smell?",
@@ -232,7 +232,7 @@ export const taskData = [
     id: "17",
     type: "Evening",
     description:
-      "Chores aren't known to be fun, but they actually can be. In fact, they can be as exciting as anything else if you make the effort to do them mindfully. When you was the dishes, pay attention to the act of washing the dishes.",
+      "Chores aren't known to be fun, but they actually can be. In fact, they can be as exciting as anything else if you make the effort to do them mindfully. When you wash the dishes, pay attention to the act of washing the dishes.",
     focusType: "Touch",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
     prompt: "What did you feel?",
@@ -246,12 +246,12 @@ export const taskData = [
     id: "18",
     type: "Day",
     description:
-      "Find this mindful experience the next time you feel bored. Generally the reason we get bored is because we're wishing we were somewhere other than where we are right now. Take some time to focus on your body. Become aware of your thoughts. Observe them.",
+      "Find this mindful experience the next time you feel bored. Generally, the reason we get bored is because we're wishing we were somewhere other than where we are right now. Take some time to focus on your body. Become aware of your thoughts. Observe them.",
     focusType: "Smell",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
     prompt: "What did you smell?",
     hints:
-      "Don't worry about what you're doing to do next, just focus on being present while doing what you're already doing. Once you realize you are happy where you are, the boredom will start to dissipate. It's OK if the boredom returns, just bring your focus back to the present moment.",
+      "Don't worry about what you're going to do next, just focus on being present while doing what you're already doing. Once you realize you are happy where you are, the boredom will start to dissipate. It's OK if the boredom returns, just bring your focus back to the present moment.",
     premium: false,
     count: 0
   },
@@ -260,7 +260,7 @@ export const taskData = [
     id: "19",
     type: "Morning",
     description:
-      "This is a refreshing way to start your morning by waking up and cleasing your body for a new day. Fill a glass with fresh water then pick a space to be still while you drink.",
+      "This is a refreshing way to start your morning by waking up and preparing your body for a new day. Fill a glass with fresh water then pick a space to be still while you drink.",
     focusType: "Taste",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Taste"],
     prompt: "What did you taste?",
@@ -274,7 +274,7 @@ export const taskData = [
     id: "20",
     type: "Morning",
     description:
-      "Before taking your first sip, choose a space to sit down. Pay attention to the way your body feels with your first sip. Drink slowly like there's no where to be but where you already are.",
+      "Before taking your first sip, choose a space to sit down. Pay attention to the way your body feels with your first sip. Drink slowly like there's nowhere to be but where you already are.",
     focusType: "Taste",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell", "Taste"],
     prompt: "What did you taste?",
@@ -288,7 +288,7 @@ export const taskData = [
     id: "21",
     type: "Day",
     description:
-      "The air outside is beautiful. Spend some time sitting outside, in a chair , on the ground, wherever is comfortable. Eyes open or closed. Be mindful of your breath and your senses.",
+      "The air outside is beautiful. Spend some time sitting outside, in a chair, on the ground, wherever is comfortable. Eyes open or closed. Be mindful of your breath and your senses.",
     focusType: "Sight",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
     prompt: "What did you see?",
@@ -344,7 +344,7 @@ export const taskData = [
     id: "25",
     type: "Morning",
     description:
-      "A great way to disconnect from your normal thoughts and experiences is in nature, and connecting to a tree can take you there. Sit and observe the world around you, taking note, and using your breath as needed to become aware.",
+      "A great way to disconnect from your normal thoughts and experiences is in nature and connecting to a tree can take you there. Sit and observe the world around you, taking note, and using your breath as needed to become aware.",
     focusType: "Touch",
     applicableFocusTypes: ["Sight", "Sound", "Touch", "Smell"],
     prompt: "What did you feel?",
@@ -478,7 +478,7 @@ export const taskData = [
     count: 0
   },
   {
-    title: "Set alarm for checkin",
+    title: "Set alarm for check-in",
     id: "36",
     type: "Anytime",
     description:
@@ -520,7 +520,7 @@ export const taskData = [
     feelingText:
       "Awesome! It is also important to be aware of your thoughts, feelings, and body. Close your eyes and briefly scan from head to toe.",
     conclusionText:
-      "You just completed your first Mindful Experience! Do a few everyday to bring mindfulness into your life and experience every moment life can offer.",
+      "You just completed your first Mindful Experience! Do a few every day to bring mindfulness into your life and experience every moment life can offer.",
     premium: false,
     count: 0
   },
@@ -537,10 +537,10 @@ export const taskData = [
       "Mindfulness can be difficult, especially when we're already feeling emotions like anxiety, worry, and stress.",
       "It is completely normal for your thoughts to wander. In fact, the act of noticing and bringing your attention back to the present is what the practice is all about!",
       "Every time you practice, you're training your mind to recognize when you've lost focus of the present moment.",
-      "Let's try a meditation completely focused on noticing when our mind wanders, and practicing gently guiding it back to the present!"
+      "Let's try a meditation completely focused on noticing when our mind wanders and practicing gently guiding it back to the present!"
     ],
     activityText:
-      "Set a timer for 5 minutes. Close your eyes, and become an observer of the thoughts in your head. Watch them come and go. When you get caught up in a thought, gently bring your focus back to observing.",
+      "Set a timer for 5 minutes. Close your eyes and become an observer of the thoughts in your head. Watch them come and go. When you get caught up in a thought, gently bring your focus back to observing.",
     observationText:
       "Great job! What did you notice as you were observing your thoughts?",
     feelingText:
@@ -618,7 +618,7 @@ export const taskData = [
       "Mental noting should not take the place of being mindful - it is simply a reminder to bring your attention back to the present."
     ],
     activityText:
-      "Set a timer for 5 minutes. Close your eyes and breathe. When you notice you attention drifting, gently note it (such as 'oh, thinking' or 'oh, feeling'). After a mental note, gently bring your focus back to the present.",
+      "Set a timer for 5 minutes. Close your eyes and breathe. When you notice your attention drifting, gently note it (such as 'oh, thinking' or 'oh, feeling'). After a mental note, gently bring your focus back to the present.",
     observationText: "Great job! What did you notice during the experience?",
     feelingText:
       "Awesome! Now that you've completed the exercise, how do you feel?",
@@ -632,7 +632,7 @@ export const taskData = [
     id: "42",
     type: "Anytime",
     description:
-      "Our instinct to avert pain creates resistance, and resistance in turn can intensify your pain. You can't avoid what already is. Stop resisting. Sit somewhere comfortable, do a body scan, and focus on your areas of pain. Breathe into the pain, feel it lessen as you focus on it. Accept the pain.",
+      "Our instinct to avert pain creates resistance, and resistance in turn can intensify your pain. You can't avoid what already is. Stop resisting. Sit comfortably, do a body scan, and focus on your areas of pain. Breathe into the pain, feel it lessen as you focus on it. Accept the pain.",
     focusType: "Mind",
     applicableFocusTypes: ["Mind"],
     prompt: "What did you notice?",
@@ -646,7 +646,7 @@ export const taskData = [
     id: "43",
     type: "Anytime",
     description:
-      "Sit comfortably and close your eyes. Feel the peaceful energy emanating from your body. Visualize that energy growing to create a 3 foot aura around you. Let it grow further to fill the room you're in. Next let it fill the building you're in, then the neighborhood. Let it grow to your city, state, country, continenent. Finally feel your energy surround the Earth.",
+      "Sit comfortably and close your eyes. Feel the peaceful energy emanating from your body. Visualize that energy growing to create a 3 foot aura around you. Let it grow further to fill the room you're in. Next let it fill the building you're in, then the neighborhood. Let it grow to your city, state, country, continent. Finally feel your energy surround the Earth.",
     focusType: "Mind",
     applicableFocusTypes: ["Mind"],
     prompt: "What did you notice?",

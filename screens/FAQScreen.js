@@ -34,14 +34,14 @@ export default class FAQScreen extends React.Component {
             journaling helps us vocalize our feelings and notice the benefits of
             being present. By writing down how we feel after a mindful
             experience, we're creating a habit and training ourselves to pay
-            attention in everyday life.
+            attention in every day life.
           </MyText>
           <Title3>How often should I do Mindful Experiences?</Title3>
           <MyText style={{ marginBottom: 24 }}>
-            Everyday, all the time! As you focus on the present, your brain
+            Every day, all the time! As you focus on the present, your brain
             actually starts to change. Are there things you don't like doing,
             such as cleaning the dishes or sitting in meetings? Or are there
-            things you do everyday that you don't think about, like brushing
+            things you do every day that you don't think about, like brushing
             your teeth or driving to work? If you actually bring your focus to
             that activity and pair it with some deep breathing, you can change
             your perception of the activity and actually enjoy your time doing
@@ -50,7 +50,7 @@ export default class FAQScreen extends React.Component {
           </MyText>
           <Title3>What's coming next in Present Sense?</Title3>
           <MyText style={{ marginBottom: 24 }}>
-            We have tons of ideas, but would love you hear from you. Drop us a
+            We have tons of ideas but would love you hear from you. Drop us a
             line at support@base11studios.com with comments or suggestions!
           </MyText>
         </View>
