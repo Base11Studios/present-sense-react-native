@@ -8,6 +8,7 @@ import LearnHowTile from '../components/LearnHowTile';
 import MindfulQuoteTile from '../components/MindfulQuoteTile';
 import { ScrollingPageContainer } from '../components/ScrollingPageContainer';
 import TutorialView from '../components/TutorialView';
+import { updateAppCount } from '../redux/reducers/general';
 import {
   updateIAPs,
   updateUserSubscriptions
@@ -21,6 +22,7 @@ class HomeScreen extends React.Component {
   };
 
   componentDidMount() {
+    this.props.updateAppCount();
     this.props.updateTasks();
     this.props.updateIAPs();
     if (!this.props.tutorial['appIntro']) {
@@ -40,12 +42,11 @@ class HomeScreen extends React.Component {
 
     return (
       <ScrollingPageContainer>
-        {!this.props.remindersEnabled &&
-        this.props.completedTasks.length > 0 ? (
+        {!this.props.remindersEnabled && this.props.appOpenedCount > 1 ? (
           <TutorialView
             {...this.props}
             tutorialNavigation={'Settings'}
-            tutorialType="reminders"
+            tutorialType="remindersIntro"
             tutorialTitle="Setup a Daily Reminder!"
             tutorialDescription={
               'Let us help you remember to find your mindful moments. Visit Settings to enable these.'
@@ -70,7 +71,7 @@ const mapStateToProps = state => {
     tutorial: state.tutorial.tutorial,
     activeTask: state.tasks.activeTask,
     remindersEnabled: state.notification.remindersEnabled,
-    completedTasks: state.tasks.completedTasks
+    appOpenedCount: state.general.appOpenedCount
   };
 };
 
@@ -79,6 +80,7 @@ const mapDispatchToProps = dispatch => {
     updateTasks: () => dispatch(updateTasks()),
     updateUserSubscriptions: data => dispatch(updateUserSubscriptions(data)),
     updateIAPs: () => dispatch(updateIAPs()),
+    updateAppCount: () => dispatch(updateAppCount()),
     showTutorial: tutorial => dispatch(showTutorial(tutorial))
   };
 };
