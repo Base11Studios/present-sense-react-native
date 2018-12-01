@@ -2,5 +2,7 @@
     "cSpell.words": [
         "Journaled",
         "journaling"
-    ]
+    ],
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true
 }

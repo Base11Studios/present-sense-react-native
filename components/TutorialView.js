@@ -1,21 +1,21 @@
-import React from "react";
-import { Alert, View } from "react-native";
-import { connect } from "react-redux";
-import { showTutorial } from "../redux/reducers/tutorial";
+import React from 'react';
+import { Alert, View } from 'react-native';
+import { connect } from 'react-redux';
+import { showTutorial } from '../redux/reducers/tutorial';
 
 class TutorialView extends React.Component {
   componentDidMount() {
     if (!this.props.tutorial[this.props.tutorialType]) {
       const buttons = [
         {
-          text: "Remind Me",
-          style: "cancel"
+          text: 'Remind Me',
+          style: 'cancel'
         }
       ];
 
       if (!!this.props.tutorialNavigation) {
         buttons.push({
-          text: "Take Me There!",
+          text: 'Take Me There!',
           onPress: () => {
             this.props.showTutorial({ type: this.props.tutorialType });
             this.props.navigation.navigate(this.props.tutorialNavigation);
@@ -24,7 +24,7 @@ class TutorialView extends React.Component {
       }
 
       buttons.push({
-        text: "OK",
+        text: 'OK',
         onPress: () =>
           this.props.showTutorial({ type: this.props.tutorialType })
       });
