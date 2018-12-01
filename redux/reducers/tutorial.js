@@ -12,6 +12,7 @@ const initialState = {
     taskRecodingIntro: false,
     remindersIntro: false,
     firstTaskCompletedIntro: false,
+    rateApp: false,
     settingsIntro: false // TODO talk about FAQ/Help section. Maybe put (?) icon in top right of home for help page?
   }
 };

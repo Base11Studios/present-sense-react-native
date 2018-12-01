@@ -6,12 +6,7 @@ import { showTutorial } from '../redux/reducers/tutorial';
 class TutorialView extends React.Component {
   componentDidMount() {
     if (!this.props.tutorial[this.props.tutorialType]) {
-      const buttons = [
-        {
-          text: 'Remind Me',
-          style: 'cancel'
-        }
-      ];
+      const buttons = [];
 
       if (!!this.props.tutorialNavigation) {
         buttons.push({
@@ -22,6 +17,11 @@ class TutorialView extends React.Component {
           }
         });
       }
+
+      buttons.push({
+        text: 'Remind Me',
+        style: 'cancel'
+      });
 
       buttons.push({
         text: 'OK',
