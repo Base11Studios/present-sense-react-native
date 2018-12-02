@@ -99,7 +99,7 @@ class HomeScreen extends React.Component {
             tutorialType="remindersIntro"
             tutorialTitle="Setup a Daily Reminder!"
             tutorialDescription={
-              'Let us help you remember to find your mindful moments. Visit Settings to enable these.'
+              'Let us help you find mindful moments. Visit Settings to enable these.'
             }
           />
         ) : (

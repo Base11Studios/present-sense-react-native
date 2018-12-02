@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform, View } from 'react-native';
+import { Platform, PushNotificationIOS, View } from 'react-native';
 import PushNotification from 'react-native-push-notification';
 
 export default class PushController extends React.Component {
@@ -8,10 +8,7 @@ export default class PushController extends React.Component {
       PushNotification.configure({
         // (required) Called when a remote or local notification is opened or received
         onNotification: function(notification) {
-          console.log('NOTIFICATION:', notification);
-
-          // process the notification
-
+          // TODO process the notification
           // required on iOS only (see fetchCompletionHandler docs: https://facebook.github.io/react-native/docs/pushnotificationios.html)
           notification.finish(PushNotificationIOS.FetchResult.NoData);
         },
@@ -31,9 +28,7 @@ export default class PushController extends React.Component {
       PushNotification.configure({
         // (required) Called when a remote or local notification is opened or received
         onNotification: function(notification) {
-          console.log('NOTIFICATION:', notification);
-
-          // process the notification
+          // TODO process the notification
         },
 
         // Should the initial notification be popped automatically
