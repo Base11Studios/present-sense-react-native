@@ -1,6 +1,6 @@
-import { PURGE } from "redux-persist";
+import { PURGE } from 'redux-persist';
 
-export const SHOW_TUTORIAL = "tutorial/SHOW";
+export const SHOW_TUTORIAL = 'tutorial/SHOW';
 
 const initialState = {
   tutorial: {
@@ -10,7 +10,9 @@ const initialState = {
     completedIntro: false,
     taskOverviewIntro: false,
     taskRecodingIntro: false,
+    remindersIntro: false,
     firstTaskCompletedIntro: false,
+    rateApp: false,
     settingsIntro: false // TODO talk about FAQ/Help section. Maybe put (?) icon in top right of home for help page?
   }
 };

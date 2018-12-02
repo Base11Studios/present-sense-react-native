@@ -3,6 +3,7 @@ package com.base11studios.presentmoment;
 import android.app.Application;
 import com.dooboolab.RNIap.RNIapPackage;
 import com.facebook.react.ReactApplication;
+import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.dooboolab.RNIap.RNIapPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -27,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactNativePushNotificationPackage(),
             new SplashScreenReactPackage(),
             new RNIapPackage(),
             new VectorIconsPackage(),
