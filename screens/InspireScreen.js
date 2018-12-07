@@ -6,7 +6,7 @@ import { PageContainer } from '../components/PageContainer';
 
 class InspireScreen extends React.Component {
   static navigationOptions = {
-    title: 'Inspiration'
+    title: 'Daily Affirmations'
   };
 
   render() {
@@ -14,7 +14,7 @@ class InspireScreen extends React.Component {
 
     return (
       <PageContainer>
-        <AffirmationTile />
+        <AffirmationTile {...this.props} />
       </PageContainer>
     );
   }

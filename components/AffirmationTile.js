@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import { Icon } from 'react-native-elements';
+import { Button, Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
-import { quoteData } from '../redux/reducers/quote-data';
+import { affirmationData } from '../redux/reducers/affirmation-data';
 import {
   COLOR_ALERT,
   COLOR_HIGHLIGHT,
@@ -14,15 +14,19 @@ import {
 import { MyText } from './MyText';
 
 class AffirmationTile extends React.Component {
-  quoteNumber = this.getRandomQuoteNumber();
+  affirmationNumber = this.getRandomAffirmationNumber();
 
   getNewAffirmation() {
-    this.quoteNumber = this.getRandomQuoteNumber();
+    this.affirmationNumber = this.getRandomAffirmationNumber();
     this.forceUpdate();
   }
 
-  getRandomQuoteNumber() {
-    return Math.floor(Math.random() * quoteData.length);
+  getRandomAffirmationNumber() {
+    return Math.floor(Math.random() * affirmationData.length);
+  }
+
+  pressGetNotifications() {
+    this.props.navigation.navigate('Settings');
   }
 
   render() {
@@ -30,44 +34,57 @@ class AffirmationTile extends React.Component {
       <View
         style={[
           styles.header,
-          { backgroundColor: this.getBackgroundColor(this.quoteNumber) }
+          { backgroundColor: this.getBackgroundColor(this.affirmationNumber) }
         ]}
       >
+        <View style={styles.refresh}>
+          <TouchableOpacity onPress={() => this.getNewAffirmation()}>
+            <Icon
+              type="material"
+              color={COLOR_WHITE}
+              name="refresh"
+              size={30}
+            />
+          </TouchableOpacity>
+        </View>
         <View>
           <MyText
             style={[
-              styles.quoteText,
-              !!quoteData[this.quoteNumber].author
+              styles.affirmationText,
+              !!affirmationData[this.affirmationNumber].author
                 ? { paddingBottom: 20 }
                 : { paddingBottom: 0 }
             ]}
           >
-            {quoteData[this.quoteNumber].quote}
+            {affirmationData[this.affirmationNumber].affirmation}
           </MyText>
-          {!!quoteData[this.quoteNumber].author ? (
-            <MyText style={styles.quoteAuthor}>
-              - {quoteData[this.quoteNumber].author} -
+          {!!affirmationData[this.affirmationNumber].author ? (
+            <MyText style={styles.affirmationAuthor}>
+              - {affirmationData[this.affirmationNumber].author} -
             </MyText>
           ) : (
             <View />
           )}
-          <View style={styles.refresh}>
-            <TouchableOpacity onPress={() => this.getNewAffirmation()}>
-              <Icon
-                type="material"
-                color={COLOR_WHITE}
-                name="refresh"
-                size={30}
-              />
-            </TouchableOpacity>
-          </View>
+        </View>
+        <View style={styles.reminder}>
+          <Button
+            iconRight={{ name: 'keyboard-arrow-right', type: 'material' }}
+            onPress={() => this.pressGetNotifications()}
+            title="Get Notifications"
+            color={COLOR_WHITE}
+            fontSize={16}
+            buttonStyle={{
+              backgroundColor: this.getBackgroundColor(this.affirmationNumber)
+            }}
+            large={false}
+          />
         </View>
       </View>
     );
   }
 
-  getBackgroundColor = function(quoteNumber) {
-    switch (quoteNumber % 5) {
+  getBackgroundColor = function(affirmationNumber) {
+    switch (affirmationNumber % 5) {
       case 0:
         return COLOR_ALERT;
       case 1:
@@ -86,28 +103,28 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: COLOR_WHITE,
     flex: 1,
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: 30
+    padding: 15
   },
-  quoteText: {
+  affirmationText: {
     // flex: 1,
     textAlign: 'center',
     color: COLOR_WHITE,
-    fontSize: 18
+    fontSize: 24,
+    padding: 15
   },
-  quoteAuthor: {
+  affirmationAuthor: {
     // flex: 1,
     textAlign: 'center',
     color: COLOR_WHITE,
-    fontSize: 16
+    fontSize: 16,
+    padding: 15
   },
   refresh: {
     alignItems: 'flex-end',
-    marginTop: 40,
-    paddingLeft: 20,
-    paddingRight: 20
+    alignSelf: 'stretch'
   }
 });
 
