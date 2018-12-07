@@ -9,7 +9,7 @@ import LearnHowTile from '../components/LearnHowTile';
 import MindfulQuoteTile from '../components/MindfulQuoteTile';
 import { ScrollingPageContainer } from '../components/ScrollingPageContainer';
 import TutorialView from '../components/TutorialView';
-import { updateAppCount } from '../redux/reducers/general';
+import { updateAppCount, updateVersionNumber } from '../redux/reducers/general';
 import {
   updateIAPs,
   updateUserSubscriptions
@@ -26,6 +26,7 @@ class HomeScreen extends React.Component {
 
   componentDidMount() {
     this.props.updateAppCount();
+    this.props.updateVersionNumber('1.5');
     this.props.updateTasks();
     this.props.updateIAPs();
     if (!this.props.tutorial['appIntro']) {
@@ -131,6 +132,8 @@ const mapDispatchToProps = dispatch => {
     updateUserSubscriptions: data => dispatch(updateUserSubscriptions(data)),
     updateIAPs: () => dispatch(updateIAPs()),
     updateAppCount: () => dispatch(updateAppCount()),
+    updateVersionNumber: versionNumber =>
+      dispatch(updateVersionNumber(versionNumber)),
     showTutorial: tutorial => dispatch(showTutorial(tutorial))
   };
 };
