@@ -1,18 +1,28 @@
-import { withFormik } from "formik";
-import { default as React } from "react";
-import { Keyboard, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
-import { Button } from "react-native-elements";
-import { connect } from "react-redux";
-import Yup from "yup";
-import { AutoExpandingTextInput } from "../components/AutoExpandingTextInput";
-import { BackButton } from "../components/BackButton";
-import { DismissButton } from "../components/DismissButton";
-import { ErrorText } from "../components/ErrorText";
-import { KeyboardAwareScrollingPageContainer } from "../components/KeyboardAwareScrollingPageContainer";
-import { MyText } from "../components/MyText";
-import { ProgressStepper } from "../components/ProgressStepper";
-import { completeTask } from "../redux/reducers/tasks";
-import { COLOR_BLACK, COLOR_LIGHT_GREY, COLOR_TERTIARY, COLOR_WHITE } from "../styles/common";
+import { withFormik } from 'formik';
+import { default as React } from 'react';
+import {
+  Keyboard,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View
+} from 'react-native';
+import { Button } from 'react-native-elements';
+import { connect } from 'react-redux';
+import Yup from 'yup';
+import { AutoExpandingTextInput } from '../components/AutoExpandingTextInput';
+import { BackButton } from '../components/BackButton';
+import { DismissButton } from '../components/DismissButton';
+import { ErrorText } from '../components/ErrorText';
+import { KeyboardAwareScrollingPageContainer } from '../components/KeyboardAwareScrollingPageContainer';
+import { MyText } from '../components/MyText';
+import { ProgressStepper } from '../components/ProgressStepper';
+import { completeTask } from '../redux/reducers/tasks';
+import {
+  COLOR_BLACK,
+  COLOR_LIGHT_GREY,
+  COLOR_TERTIARY,
+  COLOR_WHITE
+} from '../styles/common';
 
 // Our inner form component. Will be wrapped with Formik({..})
 const InnerCompleteTaskForm = props => {
@@ -50,8 +60,8 @@ const InnerCompleteTaskForm = props => {
         />
         <View
           style={{
-            justifyContent: "space-between",
-            flexDirection: "row",
+            justifyContent: 'space-between',
+            flexDirection: 'row',
             marginBottom: 20
           }}
         >
@@ -71,8 +81,8 @@ const InnerCompleteTaskForm = props => {
           style={{
             padding: 20,
             // flex: 2,
-            alignItems: "flex-start",
-            justifyContent: "flex-start"
+            alignItems: 'flex-start',
+            justifyContent: 'flex-start'
           }}
         >
           <MyText
@@ -97,18 +107,49 @@ const InnerCompleteTaskForm = props => {
             >
               {task.prompt}
             </MyText>
-            <AutoExpandingTextInput
-              onChangeText={text => props.setFieldValue("prompt", text)}
-              value={props.values.prompt}
+            <View
               style={{
-                borderColor: COLOR_WHITE,
-                color: COLOR_BLACK,
-                marginBottom: 10
+                flexDirection: 'row',
+                alignItems: 'center'
               }}
-              placeholderTextColor={COLOR_LIGHT_GREY}
-              underlineColorAndroid={COLOR_WHITE}
-              selectionColor={COLOR_WHITE}
-            />
+            >
+              <AutoExpandingTextInput
+                onChangeText={text => props.setFieldValue('prompt', text)}
+                value={props.values.prompt}
+                style={{
+                  borderColor: COLOR_WHITE,
+                  color: COLOR_BLACK,
+                  marginBottom: 10,
+                  flex: 10
+                }}
+                placeholderTextColor={COLOR_LIGHT_GREY}
+                underlineColorAndroid={COLOR_WHITE}
+                selectionColor={COLOR_WHITE}
+              />
+              <Button
+                style={{
+                  flex: 1
+                }}
+                title="NEXT"
+                color={COLOR_WHITE}
+                buttonStyle={{
+                  marginLeft: 0,
+                  marginRight: 0,
+                  paddingLeft: 0,
+                  paddingRight: 0,
+                  backgroundColor: COLOR_TERTIARY
+                }}
+                fontSize={14}
+                containerViewStyle={{
+                  marginLeft: 0,
+                  marginRight: 0,
+                  paddingLeft: 0,
+                  paddingRight: 0
+                }}
+                large={false}
+                onPress={props.handleSubmit}
+              />
+            </View>
             {promptErrors}
           </View>
         </View>
@@ -116,41 +157,29 @@ const InnerCompleteTaskForm = props => {
           style={{
             padding: 20,
             // flex: 1,
-            alignItems: "center",
-            justifyContent: "center"
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
-        >
-          <Button
-            iconRight={{ name: "keyboard-arrow-right", type: "material" }}
-            title="Observations: Journaled"
-            color={COLOR_WHITE}
-            buttonStyle={{
-              backgroundColor: COLOR_TERTIARY
-            }}
-            large={true}
-            onPress={props.handleSubmit}
-          />
-        </View>
-        {/* </KeyboardAvoidingView> */}
+        />
       </KeyboardAwareScrollingPageContainer>
     </TouchableWithoutFeedback>
   );
 };
 
 const CompleteTaskForm = withFormik({
-  mapPropsToValues: () => ({ prompt: "" }),
+  mapPropsToValues: () => ({ prompt: '' }),
   validationSchema: Yup.object().shape({
-    prompt: Yup.string().required("Response is required!")
+    prompt: Yup.string().required('Response is required!')
   }),
   handleSubmit: (values, { props, setSubmitting }) => {
     const result = {
       task: props.task,
-      formValues: { prompt: values.prompt, feel: "" }
+      formValues: { prompt: values.prompt, feel: '' }
     };
 
-    props.navigation.navigate("TutorialFeelings", { result: result });
+    props.navigation.navigate('TutorialFeelings', { result: result });
   },
-  displayName: "TutorialPromptForm" // helps with React DevTools
+  displayName: 'TutorialPromptForm' // helps with React DevTools
 })(InnerCompleteTaskForm);
 
 class TutorialObservationsScreen extends React.Component {
@@ -161,7 +190,7 @@ class TutorialObservationsScreen extends React.Component {
 
 const styles = StyleSheet.create({
   header: {
-    padding: 20,
+    padding: 20
     // flex: 1
     // alignItems: "center",
     // justifyContent: "center"
