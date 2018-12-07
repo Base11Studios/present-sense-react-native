@@ -4,7 +4,9 @@ export const UPDATE_NOTIFICATIONS = 'notification/UPDATE_NOTIFICATIONS';
 
 const initialState = {
   remindersEnabled: false,
-  remindersTime: new Date(2018, 10, 1, 7, 0, 0, 0)
+  remindersTime: new Date(2018, 10, 1, 7, 0, 0, 0),
+  affirmationsEnabled: false,
+  affirmationsTime: new Date(2018, 10, 1, 11, 0, 0, 0)
 };
 
 export default function reducer(state = initialState, action) {
@@ -13,7 +15,9 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         remindersEnabled: action.payload.remindersEnabled,
-        remindersTime: action.payload.remindersTime
+        remindersTime: action.payload.remindersTime,
+        affirmationsEnabled: action.payload.affirmationsEnabled,
+        affirmationsTime: action.payload.affirmationsTime
       };
     case PURGE:
       return initialState;

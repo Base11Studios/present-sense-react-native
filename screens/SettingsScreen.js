@@ -22,10 +22,12 @@ import { updateTasks } from '../redux/reducers/tasks';
 import { COLOR_TERTIARY, COLOR_WHITE } from '../styles/common';
 
 const REMINDERS_ID = '1';
+const AFFIRMATIONS_ID = '2';
 
 class SettingsScreen extends React.Component {
   state = {
-    isDateTimePickerVisible: false
+    isReminderDateTimePickerVisible: false,
+    isAffirmationDateTimePickerVisible: false
   };
 
   static navigationOptions = {
@@ -45,46 +47,58 @@ class SettingsScreen extends React.Component {
     }
   }
 
+  handleNoNotificationPermissions() {
+    let enableNotifications =
+      Platform.OS === 'ios'
+        ? 'Notification permissions are disabled. To enable, open the Settings app > Present Sense > Notifications, then click "Allow Notifications".'
+        : 'Notification permissions are disabled. To enable, open the Settings app > Apps & notifications > Present Sense > Notifications, then click "Show notifications".';
+
+    Alert.alert(
+      'Grant Us Notification Permissions',
+      enableNotifications,
+      [
+        {
+          text: 'OK',
+          onPress: () => {},
+          style: 'cancel'
+        }
+      ],
+      { cancelable: false }
+    );
+
+    this.props.updateNotifications({
+      remindersEnabled: false,
+      remindersTime: this.props.remindersTime,
+      affirmationsEnabled: false,
+      affirmationsTime: this.props.affirmationsTime
+    });
+  }
+
+  updateDateToBeInFuture(time) {
+    todaysDate = new Date();
+
+    // Make the reminder for today
+    date = new Date(time);
+    date.setDate(todaysDate.getDate());
+    date.setFullYear(todaysDate.getFullYear());
+    date.setMonth(todaysDate.getMonth());
+
+    // If the reminder is earlier today, make it tomorrow
+    if (todaysDate.getTime() > date.getTime()) {
+      date.setDate(date.getDate() + 1);
+    }
+
+    return date;
+  }
+
   enableReminder(reminderTime) {
     PushNotification.checkPermissions(permissions => {
       if (!permissions.alert) {
-        let enableNotifications =
-          Platform.OS === 'ios'
-            ? 'Notification permissions are disabled. To enable, open the Settings app > Present Sense > Notifications, then click "Allow Notifications".'
-            : 'Notification permissions are disabled. To enable, open the Settings app > Apps & notifications > Present Sense > Notifications, then click "Show notifications".';
-
-        Alert.alert(
-          'Grant Us Notification Permissions',
-          enableNotifications,
-          [
-            {
-              text: 'OK',
-              onPress: () => {},
-              style: 'cancel'
-            }
-          ],
-          { cancelable: false }
-        );
-
-        this.props.updateNotifications({
-          remindersEnabled: false,
-          remindersTime: this.props.remindersTime
-        });
+        this.handleNoNotificationPermissions();
       } else {
-        todaysDate = new Date();
+        const reminderDate = updateDateToBeInFuture(reminderTime);
 
-        // Make the reminder for today
-        reminderDate = new Date(reminderTime);
-        reminderDate.setDate(todaysDate.getDate());
-        reminderDate.setFullYear(todaysDate.getFullYear());
-        reminderDate.setMonth(todaysDate.getMonth());
-
-        // If the reminder is earlier today, make it tomorrow
-        if (todaysDate.getTime() > reminderDate.getTime()) {
-          reminderDate.setDate(reminderDate.getDate() + 1);
-        }
-
-        PushNotification.cancelLocalNotifications({ id: REMINDERS_ID });
+        this.disableReminder();
         notificationObject = {
           title: 'Daily reminder',
           message: 'Find your mindful moment now!', // (required)
@@ -124,8 +138,59 @@ class SettingsScreen extends React.Component {
     });
   }
 
+  enableAffirmation(affirmationTime) {
+    PushNotification.checkPermissions(permissions => {
+      if (!permissions.alert) {
+        this.handleNoNotificationPermissions();
+      } else {
+        const affirmationDate = this.updateDateToBeInFuture(affirmationTime);
+
+        this.disableReminder();
+        notificationObject = {
+          title: 'Daily affirmation',
+          message: 'MESSAGE', // (required)
+          playSound: true, // (optional) default: true
+          soundName: 'default', // (optional) Sound to play when the notification is shown. Value of 'default' plays the default sound. It can be set to a custom sound such as 'android.resource://com.xyz/raw/my_sound'. It will look for the 'my_sound' audio file in 'res/raw' directory and play it. default: 'default' (default sound is played)
+          number: '10', // (optional) Valid 32 bit integer specified as string. default: none (Cannot be zero)
+          repeatType: 'day', // (optional) Repeating interval. Check 'Repeating Notifications' section for more info.
+          // actions: '[""]', // (Android only) See the doc for notification actions to know more
+          date: affirmationDate
+        };
+
+        if (Platform.OS === 'ios') {
+          PushNotification.localNotificationSchedule(
+            Object.assign(notificationObject, {
+              alertAction: 'view',
+              // category: null,
+              userInfo: { id: AFFIRMATIONS_ID }
+            })
+          );
+        } else {
+          PushNotification.localNotificationSchedule(
+            Object.assign(notificationObject, {
+              id: AFFIRMATIONS_ID, // (optional) Valid unique 32 bit integer specified as string. default: Autogenerated Unique ID
+              autoCancel: true, // (optional) default: true
+              largeIcon: 'ic_launcher_round', // (optional) default: "ic_launcher"
+              // smallIcon: 'ic_notification', // (optional) default: "ic_notification" with fallback for "ic_launcher"
+              vibrate: true, // (optional) default: true
+              vibration: 300, // vibration length in milliseconds, ignored if vibrate=false, default: 1000
+              ongoing: false, // (optional) set whether this is an "ongoing" notification
+              priority: 'default', // (optional) set notification priority, default: high
+              visibility: 'public', // (optional) set notification visibility, default: private
+              importance: 'default' // (optional) set notification importance, default: high
+            })
+          );
+        }
+      }
+    });
+  }
+
   disableReminder() {
     PushNotification.cancelLocalNotifications({ id: REMINDERS_ID });
+  }
+
+  disableAffirmation() {
+    PushNotification.cancelLocalNotifications({ id: AFFIRMATIONS_ID });
   }
 
   onPressToggleReminders() {
@@ -137,12 +202,33 @@ class SettingsScreen extends React.Component {
 
     this.props.updateNotifications({
       remindersEnabled: !this.props.remindersEnabled,
-      remindersTime: this.props.remindersTime
+      remindersTime: this.props.remindersTime,
+      affirmationsEnabled: this.props.affirmationsEnabled,
+      affirmationsTime: this.props.affirmationsTime
+    });
+  }
+
+  onPressToggleAffirmations() {
+    if (!this.props.affirmationsEnabled) {
+      this.enableAffirmation(this.props.affirmationsTime);
+    } else {
+      this.disableAffirmation();
+    }
+
+    this.props.updateNotifications({
+      remindersEnabled: this.props.remindersEnabled,
+      remindersTime: this.props.remindersTime,
+      affirmationsEnabled: !this.props.affirmationsEnabled,
+      affirmationsTime: this.props.affirmationsTime
     });
   }
 
   onPressCancelReminderConfigure() {
-    this.setState({ isDateTimePickerVisible: false });
+    this.setState({ isReminderDateTimePickerVisible: false });
+  }
+
+  onPressCancelAffirmationConfigure() {
+    this.setState({ isAffirmationDateTimePickerVisible: false });
   }
 
   onPressConfirmReminderConfigure(time) {
@@ -151,13 +237,32 @@ class SettingsScreen extends React.Component {
 
     this.props.updateNotifications({
       remindersEnabled: true,
-      remindersTime: dateTime
+      remindersTime: dateTime,
+      affirmationsEnabled: this.props.affirmationsEnabled,
+      affirmationsTime: this.props.affirmationsTime
     });
     this.onPressCancelReminderConfigure();
   }
 
+  onPressConfirmAffirmationConfigure(time) {
+    let dateTime = new Date(time.toString());
+    this.enableAffirmation(dateTime);
+
+    this.props.updateNotifications({
+      remindersEnabled: this.props.remindersEnabled,
+      remindersTime: this.props.remindersTime,
+      affirmationsEnabled: true,
+      affirmationsTime: dateTime
+    });
+    this.onPressCancelAffirmationConfigure();
+  }
+
   onPressShowReminderConfigure() {
-    this.setState({ isDateTimePickerVisible: true });
+    this.setState({ isReminderDateTimePickerVisible: true });
+  }
+
+  onPressShowAffirmationConfigure() {
+    this.setState({ isAffirmationDateTimePickerVisible: true });
   }
 
   onPressResetStore() {
@@ -356,18 +461,59 @@ class SettingsScreen extends React.Component {
       )
     };
 
+    item9 = {
+      key: '9',
+      view: (
+        <ListItem
+          hideChevron={true}
+          title={
+            <View style={styles.reminderContainer}>
+              <TouchableOpacity
+                style={styles.reminderTimeContainer}
+                activeOpacity={1}
+                onPress={() => this.onPressShowAffirmationConfigure()}
+              >
+                <View style={styles.reminderTextContainer}>
+                  <Text style={styles.reminderTitle}>Daily Affirmation</Text>
+                  <Moment format="h:mm A" element={Text}>
+                    {this.props.affirmationsTime}
+                  </Moment>
+                </View>
+              </TouchableOpacity>
+              <View style={styles.reminderEnabledContainer}>
+                <Switch
+                  style={styles.reminderEnabledSwitch}
+                  onValueChange={() => this.onPressToggleAffirmations()}
+                  value={this.props.affirmationsEnabled}
+                />
+              </View>
+            </View>
+          }
+          avatar={<Icon type="material" name="notifications-none" size={24} />}
+        />
+      )
+    };
+
     return (
       <PageContainer>
         <FlatList
-          data={[item3, item8, item4, item5, item2, item6, item7, item1]}
+          data={[item3, item8, item9, item4, item5, item2, item6, item7, item1]}
           renderItem={({ item }) => item.view}
         />
         <DateTimePicker
-          isVisible={this.state.isDateTimePickerVisible}
+          isVisible={this.state.isReminderDateTimePickerVisible}
           onConfirm={date => this.onPressConfirmReminderConfigure(date)}
           onCancel={() => this.onPressCancelReminderConfigure()}
           mode="time"
           date={new Date(this.props.remindersTime)}
+          is24Hour={false}
+        />
+        <DateTimePicker
+          isVisible={this.state.isAffirmationDateTimePickerVisible}
+          onConfirm={date => this.onPressConfirmAffirmationConfigure(date)}
+          onCancel={() => this.onPressCancelAffirmationConfigure()}
+          mode="time"
+          date={new Date(this.props.affirmationsTime)}
           is24Hour={false}
         />
       </PageContainer>
@@ -402,7 +548,9 @@ function mapStateToProps(state, ownProps) {
   return {
     premium: state.subscription.premium,
     remindersEnabled: state.notification.remindersEnabled,
-    remindersTime: state.notification.remindersTime
+    remindersTime: state.notification.remindersTime,
+    affirmationsEnabled: state.notification.affirmationsEnabled,
+    affirmationsTime: state.notification.affirmationsTime
   };
 }
 
