@@ -1,6 +1,10 @@
 import { PURGE } from 'redux-persist';
 
 export const UPDATE_NOTIFICATIONS = 'notification/UPDATE_NOTIFICATIONS';
+export const SCHEDULE_AFFIRMATION_NOTIFICATIONS =
+  'notification/SCHEDULE_AFFIRMATION_NOTIFICATIONS';
+export const CANCEL_SCHEDULED_AFFIRMATION_NOTIFICATIONS =
+  'notification/CANCEL_SCHEDULED_AFFIRMATION_NOTIFICATIONS';
 
 const initialState = {
   remindersEnabled: false,
@@ -31,5 +35,17 @@ export function updateNotifications(data) {
   return {
     type: UPDATE_NOTIFICATIONS,
     payload: data
+  };
+}
+
+export function scheduleAffirmationNotifications() {
+  return {
+    type: SCHEDULE_AFFIRMATION_NOTIFICATIONS
+  };
+}
+
+export function cancelScheduledAffirmationNotifications() {
+  return {
+    type: CANCEL_SCHEDULED_AFFIRMATION_NOTIFICATIONS
   };
 }

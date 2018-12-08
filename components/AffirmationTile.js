@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import { Button, Icon } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { affirmationData } from '../redux/reducers/affirmation-data';
 import {
@@ -31,55 +31,52 @@ class AffirmationTile extends React.Component {
 
   render() {
     return (
-      <View
-        style={[
-          styles.header,
-          { backgroundColor: this.getBackgroundColor(this.affirmationNumber) }
-        ]}
+      <TouchableOpacity
+        onPress={() => this.getNewAffirmation()}
+        style={{ flex: 1 }}
+        activeOpacity={0.9}
       >
-        <View style={styles.refresh}>
-          <TouchableOpacity onPress={() => this.getNewAffirmation()}>
-            <Icon
-              type="material"
-              color={COLOR_WHITE}
-              name="refresh"
-              size={30}
-            />
-          </TouchableOpacity>
-        </View>
-        <View>
-          <MyText
-            style={[
-              styles.affirmationText,
-              !!affirmationData[this.affirmationNumber].author
-                ? { paddingBottom: 20 }
-                : { paddingBottom: 0 }
-            ]}
-          >
-            {affirmationData[this.affirmationNumber].affirmation}
-          </MyText>
-          {!!affirmationData[this.affirmationNumber].author ? (
-            <MyText style={styles.affirmationAuthor}>
-              - {affirmationData[this.affirmationNumber].author} -
+        <View
+          style={[
+            styles.header,
+            { backgroundColor: this.getBackgroundColor(this.affirmationNumber) }
+          ]}
+        >
+          <View style={styles.refresh} />
+          <View>
+            <MyText
+              style={[
+                styles.affirmationText,
+                !!affirmationData[this.affirmationNumber].author
+                  ? { paddingBottom: 20 }
+                  : { paddingBottom: 0 }
+              ]}
+            >
+              {affirmationData[this.affirmationNumber].affirmation}
             </MyText>
-          ) : (
-            <View />
-          )}
+            {!!affirmationData[this.affirmationNumber].author ? (
+              <MyText style={styles.affirmationAuthor}>
+                - {affirmationData[this.affirmationNumber].author} -
+              </MyText>
+            ) : (
+              <View />
+            )}
+          </View>
+          <View style={styles.reminder}>
+            <Button
+              iconRight={{ name: 'keyboard-arrow-right', type: 'material' }}
+              onPress={() => this.pressGetNotifications()}
+              title="Get Notifications"
+              color={COLOR_WHITE}
+              fontSize={16}
+              buttonStyle={{
+                backgroundColor: 'transparent'
+              }}
+              large={false}
+            />
+          </View>
         </View>
-        <View style={styles.reminder}>
-          <Button
-            iconRight={{ name: 'keyboard-arrow-right', type: 'material' }}
-            onPress={() => this.pressGetNotifications()}
-            title="Get Notifications"
-            color={COLOR_WHITE}
-            fontSize={16}
-            buttonStyle={{
-              backgroundColor: this.getBackgroundColor(this.affirmationNumber)
-            }}
-            large={false}
-          />
-        </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 

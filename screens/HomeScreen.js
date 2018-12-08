@@ -10,6 +10,7 @@ import MindfulQuoteTile from '../components/MindfulQuoteTile';
 import { ScrollingPageContainer } from '../components/ScrollingPageContainer';
 import TutorialView from '../components/TutorialView';
 import { updateAppCount, updateVersionNumber } from '../redux/reducers/general';
+import { scheduleAffirmationNotifications } from '../redux/reducers/notification';
 import {
   updateIAPs,
   updateUserSubscriptions
@@ -29,6 +30,9 @@ class HomeScreen extends React.Component {
     this.props.updateVersionNumber('1.5');
     this.props.updateTasks();
     this.props.updateIAPs();
+    if (!!this.props.affirmationsEnabled) {
+      this.props.scheduleAffirmationNotifications();
+    }
     if (!this.props.tutorial['appIntro']) {
       this.props.navigation.navigate('Intro');
     }
@@ -122,6 +126,7 @@ const mapStateToProps = state => {
     tutorial: state.tutorial.tutorial,
     activeTask: state.tasks.activeTask,
     remindersEnabled: state.notification.remindersEnabled,
+    affirmationsEnabled: state.notification.affirmationsEnabled,
     appOpenedCount: state.general.appOpenedCount
   };
 };
@@ -134,6 +139,8 @@ const mapDispatchToProps = dispatch => {
     updateAppCount: () => dispatch(updateAppCount()),
     updateVersionNumber: versionNumber =>
       dispatch(updateVersionNumber(versionNumber)),
+    scheduleAffirmationNotifications: () =>
+      dispatch(scheduleAffirmationNotifications()),
     showTutorial: tutorial => dispatch(showTutorial(tutorial))
   };
 };

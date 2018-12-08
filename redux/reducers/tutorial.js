@@ -7,6 +7,7 @@ const initialState = {
     appIntro: false,
     homeIntro: false,
     searchIntro: false,
+    inspireIntro: false,
     completedIntro: false,
     taskOverviewIntro: false,
     taskRecodingIntro: false,

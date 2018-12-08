@@ -1,9 +1,11 @@
-import moment from "moment";
-import { createSelector } from "reselect";
+import moment from 'moment';
+import { createSelector } from 'reselect';
 
 const getTasksCompleted = state => state.tasks.completedTasks;
 const getTutorialTasksCompleted = state => state.tasks.completedTutorialTasks;
 const getTasks = state => state.tasks.tasks;
+
+export const getAffirmationsTime = state => state.notification.affirmationsTime;
 
 export const getPremium = state => state.subscription.premium;
 
@@ -18,7 +20,7 @@ export const getLeastUsedTasks = createSelector(
 
     return tasks
       .filter(task => {
-        if ((task.premium && !premium) || task.type === "Tutorial") {
+        if ((task.premium && !premium) || task.type === 'Tutorial') {
           return false;
         } else {
           return true;
@@ -47,7 +49,7 @@ export const getNextTutorialTask = createSelector(
     );
     let tutorialTasks = tasks.filter(
       task =>
-        task.type === "Tutorial" &&
+        task.type === 'Tutorial' &&
         completedTutorialTaskIds.indexOf(task.id) < 0
     );
     if (tutorialTasks.length > 0) {
@@ -64,14 +66,14 @@ export const getNextTutorialTask = createSelector(
 export const getMindTasksCompleted = createSelector(
   [getTasksCompleted],
   tasksCompleted => {
-    return tasksCompleted.filter(task => task.task.focusType === "Mind").length;
+    return tasksCompleted.filter(task => task.task.focusType === 'Mind').length;
   }
 );
 
 export const getTasteTasksCompleted = createSelector(
   [getTasksCompleted],
   tasksCompleted => {
-    return tasksCompleted.filter(task => task.task.focusType === "Taste")
+    return tasksCompleted.filter(task => task.task.focusType === 'Taste')
       .length;
   }
 );
@@ -79,7 +81,7 @@ export const getTasteTasksCompleted = createSelector(
 export const getSmellTasksCompleted = createSelector(
   [getTasksCompleted],
   tasksCompleted => {
-    return tasksCompleted.filter(task => task.task.focusType === "Smell")
+    return tasksCompleted.filter(task => task.task.focusType === 'Smell')
       .length;
   }
 );
@@ -87,7 +89,7 @@ export const getSmellTasksCompleted = createSelector(
 export const getSightTasksCompleted = createSelector(
   [getTasksCompleted],
   tasksCompleted => {
-    return tasksCompleted.filter(task => task.task.focusType === "Sight")
+    return tasksCompleted.filter(task => task.task.focusType === 'Sight')
       .length;
   }
 );
@@ -95,7 +97,7 @@ export const getSightTasksCompleted = createSelector(
 export const getSoundTasksCompleted = createSelector(
   [getTasksCompleted],
   tasksCompleted => {
-    return tasksCompleted.filter(task => task.task.focusType === "Sound")
+    return tasksCompleted.filter(task => task.task.focusType === 'Sound')
       .length;
   }
 );
@@ -103,7 +105,7 @@ export const getSoundTasksCompleted = createSelector(
 export const getTouchTasksCompleted = createSelector(
   [getTasksCompleted],
   tasksCompleted => {
-    return tasksCompleted.filter(task => task.task.focusType === "Touch")
+    return tasksCompleted.filter(task => task.task.focusType === 'Touch')
       .length;
   }
 );
@@ -115,12 +117,12 @@ export const getTasksPerDay = createSelector(
     if (tasksCompleted.length > 0) {
       let daysSinceFirstTask =
         moment(new Date())
-          .startOf("day")
+          .startOf('day')
           .diff(
             moment(
               tasksCompleted[tasksCompleted.length - 1].completeDate
-            ).startOf("day"),
-            "days"
+            ).startOf('day'),
+            'days'
           ) + 1;
 
       return tasksCompleted.length / daysSinceFirstTask;
@@ -138,22 +140,22 @@ export const getTaskStreak = createSelector(
 
     if (tasksCompleted.length > 0) {
       let dateToFulfillStartingYesterday = moment(new Date())
-        .subtract(1, "days")
-        .startOf("day");
+        .subtract(1, 'days')
+        .startOf('day');
       tasksCompleted.forEach(task => {
         if (
           moment(task.completeDate)
-            .startOf("day")
+            .startOf('day')
             .isSame(dateToFulfillStartingYesterday)
         ) {
           streak = streak + 1;
           dateToFulfillStartingYesterday = dateToFulfillStartingYesterday.subtract(
             1,
-            "days"
+            'days'
           );
         } else if (
           moment(task.completeDate)
-            .startOf("day")
+            .startOf('day')
             .isAfter(dateToFulfillStartingYesterday)
         ) {
           // Bonus points
@@ -172,8 +174,8 @@ export const getTaskStreak = createSelector(
 const addTodayToStreak = function(streak, tasksCompleted) {
   if (
     moment(new Date())
-      .startOf("day")
-      .isSame(moment(tasksCompleted[0].completeDate).startOf("day"))
+      .startOf('day')
+      .isSame(moment(tasksCompleted[0].completeDate).startOf('day'))
   ) {
     return streak + 1;
   } else {
