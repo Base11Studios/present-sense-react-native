@@ -10,7 +10,7 @@ import MindfulQuoteTile from '../components/MindfulQuoteTile';
 import { ScrollingPageContainer } from '../components/ScrollingPageContainer';
 import TutorialView from '../components/TutorialView';
 import { updateAppCount, updateVersionNumber } from '../redux/reducers/general';
-import { scheduleAffirmationNotifications } from '../redux/reducers/notification';
+import { updateNotifications } from '../redux/reducers/notification';
 import {
   updateIAPs,
   updateUserSubscriptions
@@ -18,6 +18,8 @@ import {
 import { updateTasks } from '../redux/reducers/tasks';
 import { showTutorial } from '../redux/reducers/tutorial';
 // TODO add stars to tile if have done one of the tasks today. Make BG lighter?
+
+const VERSION_NUMBER = '2.0';
 
 class HomeScreen extends React.Component {
   localAppOpenedCount = -1;
@@ -27,12 +29,11 @@ class HomeScreen extends React.Component {
 
   componentDidMount() {
     this.props.updateAppCount();
-    this.props.updateVersionNumber('1.5');
+    this.props.updateVersionNumber(VERSION_NUMBER);
     this.props.updateTasks();
     this.props.updateIAPs();
-    if (!!this.props.affirmationsEnabled) {
-      this.props.scheduleAffirmationNotifications();
-    }
+    this.props.updateNotifications();
+
     if (!this.props.tutorial['appIntro']) {
       this.props.navigation.navigate('Intro');
     }
@@ -139,8 +140,7 @@ const mapDispatchToProps = dispatch => {
     updateAppCount: () => dispatch(updateAppCount()),
     updateVersionNumber: versionNumber =>
       dispatch(updateVersionNumber(versionNumber)),
-    scheduleAffirmationNotifications: () =>
-      dispatch(scheduleAffirmationNotifications()),
+    updateNotifications: () => dispatch(updateNotifications()),
     showTutorial: tutorial => dispatch(showTutorial(tutorial))
   };
 };

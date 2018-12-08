@@ -16,13 +16,17 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case UPDATE_NOTIFICATIONS:
-      return {
-        ...state,
-        remindersEnabled: action.payload.remindersEnabled,
-        remindersTime: action.payload.remindersTime,
-        affirmationsEnabled: action.payload.affirmationsEnabled,
-        affirmationsTime: action.payload.affirmationsTime
-      };
+      if (!action.payload) {
+        return state;
+      } else {
+        return {
+          ...state,
+          remindersEnabled: action.payload.remindersEnabled,
+          remindersTime: action.payload.remindersTime,
+          affirmationsEnabled: action.payload.affirmationsEnabled,
+          affirmationsTime: action.payload.affirmationsTime
+        };
+      }
     case PURGE:
       return initialState;
     default:

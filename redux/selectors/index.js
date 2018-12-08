@@ -6,6 +6,10 @@ const getTutorialTasksCompleted = state => state.tasks.completedTutorialTasks;
 const getTasks = state => state.tasks.tasks;
 
 export const getAffirmationsTime = state => state.notification.affirmationsTime;
+export const getAffirmationsEnabled = state =>
+  state.notification.affirmationsEnabled;
+export const getRemindersTime = state => state.notification.remindersTime;
+export const getRemindersEnabled = state => state.notification.remindersEnabled;
 
 export const getPremium = state => state.subscription.premium;
 
