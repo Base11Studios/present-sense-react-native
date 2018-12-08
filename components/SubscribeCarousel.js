@@ -1,27 +1,33 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
-import Carousel, { Pagination } from "react-native-snap-carousel";
-import { itemWidth, sliderWidth } from "../styles/SliderEntry.style";
-import { COLOR_BLACK, COLOR_PRIMARY } from "../styles/common";
-import SliderEntry from "./SliderEntry";
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import Carousel, { Pagination } from 'react-native-snap-carousel';
+import { COLOR_BLACK, COLOR_PRIMARY } from '../styles/common';
+import { itemWidth, sliderWidth } from '../styles/SliderEntry.style';
+import SliderEntry from './SliderEntry';
 
 const ENTRIES = [
   {
-    title: "more mindful experiences",
+    title: 'More Mindful Experiences',
     subtitle:
-      "Many more mindful experiences to complete. Discover more ways to be mindful in your daily life.",
-    illustration: require("../assets/images/sub_tasks.png")
+      'Many more mindful experiences to complete. Discover more ways to be mindful in your daily life.',
+    illustration: require('../assets/images/sub_tasks.png')
   },
   {
-    title: "Advanced Stats",
-    subtitle: "See your journey from different angles!",
-    illustration: require("../assets/images/sub_stats.png")
+    title: 'More Affirmations',
+    subtitle:
+      'Over 150 more daily affirmations. Use these positive statements to empower yourself.',
+    illustration: require('../assets/images/sub_affirm.png')
   },
   {
-    title: "Full history view",
+    title: 'Advanced Stats',
+    subtitle: 'See your journey from different angles!',
+    illustration: require('../assets/images/sub_stats.png')
+  },
+  {
+    title: 'Full history view',
     subtitle:
-      "See your historical timeline with all mindful experiences you have completed.",
-    illustration: require("../assets/images/sub_history.png")
+      'See your historical timeline with all mindful experiences you have completed.',
+    illustration: require('../assets/images/sub_history.png')
   }
 ];
 
@@ -81,7 +87,7 @@ export class SubscribeCarousel extends React.Component {
 const styles = StyleSheet.create({
   container: {
     marginTop: 10,
-    overflow: "visible" // for custom animations
+    overflow: 'visible' // for custom animations
   },
   paginationDot: {
     width: 8,

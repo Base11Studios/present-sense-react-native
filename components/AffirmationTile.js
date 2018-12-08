@@ -64,7 +64,7 @@ class AffirmationTile extends React.Component {
               <Button
                 iconRight={{ name: 'keyboard-arrow-right', type: 'material' }}
                 onPress={() => this.pressUnlockAffirmations()}
-                title="Subscribe to unlock all."
+                title="Subscribe to unlock all"
                 color={COLOR_WHITE}
                 fontSize={16}
                 containerViewStyle={{
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     // flex: 1,
     textAlign: 'center',
     color: COLOR_WHITE,
-    fontSize: 24,
+    fontSize: 26,
     padding: 15
   },
   affirmationAuthor: {

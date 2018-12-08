@@ -1,10 +1,10 @@
-import { PURGE } from "redux-persist";
+import { PURGE } from 'redux-persist';
 
-export const SUBSCRIBE_USER = "user/SUBSCRIBE";
-export const UNSUBSCRIBE_USER = "user/UNSUBSCRIBE";
-export const UPDATE_SUBSCRIPTIONS = "user/UPDATE_SUBSCRIPTIONS";
-export const UPDATE_IAPS = "user/UPDATE_IAPS";
-export const UPDATE_IAPS_SUCCESS = "user/UPDATE_IAPS_SUCCESS";
+export const SUBSCRIBE_USER = 'user/SUBSCRIBE';
+export const UNSUBSCRIBE_USER = 'user/UNSUBSCRIBE';
+export const UPDATE_SUBSCRIPTIONS = 'user/UPDATE_SUBSCRIPTIONS';
+export const UPDATE_IAPS = 'user/UPDATE_IAPS';
+export const UPDATE_IAPS_SUCCESS = 'user/UPDATE_IAPS_SUCCESS';
 
 const initialState = {
   premium: false,
