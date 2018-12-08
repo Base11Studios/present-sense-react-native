@@ -10,7 +10,7 @@ export class SettingsButton extends React.Component {
     return (
       <Icon
         name={Platform.OS === 'ios' ? 'ios-settings' : 'md-settings'}
-        size={Platform.OS === 'ios' ? 35 : 24}
+        size={Platform.OS === 'ios' ? 28 : 24}
         color={
           !!this.props.color
             ? this.props.color
@@ -20,7 +20,7 @@ export class SettingsButton extends React.Component {
         }
         containerStyle={
           Platform.OS === 'ios'
-            ? { marginBottom: -4, width: 25, marginRight: 9 }
+            ? { marginBottom: -4, width: 25, marginRight: 18 }
             : { marginBottom: -4, width: 25, marginRight: 20 }
         }
         underlayColor={

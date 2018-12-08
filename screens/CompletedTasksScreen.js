@@ -58,7 +58,7 @@ class CompletedTasksScreen extends React.Component {
             "Check in here after completing a mindful experience to see your progress and history over time!"
           }
         /> */}
-        <StatTile />
+        <StatTile style={{ marginTop: 10 }} />
         <View>
           <Title4 style={styles.container}>MY AWARENESS</Title4>
           <CloudTile />

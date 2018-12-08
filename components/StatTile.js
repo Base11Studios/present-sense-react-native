@@ -1,20 +1,24 @@
-import React from "react";
-import { Image, StyleSheet, View } from "react-native";
-import { connect } from "react-redux";
-import { getTasksPerDay, getTaskStreak, getTotalTasksCompleted } from "../redux/selectors/index";
-import { COLOR_WHITE } from "../styles/common";
-import { MyText } from "./MyText";
+import React from 'react';
+import { Image, StyleSheet, View } from 'react-native';
+import { connect } from 'react-redux';
+import {
+  getTasksPerDay,
+  getTaskStreak,
+  getTotalTasksCompleted
+} from '../redux/selectors/index';
+import { COLOR_WHITE } from '../styles/common';
+import { MyText } from './MyText';
 
 class StatTile extends React.Component {
   render() {
     const { totalTasksCompleted, taskStreak, tasksPerDay } = this.props;
 
     return (
-      <View style={styles.header}>
+      <View style={[styles.header, this.props.style]}>
         <View style={styles.profile}>
           <Image
             style={styles.avatar}
-            source={require("../assets/images/user_profile.png")}
+            source={require('../assets/images/user_profile.png')}
           />
         </View>
         <View style={styles.stat}>
@@ -38,9 +42,9 @@ const styles = StyleSheet.create({
   header: {
     // height: 110,
     backgroundColor: COLOR_WHITE,
-    alignItems: "flex-start",
-    justifyContent: "center",
-    flexDirection: "row"
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    flexDirection: 'row'
   },
   avatar: {
     width: 60,
@@ -49,20 +53,20 @@ const styles = StyleSheet.create({
   },
   profile: {
     width: 76,
-    justifyContent: "flex-start",
-    alignItems: "center",
-    height: 75,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    height: 75
   },
   stat: {
     flex: 1,
-    alignItems: "center"
+    alignItems: 'center'
   },
   statText: {
     fontSize: 28,
-    fontWeight: "600"
+    fontWeight: '600'
   },
   statLabel: {
-    textAlign: "center",
+    textAlign: 'center',
     // height: 36,
     fontSize: 12,
     paddingLeft: 6,
@@ -83,4 +87,7 @@ function mapDispatchToProps(dispatch) {
   return {};
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(StatTile);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(StatTile);
