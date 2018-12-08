@@ -172,7 +172,7 @@ const CompleteTaskForm = withFormik({
     completed.hideToast = false;
 
     props.completeTask(completed);
-    props.navigation.navigate('Journey');
+    props.navigation.navigate('Profile');
   },
   displayName: 'TaskFeelForm' // helps with React DevTools
 })(InnerCompleteTaskForm);

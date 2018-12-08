@@ -1,25 +1,25 @@
-import React from "react";
-import Moment from "react-moment"; // TODO tz support
+import React from 'react';
+import Moment from 'react-moment'; // TODO tz support
 import {
   FlatList,
   StyleSheet,
   Text,
   TouchableWithoutFeedback,
   View
-} from "react-native";
-import { connect } from "react-redux";
-import AdvancedStatTile from "../components/AdvancedStatTile";
-import CloudTile from "../components/CloudTile";
-import { FocusTypeIcon } from "../components/FocusTypeIcon";
-import { MyText } from "../components/MyText";
-import { PageContainer } from "../components/PageContainer";
-import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
-import StatTile from "../components/StatTile";
-import { Title3 } from "../components/Title3";
-import { Title4 } from "../components/Title4";
-import { Title5 } from "../components/Title5";
-import { getBackgroundColorByDay } from "../constants/Helpers";
-import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
+} from 'react-native';
+import { connect } from 'react-redux';
+import AdvancedStatTile from '../components/AdvancedStatTile';
+import CloudTile from '../components/CloudTile';
+import { FocusTypeIcon } from '../components/FocusTypeIcon';
+import { MyText } from '../components/MyText';
+import { PageContainer } from '../components/PageContainer';
+import { ScrollingPageContainer } from '../components/ScrollingPageContainer';
+import StatTile from '../components/StatTile';
+import { Title3 } from '../components/Title3';
+import { Title4 } from '../components/Title4';
+import { Title5 } from '../components/Title5';
+import { getBackgroundColorByDay } from '../constants/Helpers';
+import { COLOR_PRIMARY, COLOR_WHITE } from '../styles/common';
 
 // TODO show time for today, day of week for past week, month and day for this year, month and day and year for previous
 
@@ -27,20 +27,20 @@ const MAX_UNSUBSCRIBED_EVENTS = 9;
 
 class CompletedTasksScreen extends React.Component {
   static navigationOptions = {
-    title: "Journey"
+    title: 'Profile'
   };
 
   getDateFormat(date) {
     if (!!date && new Date(date).getFullYear() === new Date().getFullYear()) {
-      return "MM/DD";
+      return 'MM/DD';
     }
 
-    return "MM/DD/YYYY";
+    return 'MM/DD/YYYY';
   }
 
   onPressHistoricalItem(item, index) {
     if (index > MAX_UNSUBSCRIBED_EVENTS && !this.props.premium) {
-      this.props.navigation.navigate("Subscribe");
+      this.props.navigation.navigate('Subscribe');
     } else {
       item.expanded = !item.expanded;
       this.forceUpdate();
@@ -100,16 +100,16 @@ class CompletedTasksScreen extends React.Component {
                         style={styles.avatar}
                         focusType={
                           !this.props.premium && index > MAX_UNSUBSCRIBED_EVENTS
-                            ? "Locked"
+                            ? 'Locked'
                             : item.task.focusType
                         }
                       />
-                      <View style={{ alignItems: "flex-start", flex: 1 }}>
+                      <View style={{ alignItems: 'flex-start', flex: 1 }}>
                         <MyText
                           style={{
                             color: COLOR_WHITE,
                             fontSize: 15,
-                            fontWeight: "600",
+                            fontWeight: '600',
                             marginRight: 6,
                             marginLeft: 6
                           }}
@@ -121,7 +121,7 @@ class CompletedTasksScreen extends React.Component {
                         <Moment
                           format={this.getDateFormat(item.completeDate)}
                           element={Text}
-                          style={{ color: COLOR_WHITE, fontWeight: "600" }}
+                          style={{ color: COLOR_WHITE, fontWeight: '600' }}
                         >
                           {item.completeDate}
                         </Moment>
@@ -195,21 +195,21 @@ const styles = StyleSheet.create({
     padding: 20
   },
   headline: {
-    flexDirection: "row",
-    alignItems: "center"
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   cardTitleContainer: {
-    flexDirection: "row"
+    flexDirection: 'row'
   },
   title: { flex: 1 },
   cardTitle: {
-    justifyContent: "space-between",
-    flexDirection: "row"
+    justifyContent: 'space-between',
+    flexDirection: 'row'
   },
   date: {
     width: 90,
-    alignItems: "flex-end",
-    flexDirection: "column"
+    alignItems: 'flex-end',
+    flexDirection: 'column'
   },
   contentWrapper: {
     flex: 1,
@@ -222,11 +222,11 @@ const styles = StyleSheet.create({
     marginVertical: 4,
     padding: 8,
     borderRadius: 6,
-    flexDirection: "column",
-    alignItems: "flex-start"
+    flexDirection: 'column',
+    alignItems: 'flex-start'
   },
   circle: {
-    position: "absolute",
+    position: 'absolute',
     right: -7,
     top: 0,
     // bottom: 0,
@@ -236,9 +236,9 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR_PRIMARY
   },
   taskView: {
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "flex-start"
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start'
   },
   circleView: {
     width: 20

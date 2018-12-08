@@ -3,6 +3,7 @@ import { Animated, Easing, Platform } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { createBottomTabNavigator, StackNavigator } from 'react-navigation';
 import { BackButton } from '../components/BackButton';
+import { SettingsButton } from '../components/SettingsButton';
 import CompletedTasksScreen from '../screens/CompletedTasksScreen';
 import CreditsScreen from '../screens/CreditsScreen';
 import FAQScreen from '../screens/FAQScreen';
@@ -360,6 +361,7 @@ export const CompletedNavigator = StackNavigator({
   Completed: {
     screen: CompletedTasksScreen,
     navigationOptions: props => ({
+      headerRight: <SettingsButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
         backgroundColor: COLOR_WHITE
@@ -372,6 +374,7 @@ export const SettingsNavigator = StackNavigator({
   Settings: {
     screen: SettingsScreen,
     navigationOptions: props => ({
+      headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
         backgroundColor: COLOR_WHITE
@@ -427,11 +430,8 @@ export const TabNavigator = createBottomTabNavigator(
     Inspire: {
       screen: InspireNavigator
     },
-    Journey: {
+    Profile: {
       screen: CompletedNavigator
-    },
-    Settings: {
-      screen: SettingsNavigator
     }
   },
   {
@@ -458,17 +458,9 @@ export const TabNavigator = createBottomTabNavigator(
                 ? `ios-bulb${focused ? '' : '-outline'}`
                 : 'md-bulb';
             break;
-          case 'Journey':
-            iconName =
-              Platform.OS === 'ios'
-                ? `ios-checkmark-circle${focused ? '' : '-outline'}`
-                : 'md-checkmark-circle';
+          case 'Profile':
+            iconName = Platform.OS === 'ios' ? 'ios-person' : 'md-person';
             break;
-          case 'Settings':
-            iconName =
-              Platform.OS === 'ios'
-                ? `ios-options${focused ? '' : '-outline'}`
-                : 'md-options';
         }
         return (
           <Icon

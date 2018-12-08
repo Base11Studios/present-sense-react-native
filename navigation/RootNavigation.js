@@ -1,18 +1,19 @@
-import React from "react";
-import { StackNavigator } from "react-navigation";
+import React from 'react';
+import { StackNavigator } from 'react-navigation';
 import {
   CreditsNavigator,
   DoTaskNavigator,
   FAQNavigator,
   IntroNavigator,
   PrivacyNavigator,
+  SettingsNavigator,
   SubscribeNavigator,
   TabNavigator,
   TaskHelpNavigator,
   TermsNavigator,
   TutorialNavigator,
   ViewTaskNavigator
-} from "./MainTabNavigator";
+} from './MainTabNavigator';
 
 const RootStackNavigator = StackNavigator(
   {
@@ -30,6 +31,12 @@ const RootStackNavigator = StackNavigator(
     },
     DoTask: {
       screen: DoTaskNavigator,
+      navigationOptions: props => ({
+        gesturesEnabled: false
+      })
+    },
+    Settings: {
+      screen: SettingsNavigator,
       navigationOptions: props => ({
         gesturesEnabled: false
       })
@@ -84,8 +91,8 @@ const RootStackNavigator = StackNavigator(
     }
   },
   {
-    mode: "modal",
-    headerMode: "none"
+    mode: 'modal',
+    headerMode: 'none'
   }
 );
 
