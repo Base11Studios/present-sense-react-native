@@ -45,9 +45,7 @@ class SettingsScreen extends React.Component {
   async openURL(url) {
     try {
       await Linking.openURL(url);
-    } catch (error) {
-      console.warn(error);
-    }
+    } catch (error) {}
   }
 
   handleNoNotificationPermissions() {
@@ -160,14 +158,15 @@ class SettingsScreen extends React.Component {
   }
 
   onPressToggleReminders() {
+    const remind = !this.props.remindersEnabled;
     this.props.updateNotifications({
-      remindersEnabled: !this.props.remindersEnabled,
+      remindersEnabled: remind,
       remindersTime: this.props.remindersTime,
       affirmationsEnabled: this.props.affirmationsEnabled,
       affirmationsTime: this.props.affirmationsTime
     });
 
-    if (!this.props.remindersEnabled) {
+    if (remind) {
       this.enableReminder(this.props.remindersTime);
     } else {
       this.disableReminder();
@@ -175,14 +174,16 @@ class SettingsScreen extends React.Component {
   }
 
   onPressToggleAffirmations() {
+    const affirm = !this.props.affirmationsEnabled;
+
     this.props.updateNotifications({
       remindersEnabled: this.props.remindersEnabled,
       remindersTime: this.props.remindersTime,
-      affirmationsEnabled: !this.props.affirmationsEnabled,
+      affirmationsEnabled: affirm,
       affirmationsTime: this.props.affirmationsTime
     });
 
-    if (!this.props.affirmationsEnabled) {
+    if (affirm) {
       this.enableAffirmation(this.props.affirmationsTime);
     } else {
       this.disableAffirmation();

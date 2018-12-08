@@ -28,6 +28,7 @@ import {
 var currencyFormatter = require('currency-formatter');
 
 const AFFIRMATIONS_START_ID = 100;
+const AFFIRMATION_NUMBER_TO_SCHEDULE = 14;
 
 const itemSkus = Platform.select({
   ios: [MONTHLY_SUB_ID, YEARLY_SUB_ID],
@@ -208,10 +209,10 @@ function* cancelScheduledAffirmationNotifications(action) {
     // Loop through ID 100 to 144 and cancel notifications
     for (
       let index = AFFIRMATIONS_START_ID;
-      index < AFFIRMATIONS_START_ID + 45;
+      index < AFFIRMATIONS_START_ID + AFFIRMATION_NUMBER_TO_SCHEDULE;
       index++
     ) {
-      PushNotification.cancelLocalNotifications({ id: index });
+      PushNotification.cancelLocalNotifications({ id: index.toString() });
     }
   } catch (e) {}
 }
@@ -294,7 +295,7 @@ function* scheduleAffirmationNotifications(action) {
     // CREATE ALL NOTIFICATIONS FOR AFFIRMATIONS
     for (
       let index = AFFIRMATIONS_START_ID;
-      index < AFFIRMATIONS_START_ID + 45;
+      index < AFFIRMATIONS_START_ID + AFFIRMATION_NUMBER_TO_SCHEDULE;
       index++
     ) {
       notificationDate = new Date(firstAffirmationDate);
@@ -304,7 +305,7 @@ function* scheduleAffirmationNotifications(action) {
       scheduleAffirmationNotification(
         notificationDate,
         getAffirmationForDay(getDayOfYear(notificationDate)),
-        index
+        index.toString()
       );
     }
   } catch (e) {}
