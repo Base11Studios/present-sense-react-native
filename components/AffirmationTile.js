@@ -22,11 +22,20 @@ class AffirmationTile extends React.Component {
   }
 
   getRandomAffirmationNumber() {
-    return Math.floor(Math.random() * affirmationData.length);
+    let affirmationLength = affirmationData.length;
+    if (!this.props.premium) {
+      affirmationLength = 10;
+    }
+
+    return Math.floor(Math.random() * affirmationLength);
   }
 
   pressGetNotifications() {
     this.props.navigation.navigate('Settings');
+  }
+
+  pressUnlockAffirmations() {
+    this.props.navigation.navigate('Subscribe');
   }
 
   render() {
@@ -42,7 +51,38 @@ class AffirmationTile extends React.Component {
             { backgroundColor: this.getBackgroundColor(this.affirmationNumber) }
           ]}
         >
-          <View style={styles.refresh} />
+          {!this.props.premium ? (
+            <View style={styles.refresh}>
+              <MyText
+                style={{
+                  color: COLOR_WHITE,
+                  fontWeight: 'bold'
+                }}
+              >
+                {'Showing 10 of ' + affirmationData.length}
+              </MyText>
+              <Button
+                iconRight={{ name: 'keyboard-arrow-right', type: 'material' }}
+                onPress={() => this.pressUnlockAffirmations()}
+                title="Subscribe to unlock all."
+                color={COLOR_WHITE}
+                fontSize={16}
+                containerViewStyle={{
+                  margin: 0,
+                  padding: 0,
+                  paddingLeft: 10
+                }}
+                buttonStyle={{
+                  margin: 0,
+                  padding: 10,
+                  backgroundColor: 'transparent'
+                }}
+                large={false}
+              />
+            </View>
+          ) : (
+            <View />
+          )}
           <View>
             <MyText
               style={[
@@ -120,13 +160,16 @@ const styles = StyleSheet.create({
     padding: 15
   },
   refresh: {
-    alignItems: 'flex-end',
+    textAlign: 'center',
+    alignItems: 'center',
     alignSelf: 'stretch'
   }
 });
 
 function mapStateToProps(state) {
-  return {};
+  return {
+    premium: state.subscription.premium
+  };
 }
 
 function mapDispatchToProps(dispatch) {

@@ -300,7 +300,11 @@ function getDayOfYear(date) {
 }
 
 function getAffirmationForDay(day) {
-  const affirmation = affirmationData[day % affirmationData.length].affirmation;
+  let affirmationLength = affirmationData.length;
+  if (!this.props.premium) {
+    affirmationLength = 10;
+  }
+  const affirmation = affirmationData[day % affirmationLength].affirmation;
   return affirmation;
 }
 
