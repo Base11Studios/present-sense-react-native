@@ -4,9 +4,9 @@ import { Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { affirmationData } from '../redux/reducers/affirmation-data';
 import {
-  COLOR_ALERT,
   COLOR_HIGHLIGHT,
   COLOR_PRIMARY,
+  COLOR_QUATERNARY,
   COLOR_SECONDARY,
   COLOR_TERTIARY,
   COLOR_WHITE
@@ -83,7 +83,7 @@ class AffirmationTile extends React.Component {
   getBackgroundColor = function(affirmationNumber) {
     switch (affirmationNumber % 5) {
       case 0:
-        return COLOR_ALERT;
+        return COLOR_QUATERNARY;
       case 1:
         return COLOR_SECONDARY;
       case 2:
