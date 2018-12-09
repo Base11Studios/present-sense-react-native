@@ -21,7 +21,24 @@ class TaskOverviewScreen extends Component {
     timerLength: ['00', '05', '00']
   };
 
-  componentWillMount() {
+  onPressStartTask = selectedTask => {
+    this.props.startTask(selectedTask);
+    this.props.navigation.navigate('TaskObservations', { task: selectedTask });
+  };
+
+  onPressGetHelp(props) {
+    this.props.navigation.navigate('TaskHelp');
+  }
+
+  onPressToggleTips() {
+    this.setState({ isTipsOpen: !this.state.isTipsOpen });
+  }
+
+  onPressToggleTimer() {
+    this.setState({ isTimerEnabled: !this.state.isTimerEnabled });
+  }
+
+  onPressTimerLength() {
     pickerData = [
       ['00', '01', '02', '03', '04', '05'],
       ['00', '01', '02', '03', '04', '05'],
@@ -52,26 +69,6 @@ class TaskOverviewScreen extends Component {
         console.log(data);
       }
     });
-  }
-
-  onPressStartTask = selectedTask => {
-    this.props.startTask(selectedTask);
-    this.props.navigation.navigate('TaskObservations', { task: selectedTask });
-  };
-
-  onPressGetHelp(props) {
-    this.props.navigation.navigate('TaskHelp');
-  }
-
-  onPressToggleTips() {
-    this.setState({ isTipsOpen: !this.state.isTipsOpen });
-  }
-
-  onPressToggleTimer() {
-    this.setState({ isTimerEnabled: !this.state.isTimerEnabled });
-  }
-
-  onPressTimerLength() {
     Picker.show();
   }
 
