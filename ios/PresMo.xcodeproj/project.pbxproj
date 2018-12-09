@@ -44,6 +44,7 @@
 		3718C52620BA316D0093B9B3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3718C52520BA316D0093B9B3 /* StoreKit.framework */; };
 		3734EDC920B9F7130042FB66 /* libRNIap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3734EDC820B9F6EB0042FB66 /* libRNIap.a */; };
 		375E471421BD944C0026C43E /* libRCTBEEPickerManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 375E46EB21BD94360026C43E /* libRCTBEEPickerManager.a */; };
+		375E471E21BDB3A80026C43E /* libRNBackgroundTimer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 375E471B21BDB3960026C43E /* libRNBackgroundTimer.a */; };
 		377C315320C0A3A700D33296 /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 377C315220C0A37400D33296 /* libSplashScreen.a */; };
 		37A1351421B1FB66003A5E21 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37A134F521B1FB42003A5E21 /* libRCTPushNotification.a */; };
 		3D638F9F3EF3E5FB13AC73FB /* libPods-PresMo-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B66B216029CE50FEDDACA9C3 /* libPods-PresMo-tvOS.a */; };
@@ -230,6 +231,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = 17D41E551D7EE0CA0031415E;
 			remoteInfo = RCTBEEPickerManager;
+		};
+		375E471A21BDB3960026C43E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 375E471521BDB3960026C43E /* RNBackgroundTimer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNBackgroundTimer;
+		};
+		375E471C21BDB3960026C43E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 375E471521BDB3960026C43E /* RNBackgroundTimer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 641926921ECB4257009CF731;
+			remoteInfo = "RNBackgroundTimer-tvOS";
 		};
 		377C315120C0A37400D33296 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -422,6 +437,7 @@
 		3718C52520BA316D0093B9B3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3734ED9D20B9F6EB0042FB66 /* RNIap.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNIap.xcodeproj; path = "../node_modules/react-native-iap/ios/RNIap.xcodeproj"; sourceTree = "<group>"; };
 		375E46E321BD94350026C43E /* RCTBEEPickerManager.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBEEPickerManager.xcodeproj; path = "../node_modules/react-native-picker/ios/RCTBEEPickerManager.xcodeproj"; sourceTree = "<group>"; };
+		375E471521BDB3960026C43E /* RNBackgroundTimer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNBackgroundTimer.xcodeproj; path = "../node_modules/react-native-background-timer/ios/RNBackgroundTimer.xcodeproj"; sourceTree = "<group>"; };
 		377C314D20C0A37400D33296 /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
 		37A134E321B1FB41003A5E21 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		37A1351521B1FF32003A5E21 /* PresMo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = PresMo.entitlements; path = PresMo/PresMo.entitlements; sourceTree = "<group>"; };
@@ -463,6 +479,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				375E471E21BDB3A80026C43E /* libRNBackgroundTimer.a in Frameworks */,
 				375E471421BD944C0026C43E /* libRCTBEEPickerManager.a in Frameworks */,
 				377C315320C0A3A700D33296 /* libSplashScreen.a in Frameworks */,
 				3734EDC920B9F7130042FB66 /* libRNIap.a in Frameworks */,
@@ -677,6 +694,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		375E471621BDB3960026C43E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				375E471B21BDB3960026C43E /* libRNBackgroundTimer.a */,
+				375E471D21BDB3960026C43E /* libRNBackgroundTimer.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		377C314E20C0A37400D33296 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -723,6 +749,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				375E471521BDB3960026C43E /* RNBackgroundTimer.xcodeproj */,
 				375E46E321BD94350026C43E /* RCTBEEPickerManager.xcodeproj */,
 				37A134E321B1FB41003A5E21 /* RCTPushNotification.xcodeproj */,
 				377C314D20C0A37400D33296 /* SplashScreen.xcodeproj */,
@@ -1007,6 +1034,10 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
+					ProductGroup = 375E471621BDB3960026C43E /* Products */;
+					ProjectRef = 375E471521BDB3960026C43E /* RNBackgroundTimer.xcodeproj */;
+				},
+				{
 					ProductGroup = 3744A05520B8CAF600DBDCD9 /* Products */;
 					ProjectRef = D572D254656648A088712770 /* RNGestureHandler.xcodeproj */;
 				},
@@ -1186,6 +1217,20 @@
 			fileType = archive.ar;
 			path = libRCTBEEPickerManager.a;
 			remoteRef = 375E46EA21BD94360026C43E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		375E471B21BDB3960026C43E /* libRNBackgroundTimer.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNBackgroundTimer.a;
+			remoteRef = 375E471A21BDB3960026C43E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		375E471D21BDB3960026C43E /* libRNBackgroundTimer.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNBackgroundTimer.a;
+			remoteRef = 375E471C21BDB3960026C43E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		377C315220C0A37400D33296 /* libSplashScreen.a */ = {

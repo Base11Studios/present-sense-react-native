@@ -18,6 +18,8 @@ target 'PresMo' do
 
   pod 'Picker', :path => '../node_modules/react-native-picker'
 
+  pod 'react-native-background-timer', :path => '../node_modules/react-native-background-timer'
+
   target 'PresMoTests' do
     inherit! :search_paths
     # Pods for testing

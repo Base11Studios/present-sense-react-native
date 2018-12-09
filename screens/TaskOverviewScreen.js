@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Switch, TouchableOpacity, View } from 'react-native';
+import BackgroundTimer from 'react-native-background-timer';
 import Collapsible from 'react-native-collapsible';
 import { Card, Icon } from 'react-native-elements';
 import Picker from 'react-native-picker';
@@ -17,6 +18,7 @@ class TaskOverviewScreen extends Component {
   state = {
     isTipsOpen: false,
     isTimerEnabled: false,
+    isTimerPlaying: false,
     isSoundOpen: false,
     timerLength: ['00', '05', '00']
   };
@@ -36,9 +38,56 @@ class TaskOverviewScreen extends Component {
 
   onPressToggleTimer() {
     this.setState({ isTimerEnabled: !this.state.isTimerEnabled });
+
+    if (this.state.isTimerPlaying) {
+      this.onPressTimerLength();
+      this.setState({ isTimerPlaying: false });
+    }
+  }
+
+  onPressTimerPlayToggle() {
+    const newState = !this.state.isTimerPlaying;
+    this.setState({ isTimerPlaying: newState });
+
+    BackgroundTimer.stopBackgroundTimer();
+    if (!!newState) {
+      if (
+        this.state.timerLength[2] !== '00' ||
+        this.state.timerLength[1] !== '00' ||
+        this.state.timerLength[0] !== '00'
+      )
+        BackgroundTimer.runBackgroundTimer(() => {
+          if (this.state.timerLength[2] !== '00') {
+            let seconds = parseInt(this.state.timerLength[2]);
+            seconds = seconds - 1;
+            this.state.timerLength[2] =
+              seconds < 10 ? '0' + seconds.toString() : seconds.toString();
+          } else if (this.state.timerLength[1] !== '00') {
+            let minutes = parseInt(this.state.timerLength[1]);
+            minutes = minutes - 1;
+            this.state.timerLength[2] = '59';
+            this.state.timerLength[1] =
+              minutes < 10 ? '0' + minutes.toString() : minutes.toString();
+          } else if (this.state.timerLength[0] !== '00') {
+            let hours = parseInt(this.state.timerLength[0]);
+            hours = hours - 1;
+            this.state.timerLength[2] = '59';
+            this.state.timerLength[1] = '59';
+            this.state.timerLength[0] =
+              hours < 10 ? '0' + hours.toString() : hours.toString();
+          } else {
+            // TODO BEEP BEEP!!
+
+            BackgroundTimer.stopBackgroundTimer();
+          }
+          this.forceUpdate();
+        }, 1000);
+    }
   }
 
   onPressTimerLength() {
+    this.setState({ isTimerPlaying: false });
+
     pickerData = [
       ['00', '01', '02', '03', '04', '05'],
       ['00', '01', '02', '03', '04', '05'],
@@ -176,11 +225,16 @@ class TaskOverviewScreen extends Component {
             </View>
 
             <Collapsible collapsed={!this.state.isTimerEnabled}>
-              <View style={[styles.cardPadded, { minHeight: 100 }]}>
+              <View
+                style={[
+                  styles.cardPadded,
+                  { minHeight: 100, flexDirection: 'row' }
+                ]}
+              >
                 <TouchableOpacity
                   style={{
                     marginBottom: 20,
-                    flex: 1,
+                    flex: 4,
                     alignItems: 'center'
                   }}
                   onPress={() => this.onPressTimerLength()}
@@ -193,6 +247,22 @@ class TaskOverviewScreen extends Component {
                       ':' +
                       this.state.timerLength[2]}
                   </MyText>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    marginBottom: 20,
+                    flex: 1,
+                    alignItems: 'center'
+                  }}
+                  onPress={() => this.onPressTimerPlayToggle()}
+                >
+                  <Icon
+                    type="feather"
+                    name={!this.state.isTimerPlaying ? 'play' : 'pause'}
+                    size={50}
+                    containerStyle={{ padding: 7 }}
+                    color={COLOR_BLACK}
+                  />
                 </TouchableOpacity>
               </View>
             </Collapsible>
