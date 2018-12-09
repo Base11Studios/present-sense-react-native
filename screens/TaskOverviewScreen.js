@@ -1,24 +1,35 @@
-import React, { Component } from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
-import { Card, Icon } from "react-native-elements";
-import { connect } from "react-redux";
-import { FocusBadge } from "../components/FocusBadge";
-import { MyText } from "../components/MyText";
-import { PrimaryButton } from "../components/PrimaryButton";
-import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
-import { Title4 } from "../components/Title4";
-import { getBackgroundColorByDay } from "../constants/Helpers";
-import { startTask } from "../redux/reducers/tasks";
-import { COLOR_BLACK, COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
+import React, { Component } from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import Collapsible from 'react-native-collapsible';
+import { Card, Icon } from 'react-native-elements';
+import { connect } from 'react-redux';
+import { FocusBadge } from '../components/FocusBadge';
+import { MyText } from '../components/MyText';
+import { PrimaryButton } from '../components/PrimaryButton';
+import { ScrollingPageContainer } from '../components/ScrollingPageContainer';
+import { Title4 } from '../components/Title4';
+import { getBackgroundColorByDay } from '../constants/Helpers';
+import { startTask } from '../redux/reducers/tasks';
+import { COLOR_BLACK, COLOR_PRIMARY, COLOR_WHITE } from '../styles/common';
 
 class TaskOverviewScreen extends Component {
+  state = {
+    isTipsOpen: false,
+    isTimerOpen: false,
+    isSoundOpen: false
+  };
+
   onPressStartTask = selectedTask => {
     this.props.startTask(selectedTask);
-    this.props.navigation.navigate("TaskObservations", { task: selectedTask });
+    this.props.navigation.navigate('TaskObservations', { task: selectedTask });
   };
 
   onPressGetHelp(props) {
-    this.props.navigation.navigate("TaskHelp");
+    this.props.navigation.navigate('TaskHelp');
+  }
+
+  onPressToggleTips() {
+    this.setState({ isTipsOpen: !this.state.isTipsOpen });
   }
 
   render() {
@@ -37,7 +48,7 @@ class TaskOverviewScreen extends Component {
         <Card containerStyle={styles.card}>
           <View
             style={{
-              flexDirection: "row",
+              flexDirection: 'row',
               paddingLeft: 16,
               paddingRight: 16,
               paddingBottom: 20
@@ -46,7 +57,7 @@ class TaskOverviewScreen extends Component {
             <MyText
               style={{
                 flex: 1,
-                fontWeight: "bold",
+                fontWeight: 'bold',
                 fontSize: 16,
                 color: COLOR_BLACK
               }}
@@ -69,7 +80,7 @@ class TaskOverviewScreen extends Component {
 
           <View
             style={{
-              flexDirection: "row",
+              flexDirection: 'row',
               backgroundColor: getBackgroundColorByDay(activeTask.type),
               marginBottom: 26
             }}
@@ -91,7 +102,7 @@ class TaskOverviewScreen extends Component {
                 {activeTask.prompt}
               </MyText>
             </View>
-            <View style={{ width: 150, alignItems: "flex-end" }}>
+            <View style={{ width: 150, alignItems: 'flex-end' }}>
               <FocusBadge
                 focusType={activeTask.focusType}
                 style={[{ marginBottom: 10 }, styles.cardPadded]}
@@ -100,20 +111,71 @@ class TaskOverviewScreen extends Component {
           </View>
 
           {!!activeTask.hints ? (
-            <View style={styles.cardPadded}>
-              <Title4 style={{ marginBottom: 10 }}>TIPS</Title4>
-              <MyText style={{ marginBottom: 20 }}>{activeTask.hints}</MyText>
+            <View>
+              {!this.state.isTipsOpen ? (
+                <TouchableOpacity onPress={() => this.onPressToggleTips()}>
+                  <View
+                    style={[
+                      styles.cardPadded,
+                      {
+                        flexDirection: 'row'
+                      }
+                    ]}
+                  >
+                    <View style={{ flex: 1 }}>
+                      <Title4 style={{ marginBottom: 20 }}>TIPS</Title4>
+                    </View>
+                    <View style={{ width: 150, alignItems: 'flex-end' }}>
+                      <Icon
+                        type="ionicon"
+                        color={COLOR_BLACK}
+                        name="ios-arrow-down"
+                        size={24}
+                      />
+                    </View>
+                  </View>
+                </TouchableOpacity>
+              ) : (
+                <TouchableOpacity onPress={() => this.onPressToggleTips()}>
+                  <View
+                    style={[
+                      styles.cardPadded,
+                      {
+                        flexDirection: 'row'
+                      }
+                    ]}
+                  >
+                    <View style={{ flex: 1 }}>
+                      <Title4 style={{ marginBottom: 20 }}>TIPS</Title4>
+                    </View>
+                    <View style={{ width: 150, alignItems: 'flex-end' }}>
+                      <Icon
+                        type="ionicon"
+                        color={COLOR_BLACK}
+                        name="ios-arrow-up"
+                        size={24}
+                      />
+                    </View>
+                  </View>
+                </TouchableOpacity>
+              )}
+              <Collapsible collapsed={!this.state.isTipsOpen}>
+                <View style={styles.cardPadded}>
+                  <MyText style={{ marginBottom: 20 }}>
+                    {activeTask.hints}
+                  </MyText>
+                  <MyText style={{ marginBottom: 20 }}>
+                    If your thoughts wander, it's OK, gently bring back your
+                    focus and simply begin again.
+                  </MyText>
+                </View>
+              </Collapsible>
             </View>
           ) : (
             <View />
           )}
 
           <View style={styles.cardPadded}>
-            <MyText style={{ marginBottom: 20 }}>
-              If your thoughts wander, it's OK, gently bring back your focus and
-              simply begin again.
-            </MyText>
-
             <PrimaryButton
               color={COLOR_PRIMARY}
               title="JOURNAL"
