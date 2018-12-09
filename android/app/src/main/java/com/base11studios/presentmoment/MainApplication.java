@@ -3,6 +3,7 @@ package com.base11studios.presentmoment;
 import android.app.Application;
 import com.dooboolab.RNIap.RNIapPackage;
 import com.facebook.react.ReactApplication;
+import com.beefe.picker.PickerViewPackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.dooboolab.RNIap.RNIapPackage;
@@ -28,6 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new PickerViewPackage(),
             new ReactNativePushNotificationPackage(),
             new SplashScreenReactPackage(),
             new RNIapPackage(),

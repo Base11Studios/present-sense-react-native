@@ -16,6 +16,8 @@ target 'PresMo' do
   
   pod 'RNRate', :path => '../node_modules/react-native-rate/ios'
 
+  pod 'Picker', :path => '../node_modules/react-native-picker'
+
   target 'PresMoTests' do
     inherit! :search_paths
     # Pods for testing

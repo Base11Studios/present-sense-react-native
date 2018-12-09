@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Switch, TouchableOpacity, View } from 'react-native';
 import Collapsible from 'react-native-collapsible';
 import { Card, Icon } from 'react-native-elements';
+import Picker from 'react-native-picker';
 import { connect } from 'react-redux';
 import { FocusBadge } from '../components/FocusBadge';
 import { MyText } from '../components/MyText';
@@ -15,9 +16,43 @@ import { COLOR_BLACK, COLOR_PRIMARY, COLOR_WHITE } from '../styles/common';
 class TaskOverviewScreen extends Component {
   state = {
     isTipsOpen: false,
-    isTimerOpen: false,
-    isSoundOpen: false
+    isTimerEnabled: false,
+    isSoundOpen: false,
+    timerLength: ['00', '05', '00']
   };
+
+  componentWillMount() {
+    pickerData = [
+      ['00', '01', '02', '03', '04', '05'],
+      ['00', '01', '02', '03', '04', '05'],
+      ['00', '01', '02', '03', '04', '05']
+    ];
+
+    Picker.init({
+      pickerData: pickerData,
+      selectedValue: this.state.timerLength,
+      pickerTitleText: 'HH : MM : SS',
+      pickerConfirmBtnText: 'SET',
+      pickerCancelBtnText: 'CLOSE',
+      pickerConfirmBtnColor: [255, 255, 255, 1],
+      pickerCancelBtnColor: [255, 255, 255, 1],
+      pickerTitleColor: [255, 255, 255, 1],
+      pickerToolBarBg: [113, 210, 200, 1],
+      pickerBg: [255, 255, 255, 1],
+      pickerFontSize: 30,
+      pickerRowHeight: 30,
+      pickerFontColor: [51, 51, 51, 1],
+      onPickerConfirm: data => {
+        this.setState({ timerLength: data });
+      },
+      onPickerCancel: data => {
+        console.log(data);
+      },
+      onPickerSelect: data => {
+        console.log(data);
+      }
+    });
+  }
 
   onPressStartTask = selectedTask => {
     this.props.startTask(selectedTask);
@@ -30,6 +65,14 @@ class TaskOverviewScreen extends Component {
 
   onPressToggleTips() {
     this.setState({ isTipsOpen: !this.state.isTipsOpen });
+  }
+
+  onPressToggleTimer() {
+    this.setState({ isTimerEnabled: !this.state.isTimerEnabled });
+  }
+
+  onPressTimerLength() {
+    Picker.show();
   }
 
   render() {
@@ -110,55 +153,83 @@ class TaskOverviewScreen extends Component {
             </View>
           </View>
 
+          <View>
+            <View
+              style={[
+                styles.cardPadded,
+                {
+                  flexDirection: 'row'
+                }
+              ]}
+            >
+              <TouchableOpacity
+                onPress={() => this.onPressToggleTimer()}
+                style={{ flex: 1 }}
+              >
+                <View>
+                  <Title4 style={{ marginBottom: 20 }}>TIMER</Title4>
+                </View>
+              </TouchableOpacity>
+              <View style={{ width: 50, alignItems: 'flex-end' }}>
+                <Switch
+                  onValueChange={() => this.onPressToggleTimer()}
+                  value={this.state.isTimerEnabled}
+                />
+              </View>
+            </View>
+
+            <Collapsible collapsed={!this.state.isTimerEnabled}>
+              <View style={[styles.cardPadded, { minHeight: 100 }]}>
+                <TouchableOpacity
+                  style={{
+                    marginBottom: 20,
+                    flex: 1,
+                    alignItems: 'center'
+                  }}
+                  onPress={() => this.onPressTimerLength()}
+                >
+                  <MyText style={{ fontSize: 40, paddingBottom: 10 }}>
+                    {(this.state.timerLength[0] !== '00'
+                      ? this.state.timerLength[0] + ':'
+                      : '') +
+                      this.state.timerLength[1] +
+                      ':' +
+                      this.state.timerLength[2]}
+                  </MyText>
+                </TouchableOpacity>
+              </View>
+            </Collapsible>
+          </View>
+
           {!!activeTask.hints ? (
             <View>
-              {!this.state.isTipsOpen ? (
-                <TouchableOpacity onPress={() => this.onPressToggleTips()}>
-                  <View
-                    style={[
-                      styles.cardPadded,
-                      {
-                        flexDirection: 'row'
-                      }
-                    ]}
-                  >
-                    <View style={{ flex: 1 }}>
-                      <Title4 style={{ marginBottom: 20 }}>TIPS</Title4>
-                    </View>
-                    <View style={{ width: 150, alignItems: 'flex-end' }}>
-                      <Icon
-                        type="ionicon"
-                        color={COLOR_BLACK}
-                        name="ios-arrow-down"
-                        size={24}
-                      />
-                    </View>
+              <TouchableOpacity onPress={() => this.onPressToggleTips()}>
+                <View
+                  style={[
+                    styles.cardPadded,
+                    {
+                      flexDirection: 'row'
+                    }
+                  ]}
+                >
+                  <View style={{ flex: 1 }}>
+                    <Title4 style={{ marginBottom: 20 }}>GET TIPS</Title4>
                   </View>
-                </TouchableOpacity>
-              ) : (
-                <TouchableOpacity onPress={() => this.onPressToggleTips()}>
-                  <View
-                    style={[
-                      styles.cardPadded,
-                      {
-                        flexDirection: 'row'
+                  <View style={{ width: 150, alignItems: 'flex-end' }}>
+                    <Icon
+                      type="ionicon"
+                      color={COLOR_BLACK}
+                      name={
+                        !this.state.isTipsOpen
+                          ? 'ios-arrow-down'
+                          : 'ios-arrow-up'
                       }
-                    ]}
-                  >
-                    <View style={{ flex: 1 }}>
-                      <Title4 style={{ marginBottom: 20 }}>TIPS</Title4>
-                    </View>
-                    <View style={{ width: 150, alignItems: 'flex-end' }}>
-                      <Icon
-                        type="ionicon"
-                        color={COLOR_BLACK}
-                        name="ios-arrow-up"
-                        size={24}
-                      />
-                    </View>
+                      size={24}
+                    />
                   </View>
-                </TouchableOpacity>
-              )}
+                </View>
+              </TouchableOpacity>
+
               <Collapsible collapsed={!this.state.isTipsOpen}>
                 <View style={styles.cardPadded}>
                   <MyText style={{ marginBottom: 20 }}>

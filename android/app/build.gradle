@@ -148,6 +148,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-picker')
     compile project(':react-native-push-notification')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
