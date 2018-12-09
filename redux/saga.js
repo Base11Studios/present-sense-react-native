@@ -299,9 +299,9 @@ function getDayOfYear(date) {
   } catch (e) {}
 }
 
-function getAffirmationForDay(day) {
+function getAffirmationForDay(day, premium) {
   let affirmationLength = affirmationData.length;
-  if (!this.props.premium) {
+  if (!premium) {
     affirmationLength = 10;
   }
   const affirmation = affirmationData[day % affirmationLength].affirmation;
@@ -331,6 +331,7 @@ function* updateNotifications(action) {
     const affirmationsEnabled = yield select(getAffirmationsEnabled);
     const remindersTime = yield select(getRemindersTime);
     const remindersEnabled = yield select(getRemindersEnabled);
+    const premium = yield select(getPremium);
 
     if (!!remindersEnabled) {
       firstReminderDate = updateDateToBeInFuture(remindersTime);
@@ -353,7 +354,7 @@ function* updateNotifications(action) {
         );
         scheduleAffirmationNotification(
           notificationDate,
-          getAffirmationForDay(getDayOfYear(notificationDate)),
+          getAffirmationForDay(getDayOfYear(notificationDate), premium),
           index.toString()
         );
       }
