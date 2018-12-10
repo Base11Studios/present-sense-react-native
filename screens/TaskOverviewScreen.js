@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Switch, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import BackgroundTimer from 'react-native-background-timer';
 import Collapsible from 'react-native-collapsible';
 import { Card, Icon } from 'react-native-elements';
@@ -13,7 +13,12 @@ import { ScrollingPageContainer } from '../components/ScrollingPageContainer';
 import { Title4 } from '../components/Title4';
 import { getBackgroundColorByDay } from '../constants/Helpers';
 import { startTask } from '../redux/reducers/tasks';
-import { COLOR_BLACK, COLOR_PRIMARY, COLOR_WHITE } from '../styles/common';
+import {
+  COLOR_BLACK,
+  COLOR_PRIMARY,
+  COLOR_TERTIARY,
+  COLOR_WHITE
+} from '../styles/common';
 
 class TaskOverviewScreen extends Component {
   state = {
@@ -21,6 +26,7 @@ class TaskOverviewScreen extends Component {
     isTimerEnabled: false,
     isTimerPlaying: false,
     isSoundOpen: false,
+    isTimerLengthSetOpen: false,
     completeTimerSound: null,
     timerLength: ['00', '05', '00']
   };
@@ -77,43 +83,45 @@ class TaskOverviewScreen extends Component {
   }
 
   onPressTimerPlayToggle() {
-    const newState = !this.state.isTimerPlaying;
-    this.setState({ isTimerPlaying: newState });
+    if (!this.state.isTimerLengthSetOpen) {
+      const newState = !this.state.isTimerPlaying;
+      this.setState({ isTimerPlaying: newState });
 
-    this.setupSound();
+      this.setupSound();
 
-    BackgroundTimer.stopBackgroundTimer();
-    if (!!newState) {
-      if (
-        this.state.timerLength[2] !== '00' ||
-        this.state.timerLength[1] !== '00' ||
-        this.state.timerLength[0] !== '00'
-      )
-        BackgroundTimer.runBackgroundTimer(() => {
-          if (this.state.timerLength[2] !== '00') {
-            let seconds = parseInt(this.state.timerLength[2]);
-            seconds = seconds - 1;
-            this.state.timerLength[2] =
-              seconds < 10 ? '0' + seconds.toString() : seconds.toString();
-          } else if (this.state.timerLength[1] !== '00') {
-            let minutes = parseInt(this.state.timerLength[1]);
-            minutes = minutes - 1;
-            this.state.timerLength[2] = '59';
-            this.state.timerLength[1] =
-              minutes < 10 ? '0' + minutes.toString() : minutes.toString();
-          } else if (this.state.timerLength[0] !== '00') {
-            let hours = parseInt(this.state.timerLength[0]);
-            hours = hours - 1;
-            this.state.timerLength[2] = '59';
-            this.state.timerLength[1] = '59';
-            this.state.timerLength[0] =
-              hours < 10 ? '0' + hours.toString() : hours.toString();
-          } else {
-            this.playSound();
-            BackgroundTimer.stopBackgroundTimer();
-          }
-          this.forceUpdate();
-        }, 1000);
+      BackgroundTimer.stopBackgroundTimer();
+      if (!!newState) {
+        if (
+          this.state.timerLength[2] !== '00' ||
+          this.state.timerLength[1] !== '00' ||
+          this.state.timerLength[0] !== '00'
+        )
+          BackgroundTimer.runBackgroundTimer(() => {
+            if (this.state.timerLength[2] !== '00') {
+              let seconds = parseInt(this.state.timerLength[2]);
+              seconds = seconds - 1;
+              this.state.timerLength[2] =
+                seconds < 10 ? '0' + seconds.toString() : seconds.toString();
+            } else if (this.state.timerLength[1] !== '00') {
+              let minutes = parseInt(this.state.timerLength[1]);
+              minutes = minutes - 1;
+              this.state.timerLength[2] = '59';
+              this.state.timerLength[1] =
+                minutes < 10 ? '0' + minutes.toString() : minutes.toString();
+            } else if (this.state.timerLength[0] !== '00') {
+              let hours = parseInt(this.state.timerLength[0]);
+              hours = hours - 1;
+              this.state.timerLength[2] = '59';
+              this.state.timerLength[1] = '59';
+              this.state.timerLength[0] =
+                hours < 10 ? '0' + hours.toString() : hours.toString();
+            } else {
+              this.playSound();
+              BackgroundTimer.stopBackgroundTimer();
+            }
+            this.forceUpdate();
+          }, 1000);
+      }
     }
   }
 
@@ -143,14 +151,15 @@ class TaskOverviewScreen extends Component {
       pickerFontColor: [51, 51, 51, 1],
       onPickerConfirm: data => {
         this.setState({ timerLength: data });
+        this.setState({ isTimerLengthSetOpen: false });
       },
       onPickerCancel: data => {
-        console.log(data);
+        this.setState({ isTimerLengthSetOpen: false });
       },
-      onPickerSelect: data => {
-        console.log(data);
-      }
+      onPickerSelect: data => {}
     });
+
+    this.setState({ isTimerLengthSetOpen: true });
     Picker.show();
   }
 
@@ -233,46 +242,52 @@ class TaskOverviewScreen extends Component {
           </View>
 
           <View>
-            <View
-              style={[
-                styles.cardPadded,
-                {
-                  flexDirection: 'row'
-                }
-              ]}
+            <TouchableOpacity
+              onPress={() => this.onPressToggleTimer()}
+              style={{ flex: 1 }}
             >
-              <TouchableOpacity
-                onPress={() => this.onPressToggleTimer()}
-                style={{ flex: 1 }}
+              <View
+                style={[
+                  styles.cardPadded,
+                  {
+                    flexDirection: 'row'
+                  }
+                ]}
               >
-                <View>
-                  <Title4 style={{ marginBottom: 20 }}>TIMER</Title4>
+                <View style={{ flex: 1 }}>
+                  <Title4 style={{ marginBottom: 10 }}>TIMER</Title4>
                 </View>
-              </TouchableOpacity>
-              <View style={{ width: 50, alignItems: 'flex-end' }}>
-                <Switch
-                  onValueChange={() => this.onPressToggleTimer()}
-                  value={this.state.isTimerEnabled}
-                />
+                <View style={{ width: 150, alignItems: 'flex-end' }}>
+                  <Icon
+                    type="ionicon"
+                    color={COLOR_BLACK}
+                    name={
+                      !this.state.isTimerEnabled
+                        ? 'ios-arrow-down'
+                        : 'ios-arrow-up'
+                    }
+                    size={24}
+                  />
+                </View>
               </View>
-            </View>
+            </TouchableOpacity>
 
             <Collapsible collapsed={!this.state.isTimerEnabled}>
               <View
                 style={[
                   styles.cardPadded,
-                  { minHeight: 100, flexDirection: 'row' }
+                  styles.toggleCard,
+                  { minHeight: 50, marginBottom: 10 }
                 ]}
               >
                 <TouchableOpacity
                   style={{
-                    marginBottom: 20,
                     flex: 4,
                     alignItems: 'center'
                   }}
                   onPress={() => this.onPressTimerLength()}
                 >
-                  <MyText style={{ fontSize: 40, paddingBottom: 10 }}>
+                  <MyText style={{ fontSize: 40, color: COLOR_WHITE }}>
                     {(this.state.timerLength[0] !== '00'
                       ? this.state.timerLength[0] + ':'
                       : '') +
@@ -283,7 +298,6 @@ class TaskOverviewScreen extends Component {
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={{
-                    marginBottom: 20,
                     flex: 1,
                     alignItems: 'center'
                   }}
@@ -292,9 +306,9 @@ class TaskOverviewScreen extends Component {
                   <Icon
                     type="feather"
                     name={!this.state.isTimerPlaying ? 'play' : 'pause'}
-                    size={50}
+                    size={38}
                     containerStyle={{ padding: 7 }}
-                    color={COLOR_BLACK}
+                    color={COLOR_WHITE}
                   />
                 </TouchableOpacity>
               </View>
@@ -313,7 +327,9 @@ class TaskOverviewScreen extends Component {
                   ]}
                 >
                   <View style={{ flex: 1 }}>
-                    <Title4 style={{ marginBottom: 20 }}>GET TIPS</Title4>
+                    <Title4 style={{ marginTop: 10, marginBottom: 20 }}>
+                      GET TIPS
+                    </Title4>
                   </View>
                   <View style={{ width: 150, alignItems: 'flex-end' }}>
                     <Icon
@@ -367,6 +383,15 @@ const styles = StyleSheet.create({
   cardPadded: {
     marginLeft: 16,
     marginRight: 16
+  },
+  toggleCard: {
+    marginHorizontal: 16,
+    marginVertical: 4,
+    padding: 8,
+    borderRadius: 6,
+    backgroundColor: COLOR_TERTIARY,
+    flexDirection: 'row',
+    alignItems: 'center'
   }
 });
 
