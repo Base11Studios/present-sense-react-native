@@ -47,10 +47,10 @@ class TaskOverviewScreen extends Component {
   onPressToggleTimer() {
     this.setState({ isTimerEnabled: !this.state.isTimerEnabled });
 
-    if (this.state.isTimerPlaying) {
-      this.onPressTimerLength();
-      this.setState({ isTimerPlaying: false });
-    }
+    // if (this.state.isTimerPlaying) {
+    //   this.onPressTimerLength();
+    //   this.setState({ isTimerPlaying: false });
+    // }
   }
 
   setupSound() {
@@ -117,7 +117,7 @@ class TaskOverviewScreen extends Component {
                 hours < 10 ? '0' + hours.toString() : hours.toString();
             } else {
               this.playSound();
-              BackgroundTimer.stopBackgroundTimer();
+              this.stopTimer();
             }
             this.forceUpdate();
           }, 1000);
@@ -125,9 +125,13 @@ class TaskOverviewScreen extends Component {
     }
   }
 
-  onPressTimerLength() {
+  stopTimer() {
     BackgroundTimer.stopBackgroundTimer();
     this.setState({ isTimerPlaying: false });
+  }
+
+  onPressTimerLength() {
+    this.stopTimer();
 
     pickerData = [
       ['00', '01', '02', '03', '04', '05'],
@@ -254,10 +258,24 @@ class TaskOverviewScreen extends Component {
                   }
                 ]}
               >
-                <View style={{ flex: 1 }}>
+                <View style={{ flex: 3 }}>
                   <Title4 style={{ marginBottom: 10 }}>TIMER</Title4>
                 </View>
-                <View style={{ width: 150, alignItems: 'flex-end' }}>
+                {!this.state.isTimerEnabled ? (
+                  <View style={{ flex: 1 }}>
+                    <MyText style={{ fontSize: 16, color: COLOR_BLACK }}>
+                      {(this.state.timerLength[0] !== '00'
+                        ? this.state.timerLength[0] + ':'
+                        : '') +
+                        this.state.timerLength[1] +
+                        ':' +
+                        this.state.timerLength[2]}
+                    </MyText>
+                  </View>
+                ) : (
+                  <View />
+                )}
+                <View style={{ width: 50, alignItems: 'flex-end' }}>
                   <Icon
                     type="ionicon"
                     color={COLOR_BLACK}
@@ -331,7 +349,7 @@ class TaskOverviewScreen extends Component {
                       GET TIPS
                     </Title4>
                   </View>
-                  <View style={{ width: 150, alignItems: 'flex-end' }}>
+                  <View style={{ width: 50, alignItems: 'flex-end' }}>
                     <Icon
                       type="ionicon"
                       color={COLOR_BLACK}
