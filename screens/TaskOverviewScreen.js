@@ -4,6 +4,7 @@ import BackgroundTimer from 'react-native-background-timer';
 import Collapsible from 'react-native-collapsible';
 import { Card, Icon } from 'react-native-elements';
 import Picker from 'react-native-picker';
+import Sound from 'react-native-sound';
 import { connect } from 'react-redux';
 import { FocusBadge } from '../components/FocusBadge';
 import { MyText } from '../components/MyText';
@@ -20,6 +21,7 @@ class TaskOverviewScreen extends Component {
     isTimerEnabled: false,
     isTimerPlaying: false,
     isSoundOpen: false,
+    completeTimerSound: null,
     timerLength: ['00', '05', '00']
   };
 
@@ -45,9 +47,40 @@ class TaskOverviewScreen extends Component {
     }
   }
 
+  setupSound() {
+    // Enable playback in silence mode
+    Sound.setCategory('Playback');
+
+    this.state.completeTimerSound = new Sound(
+      'bell.wav',
+      Sound.MAIN_BUNDLE,
+      error => {
+        if (error) {
+          console.warn('failed to load the sound', error);
+          return;
+        }
+      }
+    );
+
+    this.state.completeTimerSound.setNumberOfLoops(1);
+  }
+
+  playSound() {
+    this.state.completeTimerSound.play(success => {
+      if (!success) {
+        console.warn('playback failed due to audio decoding errors');
+        // reset the player to its uninitialized state (android only)
+        // this is the only option to recover after an error occured and use the player again
+        this.state.completeTimerSound.reset();
+      }
+    });
+  }
+
   onPressTimerPlayToggle() {
     const newState = !this.state.isTimerPlaying;
     this.setState({ isTimerPlaying: newState });
+
+    this.setupSound();
 
     BackgroundTimer.stopBackgroundTimer();
     if (!!newState) {
@@ -76,8 +109,7 @@ class TaskOverviewScreen extends Component {
             this.state.timerLength[0] =
               hours < 10 ? '0' + hours.toString() : hours.toString();
           } else {
-            // TODO BEEP BEEP!!
-
+            this.playSound();
             BackgroundTimer.stopBackgroundTimer();
           }
           this.forceUpdate();
@@ -86,6 +118,7 @@ class TaskOverviewScreen extends Component {
   }
 
   onPressTimerLength() {
+    BackgroundTimer.stopBackgroundTimer();
     this.setState({ isTimerPlaying: false });
 
     pickerData = [
