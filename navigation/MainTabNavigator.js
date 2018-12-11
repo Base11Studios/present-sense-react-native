@@ -441,22 +441,13 @@ export const TabNavigator = createBottomTabNavigator(
         let iconName;
         switch (routeName) {
           case 'Home':
-            iconName =
-              Platform.OS === 'ios'
-                ? `ios-home${focused ? '' : '-outline'}`
-                : 'md-home';
+            iconName = Platform.OS === 'ios' ? `ios-home` : 'md-home';
             break;
           case 'Search':
-            iconName =
-              Platform.OS === 'ios'
-                ? `ios-search${focused ? '' : '-outline'}`
-                : 'md-search';
+            iconName = Platform.OS === 'ios' ? `ios-search` : 'md-search';
             break;
           case 'Inspire':
-            iconName =
-              Platform.OS === 'ios'
-                ? `ios-bulb${focused ? '' : '-outline'}`
-                : 'md-bulb';
+            iconName = Platform.OS === 'ios' ? `ios-bulb` : 'md-bulb';
             break;
           case 'Profile':
             iconName = Platform.OS === 'ios' ? 'ios-person' : 'md-person';
