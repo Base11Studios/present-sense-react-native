@@ -31,6 +31,10 @@ class TaskOverviewScreen extends Component {
     timerLength: ['00', '05', '00']
   };
 
+  componentWillUnmount() {
+    BackgroundTimer.stopBackgroundTimer();
+  }
+
   onPressStartTask = selectedTask => {
     this.props.startTask(selectedTask);
     this.props.navigation.navigate('TaskObservations', { task: selectedTask });
@@ -46,11 +50,6 @@ class TaskOverviewScreen extends Component {
 
   onPressToggleTimer() {
     this.setState({ isTimerEnabled: !this.state.isTimerEnabled });
-
-    // if (this.state.isTimerPlaying) {
-    //   this.onPressTimerLength();
-    //   this.setState({ isTimerPlaying: false });
-    // }
   }
 
   setupSound() {
@@ -68,7 +67,7 @@ class TaskOverviewScreen extends Component {
       }
     );
 
-    this.state.completeTimerSound.setNumberOfLoops(1);
+    this.state.completeTimerSound.setNumberOfLoops(0);
   }
 
   playSound() {
@@ -102,6 +101,16 @@ class TaskOverviewScreen extends Component {
               seconds = seconds - 1;
               this.state.timerLength[2] =
                 seconds < 10 ? '0' + seconds.toString() : seconds.toString();
+
+              if (
+                this.state.timerLength[2] === '00' &&
+                this.state.timerLength[1] === '00' &&
+                this.state.timerLength[0] === '00' &&
+                !!this.state.isTimerPlaying
+              ) {
+                this.stopTimer();
+                this.playSound();
+              }
             } else if (this.state.timerLength[1] !== '00') {
               let minutes = parseInt(this.state.timerLength[1]);
               minutes = minutes - 1;
@@ -115,9 +124,6 @@ class TaskOverviewScreen extends Component {
               this.state.timerLength[1] = '59';
               this.state.timerLength[0] =
                 hours < 10 ? '0' + hours.toString() : hours.toString();
-            } else {
-              this.playSound();
-              this.stopTimer();
             }
             this.forceUpdate();
           }, 1000);
@@ -165,6 +171,14 @@ class TaskOverviewScreen extends Component {
 
     this.setState({ isTimerLengthSetOpen: true });
     Picker.show();
+  }
+
+  isTimerLengthZero() {
+    return (
+      this.state.timerLength[2] === '00' &&
+      this.state.timerLength[1] === '00' &&
+      this.state.timerLength[0] === '00'
+    );
   }
 
   render() {
@@ -254,12 +268,13 @@ class TaskOverviewScreen extends Component {
                 style={[
                   styles.cardPadded,
                   {
-                    flexDirection: 'row'
+                    flexDirection: 'row',
+                    marginBottom: 10
                   }
                 ]}
               >
                 <View style={{ flex: 3 }}>
-                  <Title4 style={{ marginBottom: 10 }}>TIMER</Title4>
+                  <Title4>TIMER</Title4>
                 </View>
                 {!this.state.isTimerEnabled ? (
                   <View style={{ flex: 1 }}>
@@ -314,21 +329,25 @@ class TaskOverviewScreen extends Component {
                       this.state.timerLength[2]}
                   </MyText>
                 </TouchableOpacity>
-                <TouchableOpacity
-                  style={{
-                    flex: 1,
-                    alignItems: 'center'
-                  }}
-                  onPress={() => this.onPressTimerPlayToggle()}
-                >
-                  <Icon
-                    type="feather"
-                    name={!this.state.isTimerPlaying ? 'play' : 'pause'}
-                    size={38}
-                    containerStyle={{ padding: 7 }}
-                    color={COLOR_WHITE}
-                  />
-                </TouchableOpacity>
+                {!this.isTimerLengthZero() ? (
+                  <TouchableOpacity
+                    style={{
+                      flex: 1,
+                      alignItems: 'center'
+                    }}
+                    onPress={() => this.onPressTimerPlayToggle()}
+                  >
+                    <Icon
+                      type="feather"
+                      name={!this.state.isTimerPlaying ? 'play' : 'pause'}
+                      size={38}
+                      containerStyle={{ padding: 7 }}
+                      color={COLOR_WHITE}
+                    />
+                  </TouchableOpacity>
+                ) : (
+                  <View />
+                )}
               </View>
             </Collapsible>
           </View>
@@ -340,14 +359,14 @@ class TaskOverviewScreen extends Component {
                   style={[
                     styles.cardPadded,
                     {
-                      flexDirection: 'row'
+                      flexDirection: 'row',
+                      marginTop: 10,
+                      marginBottom: 20
                     }
                   ]}
                 >
                   <View style={{ flex: 1 }}>
-                    <Title4 style={{ marginTop: 10, marginBottom: 20 }}>
-                      GET TIPS
-                    </Title4>
+                    <Title4>GET TIPS</Title4>
                   </View>
                   <View style={{ width: 50, alignItems: 'flex-end' }}>
                     <Icon
