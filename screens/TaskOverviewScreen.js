@@ -151,14 +151,26 @@ class TaskOverviewScreen extends Component {
     this.setState({ isTimerPlaying: false });
   }
 
+  getDoublePaddedString(num) {
+    if (num < 10 && num > -10) {
+      return '0' + num.toString();
+    } else {
+      return num.toString();
+    }
+  }
+
   onPressTimerLength() {
     this.stopTimer();
 
-    pickerData = [
-      ['00', '01', '02', '03', '04', '05'],
-      ['00', '01', '02', '03', '04', '05'],
-      ['00', '01', '02', '03', '04', '05']
-    ];
+    pickerData = [[], [], []];
+
+    for (let i = 0; i < 60; i++) {
+      if (i < 24) {
+        pickerData[0].push(this.getDoublePaddedString(i));
+      }
+      pickerData[1].push(this.getDoublePaddedString(i));
+      pickerData[2].push(this.getDoublePaddedString(i));
+    }
 
     Picker.init({
       pickerData: pickerData,
