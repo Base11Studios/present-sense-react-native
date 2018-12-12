@@ -5,6 +5,7 @@ import Collapsible from 'react-native-collapsible';
 import { Card, Icon } from 'react-native-elements';
 import Picker from 'react-native-picker';
 import Sound from 'react-native-sound';
+import AntIcon from 'react-native-vector-icons/AntDesign';
 import { connect } from 'react-redux';
 import { FocusBadge } from '../components/FocusBadge';
 import { MyText } from '../components/MyText';
@@ -81,6 +82,39 @@ class TaskOverviewScreen extends Component {
     });
   }
 
+  advanceTimer() {
+    if (this.state.timerLength[2] !== '00') {
+      let seconds = parseInt(this.state.timerLength[2]);
+      seconds = seconds - 1;
+      this.state.timerLength[2] =
+        seconds < 10 ? '0' + seconds.toString() : seconds.toString();
+
+      if (
+        this.state.timerLength[2] === '00' &&
+        this.state.timerLength[1] === '00' &&
+        this.state.timerLength[0] === '00' &&
+        !!this.state.isTimerPlaying
+      ) {
+        this.stopTimer();
+        this.playSound();
+      }
+    } else if (this.state.timerLength[1] !== '00') {
+      let minutes = parseInt(this.state.timerLength[1]);
+      minutes = minutes - 1;
+      this.state.timerLength[2] = '59';
+      this.state.timerLength[1] =
+        minutes < 10 ? '0' + minutes.toString() : minutes.toString();
+    } else if (this.state.timerLength[0] !== '00') {
+      let hours = parseInt(this.state.timerLength[0]);
+      hours = hours - 1;
+      this.state.timerLength[2] = '59';
+      this.state.timerLength[1] = '59';
+      this.state.timerLength[0] =
+        hours < 10 ? '0' + hours.toString() : hours.toString();
+    }
+    this.forceUpdate();
+  }
+
   onPressTimerPlayToggle() {
     if (!this.state.isTimerLengthSetOpen) {
       const newState = !this.state.isTimerPlaying;
@@ -94,39 +128,20 @@ class TaskOverviewScreen extends Component {
           this.state.timerLength[2] !== '00' ||
           this.state.timerLength[1] !== '00' ||
           this.state.timerLength[0] !== '00'
-        )
+        ) {
+          if (
+            !(
+              this.state.timerLength[2] === '01' &&
+              this.state.timerLength[1] === '00' &&
+              this.state.timerLength[0] === '00'
+            )
+          ) {
+            this.advanceTimer();
+          }
           BackgroundTimer.runBackgroundTimer(() => {
-            if (this.state.timerLength[2] !== '00') {
-              let seconds = parseInt(this.state.timerLength[2]);
-              seconds = seconds - 1;
-              this.state.timerLength[2] =
-                seconds < 10 ? '0' + seconds.toString() : seconds.toString();
-
-              if (
-                this.state.timerLength[2] === '00' &&
-                this.state.timerLength[1] === '00' &&
-                this.state.timerLength[0] === '00' &&
-                !!this.state.isTimerPlaying
-              ) {
-                this.stopTimer();
-                this.playSound();
-              }
-            } else if (this.state.timerLength[1] !== '00') {
-              let minutes = parseInt(this.state.timerLength[1]);
-              minutes = minutes - 1;
-              this.state.timerLength[2] = '59';
-              this.state.timerLength[1] =
-                minutes < 10 ? '0' + minutes.toString() : minutes.toString();
-            } else if (this.state.timerLength[0] !== '00') {
-              let hours = parseInt(this.state.timerLength[0]);
-              hours = hours - 1;
-              this.state.timerLength[2] = '59';
-              this.state.timerLength[1] = '59';
-              this.state.timerLength[0] =
-                hours < 10 ? '0' + hours.toString() : hours.toString();
-            }
-            this.forceUpdate();
+            this.advanceTimer();
           }, 1000);
+        }
       }
     }
   }
@@ -337,10 +352,13 @@ class TaskOverviewScreen extends Component {
                     }}
                     onPress={() => this.onPressTimerPlayToggle()}
                   >
-                    <Icon
-                      type="feather"
-                      name={!this.state.isTimerPlaying ? 'play' : 'pause'}
-                      size={38}
+                    <AntIcon
+                      name={
+                        !this.state.isTimerPlaying
+                          ? 'playcircleo'
+                          : 'pausecircleo'
+                      }
+                      size={34}
                       containerStyle={{ padding: 7 }}
                       color={COLOR_WHITE}
                     />

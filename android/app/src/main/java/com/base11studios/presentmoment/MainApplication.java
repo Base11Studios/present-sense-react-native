@@ -3,6 +3,7 @@ package com.base11studios.presentmoment;
 import android.app.Application;
 import com.dooboolab.RNIap.RNIapPackage;
 import com.facebook.react.ReactApplication;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.zmxv.RNSound.RNSoundPackage;
 import com.ocetnik.timer.BackgroundTimerPackage;
 import com.beefe.picker.PickerViewPackage;
@@ -31,6 +32,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new VectorIconsPackage(),
             new RNSoundPackage(),
             new BackgroundTimerPackage(),
             new PickerViewPackage(),
