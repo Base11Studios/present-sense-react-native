@@ -56,6 +56,7 @@ class TaskOverviewScreen extends Component {
   setupSound() {
     // Enable playback in silence mode
     Sound.setCategory('Playback');
+    Sound.setMode('SpokenAudio');
 
     this.state.completeTimerSound = new Sound(
       'bell.wav',
