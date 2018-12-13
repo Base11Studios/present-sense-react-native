@@ -32,6 +32,10 @@ class TaskOverviewScreen extends Component {
     timerLength: ['00', '05', '00']
   };
 
+  componentDidMount() {
+    this.setupSound();
+  }
+
   componentWillUnmount() {
     BackgroundTimer.stopBackgroundTimer();
   }
@@ -120,8 +124,6 @@ class TaskOverviewScreen extends Component {
     if (!this.state.isTimerLengthSetOpen) {
       const newState = !this.state.isTimerPlaying;
       this.setState({ isTimerPlaying: newState });
-
-      this.setupSound();
 
       BackgroundTimer.stopBackgroundTimer();
       if (!!newState) {
