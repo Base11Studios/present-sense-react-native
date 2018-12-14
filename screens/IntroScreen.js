@@ -1,14 +1,15 @@
-import React from "react";
-import { Image, StyleSheet, View } from "react-native";
-import { Button } from "react-native-elements";
-import { MyText } from "../components/MyText";
-import { ProgressStepper } from "../components/ProgressStepper";
-import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
-import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
+import React from 'react';
+import { Image, View } from 'react-native';
+import { Button } from 'react-native-elements';
+import { scale, ScaledSheet, verticalScale } from 'react-native-size-matters';
+import { MyText } from '../components/MyText';
+import { ProgressStepper } from '../components/ProgressStepper';
+import { ScrollingPageContainer } from '../components/ScrollingPageContainer';
+import { COLOR_PRIMARY, COLOR_WHITE } from '../styles/common';
 
 export default class IntroScreen extends React.Component {
   pressNext() {
-    this.props.navigation.navigate("IntroOverview");
+    this.props.navigation.navigate('IntroOverview');
   }
 
   render() {
@@ -17,25 +18,25 @@ export default class IntroScreen extends React.Component {
         <ProgressStepper totalSteps={6} stepNumber={1} />
         <View
           style={{
-            padding: 20,
+            padding: verticalScale(20),
             // flex: 1,
-            alignItems: "center",
-            justifyContent: "center"
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
         >
           <Image
-            style={{ width: 90, height: 90 }}
-            source={require("../assets/images/icon.png")}
+            style={{ width: scale(90), height: scale(90) }}
+            source={require('../assets/images/icon.png')}
           />
         </View>
 
         <View style={styles.header}>
           <MyText
             style={{
-              marginTop: 10,
-              marginBottom: 24,
+              marginTop: verticalScale(10),
+              marginBottom: verticalScale(24),
               color: COLOR_WHITE,
-              fontSize: 20
+              fontSize: verticalScale(20)
             }}
           >
             Welcome to Present Sense. An app that teaches you to experience the
@@ -44,20 +45,25 @@ export default class IntroScreen extends React.Component {
         </View>
         <View
           style={{
-            padding: 20,
+            padding: verticalScale(20),
             // flex: 2,
-            alignItems: "center",
-            justifyContent: "center"
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
         >
           <Button
-            iconRight={{ name: "keyboard-arrow-right", type: "material" }}
+            iconRight={{
+              name: 'keyboard-arrow-right',
+              type: 'material',
+              style: { fontSize: verticalScale(24) }
+            }}
             onPress={() => this.pressNext()}
             title="Start Tutorial"
             color={COLOR_WHITE}
             buttonStyle={{
               backgroundColor: COLOR_PRIMARY
             }}
+            fontSize={verticalScale(18)}
             large={true}
           />
         </View>
@@ -66,11 +72,11 @@ export default class IntroScreen extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   header: {
-    padding: 20,
+    padding: '20@vs',
     // flex: 5,
-    alignItems: "flex-start",
-    justifyContent: "flex-start"
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start'
   }
 });
