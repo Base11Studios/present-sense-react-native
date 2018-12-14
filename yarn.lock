@@ -4632,6 +4632,23 @@ react-native-animatable@^1.2.4:
   dependencies:
     prop-types "^15.5.10"
 
+react-native-background-timer@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-background-timer/-/react-native-background-timer-2.1.1.tgz#9a2489681ab2f8033c213c73272e9d4c47572cd5"
+  integrity sha512-cuXIIv+dcG8a8qkTD8pMzeqOEZCO+UGKglZWIe1osve+yJslmCowYQff+bI9xa7NOt2w+Vtd4L3d9JonlSqODg==
+
+react-native-clean-project@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-clean-project/-/react-native-clean-project-3.0.0.tgz#87737aa3e182aa1aacdb3ded125c580218e10e4f"
+  integrity sha512-oVuMID3KVjD+hWpgQeNRGcChkVhwxetNeCLCuj43+Ud+yJqpmGKxaUZ/AESm8j8CYj4HctuO+vAmUldr/VKO+w==
+
+react-native-collapsible@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-collapsible/-/react-native-collapsible-1.4.0.tgz#ec03cac361178319b77bb9993b73677356dd89d2"
+  integrity sha512-lf2U3gRHTNakqtN04NLJkmF02XaOF/DPOTGlwK8yrn85wMAdRaPpD0fnb7RvH4OID3SmxXBTWzZqkBTmasJyIQ==
+  dependencies:
+    prop-types "^15.6.2"
+
 react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-dismiss-keyboard/-/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"
@@ -4698,6 +4715,11 @@ react-native-modal@^6.2.0:
     prop-types "^15.6.1"
     react-native-animatable "^1.2.4"
 
+react-native-picker@^4.3.7:
+  version "4.3.7"
+  resolved "https://registry.yarnpkg.com/react-native-picker/-/react-native-picker-4.3.7.tgz#9842e8c62ff0d8b676e9514d9f9172413c0518a8"
+  integrity sha1-mELoxi/w2LZ26VFNn5FyQTwFGKg=
+
 react-native-push-notification@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/react-native-push-notification/-/react-native-push-notification-3.1.2.tgz#a6129fb2897773a19c7b42bba1b51a9a4aac7df3"
@@ -4735,6 +4757,11 @@ react-native-snap-carousel@^3.7.0:
     prop-types "^15.6.1"
     react-addons-shallow-compare "15.6.2"
 
+react-native-sound@^0.10.9:
+  version "0.10.9"
+  resolved "https://registry.yarnpkg.com/react-native-sound/-/react-native-sound-0.10.9.tgz#6b00b0f4afd017cde09fbb9d171df1b5d5b851a8"
+  integrity sha1-awCw9K/QF83gn7udFx3xtdW4Uag=
+
 react-native-splash-screen@^3.0.7:
   version "3.0.7"
   resolved "https://registry.yarnpkg.com/react-native-splash-screen/-/react-native-splash-screen-3.0.7.tgz#352e87ad79ab1136e0e678a37b75cac0375b325f"
@@ -4751,12 +4778,13 @@ react-native-tab-view@^0.0.78, react-native-tab-view@~0.0.77:
   dependencies:
     prop-types "^15.6.0"
 
-react-native-vector-icons@^4.6.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.6.0.tgz#e4014311ffa6de397d914ffc31b7097a874cc8d5"
+react-native-vector-icons@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-6.1.0.tgz#770a3f8ced692d75deb3afbb9829195ceed1eedd"
+  integrity sha512-1GF5I4VWgwnzBtVfAKNgEiR5ziHi5QaKL381wwApMzuiFgIJMNt5XIChuKwKoaiB86s+P5iMcYWxYCyENL96lA==
   dependencies:
     lodash "^4.0.0"
-    prop-types "^15.5.10"
+    prop-types "^15.6.2"
     yargs "^8.0.2"
 
 react-native@0.57.7:

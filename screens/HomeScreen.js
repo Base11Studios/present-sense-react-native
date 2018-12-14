@@ -98,7 +98,9 @@ class HomeScreen extends React.Component {
 
     return (
       <ScrollingPageContainer>
-        {!this.props.remindersEnabled && this.localAppOpenedCount % 10 === 1 ? (
+        {!this.props.remindersEnabled &&
+        this.localAppOpenedCount % 10 === 1 &&
+        this.props.completedTasks.length > 0 ? (
           <TutorialView
             {...this.props}
             tutorialNavigation={'Settings'}
@@ -126,6 +128,7 @@ const mapStateToProps = state => {
   return {
     tutorial: state.tutorial.tutorial,
     activeTask: state.tasks.activeTask,
+    completedTasks: state.tasks.completedTasks,
     remindersEnabled: state.notification.remindersEnabled,
     affirmationsEnabled: state.notification.affirmationsEnabled,
     appOpenedCount: state.general.appOpenedCount
