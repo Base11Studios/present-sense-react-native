@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import {
+  Alert,
+  AppState,
+  Platform,
+  StyleSheet,
+  TouchableOpacity,
+  View
+} from 'react-native';
 import BackgroundTimer from 'react-native-background-timer';
 import Collapsible from 'react-native-collapsible';
 import { Card, Icon } from 'react-native-elements';
 import Picker from 'react-native-picker';
+import PushNotification from 'react-native-push-notification';
 import Sound from 'react-native-sound';
 import AntIcon from 'react-native-vector-icons/AntDesign';
 import { connect } from 'react-redux';
@@ -13,6 +21,7 @@ import { PrimaryButton } from '../components/PrimaryButton';
 import { ScrollingPageContainer } from '../components/ScrollingPageContainer';
 import { Title4 } from '../components/Title4';
 import { getBackgroundColorByDay } from '../constants/Helpers';
+import { updateNotifications } from '../redux/reducers/notification';
 import { startTask } from '../redux/reducers/tasks';
 import {
   COLOR_BLACK,
@@ -36,6 +45,26 @@ class TaskOverviewScreen extends Component {
     this.setupSound();
   }
 
+  handleNoNotificationPermissions() {
+    let enableNotifications =
+      Platform.OS === 'ios'
+        ? 'You won\'t get a timer alert if the app isn\'t open when your timer completes. To enable, open the Settings app > Present Sense > Notifications, then click "Allow Notifications".'
+        : 'You won\'t get a timer alert if the app isn\'t open when your timer completes. To enable, open the Settings app > Apps & notifications > Present Sense > Notifications, then click "Show notifications".';
+
+    Alert.alert(
+      'Notification Permissions Are Disabled',
+      enableNotifications,
+      [
+        {
+          text: 'OK',
+          onPress: () => {},
+          style: 'cancel'
+        }
+      ],
+      { cancelable: false }
+    );
+  }
+
   componentWillUnmount() {
     BackgroundTimer.stopBackgroundTimer();
   }
@@ -54,6 +83,13 @@ class TaskOverviewScreen extends Component {
   }
 
   onPressToggleTimer() {
+    if (!this.state.isTimerEnabled) {
+      PushNotification.checkPermissions(permissions => {
+        if (!permissions.alert) {
+          this.handleNoNotificationPermissions();
+        }
+      });
+    }
     this.setState({ isTimerEnabled: !this.state.isTimerEnabled });
   }
 
@@ -100,8 +136,11 @@ class TaskOverviewScreen extends Component {
         this.state.timerLength[0] === '00' &&
         !!this.state.isTimerPlaying
       ) {
-        this.stopTimer();
-        this.playSound();
+        if (AppState.currentState === 'active') {
+          this.stopTimer(true);
+          this.playSound();
+        }
+        this.stopTimer(false);
       }
     } else if (this.state.timerLength[1] !== '00') {
       let minutes = parseInt(this.state.timerLength[1]);
@@ -118,6 +157,18 @@ class TaskOverviewScreen extends Component {
         hours < 10 ? '0' + hours.toString() : hours.toString();
     }
     this.forceUpdate();
+  }
+
+  setupTimerFinishedNotification() {
+    const now = new Date();
+    now.setSeconds(now.getSeconds() + parseInt(this.state.timerLength[2]));
+    now.setMinutes(now.getMinutes() + parseInt(this.state.timerLength[1]));
+    now.setHours(now.getHours() + parseInt(this.state.timerLength[0]));
+
+    this.props.updateNotifications({
+      timerEnabled: true,
+      timerTime: now
+    });
   }
 
   onPressTimerPlayToggle() {
@@ -141,17 +192,26 @@ class TaskOverviewScreen extends Component {
           ) {
             this.advanceTimer();
           }
+          this.setupTimerFinishedNotification();
           BackgroundTimer.runBackgroundTimer(() => {
             this.advanceTimer();
           }, 1000);
         }
+      } else {
+        this.stopTimer(true);
       }
     }
   }
 
-  stopTimer() {
+  stopTimer(stopNotification) {
     BackgroundTimer.stopBackgroundTimer();
     this.setState({ isTimerPlaying: false });
+    if (stopNotification) {
+      this.props.updateNotifications({
+        timerEnabled: false,
+        timerTime: new Date()
+      });
+    }
   }
 
   getDoublePaddedString(num) {
@@ -163,7 +223,7 @@ class TaskOverviewScreen extends Component {
   }
 
   onPressTimerLength() {
-    this.stopTimer();
+    this.stopTimer(true);
 
     pickerData = [[], [], []];
 
@@ -473,7 +533,8 @@ const mapStateToProps = state => {
 
 function mapDispatchToProps(dispatch) {
   return {
-    startTask: type => dispatch(startTask(type))
+    startTask: type => dispatch(startTask(type)),
+    updateNotifications: data => dispatch(updateNotifications(data))
   };
 }
 

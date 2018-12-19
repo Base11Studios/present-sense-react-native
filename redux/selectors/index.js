@@ -10,6 +10,8 @@ export const getAffirmationsEnabled = state =>
   state.notification.affirmationsEnabled;
 export const getRemindersTime = state => state.notification.remindersTime;
 export const getRemindersEnabled = state => state.notification.remindersEnabled;
+export const getTimerTime = state => state.notification.timerTime;
+export const getTimerEnabled = state => state.notification.timerEnabled;
 
 export const getPremium = state => state.subscription.premium;
 

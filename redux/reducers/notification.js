@@ -10,7 +10,9 @@ const initialState = {
   remindersEnabled: false,
   remindersTime: new Date(2018, 10, 1, 7, 0, 0, 0),
   affirmationsEnabled: false,
-  affirmationsTime: new Date(2018, 10, 1, 11, 0, 0, 0)
+  affirmationsTime: new Date(2018, 10, 1, 11, 0, 0, 0),
+  timerEnabled: false,
+  timerTime: new Date(2018, 1, 1, 1, 1, 1, 1)
 };
 
 export default function reducer(state = initialState, action) {
@@ -21,10 +23,24 @@ export default function reducer(state = initialState, action) {
       } else {
         return {
           ...state,
-          remindersEnabled: action.payload.remindersEnabled,
-          remindersTime: action.payload.remindersTime,
-          affirmationsEnabled: action.payload.affirmationsEnabled,
-          affirmationsTime: action.payload.affirmationsTime
+          remindersEnabled: isNotEmpty(action.payload.remindersEnabled)
+            ? action.payload.remindersEnabled
+            : state.remindersEnabled,
+          remindersTime: isNotEmpty(action.payload.remindersTime)
+            ? action.payload.remindersTime
+            : state.remindersTime,
+          affirmationsEnabled: isNotEmpty(action.payload.affirmationsEnabled)
+            ? action.payload.affirmationsEnabled
+            : state.affirmationsEnabled,
+          affirmationsTime: isNotEmpty(action.payload.affirmationsTime)
+            ? action.payload.affirmationsTime
+            : state.affirmationsTime,
+          timerEnabled: isNotEmpty(action.payload.timerEnabled)
+            ? action.payload.timerEnabled
+            : state.timerEnabled,
+          timerTime: isNotEmpty(action.payload.timerTime)
+            ? action.payload.timerTime
+            : state.timerTime
         };
       }
     case PURGE:
@@ -33,6 +49,10 @@ export default function reducer(state = initialState, action) {
       return state;
   }
   ``;
+}
+
+function isNotEmpty(property) {
+  return property !== null || property !== undefined;
 }
 
 export function updateNotifications(data) {
