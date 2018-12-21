@@ -206,7 +206,7 @@ class TaskOverviewScreen extends Component {
   stopTimer(stopNotification) {
     BackgroundTimer.stopBackgroundTimer();
     this.setState({ isTimerPlaying: false });
-    if (stopNotification) {
+    if (!!stopNotification) {
       this.props.updateNotifications({
         timerEnabled: false,
         timerTime: new Date()

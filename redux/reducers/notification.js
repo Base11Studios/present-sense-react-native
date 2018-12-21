@@ -52,7 +52,7 @@ export default function reducer(state = initialState, action) {
 }
 
 function isNotEmpty(property) {
-  return property !== null || property !== undefined;
+  return property !== null && typeof property !== 'undefined';
 }
 
 export function updateNotifications(data) {
