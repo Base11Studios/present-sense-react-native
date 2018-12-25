@@ -1,62 +1,84 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
-import {
-  COLOR_PRIMARY,
-  COLOR_SECONDARY,
-  COLOR_TERTIARY
-} from "../styles/common";
-import TaskTile from "./TaskTile";
-import { Title4 } from "./Title4";
+import React from 'react';
+import { FlatList, StyleSheet, View } from 'react-native';
+import { connect } from 'react-redux';
+import { setActiveTaskType } from '../redux/reducers/tasks';
+import { getEverydayTasks } from '../redux/selectors';
+import { COLOR_PRIMARY } from '../styles/common';
+import AnytimeTile from './AnytimeTile';
+import { Title4 } from './Title4';
 
-export class EverydayTasksTile extends React.Component {
+class EverydayTasksTile extends React.Component {
+  onPressMoreTasks() {
+    this.props.setActiveTaskType('Anytime');
+    this.props.navigation.navigate('Search');
+  }
+
   render() {
+    const { everydayTasks } = this.props;
     return (
-      <View style={styles.viewContainer}>
+      <View style={styles.tile}>
         <Title4 style={styles.container}>EVERYDAY</Title4>
-        <View>
-          <View style={styles.tiles}>
-            <TaskTile
-              title={"AM"}
-              tileType={1}
-              navigation={this.props.navigation}
-              type="Morning"
-              icon="am"
-              color={COLOR_PRIMARY}
+        <FlatList
+          style={styles.flatList}
+          data={everydayTasks}
+          renderItem={({ item }) => (
+            <AnytimeTile
+              {...this.props}
+              focusType={
+                !!item.premium && !this.props.premium
+                  ? 'Locked'
+                  : item.focusType
+              }
+              taskId={item.id}
+              listItem={item}
             />
-            <TaskTile
-              title={"NOON"}
-              tileType={2}
-              navigation={this.props.navigation}
-              type="Day"
-              icon="noon"
-              color={COLOR_SECONDARY}
-            />
-            <TaskTile
-              title={"PM"}
-              tileType={3}
-              navigation={this.props.navigation}
-              type="Evening"
-              icon="pm"
-              color={COLOR_TERTIARY}
-            />
-          </View>
-        </View>
+          )}
+        />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  tiles: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-around",
-    height: 80
-  },
   container: {
     padding: 20
   },
-  viewContainer: {
-    marginBottom: 10
+  link: {
+    color: COLOR_PRIMARY,
+    fontWeight: 'bold'
+  },
+  more: {
+    alignItems: 'flex-end',
+    paddingLeft: 20,
+    paddingRight: 20
+  },
+  flatList: {
+    // borderTopColor: "gray",
+    // borderTopWidth: 1
+  },
+  tile: {
+    marginBottom: 20
   }
 });
+
+function mapStateToProps(state) {
+  let tasks = getEverydayTasks(state).map(task => ({
+    key: task.id,
+    ...task
+  }));
+  return {
+    premium: state.subscription.premium,
+    everydayTasks: tasks
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setActiveTaskType: type => dispatch(setActiveTaskType(type))
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(EverydayTasksTile);

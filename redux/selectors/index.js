@@ -39,6 +39,31 @@ export const getLeastUsedTasks = createSelector(
   }
 );
 
+export const getEverydayTasks = createSelector(
+  [getTasksCompleted, getTasks],
+  (tasksCompleted, tasks) => {
+    everydayTasks = tasks.filter(
+      task => task.id === '16' || task.id === '11' || task.id === '8'
+    );
+
+    todaysDate = new Date().toDateString();
+    everydayTasksCompleted = tasksCompleted
+      .filter(task => {
+        const completeDate = new Date(task.completeDate);
+        return;
+        (task.task.id === '16' && completeDate.toDateString() === todaysDate) ||
+          (task.task.id === '11' &&
+            completeDate.toDateString() === todaysDate) ||
+          (task.task.id === '8' && completeDate.toDateString() === todaysDate);
+      })
+      .map(task => task.task.id);
+
+    return everydayTasks.filter(
+      task => !everydayTasksCompleted.includes(task.id)
+    );
+  }
+);
+
 export const getTotalTasksCompleted = createSelector(
   [getTasksCompleted],
   tasksCompleted => {

@@ -4,7 +4,8 @@ import Rate, { AndroidMarket } from 'react-native-rate';
 import SplashScreen from 'react-native-splash-screen';
 import { connect } from 'react-redux';
 import AnytimeTasksTile from '../components/AnytimeTasksTile';
-import { EverydayTasksTile } from '../components/EverydayTasksTile';
+import EverydayTasksTile from '../components/EverydayTasksTile';
+import { ExploreTasksTile } from '../components/ExploreTasksTile';
 import LearnHowTile from '../components/LearnHowTile';
 import MindfulQuoteTile from '../components/MindfulQuoteTile';
 import { ScrollingPageContainer } from '../components/ScrollingPageContainer';
@@ -116,6 +117,7 @@ class HomeScreen extends React.Component {
         <MindfulQuoteTile />
         <LearnHowTile {...this.props} />
         <EverydayTasksTile {...this.props} />
+        <ExploreTasksTile {...this.props} />
         <AnytimeTasksTile {...this.props} />
       </ScrollingPageContainer>
     );
