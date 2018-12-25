@@ -50,11 +50,13 @@ export const getEverydayTasks = createSelector(
     everydayTasksCompleted = tasksCompleted
       .filter(task => {
         const completeDate = new Date(task.completeDate);
-        return;
-        (task.task.id === '16' && completeDate.toDateString() === todaysDate) ||
+        return (
+          (task.task.id === '16' &&
+            completeDate.toDateString() === todaysDate) ||
           (task.task.id === '11' &&
             completeDate.toDateString() === todaysDate) ||
-          (task.task.id === '8' && completeDate.toDateString() === todaysDate);
+          (task.task.id === '8' && completeDate.toDateString() === todaysDate)
+        );
       })
       .map(task => task.task.id);
 

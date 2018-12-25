@@ -5,6 +5,7 @@ import { setActiveTaskType } from '../redux/reducers/tasks';
 import { getEverydayTasks } from '../redux/selectors';
 import { COLOR_PRIMARY } from '../styles/common';
 import AnytimeTile from './AnytimeTile';
+import { MyText } from './MyText';
 import { Title4 } from './Title4';
 
 class EverydayTasksTile extends React.Component {
@@ -18,22 +19,31 @@ class EverydayTasksTile extends React.Component {
     return (
       <View style={styles.tile}>
         <Title4 style={styles.container}>EVERYDAY</Title4>
-        <FlatList
-          style={styles.flatList}
-          data={everydayTasks}
-          renderItem={({ item }) => (
-            <AnytimeTile
-              {...this.props}
-              focusType={
-                !!item.premium && !this.props.premium
-                  ? 'Locked'
-                  : item.focusType
-              }
-              taskId={item.id}
-              listItem={item}
-            />
-          )}
-        />
+        {everydayTasks.length > 0 ? (
+          <FlatList
+            style={styles.flatList}
+            data={everydayTasks}
+            renderItem={({ item }) => (
+              <AnytimeTile
+                {...this.props}
+                focusType={
+                  !!item.premium && !this.props.premium
+                    ? 'Locked'
+                    : item.focusType
+                }
+                taskId={item.id}
+                listItem={item}
+              />
+            )}
+          />
+        ) : (
+          <View>
+            <MyText>
+              Great job, you completed your daily formal mindful experiences!
+              Try exploring other experiences to keep it going.
+            </MyText>
+          </View>
+        )}
       </View>
     );
   }
