@@ -37,10 +37,10 @@ class EverydayTasksTile extends React.Component {
             )}
           />
         ) : (
-          <View>
+          <View style={styles.completed}>
             <MyText>
-              Great job, you completed your daily formal mindful experiences!
-              Try exploring other experiences to keep it going.
+              Great job, you completed your daily mindful experiences! Explore
+              other experiences to stay present.
             </MyText>
           </View>
         )}
@@ -52,6 +52,10 @@ class EverydayTasksTile extends React.Component {
 const styles = StyleSheet.create({
   container: {
     padding: 20
+  },
+  completed: {
+    paddingLeft: 20,
+    paddingRight: 20
   },
   link: {
     color: COLOR_PRIMARY,
