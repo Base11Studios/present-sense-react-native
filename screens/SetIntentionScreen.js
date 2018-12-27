@@ -1,28 +1,30 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
+import { FlatList, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { connect } from 'react-redux';
 import { MyText } from '../components/MyText';
 import { PageContainer } from '../components/PageContainer';
 import { Title4 } from '../components/Title4';
 import TutorialView from '../components/TutorialView';
-import { COLOR_PRIMARY } from '../styles/common';
+import { setDailyIntention } from '../redux/reducers/tasks';
+import { COLOR_PRIMARY, COLOR_QUATERNARY, COLOR_WHITE } from '../styles/common';
 
 class SetIntentionScreen extends React.Component {
   static navigationOptions = {
-    title: 'Daily Intention'
+    title: 'Set a Daily Intention'
   };
 
   onPressCreateOwn() {}
 
-  onPressUseOurs(description) {}
+  onPressUseOurs(description) {
+    this.props.setDailyIntention(description);
+  }
 
   render() {
     const intentions = [
-      { id: 1, description: 'Smile at strangers' },
-      { id: 2, description: 'Be optimistic' },
-      { id: 3, description: 'Be calm and at peace' },
-      { id: 4, description: "Don't gossip about others" }
+      { key: '1', id: 1, description: 'Smile at strangers' },
+      { key: '2', id: 2, description: 'Be optimistic' },
+      { key: '3', id: 3, description: 'Be calm and at peace' },
+      { key: '4', id: 4, description: "Don't gossip about others" }
     ];
 
     return (
@@ -34,22 +36,23 @@ class SetIntentionScreen extends React.Component {
             'Set an intention for the day then come back later to journal about your observations.'
           }
         />
-        <Title4>Set today's intention</Title4>
-        <MyText>
+        <MyText style={[styles.container, styles.description]}>
           We use intentions to focus our energy on one goal for the day. Refer
           to it throughout the day as a reminder, then check back in tonight to
           record your observations.
         </MyText>
+        <Title4 style={[styles.container, styles.title]}>
+          CREATE YOUR OWN
+        </Title4>
         <TouchableOpacity onPress={() => this.onPressCreateOwn()}>
-          <View style={[styles.card, { backgroundColor: COLOR_PRIMARY }]}>
+          <View style={[styles.card, { backgroundColor: COLOR_QUATERNARY }]}>
             <View style={{ alignItems: 'center', flex: 1 }}>
               <MyText
                 style={{
                   textAlign: 'center',
                   color: COLOR_WHITE,
                   fontSize: 18,
-                  fontWeight: '600',
-                  marginRight: 28
+                  fontWeight: '600'
                 }}
               >
                 Create your own intention
@@ -57,7 +60,9 @@ class SetIntentionScreen extends React.Component {
             </View>
           </View>
         </TouchableOpacity>
-        <Title4>Or choose from one of our suggestions</Title4>
+        <Title4 style={[styles.container, styles.title]}>
+          CHOOSE FROM OUR SUGGESTIONS
+        </Title4>
         <FlatList
           style={styles.flatList}
           data={intentions}
@@ -73,8 +78,7 @@ class SetIntentionScreen extends React.Component {
                       textAlign: 'center',
                       color: COLOR_WHITE,
                       fontSize: 18,
-                      fontWeight: '600',
-                      marginRight: 28
+                      fontWeight: '600'
                     }}
                   >
                     {item.description}
@@ -90,6 +94,17 @@ class SetIntentionScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    marginHorizontal: 16
+  },
+  title: {
+    marginTop: 18,
+    marginBottom: 6
+  },
+  description: {
+    marginTop: 18,
+    marginBottom: 6
+  },
   card: {
     marginHorizontal: 16,
     marginVertical: 4,
@@ -107,7 +122,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    setDailyIntention: intention => dispatch(setDailyIntention(intention))
+  };
 };
 
 export default connect(

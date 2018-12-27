@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { connect } from 'react-redux';
-import { COLOR_ALERT, COLOR_PRIMARY, COLOR_WHITE } from '../styles/common';
+import { COLOR_QUATERNARY, COLOR_WHITE } from '../styles/common';
 import { FocusTypeIcon } from './FocusTypeIcon';
 import { MyText } from './MyText';
 
@@ -17,7 +17,7 @@ class SetDailyIntentionTile extends React.Component {
   render() {
     return (
       <TouchableOpacity onPress={() => this.onPressStartTask()}>
-        <View style={[styles.card, { backgroundColor: COLOR_ALERT }]}>
+        <View style={[styles.card, { backgroundColor: COLOR_QUATERNARY }]}>
           <FocusTypeIcon style={styles.avatar} focusType={'Intent'} />
           <View style={{ alignItems: 'center', flex: 1 }}>
             <MyText
@@ -60,7 +60,6 @@ const styles = StyleSheet.create({
     marginVertical: 4,
     padding: 8,
     borderRadius: 6,
-    backgroundColor: COLOR_PRIMARY,
     flexDirection: 'row',
     alignItems: 'center'
   }

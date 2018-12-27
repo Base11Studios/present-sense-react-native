@@ -17,6 +17,7 @@ import IntroOverviewScreen from '../screens/IntroOverviewScreen';
 import IntroScreen from '../screens/IntroScreen';
 import ListTasksScreen from '../screens/ListTasksScreen';
 import PrivacyPolicyScreen from '../screens/PrivacyPolicyScreen';
+import SetIntentionScreen from '../screens/SetIntentionScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import SubscriptionScreen from '../screens/SubscriptionScreen';
 import TaskFeelingsScreen from '../screens/TaskFeelingsScreen';
@@ -56,6 +57,20 @@ export const PrivacyNavigator = StackNavigator({
     screen: PrivacyPolicyScreen,
     navigationOptions: props => ({
       title: 'Privacy Policy',
+      headerLeft: <BackButton {...props} />,
+      headerTintColor: COLOR_BLACK,
+      headerStyle: {
+        backgroundColor: COLOR_WHITE
+      }
+    })
+  }
+});
+
+export const DailyIntentionNavigator = StackNavigator({
+  DailyIntention: {
+    screen: SetIntentionScreen,
+    navigationOptions: props => ({
+      title: 'Set a Daily Intention',
       headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {

@@ -98,7 +98,7 @@ class HomeScreen extends React.Component {
   dailyIntentionWasStartedToday() {
     return (
       new Date().toDateString() ===
-      this.props.dailyIntentionSetDate.toDateString()
+      new Date(this.props.dailyIntentionSetDate).toDateString()
     );
   }
 
@@ -126,7 +126,7 @@ class HomeScreen extends React.Component {
         !this.dailyIntentionWasStartedToday() ? (
           <MindfulQuoteTile />
         ) : (
-          <DailyIntentionTile />
+          <DailyIntentionTile {...this.props} />
         )}
         <LearnHowTile {...this.props} />
         <EverydayTasksTile {...this.props} />

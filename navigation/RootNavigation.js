@@ -2,6 +2,7 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import {
   CreditsNavigator,
+  DailyIntentionNavigator,
   DoTaskNavigator,
   FAQNavigator,
   IntroNavigator,
@@ -19,6 +20,12 @@ const RootStackNavigator = StackNavigator(
   {
     Main: {
       screen: TabNavigator,
+      navigationOptions: props => ({
+        gesturesEnabled: false
+      })
+    },
+    DailyIntention: {
+      screen: DailyIntentionNavigator,
       navigationOptions: props => ({
         gesturesEnabled: false
       })
