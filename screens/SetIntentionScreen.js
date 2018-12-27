@@ -6,7 +6,7 @@ import { PageContainer } from '../components/PageContainer';
 import { Title4 } from '../components/Title4';
 import TutorialView from '../components/TutorialView';
 import { setDailyIntention } from '../redux/reducers/tasks';
-import { COLOR_PRIMARY, COLOR_QUATERNARY, COLOR_WHITE } from '../styles/common';
+import { COLOR_HIGHLIGHT, COLOR_PRIMARY, COLOR_WHITE } from '../styles/common';
 
 class SetIntentionScreen extends React.Component {
   static navigationOptions = {
@@ -45,7 +45,7 @@ class SetIntentionScreen extends React.Component {
           CREATE YOUR OWN
         </Title4>
         <TouchableOpacity onPress={() => this.onPressCreateOwn()}>
-          <View style={[styles.card, { backgroundColor: COLOR_QUATERNARY }]}>
+          <View style={[styles.card, { backgroundColor: COLOR_HIGHLIGHT }]}>
             <View style={{ alignItems: 'center', flex: 1 }}>
               <MyText
                 style={{

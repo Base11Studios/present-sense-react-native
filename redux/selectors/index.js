@@ -4,6 +4,7 @@ import { createSelector } from 'reselect';
 const getTasksCompleted = state => state.tasks.completedTasks;
 const getTutorialTasksCompleted = state => state.tasks.completedTutorialTasks;
 const getTasks = state => state.tasks.tasks;
+const getDailyIntentionStatus = state => state.tasks.dailyIntentionStatus;
 
 export const getAffirmationsTime = state => state.notification.affirmationsTime;
 export const getAffirmationsEnabled = state =>
@@ -40,8 +41,8 @@ export const getLeastUsedTasks = createSelector(
 );
 
 export const getEverydayTasks = createSelector(
-  [getTasksCompleted, getTasks],
-  (tasksCompleted, tasks) => {
+  [getTasksCompleted, getTasks, getDailyIntentionStatus],
+  (tasksCompleted, tasks, dailyIntentionStatus) => {
     everydayTasks = tasks.filter(
       task => task.id === '16' || task.id === '11' || task.id === '8'
     );
@@ -53,6 +54,7 @@ export const getEverydayTasks = createSelector(
         return (
           (task.task.id === '16' &&
             completeDate.toDateString() === todaysDate) ||
+          dailyIntentionStatus === 'INACTIVE' ||
           (task.task.id === '11' &&
             completeDate.toDateString() === todaysDate) ||
           (task.task.id === '8' && completeDate.toDateString() === todaysDate)

@@ -1,14 +1,14 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
-import { COLOR_QUATERNARY, COLOR_WHITE } from '../styles/common';
+import { COLOR_HIGHLIGHT, COLOR_WHITE } from '../styles/common';
 import { MyText } from './MyText';
 import { Title4 } from './Title4';
 
 class DailyIntentionTile extends React.Component {
   render() {
     return (
-      <View style={[styles.header, { backgroundColor: COLOR_QUATERNARY }]}>
+      <View style={[styles.header, { backgroundColor: COLOR_HIGHLIGHT }]}>
         <Title4
           style={[styles.quoteTextContainer, { paddingBottom: 6 }]}
           textStyle={styles.quoteText}

@@ -1,19 +1,36 @@
-import React from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
-import { connect } from "react-redux";
-import { getBackgroundColorByDay } from "../constants/Helpers";
-import { startTask } from "../redux/reducers/tasks";
-import { COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
-import { FocusTypeIcon } from "./FocusTypeIcon";
-import { MyText } from "./MyText";
+import React from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { connect } from 'react-redux';
+import { getBackgroundColorByDay } from '../constants/Helpers';
+import { startTask } from '../redux/reducers/tasks';
+import { COLOR_PRIMARY, COLOR_WHITE } from '../styles/common';
+import { FocusTypeIcon } from './FocusTypeIcon';
+import { MyText } from './MyText';
 
 class AnytimeTile extends React.Component {
   onPressStartTask(task) {
     if (!!task.premium && !this.props.premium) {
-      this.props.navigation.navigate("Subscribe");
+      this.props.navigation.navigate('Subscribe');
     } else {
+      // Daily Intention
+      if (task.id === '16') {
+        task.observationOverride = task.observationOverride.replace(
+          '${INTENTION}',
+          this.props.dailyIntention
+        );
+        task.additionalInfo = task.additionalInfo.replace(
+          '${INTENTION}',
+          this.props.dailyIntention
+        );
+      }
+
       this.props.startTask(task);
-      this.props.navigation.navigate("ViewTask");
+
+      if (task.id === '16') {
+        this.props.navigation.navigate('TaskObservations', { task: task });
+      } else {
+        this.props.navigation.navigate('ViewTask');
+      }
     }
   }
 
@@ -33,13 +50,13 @@ class AnytimeTile extends React.Component {
             style={styles.avatar}
             focusType={this.props.focusType}
           />
-          <View style={{ alignItems: "center", flex: 1 }}>
+          <View style={{ alignItems: 'center', flex: 1 }}>
             <MyText
               style={{
-                textAlign: "center",
+                textAlign: 'center',
                 color: COLOR_WHITE,
                 fontSize: 18,
-                fontWeight: "600",
+                fontWeight: '600',
                 marginRight: 28
               }}
             >
@@ -58,8 +75,8 @@ const styles = StyleSheet.create({
   dayTile: {
     height: 60,
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   avatar: {
     width: 42,
@@ -77,8 +94,8 @@ const styles = StyleSheet.create({
     padding: 8,
     borderRadius: 6,
     backgroundColor: COLOR_PRIMARY,
-    flexDirection: "row",
-    alignItems: "center"
+    flexDirection: 'row',
+    alignItems: 'center'
   }
 });
 
@@ -88,7 +105,8 @@ function mapStateToProps(state, props) {
     .filter(task => task.id === props.taskId);
   return {
     task: storedTasks[0],
-    premium: state.subscription.premium
+    premium: state.subscription.premium,
+    dailyIntention: state.tasks.dailyIntention
   };
 }
 

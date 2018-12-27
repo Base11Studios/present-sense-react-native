@@ -137,6 +137,13 @@ class CompletedTasksScreen extends React.Component {
 
                     {item.expanded ? (
                       <View>
+                        {!!item.task.additionalInfo ? (
+                          <Title3 style={{ marginTop: 18, color: COLOR_WHITE }}>
+                            {item.task.additionalInfo}
+                          </Title3>
+                        ) : (
+                          <View />
+                        )}
                         <Title5 style={{ marginTop: 18, color: COLOR_WHITE }}>
                           {item.task.prompt}
                         </Title5>

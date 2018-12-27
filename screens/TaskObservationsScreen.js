@@ -89,8 +89,10 @@ const InnerCompleteTaskForm = props => {
               fontSize: 20
             }}
           >
-            {`Way to go! Now let's journal about your observations during ` +
-              task.title}
+            {!!task.observationOverride
+              ? task.observationOverride
+              : `Way to go! Now let's journal about your observations during ` +
+                task.title}
             .
           </MyText>
         </View>
