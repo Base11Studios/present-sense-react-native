@@ -44,14 +44,18 @@ export class FocusTypeIcon extends React.Component {
         color={COLOR_WHITE}
       />
     ) : this.props.focusType === 'Intent' ? (
-      <Icon
-        type="ionicon"
-        name="ios-arrow-dropright"
-        size={26}
-        containerStyle={[{ padding: 7 }, this.props.style]}
-        color={COLOR_WHITE}
+      <Image
+        style={[styles.avatar, this.props.style]}
+        source={require('../assets/images/mind.png')}
       />
-    ) : this.props.focusType === 'Locked' ? (
+    ) : // <Icon
+    //   type="ionicon"
+    //   name="ios-arrow-dropright"
+    //   size={26}
+    //   containerStyle={[{ padding: 7 }, this.props.style]}
+    //   color={COLOR_WHITE}
+    // />
+    this.props.focusType === 'Locked' ? (
       <Icon
         type="font-awesome"
         name="lock"

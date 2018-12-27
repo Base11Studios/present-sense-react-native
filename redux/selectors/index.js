@@ -43,24 +43,28 @@ export const getLeastUsedTasks = createSelector(
 export const getEverydayTasks = createSelector(
   [getTasksCompleted, getTasks, getDailyIntentionStatus],
   (tasksCompleted, tasks, dailyIntentionStatus) => {
-    everydayTasks = tasks.filter(
-      task => task.id === '16' || task.id === '11' || task.id === '8'
-    );
+    everydayTasks = [
+      tasks.filter(task => task.id === '11')[0],
+      tasks.filter(task => task.id === '8')[0],
+      tasks.filter(task => task.id === '16')[0]
+    ];
 
     todaysDate = new Date().toDateString();
     everydayTasksCompleted = tasksCompleted
       .filter(task => {
         const completeDate = new Date(task.completeDate);
         return (
-          (task.task.id === '16' &&
-            completeDate.toDateString() === todaysDate) ||
-          dailyIntentionStatus === 'INACTIVE' ||
           (task.task.id === '11' &&
             completeDate.toDateString() === todaysDate) ||
           (task.task.id === '8' && completeDate.toDateString() === todaysDate)
         );
       })
       .map(task => task.task.id);
+
+    // We want to hide the complete daily intention if there is not an active intention
+    if (dailyIntentionStatus === 'INACTIVE') {
+      everydayTasksCompleted.push('16');
+    }
 
     return everydayTasks.filter(
       task => !everydayTasksCompleted.includes(task.id)

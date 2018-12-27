@@ -17,7 +17,7 @@ import { KeyboardAwareScrollingPageContainer } from '../components/KeyboardAware
 import { MyText } from '../components/MyText';
 import { ProgressStepper } from '../components/ProgressStepper';
 import { getBackgroundColorByDay } from '../constants/Helpers';
-import { completeTask } from '../redux/reducers/tasks';
+import { completeDailyIntention, completeTask } from '../redux/reducers/tasks';
 import { COLOR_BLACK, COLOR_LIGHT_GREY, COLOR_WHITE } from '../styles/common';
 
 // Our inner form component. Will be wrapped with Formik({..})
@@ -171,6 +171,10 @@ const CompleteTaskForm = withFormik({
     completed.formValues.feel = values.feel;
     completed.hideToast = false;
 
+    if (completed.task.id === '16') {
+      props.completeDailyIntention();
+    }
+
     props.completeTask(completed);
     props.navigation.navigate('Profile');
   },
@@ -200,7 +204,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    completeTask: completion => dispatch(completeTask(completion))
+    completeTask: completion => dispatch(completeTask(completion)),
+    completeDailyIntention: () => dispatch(completeDailyIntention())
   };
 }
 

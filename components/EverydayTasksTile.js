@@ -23,6 +23,11 @@ class EverydayTasksTile extends React.Component {
         {everydayTasks.length > 0 ||
         this.props.dailyIntentionStatus === 'INACTIVE' ? (
           <View>
+            {this.props.dailyIntentionStatus === 'INACTIVE' ? (
+              <SetDailyIntentionTile {...this.props} />
+            ) : (
+              <View />
+            )}
             {everydayTasks.length > 0 ? (
               <FlatList
                 style={styles.flatList}
@@ -40,11 +45,6 @@ class EverydayTasksTile extends React.Component {
                   />
                 )}
               />
-            ) : (
-              <View />
-            )}
-            {this.props.dailyIntentionStatus === 'INACTIVE' ? (
-              <SetDailyIntentionTile {...this.props} />
             ) : (
               <View />
             )}

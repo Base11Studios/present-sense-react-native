@@ -115,7 +115,7 @@ export default function reducer(state = initialState, action) {
         dailyIntentionSetDate: new Date(),
         dailyIntentionStatus: 'ACTIVE'
       };
-    case COMPLETE_DAILY_INTENTION: // TODO complete the task
+    case COMPLETE_DAILY_INTENTION:
       return {
         ...state,
         dailyIntentionStatus: 'INACTIVE'
