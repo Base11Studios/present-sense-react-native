@@ -1,11 +1,13 @@
-import { PURGE } from "redux-persist";
-import { taskData, taskDataVersion } from "./task-data";
+import { PURGE } from 'redux-persist';
+import { taskData, taskDataVersion } from './task-data';
 
-export const SET_ACTIVE_TASK_TYPE = "tasks/SET_ACTIVE_TYPE";
-export const START_TASK = "tasks/START";
-export const UPDATE_TASKS = "tasks/UPDATE";
-export const COMPLETE_TASK = "tasks/COMPLETE";
-export const CANCEL_TASK = "tasks/CANCEL";
+export const SET_ACTIVE_TASK_TYPE = 'tasks/SET_ACTIVE_TYPE';
+export const START_TASK = 'tasks/START';
+export const UPDATE_TASKS = 'tasks/UPDATE';
+export const COMPLETE_TASK = 'tasks/COMPLETE';
+export const CANCEL_TASK = 'tasks/CANCEL';
+export const SET_DAILY_INTENTION = 'tasks/SET_DAILY_INTENTION';
+export const COMPLETE_DAILY_INTENTION = 'tasks/COMPLETE_DAILY_INTENTION';
 
 export const migrations = {
   0: state => {
@@ -25,10 +27,13 @@ const initialState = {
   lastTaskFocuses: {},
   tasksVersion: -1,
   tasks: [],
-  activeTask: { focusType: "" },
+  activeTask: { focusType: '' },
   completedTasks: [],
-  activeTaskType: "Anytime",
-  completedTutorialTasks: []
+  activeTaskType: 'Anytime',
+  completedTutorialTasks: [],
+  dailyIntention: '',
+  dailyIntentionSetDate: new Date(),
+  dailyIntentionStatus: 'INACTIVE'
 };
 
 const getUpdatedTasks = function(lastTaskFocuses) {
@@ -57,20 +62,20 @@ const getNextFocus = function(task) {
 const getPrompt = function(task) {
   const type = task.focusType;
   switch (type) {
-    case "Sight":
-      return "What did you see?";
-    case "Sound":
-      return "What did you hear?";
-    case "Taste":
-      return "What did you taste?";
-    case "Smell":
-      return "What did you smell?";
-    case "Mind":
+    case 'Sight':
+      return 'What did you see?';
+    case 'Sound':
+      return 'What did you hear?';
+    case 'Taste':
+      return 'What did you taste?';
+    case 'Smell':
+      return 'What did you smell?';
+    case 'Mind':
       return task.mindPrompt;
-    case "Tutorial":
+    case 'Tutorial':
       return task.prompt;
     default:
-      return "What did you touch?";
+      return 'What did you touch?';
   }
 };
 
@@ -102,6 +107,18 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         activeTask: {}
+      };
+    case SET_DAILY_INTENTION:
+      return {
+        ...state,
+        dailyIntention: action.payload,
+        dailyIntentionSetDate: new Date(),
+        dailyIntentionStatus: 'ACTIVE'
+      };
+    case COMPLETE_DAILY_INTENTION: // TODO complete the task
+      return {
+        ...state,
+        dailyIntentionStatus: 'INACTIVE'
       };
     case COMPLETE_TASK:
       const completedTask = action.payload;
@@ -153,6 +170,20 @@ export function startTask(task) {
   return {
     type: START_TASK,
     payload: task
+  };
+}
+
+export function setDailyIntention(intention) {
+  return {
+    type: SET_DAILY_INTENTION,
+    payload: intention
+  };
+}
+
+export function completeDailyIntention() {
+  return {
+    type: COMPLETE_DAILY_INTENTION,
+    payload: {}
   };
 }
 

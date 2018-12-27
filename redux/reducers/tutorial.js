@@ -8,6 +8,7 @@ const initialState = {
     homeIntro: false,
     searchIntro: false,
     inspireIntro: false,
+    intentionIntro: false,
     completedIntro: false,
     taskOverviewIntro: false,
     taskRecodingIntro: false,

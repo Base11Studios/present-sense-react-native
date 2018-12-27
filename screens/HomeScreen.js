@@ -4,6 +4,7 @@ import Rate, { AndroidMarket } from 'react-native-rate';
 import SplashScreen from 'react-native-splash-screen';
 import { connect } from 'react-redux';
 import AnytimeTasksTile from '../components/AnytimeTasksTile';
+import DailyIntentionTile from '../components/DailyIntentionTile';
 import EverydayTasksTile from '../components/EverydayTasksTile';
 import { ExploreTasksTile } from '../components/ExploreTasksTile';
 import LearnHowTile from '../components/LearnHowTile';
@@ -94,6 +95,13 @@ class HomeScreen extends React.Component {
     });
   }
 
+  dailyIntentionWasStartedToday() {
+    return (
+      new Date().toDateString() ===
+      this.props.dailyIntentionSetDate.toDateString()
+    );
+  }
+
   render() {
     const { activeTask } = this.props;
 
@@ -114,7 +122,12 @@ class HomeScreen extends React.Component {
         ) : (
           <View />
         )}
-        <MindfulQuoteTile />
+        {this.props.dailyIntentionStatus !== 'ACTIVE' ||
+        !this.dailyIntentionWasStartedToday() ? (
+          <MindfulQuoteTile />
+        ) : (
+          <DailyIntentionTile />
+        )}
         <LearnHowTile {...this.props} />
         <EverydayTasksTile {...this.props} />
         <ExploreTasksTile {...this.props} />
@@ -133,7 +146,9 @@ const mapStateToProps = state => {
     completedTasks: state.tasks.completedTasks,
     remindersEnabled: state.notification.remindersEnabled,
     affirmationsEnabled: state.notification.affirmationsEnabled,
-    appOpenedCount: state.general.appOpenedCount
+    appOpenedCount: state.general.appOpenedCount,
+    dailyIntentionSetDate: state.tasks.dailyIntentionSetDate,
+    dailyIntentionStatus: state.tasks.dailyIntentionStatus
   };
 };
 
