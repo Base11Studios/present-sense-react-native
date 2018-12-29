@@ -38,6 +38,13 @@ class AnytimeTile extends React.Component {
     }
   }
 
+  getTaskLabel() {
+    return this.props.task.id === '16' &&
+      this.props.dailyIntentionStatus === 'INACTIVE'
+      ? 'Set a daily intention'
+      : this.props.task.title;
+  }
+
   render() {
     return !!this.props.task ? (
       <TouchableOpacity
@@ -64,7 +71,7 @@ class AnytimeTile extends React.Component {
                 marginRight: 28
               }}
             >
-              {this.props.task.title}
+              {this.getTaskLabel()}
             </MyText>
           </View>
         </View>
