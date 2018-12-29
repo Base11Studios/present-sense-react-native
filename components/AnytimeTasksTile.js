@@ -1,17 +1,17 @@
-import React from "react";
-import { FlatList, StyleSheet, TouchableHighlight, View } from "react-native";
-import { Icon } from "react-native-elements";
-import { connect } from "react-redux";
-import { setActiveTaskType } from "../redux/reducers/tasks";
-import { getLeastUsedTasks } from "../redux/selectors";
-import { COLOR_PRIMARY, COLOR_SECONDARY } from "../styles/common";
-import AnytimeTile from "./AnytimeTile";
-import { Title4 } from "./Title4";
+import React from 'react';
+import { FlatList, StyleSheet, TouchableHighlight, View } from 'react-native';
+import { Icon } from 'react-native-elements';
+import { connect } from 'react-redux';
+import { setActiveTaskType } from '../redux/reducers/tasks';
+import { getLeastUsedTasks } from '../redux/selectors';
+import { COLOR_PRIMARY, COLOR_SECONDARY } from '../styles/common';
+import AnytimeTile from './AnytimeTile';
+import { Title4 } from './Title4';
 
 class AnytimeTasksTile extends React.Component {
   onPressMoreTasks() {
-    this.props.setActiveTaskType("Anytime");
-    this.props.navigation.navigate("Search");
+    this.props.setActiveTaskType('Anytime');
+    this.props.navigation.navigate('Search');
   }
 
   render() {
@@ -27,7 +27,7 @@ class AnytimeTasksTile extends React.Component {
               {...this.props}
               focusType={
                 !!item.premium && !this.props.premium
-                  ? "Locked"
+                  ? 'Locked'
                   : item.focusType
               }
               taskId={item.id}
@@ -59,10 +59,10 @@ const styles = StyleSheet.create({
   },
   link: {
     color: COLOR_PRIMARY,
-    fontWeight: "bold"
+    fontWeight: 'bold'
   },
   more: {
-    alignItems: "flex-end",
+    alignItems: 'flex-end',
     paddingLeft: 20,
     paddingRight: 20
   },

@@ -27,7 +27,11 @@ class AnytimeTile extends React.Component {
       this.props.startTask(task);
 
       if (task.id === '16') {
-        this.props.navigation.navigate('TaskObservations', { task: task });
+        if (this.props.dailyIntentionStatus === 'INACTIVE') {
+          this.props.navigation.navigate('DailyIntention');
+        } else {
+          this.props.navigation.navigate('TaskObservations', { task: task });
+        }
       } else {
         this.props.navigation.navigate('ViewTask');
       }
@@ -106,7 +110,8 @@ function mapStateToProps(state, props) {
   return {
     task: storedTasks[0],
     premium: state.subscription.premium,
-    dailyIntention: state.tasks.dailyIntention
+    dailyIntention: state.tasks.dailyIntention,
+    dailyIntentionStatus: state.tasks.dailyIntentionStatus
   };
 }
 

@@ -43,11 +43,20 @@ export const getLeastUsedTasks = createSelector(
 export const getEverydayTasks = createSelector(
   [getTasksCompleted, getTasks, getDailyIntentionStatus],
   (tasksCompleted, tasks, dailyIntentionStatus) => {
-    everydayTasks = [
-      tasks.filter(task => task.id === '11')[0],
-      tasks.filter(task => task.id === '8')[0],
-      tasks.filter(task => task.id === '16')[0]
-    ];
+    everydayTasks = [];
+    taskMindful = tasks.filter(task => !!task && task.id === '11');
+    taskGrateful = tasks.filter(task => !!task && task.id === '8');
+    taskIntent = tasks.filter(task => !!task && task.id === '16');
+
+    if (taskMindful.length > 0) {
+      everydayTasks.push(taskMindful[0]);
+    }
+    if (taskGrateful.length > 0) {
+      everydayTasks.push(taskGrateful[0]);
+    }
+    if (taskIntent.length > 0) {
+      everydayTasks.push(taskIntent[0]);
+    }
 
     todaysDate = new Date().toDateString();
     everydayTasksCompleted = tasksCompleted
