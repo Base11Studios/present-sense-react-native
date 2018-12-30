@@ -17,6 +17,7 @@ class SetIntentionScreen extends React.Component {
 
   onPressUseOurs(description) {
     this.props.setDailyIntention(description);
+    this.props.navigation.navigate('Home');
   }
 
   render() {

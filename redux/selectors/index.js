@@ -6,6 +6,7 @@ const getTutorialTasksCompleted = state => state.tasks.completedTutorialTasks;
 const getTasks = state => state.tasks.tasks;
 const getDailyIntentionStatus = state => state.tasks.dailyIntentionStatus;
 
+export const getDailyIntention = state => state.tasks.dailyIntention;
 export const getAffirmationsTime = state => state.notification.affirmationsTime;
 export const getAffirmationsEnabled = state =>
   state.notification.affirmationsEnabled;
@@ -13,7 +14,6 @@ export const getRemindersTime = state => state.notification.remindersTime;
 export const getRemindersEnabled = state => state.notification.remindersEnabled;
 export const getTimerTime = state => state.notification.timerTime;
 export const getTimerEnabled = state => state.notification.timerEnabled;
-
 export const getPremium = state => state.subscription.premium;
 
 export const getLeastUsedTasks = createSelector(
@@ -75,6 +75,19 @@ export const getEverydayTasks = createSelector(
     return everydayTasks.filter(
       task => !everydayTasksCompleted.includes(task.id)
     );
+  }
+);
+
+export const getDailyIntentionTask = createSelector(
+  [getTasks],
+  tasks => {
+    taskIntent = tasks.filter(task => !!task && task.id === '16');
+
+    if (taskIntent.length > 0) {
+      return taskIntent[0];
+    } else {
+      return {};
+    }
   }
 );
 

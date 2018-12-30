@@ -15,10 +15,11 @@ import {
   UPDATE_IAPS_SUCCESS,
   UPDATE_SUBSCRIPTIONS
 } from './reducers/subscription';
-import { COMPLETE_TASK } from './reducers/tasks';
+import { COMPLETE_TASK, SET_DAILY_INTENTION } from './reducers/tasks';
 import {
   getAffirmationsEnabled,
   getAffirmationsTime,
+  getDailyIntention,
   getPremium,
   getRemindersEnabled,
   getRemindersTime,
@@ -183,6 +184,30 @@ function* completeTask(action) {
         onHidden: () => {}
       });
     }
+  } catch (e) {}
+}
+
+function* dailyIntention(action) {
+  try {
+    let storeDailyIntention = yield select(getDailyIntention);
+
+    let toastIntentionSet = Toast.show(
+      "Intention set to '" + storeDailyIntention + "'",
+      {
+        duration: Toast.durations.LONG,
+        position: Toast.positions.BOTTOM - 90,
+        backgroundColor: COLOR_QUATERNARY,
+        opacity: 1,
+        shadow: false,
+        animation: true,
+        hideOnPress: true,
+        delay: 500,
+        onShow: () => {},
+        onShown: () => {},
+        onHide: () => {},
+        onHidden: () => {}
+      }
+    );
   } catch (e) {}
 }
 
@@ -414,6 +439,7 @@ function* mySaga() {
   yield takeEvery(UPDATE_IAPS, updateIaps);
   yield takeEvery(SUBSCRIBE_USER, subscribeUser);
   yield takeEvery(UPDATE_NOTIFICATIONS, updateNotifications);
+  yield takeEvery(SET_DAILY_INTENTION, dailyIntention);
 }
 
 export default mySaga;
