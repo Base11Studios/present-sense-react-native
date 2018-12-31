@@ -1,4 +1,4 @@
-export const taskDataVersion = 3.05;
+export const taskDataVersion = 3.06;
 export const taskData = [
   {
     title: 'Brush your teeth',
@@ -525,7 +525,11 @@ export const taskData = [
     conclusionText:
       'You just completed your first Mindful Experience! Do a few every day to bring mindfulness into your life and experience every moment life can offer.',
     premium: false,
-    count: 0
+    count: 0,
+    description:
+      'Take 6 deep breaths. Inhale through your nose, exhale through your mouth. Focus on feeling the sensations in your nostrils, under your nose, in your lungs, or in your belly as the air moves in and out.',
+    hints:
+      'Try this exercise anytime you want to bring a sense of calm to your day and pull yourself into the present moment!'
   },
   {
     title: 'Foundation: Wandering Mind',
@@ -551,7 +555,11 @@ export const taskData = [
     conclusionText:
       'It can be overwhelming and challenging when you start out. Over time, you will get better at identifying the times your mind wanders and bringing back your focus to the present.',
     premium: false,
-    count: 0
+    count: 0,
+    description:
+      'Close your eyes and become an observer of the thoughts in your head. Watch them come and go. When you get caught up in a thought, gently bring your focus back to observing.',
+    hints:
+      'The idea is not to get rid of your thoughts, but instead to recognize when they occur. Every time you notice "Ah, my mind has wandered off", that\'s great, you just came back to the present.'
   },
   {
     title: 'Foundation: Focused Breathing',
@@ -569,7 +577,7 @@ export const taskData = [
       "Let's try a meditation completely focused on breathing with intention and observing each breath in our body."
     ],
     activityText:
-      'Set a timer for 3 minutes. Take deep breaths in through your nose, then completely out through your mouth. Tie your breathing to your belly - move it in when you inhale, move it out when you exhale.',
+      'Set a timer for 3 minutes. Take deep breaths in through your nose, then completely out through your mouth. Tie your breathing to your belly - move it out when you inhale, move it in when you exhale.',
     observationText:
       'Great job! What did you notice as you were observing your breath?',
     feelingText:
@@ -577,7 +585,11 @@ export const taskData = [
     conclusionText:
       'Keep practicing breathing mindfully. When you feel stressed, anxious, happy, or just want to appreciate each moment, tune into your breath to bring your awareness to the now!',
     premium: false,
-    count: 0
+    count: 0,
+    description:
+      'Set a timer for 3 minutes. Take deep breaths in through your nose, then completely out through your mouth. Try counting while you breathe. Inhale at a count of 4, hold your breath for a count of 7, exhale for a count of 8.',
+    hints:
+      'Each count does not need to be 1 second, just maintain the ratio between steps. Tie your breathing to your belly - move it out when you inhale, move it in when you exhale.'
   },
   {
     title: 'Foundation: Body Scan',
@@ -595,7 +607,7 @@ export const taskData = [
       "You may notice stress, tension, calm, relaxation, or something else. Whatever it is, it's OK. We're not trying to change how we feel, just be aware of it."
     ],
     activityText:
-      'Take a few deep breaths. Close your eyes. Do a body scan from head to toes. Spend an inhale and an exhale checking in on each body part.',
+      'Take a few deep breaths. Close your eyes. Do a body scan from head to toe. Spend an inhale and an exhale checking in on each body part.',
     observationText:
       'Great job! What did you notice as you were doing the body scan?',
     feelingText:
@@ -603,7 +615,11 @@ export const taskData = [
     conclusionText:
       "Body scans are a great way to be aware of how you're feeling in this moment. Use them both in formal meditation practice and in everyday moments to bring awareness to the present.",
     premium: false,
-    count: 0
+    count: 0,
+    description:
+      'Close your eyes. Start by focusing on the top of your head. Inhale and exhale while you ask, "how does my head feel?". Move down your body and examine each body part in this same way.',
+    hints:
+      'When you get to your toes and finish the body scan, focus on body as a whole. How does it feel? Can you feel every atom of your body alive?'
   },
   {
     title: 'Foundation: Noting',
@@ -628,7 +644,11 @@ export const taskData = [
     conclusionText:
       'You can use mental noting throughout your day to help be mindful. When you notice your mind wandering, take a gentle mental note and bring your focus back to the now.',
     premium: false,
-    count: 0
+    count: 0,
+    description:
+      'Set a timer for 5 minutes. Close your eyes and breathe. When you notice your attention drifting, gently note it (such as "oh, thinking" or "oh, feeling"). After a mental note, gently bring your focus back to the present.',
+    hints:
+      'Mental noting should be as gentle as a whisper is the mind - such as "feeling", "thinking", "hearing", "seeing", and "touching". Mental noting should not take the place of being mindful - it is simply a reminder to bring your attention back to the present.'
   },
   {
     title: 'Chronic pain',

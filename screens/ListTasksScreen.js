@@ -159,7 +159,9 @@ const mapStateToProps = state => {
     .filter(task => task.type === state.tasks.activeTaskType)
     .sort(function(a, b) {
       return (!!a.premium && !!b.premium) || (!a.premium && !b.premium)
-        ? 0
+        ? a.id > b.id
+          ? 1
+          : -1
         : !!a.premium && !b.premium
         ? 1
         : -1;
