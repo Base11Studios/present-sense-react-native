@@ -387,7 +387,6 @@ function updateDateToBeInFuture(time) {
     todaysDate.setDate(todaysDate.getDate() + 1);
   }
 
-  console.warn(todaysDate);
   return todaysDate;
 }
 

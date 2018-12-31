@@ -7,7 +7,7 @@ export const UPDATE_IAPS = 'user/UPDATE_IAPS';
 export const UPDATE_IAPS_SUCCESS = 'user/UPDATE_IAPS_SUCCESS';
 
 const initialState = {
-  premium: true, // TODO REM
+  premium: false,
   monthlyProduct: null,
   yearlyProduct: null,
   discount: null
