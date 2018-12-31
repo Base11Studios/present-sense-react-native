@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { MyText } from '../components/MyText';
 import { ScrollingPageContainer } from '../components/ScrollingPageContainer';
 import { Title4 } from '../components/Title4';
-import TutorialView from '../components/TutorialView';
 import { setDailyIntention } from '../redux/reducers/tasks';
 import { COLOR_HIGHLIGHT, COLOR_PRIMARY, COLOR_WHITE } from '../styles/common';
 
@@ -46,13 +45,6 @@ class SetIntentionScreen extends React.Component {
 
     return (
       <ScrollingPageContainer>
-        <TutorialView
-          tutorialType="intentionIntro"
-          tutorialTitle="Daily Intention"
-          tutorialDescription={
-            'Set an intention for the day then come back later to journal about your observations.'
-          }
-        />
         <MyText style={[styles.container, styles.description]}>
           We use intentions to focus our energy on one goal for the day. Refer
           to it throughout the day as a reminder, then check back in tonight to

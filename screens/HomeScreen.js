@@ -122,6 +122,21 @@ class HomeScreen extends React.Component {
         ) : (
           <View />
         )}
+        {!this.props.premium &&
+        this.localAppOpenedCount > 1 &&
+        this.props.completedTasks.length > 0 ? (
+          <TutorialView
+            {...this.props}
+            tutorialNavigation={'Subscribe'}
+            tutorialType="intentionIntro"
+            tutorialTitle="New: Daily Intention!"
+            tutorialDescription={
+              'Premium users can now set a daily intention in the morning and check back throughout the day. Finish it at night by journaling about your experience.'
+            }
+          />
+        ) : (
+          <View />
+        )}
         {this.props.dailyIntentionStatus !== 'ACTIVE' ||
         !this.dailyIntentionWasStartedToday() ? (
           <MindfulQuoteTile />
@@ -141,6 +156,7 @@ const styles = StyleSheet.create({});
 
 const mapStateToProps = state => {
   return {
+    premium: state.subscription.premium,
     tutorial: state.tutorial.tutorial,
     activeTask: state.tasks.activeTask,
     completedTasks: state.tasks.completedTasks,
