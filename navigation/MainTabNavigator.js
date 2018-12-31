@@ -5,6 +5,7 @@ import { createBottomTabNavigator, StackNavigator } from 'react-navigation';
 import { BackButton } from '../components/BackButton';
 import { SettingsButton } from '../components/SettingsButton';
 import CompletedTasksScreen from '../screens/CompletedTasksScreen';
+import CreateOwnIntentionScreen from '../screens/CreateOwnIntentionScreen';
 import CreditsScreen from '../screens/CreditsScreen';
 import FAQScreen from '../screens/FAQScreen';
 import HomeScreen from '../screens/HomeScreen';
@@ -66,19 +67,43 @@ export const PrivacyNavigator = StackNavigator({
   }
 });
 
-export const DailyIntentionNavigator = StackNavigator({
-  DailyIntention: {
-    screen: SetIntentionScreen,
-    navigationOptions: props => ({
-      title: 'Set a Daily Intention',
-      headerLeft: <BackButton {...props} />,
-      headerTintColor: COLOR_BLACK,
-      headerStyle: {
-        backgroundColor: COLOR_WHITE
+export const DailyIntentionNavigator = StackNavigator(
+  {
+    DailyIntention: {
+      screen: SetIntentionScreen,
+      navigationOptions: props => ({
+        title: 'Set a Daily Intention',
+        headerLeft: <BackButton {...props} />,
+        headerTintColor: COLOR_BLACK,
+        headerStyle: {
+          backgroundColor: COLOR_WHITE
+        }
+      })
+    },
+    CustomDailyIntention: {
+      screen: CreateOwnIntentionScreen,
+      navigationOptions: props => ({
+        title: 'Create Intention',
+        headerLeft: <BackButton {...props} />,
+        headerTintColor: COLOR_BLACK,
+        headerStyle: {
+          backgroundColor: COLOR_WHITE
+        }
+      })
+    }
+  },
+  {
+    headerMode: 'none',
+    modal: true,
+    transitionConfig: () => ({
+      transitionSpec: {
+        duration: 0,
+        timing: Animated.timing,
+        easing: Easing.step0
       }
     })
   }
-});
+);
 
 export const TermsNavigator = StackNavigator({
   SettingsTerms: {

@@ -1,4 +1,4 @@
-export const taskDataVersion = 3.02;
+export const taskDataVersion = 3.03;
 export const taskData = [
   {
     title: 'Brush your teeth',
@@ -227,9 +227,8 @@ export const taskData = [
       "Make your intention something small you can achieve. Try to bring awareness to your goal throughout the day to check in on how you're doing. It is OK to fail - recognize what went wrong and try again tomorrow!",
     premium: true,
     count: 0,
-    observationOverride:
-      "After spending the day with the intention of '${INTENTION}', how did it go?",
-    additionalInfo: '${INTENTION}'
+    observationOverride: '',
+    additionalInfo: ''
   },
   {
     title: 'Wash the dishes',

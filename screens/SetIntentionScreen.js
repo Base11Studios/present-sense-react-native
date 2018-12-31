@@ -13,7 +13,9 @@ class SetIntentionScreen extends React.Component {
     title: 'Set a Daily Intention'
   };
 
-  onPressCreateOwn() {}
+  onPressCreateOwn() {
+    this.props.navigation.navigate('CustomDailyIntention');
+  }
 
   onPressUseOurs(description) {
     this.props.setDailyIntention(description);

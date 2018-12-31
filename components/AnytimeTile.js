@@ -2,6 +2,10 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { connect } from 'react-redux';
 import { getBackgroundColorByDay } from '../constants/Helpers';
+import {
+  DAILY_INTENTION_ADDITIONAL_INFO,
+  DAILY_INTENTION_OBSERVATION_OVERRIDE
+} from '../constants/LabelVault';
 import { startTask } from '../redux/reducers/tasks';
 import { COLOR_PRIMARY, COLOR_WHITE } from '../styles/common';
 import { FocusTypeIcon } from './FocusTypeIcon';
@@ -14,11 +18,11 @@ class AnytimeTile extends React.Component {
     } else {
       // Daily Intention
       if (task.id === '16') {
-        task.observationOverride = task.observationOverride.replace(
+        task.observationOverride = DAILY_INTENTION_OBSERVATION_OVERRIDE.replace(
           '${INTENTION}',
           this.props.dailyIntention
         );
-        task.additionalInfo = task.additionalInfo.replace(
+        task.additionalInfo = DAILY_INTENTION_ADDITIONAL_INFO.replace(
           '${INTENTION}',
           this.props.dailyIntention
         );

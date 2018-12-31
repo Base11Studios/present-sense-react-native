@@ -42,7 +42,7 @@ class EverydayTasksTile extends React.Component {
           <View style={styles.completed}>
             <MyText>
               Great job, you completed your daily mindful experiences! Explore
-              other experiences to stay present.
+              more experiences below to stay present.
             </MyText>
           </View>
         )}

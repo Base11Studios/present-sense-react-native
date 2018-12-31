@@ -1,6 +1,10 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { connect } from 'react-redux';
+import {
+  DAILY_INTENTION_ADDITIONAL_INFO,
+  DAILY_INTENTION_OBSERVATION_OVERRIDE
+} from '../constants/LabelVault';
 import { startTask } from '../redux/reducers/tasks';
 import { getDailyIntentionTask } from '../redux/selectors';
 import { COLOR_HIGHLIGHT, COLOR_WHITE } from '../styles/common';
@@ -10,11 +14,11 @@ import { Title4 } from './Title4';
 class DailyIntentionTile extends React.Component {
   onPressTile() {
     // TODO this is duplicated code from Anytime Tile
-    this.props.dailyIntentionTask.observationOverride = this.props.dailyIntentionTask.observationOverride.replace(
+    this.props.dailyIntentionTask.observationOverride = DAILY_INTENTION_OBSERVATION_OVERRIDE.replace(
       '${INTENTION}',
       this.props.dailyIntention
     );
-    this.props.dailyIntentionTask.additionalInfo = this.props.dailyIntentionTask.additionalInfo.replace(
+    this.props.dailyIntentionTask.additionalInfo = DAILY_INTENTION_ADDITIONAL_INFO.replace(
       '${INTENTION}',
       this.props.dailyIntention
     );
