@@ -7,6 +7,7 @@ import {
   FAQNavigator,
   IntroNavigator,
   PrivacyNavigator,
+  SetDailyIntentionNavigator,
   SettingsNavigator,
   SubscribeNavigator,
   TabNavigator,
@@ -26,6 +27,12 @@ const RootStackNavigator = StackNavigator(
     },
     DailyIntention: {
       screen: DailyIntentionNavigator,
+      navigationOptions: props => ({
+        gesturesEnabled: false
+      })
+    },
+    SetDailyIntention: {
+      screen: SetDailyIntentionNavigator,
       navigationOptions: props => ({
         gesturesEnabled: false
       })

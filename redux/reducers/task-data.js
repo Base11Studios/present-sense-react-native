@@ -1,4 +1,4 @@
-export const taskDataVersion = 3.03;
+export const taskDataVersion = 3.05;
 export const taskData = [
   {
     title: 'Brush your teeth',
@@ -507,7 +507,7 @@ export const taskData = [
   //   count: 0
   // },
   {
-    title: 'Tutorial: 6 Breaths',
+    title: 'Foundation: 6 Breaths',
     id: '44',
     tutorialNumber: 0,
     type: 'Tutorial',
@@ -528,7 +528,7 @@ export const taskData = [
     count: 0
   },
   {
-    title: 'Tutorial: Wandering Mind',
+    title: 'Foundation: Wandering Mind',
     id: '38',
     tutorialNumber: 1,
     type: 'Tutorial',
@@ -554,7 +554,7 @@ export const taskData = [
     count: 0
   },
   {
-    title: 'Tutorial: Focused Breathing',
+    title: 'Foundation: Focused Breathing',
     id: '39',
     tutorialNumber: 2,
     type: 'Tutorial',
@@ -580,7 +580,7 @@ export const taskData = [
     count: 0
   },
   {
-    title: 'Tutorial: Body Scan',
+    title: 'Foundation: Body Scan',
     id: '40',
     tutorialNumber: 2,
     type: 'Tutorial',
@@ -606,7 +606,7 @@ export const taskData = [
     count: 0
   },
   {
-    title: 'Tutorial: Noting',
+    title: 'Foundation: Noting',
     id: '41',
     tutorialNumber: 3,
     type: 'Tutorial',

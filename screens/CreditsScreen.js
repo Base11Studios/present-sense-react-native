@@ -1,11 +1,11 @@
-import React from "react";
-import { StyleSheet } from "react-native";
-import { MyText } from "../components/MyText";
-import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { MyText } from '../components/MyText';
+import { ScrollingPageContainer } from '../components/ScrollingPageContainer';
 
 export default class CreditsScreen extends React.Component {
   static navigationOptions = {
-    title: "Credits"
+    title: 'Credits'
   };
 
   render() {
@@ -16,6 +16,9 @@ export default class CreditsScreen extends React.Component {
         <MyText>
           "Sense" icons made by Roundicons and DinosoftLabs from
           www.flaticon.com
+        </MyText>
+        <MyText style={{ marginTop: 12 }}>
+          "Book Stack" icon made by Freepik from www.flaticon.com
         </MyText>
       </ScrollingPageContainer>
     );

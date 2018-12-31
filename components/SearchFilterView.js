@@ -1,6 +1,6 @@
-import React from "react";
-import { Image, StyleSheet, View } from "react-native";
-import { COLOR_WHITE } from "../styles/common";
+import React from 'react';
+import { Image, StyleSheet, View } from 'react-native';
+import { COLOR_WHITE } from '../styles/common';
 
 export default class SearchFilterView extends React.Component {
   render() {
@@ -13,25 +13,30 @@ export default class SearchFilterView extends React.Component {
             : { backgroundColor: COLOR_WHITE }
         ]}
       >
-        {this.props.icon === "am" ? (
+        {this.props.icon === 'am' ? (
           <Image
             style={styles.avatar}
-            source={require("../assets/images/am.png")}
+            source={require('../assets/images/am.png')}
           />
-        ) : this.props.icon === "pm" ? (
+        ) : this.props.icon === 'pm' ? (
           <Image
             style={styles.avatar}
-            source={require("../assets/images/pm.png")}
+            source={require('../assets/images/pm.png')}
           />
-        ) : this.props.icon === "anytime" ? (
+        ) : this.props.icon === 'anytime' ? (
           <Image
             style={styles.avatar}
-            source={require("../assets/images/anytime.png")}
+            source={require('../assets/images/anytime.png')}
+          />
+        ) : this.props.icon === 'tutorial' ? (
+          <Image
+            style={styles.avatar}
+            source={require('../assets/images/tutorial.png')}
           />
         ) : (
           <Image
             style={styles.avatar}
-            source={require("../assets/images/noon.png")}
+            source={require('../assets/images/noon.png')}
           />
         )}
       </View>
@@ -41,12 +46,12 @@ export default class SearchFilterView extends React.Component {
 
 const styles = StyleSheet.create({
   avatar: {
-    height: 60,
-    width: 60
+    height: 52,
+    width: 52
   },
   dayFilter: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });

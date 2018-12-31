@@ -55,7 +55,8 @@ const InnerCreateIntentionForm = props => {
           style={{
             justifyContent: 'space-between',
             flexDirection: 'row',
-            marginBottom: 20
+            marginBottom: 20,
+            marginTop: 12
           }}
         >
           <BackButton

@@ -7,31 +7,34 @@ import {
   COLOR_PRIMARY_LIGHT,
   COLOR_SECONDARY,
   COLOR_SECONDARY_LIGHT,
-  COLOR_TERTIARY
-} from "../styles/common";
+  COLOR_TERTIARY,
+  COLOR_TERTIARY_LIGHT
+} from '../styles/common';
 
 export const getBackgroundColorByDay = function(day) {
-  return day === "Day"
+  return day === 'Day'
     ? COLOR_ALERT
-    : day === "Morning"
-      ? COLOR_PRIMARY
-      : day === "Anytime"
-        ? COLOR_SECONDARY
-        : day === "Evening"
-          ? COLOR_HIGHLIGHT
-          : day === "Tutorial"
-            ? COLOR_TERTIARY
-            : "";
+    : day === 'Morning'
+    ? COLOR_PRIMARY
+    : day === 'Anytime'
+    ? COLOR_SECONDARY
+    : day === 'Evening'
+    ? COLOR_HIGHLIGHT
+    : day === 'Tutorial'
+    ? COLOR_TERTIARY
+    : '';
 };
 
 export const getLightBackgroundColorByDay = function(day) {
-  return day === "Day"
+  return day === 'Day'
     ? COLOR_ALERT_LIGHT
-    : day === "Morning"
-      ? COLOR_PRIMARY_LIGHT
-      : day === "Anytime"
-        ? COLOR_SECONDARY_LIGHT
-        : day === "Evening"
-          ? COLOR_HIGHLIGHT_LIGHT
-          : "";
+    : day === 'Morning'
+    ? COLOR_PRIMARY_LIGHT
+    : day === 'Anytime'
+    ? COLOR_SECONDARY_LIGHT
+    : day === 'Evening'
+    ? COLOR_HIGHLIGHT_LIGHT
+    : day === 'Tutorial'
+    ? COLOR_TERTIARY_LIGHT
+    : '';
 };

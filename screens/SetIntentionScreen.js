@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { connect } from 'react-redux';
 import { MyText } from '../components/MyText';
-import { PageContainer } from '../components/PageContainer';
+import { ScrollingPageContainer } from '../components/ScrollingPageContainer';
 import { Title4 } from '../components/Title4';
 import TutorialView from '../components/TutorialView';
 import { setDailyIntention } from '../redux/reducers/tasks';
@@ -24,14 +24,28 @@ class SetIntentionScreen extends React.Component {
 
   render() {
     const intentions = [
-      { key: '1', id: 1, description: 'Smile at strangers' },
-      { key: '2', id: 2, description: 'Be optimistic' },
-      { key: '3', id: 3, description: 'Be calm and at peace' },
-      { key: '4', id: 4, description: "Don't gossip about others" }
+      { key: '1', id: 1, description: 'Be in the present' },
+      { key: '2', id: 2, description: 'Smile at strangers' },
+      { key: '3', id: 3, description: 'Be optimistic' },
+      { key: '4', id: 4, description: 'Be calm and at peace' },
+      { key: '5', id: 5, description: 'Listen intently to others' },
+      { key: '6', id: 6, description: 'Do 3 acts of kindness' },
+      { key: '7', id: 7, description: 'Take deep breaths when stressed out' },
+      { key: '8', id: 8, description: 'Give 3 compliments' },
+      { key: '9', id: 9, description: 'Pay attention to nature' },
+      { key: '10', id: 10, description: 'See the good in others' },
+      { key: '11', id: 11, description: 'Walk mindfully throughout the day' },
+      { key: '12', id: 12, description: 'Be confident' },
+      { key: '13', id: 13, description: 'Take feedback with grace' },
+      { key: '14', id: 14, description: 'Be physically active' },
+      { key: '15', id: 15, description: 'Be energized' },
+      { key: '16', id: 16, description: 'Be a leader' },
+      { key: '17', id: 17, description: 'Appreciate what I have' },
+      { key: '18', id: 18, description: 'Take time for me' }
     ];
 
     return (
-      <PageContainer>
+      <ScrollingPageContainer>
         <TutorialView
           tutorialType="intentionIntro"
           tutorialTitle="Daily Intention"
@@ -91,7 +105,7 @@ class SetIntentionScreen extends React.Component {
             </TouchableOpacity>
           )}
         />
-      </PageContainer>
+      </ScrollingPageContainer>
     );
   }
 }

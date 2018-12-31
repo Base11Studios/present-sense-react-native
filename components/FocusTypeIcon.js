@@ -36,12 +36,9 @@ export class FocusTypeIcon extends React.Component {
         source={require('../assets/images/mind.png')}
       />
     ) : this.props.focusType === 'Tutorial' ? (
-      <Icon
-        type="simple-line-icon"
-        name="book-open"
-        size={26}
-        containerStyle={[{ padding: 7 }, this.props.style]}
-        color={COLOR_WHITE}
+      <Image
+        style={[styles.avatar, this.props.style]}
+        source={require('../assets/images/foundation.png')}
       />
     ) : this.props.focusType === 'Intent' ? (
       <Image

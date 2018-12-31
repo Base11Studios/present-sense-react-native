@@ -67,19 +67,22 @@ export const PrivacyNavigator = StackNavigator({
   }
 });
 
-export const DailyIntentionNavigator = StackNavigator(
+export const DailyIntentionNavigator = StackNavigator({
+  DailyIntention: {
+    screen: SetIntentionScreen,
+    navigationOptions: props => ({
+      title: 'Set a Daily Intention',
+      headerLeft: <BackButton {...props} />,
+      headerTintColor: COLOR_BLACK,
+      headerStyle: {
+        backgroundColor: COLOR_WHITE
+      }
+    })
+  }
+});
+
+export const SetDailyIntentionNavigator = StackNavigator(
   {
-    DailyIntention: {
-      screen: SetIntentionScreen,
-      navigationOptions: props => ({
-        title: 'Set a Daily Intention',
-        headerLeft: <BackButton {...props} />,
-        headerTintColor: COLOR_BLACK,
-        headerStyle: {
-          backgroundColor: COLOR_WHITE
-        }
-      })
-    },
     CustomDailyIntention: {
       screen: CreateOwnIntentionScreen,
       navigationOptions: props => ({
