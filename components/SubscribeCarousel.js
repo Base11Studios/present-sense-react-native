@@ -19,15 +19,21 @@ const ENTRIES = [
     illustration: require('../assets/images/sub_affirm.png')
   },
   {
-    title: 'Advanced Stats',
-    subtitle: 'See your journey from different angles!',
-    illustration: require('../assets/images/sub_stats.png')
-  },
-  {
-    title: 'Full history view',
+    title: 'Full History View',
     subtitle:
       'See your historical timeline with all mindful experiences you have completed.',
     illustration: require('../assets/images/sub_history.png')
+  },
+  {
+    title: 'Daily Intentions',
+    subtitle:
+      'Set a daily intention to get the new Intention tile. Journal about your experience at night.',
+    illustration: require('../assets/images/sub_intention.png')
+  },
+  {
+    title: 'Advanced Stats',
+    subtitle: 'See your journey from different angles!',
+    illustration: require('../assets/images/sub_stats.png')
   }
 ];
 

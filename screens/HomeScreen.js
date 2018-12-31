@@ -21,7 +21,7 @@ import { updateTasks } from '../redux/reducers/tasks';
 import { showTutorial } from '../redux/reducers/tutorial';
 // TODO add stars to tile if have done one of the tasks today. Make BG lighter?
 
-const VERSION_NUMBER = '2.0';
+const VERSION_NUMBER = '3.0';
 
 class HomeScreen extends React.Component {
   localAppOpenedCount = -1;
