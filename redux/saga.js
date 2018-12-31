@@ -375,17 +375,20 @@ function getAffirmationForDay(day, premium) {
 
 function updateDateToBeInFuture(time) {
   todaysDate = new Date();
+  now = new Date();
 
   date = new Date(time);
-  date.setDate(todaysDate.getDate());
-  date.setFullYear(todaysDate.getFullYear());
-  date.setMonth(todaysDate.getMonth());
+  todaysDate.setHours(date.getHours());
+  todaysDate.setMinutes(date.getMinutes());
+  todaysDate.setMilliseconds(date.getMilliseconds());
+  todaysDate.setSeconds(date.getSeconds());
 
-  if (todaysDate.getTime() > date.getTime()) {
-    date.setDate(date.getDate() + 1);
+  if (now.getTime() > todaysDate.getTime()) {
+    todaysDate.setDate(todaysDate.getDate() + 1);
   }
 
-  return date;
+  console.warn(todaysDate);
+  return todaysDate;
 }
 
 function* updateNotifications(action) {
