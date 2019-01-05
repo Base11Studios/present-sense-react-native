@@ -47,8 +47,8 @@ class SetIntentionScreen extends React.Component {
       <ScrollingPageContainer>
         <MyText style={[styles.container, styles.description]}>
           We use intentions to focus our energy on one goal for the day. Refer
-          to it throughout the day as a reminder, then check back in tonight to
-          record your observations.
+          to it throughout the day as a reminder, then check-in at the end of
+          the day to record your observations.
         </MyText>
         <Title4 style={[styles.container, styles.title]}>
           CREATE YOUR OWN

@@ -14,11 +14,17 @@ class EverydayTasksTile extends React.Component {
     this.props.navigation.navigate('Search');
   }
 
+  getEverydayCompletionText() {
+    return 'EVERYDAY (' + this.props.everydayTasks.length.toString() + ' of 3)';
+  }
+
   render() {
     const { everydayTasks } = this.props;
     return (
       <View style={styles.tile}>
-        <Title4 style={styles.container}>EVERYDAY</Title4>
+        <Title4 style={styles.container}>
+          {this.getEverydayCompletionText()}
+        </Title4>
         {everydayTasks.length > 0 ? (
           <View>
             <FlatList
