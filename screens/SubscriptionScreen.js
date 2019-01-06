@@ -1,13 +1,23 @@
-import React from "react";
-import { Alert, Platform, StyleSheet, TouchableOpacity, View } from "react-native";
-import * as RNIap from "react-native-iap";
-import { connect } from "react-redux";
-import { MyText } from "../components/MyText";
-import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
-import { SubscribeCarousel } from "../components/SubscribeCarousel";
-import { Title4 } from "../components/Title4";
-import { subscribeUser, updateIAPs, updateUserSubscriptions } from "../redux/reducers/subscription";
-import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_WHITE } from "../styles/common";
+import React from 'react';
+import {
+  Alert,
+  Platform,
+  StyleSheet,
+  TouchableOpacity,
+  View
+} from 'react-native';
+import * as RNIap from 'react-native-iap';
+import { connect } from 'react-redux';
+import { MyText } from '../components/MyText';
+import { ScrollingPageContainer } from '../components/ScrollingPageContainer';
+import { SubscribeCarousel } from '../components/SubscribeCarousel';
+import { Title4 } from '../components/Title4';
+import {
+  subscribeUser,
+  updateIAPs,
+  updateUserSubscriptions
+} from '../redux/reducers/subscription';
+import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_WHITE } from '../styles/common';
 
 class SubscriptionScreen extends React.Component {
   componentDidMount() {
@@ -23,22 +33,22 @@ class SubscriptionScreen extends React.Component {
         this.props.subscribeUser();
       });
     } catch (err) {
-      Alert.alert("Something went wrong! Please try again.");
+      Alert.alert('Something went wrong! Please try again.');
     }
   };
 
   componentWillReceiveProps(nextProps) {
     if (!!nextProps.premium) {
-      this.props.navigation.navigate("Settings");
+      this.props.navigation.navigate('Settings');
     }
   }
 
   onPressTerms() {
-    this.props.navigation.navigate("Terms");
+    this.props.navigation.navigate('Terms');
   }
 
   onPressPrivacy() {
-    this.props.navigation.navigate("Privacy");
+    this.props.navigation.navigate('Privacy');
   }
 
   onPressRestore() {
@@ -80,15 +90,26 @@ class SubscriptionScreen extends React.Component {
           <TouchableOpacity onPress={() => this.onPressPurchaseMonthly()}>
             <View style={styles.monthlySubscribeButton}>
               <Title4
-                style={{ justifyContent: "center", alignItems: "center" }}
+                style={{ justifyContent: 'center', alignItems: 'center' }}
                 textStyle={styles.subscribeTitle}
               >
                 MONTHLY
               </Title4>
+              {!!monthlyProduct && !!monthlyProduct.monthlyTrial ? (
+                <View>
+                  <MyText style={styles.trialLength}>
+                    {monthlyProduct.monthlyTrial}
+                  </MyText>
+                  <MyText style={styles.trialFreeText}>FREE TRIAL</MyText>
+                  <MyText style={styles.trialDisclaimer}>then</MyText>
+                </View>
+              ) : (
+                <View />
+              )}
               <MyText style={styles.price}>
                 {!!monthlyProduct && !!monthlyProduct.monthlyFormat
                   ? monthlyProduct.monthlyFormat
-                  : "N/A"}
+                  : 'N/A'}
               </MyText>
               <MyText style={styles.monthDisclaimer}>per month</MyText>
             </View>
@@ -96,19 +117,30 @@ class SubscriptionScreen extends React.Component {
           <TouchableOpacity onPress={() => this.onPressPurchaseYearly()}>
             <View style={styles.yearlySubscribeButton}>
               <Title4
-                style={{ justifyContent: "center", alignItems: "center" }}
+                style={{ justifyContent: 'center', alignItems: 'center' }}
                 textStyle={styles.subscribeTitle}
               >
                 YEARLY
               </Title4>
+              {!!yearlyProduct && !!yearlyProduct.yearlyTrial ? (
+                <View>
+                  <MyText style={styles.trialLength}>
+                    {yearlyProduct.yearlyTrial}
+                  </MyText>
+                  <MyText style={styles.trialFreeText}>FREE TRIAL</MyText>
+                  <MyText style={styles.trialDisclaimer}>then</MyText>
+                </View>
+              ) : (
+                <View />
+              )}
               <MyText style={styles.price}>
                 {!!yearlyProduct && !!yearlyProduct.yearlyFormat
                   ? yearlyProduct.yearlyFormat
-                  : "N/A"}
+                  : 'N/A'}
               </MyText>
               <MyText style={styles.monthDisclaimer}>per year</MyText>
               <MyText style={styles.discount}>
-                {!!discount ? discount + "% OFF" : ""}
+                {!!discount ? discount + '% OFF' : ''}
               </MyText>
             </View>
           </TouchableOpacity>
@@ -127,7 +159,7 @@ class SubscriptionScreen extends React.Component {
             <MyText style={styles.restoreText}>Restore Purchase</MyText>
           </TouchableOpacity>
         </View>
-        {Platform.OS === "ios" ? (
+        {Platform.OS === 'ios' ? (
           <View style={styles.subscribe}>
             <MyText style={styles.text}>
               Payment will be charged to your iTunes account at confirmation of
@@ -167,17 +199,22 @@ class SubscriptionScreen extends React.Component {
 const styles = StyleSheet.create({
   title: {
     padding: 20,
-    justifyContent: "center"
+    justifyContent: 'center'
   },
   subscribeButtons: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center"
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   monthDisclaimer: {
-    textAlign: "center",
+    textAlign: 'center',
     color: COLOR_WHITE,
     marginBottom: 9
+  },
+  trialDisclaimer: {
+    textAlign: 'center',
+    color: COLOR_WHITE,
+    marginBottom: 1
   },
   subscribe: {
     padding: 16
@@ -186,27 +223,41 @@ const styles = StyleSheet.create({
     paddingBottom: 16
   },
   discount: {
-    textAlign: "center",
+    textAlign: 'center',
     color: COLOR_WHITE,
     fontSize: 16,
-    fontWeight: "900"
+    fontWeight: '900'
   },
   price: {
     fontSize: 18,
-    fontWeight: "500",
-    textAlign: "center",
+    fontWeight: '500',
+    textAlign: 'center',
     marginVertical: 9,
     color: COLOR_WHITE
   },
+  trialLength: {
+    fontSize: 14,
+    fontWeight: '500',
+    textAlign: 'center',
+    marginTop: 9,
+    color: COLOR_WHITE
+  },
+  trialFreeText: {
+    fontSize: 14,
+    fontWeight: '500',
+    textAlign: 'center',
+    marginBottom: 9,
+    color: COLOR_WHITE
+  },
   termsContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center"
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   legalContainer: {
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
     marginTop: 32,
     marginBottom: 20
   },
@@ -215,7 +266,7 @@ const styles = StyleSheet.create({
     color: COLOR_PRIMARY
   },
   subscribeTitle: {
-    textAlign: "center",
+    textAlign: 'center',
     color: COLOR_WHITE
   },
   monthlySubscribeButton: {
@@ -224,7 +275,7 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 6,
     backgroundColor: COLOR_SECONDARY,
-    height: 150
+    height: 210
   },
   yearlySubscribeButton: {
     width: 130,
@@ -232,7 +283,7 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 6,
     backgroundColor: COLOR_PRIMARY,
-    height: 150
+    height: 210
   },
   restoreText: {
     marginBottom: 10,

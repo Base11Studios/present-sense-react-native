@@ -21,7 +21,7 @@
     "react-native-collapsible": "^1.4.0",
     "react-native-elements": "^0.19.1",
     "react-native-gesture-handler": "^1.0.1",
-    "react-native-iap": "^1.0.5",
+    "react-native-iap": "^2.3.23",
     "react-native-keyboard-aware-scroll-view": "^0.6.0",
     "react-native-modal-datetime-picker": "^6.0.0",
     "react-native-picker": "^4.3.7",

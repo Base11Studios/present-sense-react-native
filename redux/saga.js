@@ -4,7 +4,12 @@ import PushNotification from 'react-native-push-notification';
 import Toast from 'react-native-root-toast';
 import { put, select, takeEvery } from 'redux-saga/effects';
 import CommonDataManager from '../constants/CommonDataManager';
-import { MONTHLY_SUB_ID, YEARLY_SUB_ID } from '../constants/IAP';
+import {
+  LIFETIME_CONSUME_ID,
+  MONTHLY_SUB_ID,
+  MONTHLY_SUB_ID_TEST,
+  YEARLY_SUB_ID
+} from '../constants/IAP';
 import { affirmationData } from '../redux/reducers/affirmation-data';
 import { COLOR_QUATERNARY } from '../styles/common';
 import { UPDATE_NOTIFICATIONS } from './reducers/notification';
@@ -36,10 +41,12 @@ const REMINDERS_ID = '1';
 const TIMER_ID = '2';
 
 const itemSkus = Platform.select({
-  ios: [MONTHLY_SUB_ID, YEARLY_SUB_ID],
+  ios: [MONTHLY_SUB_ID, YEARLY_SUB_ID, MONTHLY_SUB_ID_TEST],
   android: [
     MONTHLY_SUB_ID,
     YEARLY_SUB_ID,
+    LIFETIME_CONSUME_ID,
+    MONTHLY_SUB_ID_TEST,
     'com.test.inapp',
     'com.test.subscription'
   ]
@@ -50,7 +57,7 @@ function* prepareIapIfNeeded() {
   let prepared = commonData.getIapModulePrepared();
   if (!prepared) {
     commonData.setIapModulePrepared(true);
-    yield RNIap.prepare();
+    yield RNIap.initConnection();
   }
 }
 
@@ -64,7 +71,7 @@ function* updateIaps(action) {
       let monthlyProduct = null;
       let discount = null;
       subs.forEach(product => {
-        if (product.productId === YEARLY_SUB_ID) {
+        if (product.productId === MONTHLY_SUB_ID_TEST) {
           yearlyProduct = product;
           yearlyProduct.monthlyFormat = currencyFormatter.format(
             yearlyProduct.price,
@@ -74,12 +81,27 @@ function* updateIaps(action) {
             yearlyProduct.price,
             { code: yearlyProduct.currency }
           );
+          if (!!yearlyProduct.introductoryPriceNumberOfPeriodsIOS) {
+            yearlyProduct.yearlyTrial =
+              yearlyProduct.introductoryPriceNumberOfPeriodsIOS +
+              ' ' +
+              yearlyProduct.introductoryPriceSubscriptionPeriodIOS;
+          }
         } else if (product.productId === MONTHLY_SUB_ID) {
           monthlyProduct = product;
           monthlyProduct.monthlyFormat = currencyFormatter.format(
             monthlyProduct.price,
             { code: monthlyProduct.currency }
           );
+          if (
+            Platform.OS === 'ios' &&
+            !!monthlyProduct.introductoryPriceNumberOfPeriodsIOS
+          ) {
+            monthlyProduct.monthlyTrial =
+              monthlyProduct.introductoryPriceNumberOfPeriodsIOS +
+              ' ' +
+              monthlyProduct.introductoryPriceSubscriptionPeriodIOS;
+          }
         }
       });
       if (
@@ -114,16 +136,23 @@ function* updateSubscriptions(action) {
     purchases.forEach(purchase => {
       if (
         purchase.productId == MONTHLY_SUB_ID ||
-        purchase.productId == YEARLY_SUB_ID
+        purchase.productId == YEARLY_SUB_ID ||
+        purchase.productId == LIFETIME_CONSUME_ID
       ) {
         premium = true;
       }
     });
 
-    if (!!premium && !alreadyPremium) {
-      yield put({ type: SUBSCRIBE_USER });
-    } else if (!premium && alreadyPremium) {
-      yield put({ type: UNSUBSCRIBE_USER });
+    if (__DEV__) {
+      if (!alreadyPremium) {
+        yield put({ type: SUBSCRIBE_USER });
+      }
+    } else {
+      if (!!premium && !alreadyPremium) {
+        yield put({ type: SUBSCRIBE_USER });
+      } else if (!premium && alreadyPremium) {
+        yield put({ type: UNSUBSCRIBE_USER });
+      }
     }
   } catch (e) {}
 }

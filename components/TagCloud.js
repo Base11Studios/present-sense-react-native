@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
-import React from "react";
-import { StyleSheet, View, ViewPropTypes } from "react-native";
-import { MyText } from "../components/MyText";
+import PropTypes from 'prop-types';
+import React from 'react';
+import { StyleSheet, View, ViewPropTypes } from 'react-native';
+import { MyText } from '../components/MyText';
 import {
   COLOR_ALERT,
   COLOR_HIGHLIGHT,
@@ -9,32 +9,36 @@ import {
   COLOR_QUATERNARY,
   COLOR_SECONDARY,
   COLOR_TERTIARY
-} from "../styles/common";
+} from '../styles/common';
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   cloudTagContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    alignItems: "center",
-    justifyContent: "center"
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 
 export default class TagCloud extends React.Component {
   constructor(props) {
     super(props);
-    this.updateClouds(this.props);
+    this.updateClouds(this.props, false);
   }
 
   componentWillReceiveProps(nextProps) {
-    this.updateClouds(nextProps);
+    this.updateClouds(nextProps, true);
   }
 
-  updateClouds(nextProps) {
+  componentDidMount() {
+    this.forceUpdate();
+  }
+
+  updateClouds(nextProps, forceUpdate) {
     let pointArray = nextProps.tagList.map(tag => tag.point);
     let pointMin = Math.min(...pointArray);
     let pointMax = Math.max(...pointArray);
@@ -49,7 +53,7 @@ export default class TagCloud extends React.Component {
       };
 
       let itemValue = item.point - pointMin;
-      let percentile = Math.floor(itemValue / pointRange * 100);
+      let percentile = Math.floor((itemValue / pointRange) * 100);
       let itemRanking;
 
       if (percentile >= 95 && itemValue > 4) {
@@ -78,7 +82,9 @@ export default class TagCloud extends React.Component {
       );
     });
 
-    this.forceUpdate();
+    if (!!forceUpdate) {
+      this.forceUpdate();
+    }
   }
 
   orderData(props) {
