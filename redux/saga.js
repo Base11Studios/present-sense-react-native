@@ -7,7 +7,6 @@ import CommonDataManager from '../constants/CommonDataManager';
 import {
   LIFETIME_CONSUME_ID,
   MONTHLY_SUB_ID,
-  MONTHLY_SUB_ID_TEST,
   YEARLY_SUB_ID
 } from '../constants/IAP';
 import { affirmationData } from '../redux/reducers/affirmation-data';
@@ -41,12 +40,11 @@ const REMINDERS_ID = '1';
 const TIMER_ID = '2';
 
 const itemSkus = Platform.select({
-  ios: [MONTHLY_SUB_ID, YEARLY_SUB_ID, MONTHLY_SUB_ID_TEST],
+  ios: [MONTHLY_SUB_ID, YEARLY_SUB_ID],
   android: [
     MONTHLY_SUB_ID,
     YEARLY_SUB_ID,
     LIFETIME_CONSUME_ID,
-    MONTHLY_SUB_ID_TEST,
     'com.test.inapp',
     'com.test.subscription'
   ]
@@ -61,6 +59,39 @@ function* prepareIapIfNeeded() {
   }
 }
 
+function convertAndroidPeriodToString(period) {
+  if (period.toUpperCase() === 'M') {
+    return 'MONTH';
+  }
+  if (period.toUpperCase() === 'D') {
+    return 'DAY';
+  }
+  if (period.toUpperCase() === 'Y') {
+    return 'YEAR';
+  }
+  if (period.toUpperCase() === 'W') {
+    return 'WEEK';
+  }
+}
+
+function setupFreeTrial(product) {
+  if (Platform.OS === 'ios' && !!product.introductoryPriceNumberOfPeriodsIOS) {
+    product.trial =
+      product.introductoryPriceNumberOfPeriodsIOS +
+      '-' +
+      product.introductoryPriceSubscriptionPeriodIOS;
+  } else if (Platform.OS === 'android' && !!product.freeTrialPeriodAndroid) {
+    product.trial =
+      product.freeTrialPeriodAndroid.substring(1, 2) +
+      '-' +
+      convertAndroidPeriodToString(
+        product.freeTrialPeriodAndroid.substring(2, 3)
+      );
+  }
+
+  return product;
+}
+
 function* updateIaps(action) {
   try {
     const premium = yield select(getPremium);
@@ -71,7 +102,7 @@ function* updateIaps(action) {
       let monthlyProduct = null;
       let discount = null;
       subs.forEach(product => {
-        if (product.productId === MONTHLY_SUB_ID_TEST) {
+        if (product.productId === YEARLY_SUB_ID) {
           yearlyProduct = product;
           yearlyProduct.monthlyFormat = currencyFormatter.format(
             yearlyProduct.price,
@@ -81,27 +112,14 @@ function* updateIaps(action) {
             yearlyProduct.price,
             { code: yearlyProduct.currency }
           );
-          if (!!yearlyProduct.introductoryPriceNumberOfPeriodsIOS) {
-            yearlyProduct.yearlyTrial =
-              yearlyProduct.introductoryPriceNumberOfPeriodsIOS +
-              ' ' +
-              yearlyProduct.introductoryPriceSubscriptionPeriodIOS;
-          }
+          setupFreeTrial(yearlyProduct);
         } else if (product.productId === MONTHLY_SUB_ID) {
           monthlyProduct = product;
           monthlyProduct.monthlyFormat = currencyFormatter.format(
             monthlyProduct.price,
             { code: monthlyProduct.currency }
           );
-          if (
-            Platform.OS === 'ios' &&
-            !!monthlyProduct.introductoryPriceNumberOfPeriodsIOS
-          ) {
-            monthlyProduct.monthlyTrial =
-              monthlyProduct.introductoryPriceNumberOfPeriodsIOS +
-              ' ' +
-              monthlyProduct.introductoryPriceSubscriptionPeriodIOS;
-          }
+          setupFreeTrial(monthlyProduct);
         }
       });
       if (

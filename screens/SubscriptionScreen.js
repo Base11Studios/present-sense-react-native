@@ -12,6 +12,7 @@ import { MyText } from '../components/MyText';
 import { ScrollingPageContainer } from '../components/ScrollingPageContainer';
 import { SubscribeCarousel } from '../components/SubscribeCarousel';
 import { Title4 } from '../components/Title4';
+import { Title5 } from '../components/Title5';
 import {
   subscribeUser,
   updateIAPs,
@@ -86,65 +87,111 @@ class SubscriptionScreen extends React.Component {
 
         <SubscribeCarousel />
 
-        <View style={styles.subscribeButtons}>
+        <View style={{ flexDirection: 'column', justifyContent: 'flex-start' }}>
           <TouchableOpacity onPress={() => this.onPressPurchaseMonthly()}>
-            <View style={styles.monthlySubscribeButton}>
-              <Title4
-                style={{ justifyContent: 'center', alignItems: 'center' }}
-                textStyle={styles.subscribeTitle}
+            <View
+              style={{
+                flex: 1,
+                padding: 18,
+                margin: 14,
+                marginBottom: 7,
+                borderRadius: 6,
+                backgroundColor: COLOR_SECONDARY,
+                flexDirection: 'column'
+              }}
+            >
+              <Title5 style={{ color: COLOR_WHITE }}>MONTHLY </Title5>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between'
+                }}
               >
-                MONTHLY
-              </Title4>
-              {!!monthlyProduct && !!monthlyProduct.monthlyTrial ? (
-                <View>
-                  <MyText style={styles.trialLength}>
-                    {monthlyProduct.monthlyTrial}
-                  </MyText>
-                  <MyText style={styles.trialFreeText}>FREE TRIAL</MyText>
-                  <MyText style={styles.trialDisclaimer}>then</MyText>
-                </View>
-              ) : (
-                <View />
-              )}
-              <MyText style={styles.price}>
-                {!!monthlyProduct && !!monthlyProduct.monthlyFormat
-                  ? monthlyProduct.monthlyFormat
-                  : 'N/A'}
-              </MyText>
-              <MyText style={styles.monthDisclaimer}>per month</MyText>
+                <MyText style={{ fontSize: 16, color: COLOR_WHITE }}>
+                  {!!monthlyProduct && !!monthlyProduct.monthlyFormat
+                    ? monthlyProduct.monthlyFormat + ' / month'
+                    : 'N/A'}
+                </MyText>
+                {!!monthlyProduct && !!monthlyProduct.trial ? (
+                  <View>
+                    <MyText
+                      style={{
+                        fontSize: 14,
+                        color: COLOR_WHITE,
+                        fontWeight: '600'
+                      }}
+                    >
+                      {monthlyProduct.trial.toLowerCase()} free trial
+                    </MyText>
+                  </View>
+                ) : (
+                  <View />
+                )}
+              </View>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.onPressPurchaseYearly()}>
-            <View style={styles.yearlySubscribeButton}>
-              <Title4
-                style={{ justifyContent: 'center', alignItems: 'center' }}
-                textStyle={styles.subscribeTitle}
+            <View
+              style={{
+                flex: 1,
+                padding: 18,
+                margin: 14,
+                marginTop: 7,
+                borderRadius: 6,
+                backgroundColor: COLOR_PRIMARY,
+                flexDirection: 'column'
+              }}
+            >
+              <View
+                style={{
+                  justifyContent: 'space-between',
+                  flexDirection: 'row'
+                }}
               >
-                YEARLY
-              </Title4>
-              {!!yearlyProduct && !!yearlyProduct.yearlyTrial ? (
+                <Title5 style={{ color: COLOR_WHITE }}>YEARLY </Title5>
                 <View>
-                  <MyText style={styles.trialLength}>
-                    {yearlyProduct.yearlyTrial}
+                  <MyText
+                    style={{
+                      fontSize: 14,
+                      color: COLOR_WHITE,
+                      fontWeight: 'bold'
+                    }}
+                  >
+                    {!!discount ? discount + '% OFF' : ''}
                   </MyText>
-                  <MyText style={styles.trialFreeText}>FREE TRIAL</MyText>
-                  <MyText style={styles.trialDisclaimer}>then</MyText>
                 </View>
-              ) : (
-                <View />
-              )}
-              <MyText style={styles.price}>
-                {!!yearlyProduct && !!yearlyProduct.yearlyFormat
-                  ? yearlyProduct.yearlyFormat
-                  : 'N/A'}
-              </MyText>
-              <MyText style={styles.monthDisclaimer}>per year</MyText>
-              <MyText style={styles.discount}>
-                {!!discount ? discount + '% OFF' : ''}
-              </MyText>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between'
+                }}
+              >
+                <MyText style={{ fontSize: 16, color: COLOR_WHITE }}>
+                  {!!yearlyProduct && !!yearlyProduct.yearlyFormat
+                    ? yearlyProduct.yearlyFormat + ' / year'
+                    : 'N/A'}
+                </MyText>
+                {!!yearlyProduct && !!yearlyProduct.trial ? (
+                  <View>
+                    <MyText
+                      style={{
+                        fontSize: 14,
+                        color: COLOR_WHITE,
+                        fontWeight: '600'
+                      }}
+                    >
+                      {yearlyProduct.trial.toLowerCase()} free trial
+                    </MyText>
+                  </View>
+                ) : (
+                  <View />
+                )}
+              </View>
             </View>
           </TouchableOpacity>
         </View>
+
         <View style={styles.legalContainer}>
           <MyText>Recurring billing. Cancel anytime.</MyText>
           <View style={styles.termsContainer}>
@@ -201,53 +248,11 @@ const styles = StyleSheet.create({
     padding: 20,
     justifyContent: 'center'
   },
-  subscribeButtons: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  monthDisclaimer: {
-    textAlign: 'center',
-    color: COLOR_WHITE,
-    marginBottom: 9
-  },
-  trialDisclaimer: {
-    textAlign: 'center',
-    color: COLOR_WHITE,
-    marginBottom: 1
-  },
   subscribe: {
     padding: 16
   },
   text: {
     paddingBottom: 16
-  },
-  discount: {
-    textAlign: 'center',
-    color: COLOR_WHITE,
-    fontSize: 16,
-    fontWeight: '900'
-  },
-  price: {
-    fontSize: 18,
-    fontWeight: '500',
-    textAlign: 'center',
-    marginVertical: 9,
-    color: COLOR_WHITE
-  },
-  trialLength: {
-    fontSize: 14,
-    fontWeight: '500',
-    textAlign: 'center',
-    marginTop: 9,
-    color: COLOR_WHITE
-  },
-  trialFreeText: {
-    fontSize: 14,
-    fontWeight: '500',
-    textAlign: 'center',
-    marginBottom: 9,
-    color: COLOR_WHITE
   },
   termsContainer: {
     flexDirection: 'row',
@@ -264,26 +269,6 @@ const styles = StyleSheet.create({
   termsText: {
     margin: 10,
     color: COLOR_PRIMARY
-  },
-  subscribeTitle: {
-    textAlign: 'center',
-    color: COLOR_WHITE
-  },
-  monthlySubscribeButton: {
-    width: 130,
-    padding: 10,
-    margin: 10,
-    borderRadius: 6,
-    backgroundColor: COLOR_SECONDARY,
-    height: 210
-  },
-  yearlySubscribeButton: {
-    width: 130,
-    padding: 10,
-    margin: 10,
-    borderRadius: 6,
-    backgroundColor: COLOR_PRIMARY,
-    height: 210
   },
   restoreText: {
     marginBottom: 10,
