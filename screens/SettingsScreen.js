@@ -14,6 +14,7 @@ import {
 import { Icon, ListItem } from 'react-native-elements';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import PushNotification from 'react-native-push-notification';
+import Rate, { AndroidMarket } from 'react-native-rate';
 import { connect } from 'react-redux';
 import { PURGE } from 'redux-persist';
 import { PageContainer } from '../components/PageContainer';
@@ -180,6 +181,18 @@ class SettingsScreen extends React.Component {
       ],
       { cancelable: false }
     );
+  }
+
+  rateApp() {
+    let options = {
+      AppleAppID: '1390285501',
+      GooglePackageName: 'com.base11studios.presentmoment',
+      preferredAndroidMarket: AndroidMarket.Google,
+      preferInApp: true,
+      openAppStoreIfInAppFails: true,
+      fallbackPlatformURL: 'https://base11studios.com/clients/present-sense/'
+    };
+    Rate.rate(options, success => {});
   }
 
   // TODO nav back to home screen on clear
@@ -382,10 +395,50 @@ class SettingsScreen extends React.Component {
       )
     };
 
+    let options = {
+      AppleAppID: '1390285501',
+      GooglePackageName: 'com.base11studios.presentmoment',
+      preferredAndroidMarket: AndroidMarket.Google,
+      preferInApp: true,
+      openAppStoreIfInAppFails: true,
+      fallbackPlatformURL: 'https://base11studios.com/clients/present-sense/'
+    };
+
+    item10 = {
+      key: '10',
+      view: (
+        <ListItem
+          onPress={() => {
+            this.rateApp();
+          }}
+          title="Review Present Sense"
+          avatar={
+            <Icon
+              type="font-awesome"
+              name="question-circle-o"
+              size={24}
+              containerStyle={{ paddingLeft: 2, paddingRight: 2 }}
+            />
+          }
+        />
+      )
+    };
+
     return (
       <PageContainer>
         <FlatList
-          data={[item3, item8, item9, item4, item5, item2, item6, item7, item1]}
+          data={[
+            item3,
+            item8,
+            item9,
+            item10,
+            item4,
+            item5,
+            item2,
+            item6,
+            item7,
+            item1
+          ]}
           renderItem={({ item }) => item.view}
         />
         <DateTimePicker
