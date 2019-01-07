@@ -59,17 +59,21 @@ const InnerCreateIntentionForm = props => {
             marginTop: 12
           }}
         >
-          <BackButton
-            {...props}
-            color={COLOR_WHITE}
-            underlayColor={COLOR_PRIMARY}
-          />
-          <DismissButton
-            color={COLOR_WHITE}
-            {...props}
-            resetRoute="DoTask" // TODO
-            underlayColor={COLOR_PRIMARY}
-          />
+          <View>
+            <BackButton
+              {...props}
+              color={COLOR_WHITE}
+              underlayColor={COLOR_PRIMARY}
+            />
+          </View>
+          <View>
+            <DismissButton
+              color={COLOR_WHITE}
+              {...props}
+              resetRoute="DoTask" // TODO
+              underlayColor={COLOR_PRIMARY}
+            />
+          </View>
         </View>
         <View
           style={{

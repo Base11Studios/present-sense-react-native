@@ -60,17 +60,21 @@ const InnerCompleteTaskForm = props => {
             marginBottom: 20
           }}
         >
-          <BackButton
-            {...props}
-            color={COLOR_WHITE}
-            underlayColor={getBackgroundColorByDay(task.type)}
-          />
-          <DismissButton
-            color={COLOR_WHITE}
-            {...props}
-            resetRoute="DoTask"
-            underlayColor={getBackgroundColorByDay(task.type)}
-          />
+          <View>
+            <BackButton
+              {...props}
+              color={COLOR_WHITE}
+              underlayColor={getBackgroundColorByDay(task.type)}
+            />
+          </View>
+          <View>
+            <DismissButton
+              color={COLOR_WHITE}
+              {...props}
+              resetRoute="DoTask"
+              underlayColor={getBackgroundColorByDay(task.type)}
+            />
+          </View>
         </View>
         <View
           style={{
