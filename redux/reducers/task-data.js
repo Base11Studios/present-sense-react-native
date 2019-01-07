@@ -1,4 +1,4 @@
-export const taskDataVersion = 3.06;
+export const taskDataVersion = 3.07;
 export const taskData = [
   {
     title: 'Brush your teeth',
@@ -675,6 +675,20 @@ export const taskData = [
     prompt: 'What did you notice?',
     hints:
       'You have the power to make a difference in the world if you set your mind to it. This exercise helps us understand the scope of what the can change. After the meditation, use this energy to go out and share your peace with others.',
+    premium: true,
+    count: 0
+  },
+  {
+    title: 'Choose your own activity',
+    id: '45',
+    type: 'Anytime',
+    description:
+      'Choose your own activity to be mindful during and then proceed to journal about your experience.',
+    focusType: 'Mind',
+    applicableFocusTypes: ['Mind'],
+    prompt: 'What did you notice?',
+    hints:
+      'Choose a starting and ending point and commit to be mindful from start to end. Pick any arbitrary ending point and keep it a short time/distance away. Once you reach the end, set another ending point. Repeat until your activity is done.',
     premium: true,
     count: 0
   }
