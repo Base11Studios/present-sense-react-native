@@ -34,7 +34,7 @@ export class SettingsButton extends React.Component {
             }
             containerStyle={
               Platform.OS === 'ios'
-                ? { marginBottom: -4, width: 25, marginRight: 18 }
+                ? { marginTop: -4, width: 25, marginLeft: -16 }
                 : { width: 25, marginLeft: -20 }
             }
             underlayColor={

@@ -35,7 +35,7 @@ export class BackButton extends React.Component {
             }
             containerStyle={
               Platform.OS === 'ios'
-                ? { marginBottom: -4, width: 25, marginLeft: 9 }
+                ? { marginTop: -7, width: 25, marginLeft: -6 }
                 : { width: 25, marginLeft: -6 }
             }
             underlayColor={

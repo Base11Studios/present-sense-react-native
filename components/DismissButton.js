@@ -52,7 +52,7 @@ export class DismissButton extends React.Component {
             type="ionicon"
             containerStyle={
               Platform.OS === 'ios'
-                ? { marginBottom: -4, width: 25, marginRight: 9 }
+                ? { marginTop: -10, width: 25, marginLeft: -18 }
                 : { width: 25, marginLeft: -20 }
             }
             underlayColor={
