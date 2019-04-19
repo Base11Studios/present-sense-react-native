@@ -5,14 +5,14 @@ export const SCHEDULE_AFFIRMATION_NOTIFICATIONS = "notification/SCHEDULE_AFFIRMA
 export const CANCEL_SCHEDULED_AFFIRMATION_NOTIFICATIONS = "notification/CANCEL_SCHEDULED_AFFIRMATION_NOTIFICATIONS";
 
 const initialState = {
-  weekdayRemindersEnabled: false,
-  weekendRemindersEnabled: false,
-  weekdayRemindersTime: new Date(2018, 10, 1, 7, 0, 0, 0),
-  weekendRemindersTime: new Date(2018, 10, 1, 9, 0, 0, 0),
-  weekdayAffirmationsEnabled: false,
-  weekendAffirmationsEnabled: false,
-  weekdayAffirmationsTime: new Date(2018, 10, 1, 11, 0, 0, 0),
-  weekendAffirmationsTime: new Date(2018, 10, 1, 13, 0, 0, 0),
+  weekdayRemindersEnabled: null,
+  weekendRemindersEnabled: null,
+  weekdayRemindersTime: null,
+  weekendRemindersTime: null,
+  weekdayAffirmationsEnabled: null,
+  weekendAffirmationsEnabled: null,
+  weekdayAffirmationsTime: null,
+  weekendAffirmationsTime: null,
   timerEnabled: false,
   timerTime: new Date(2018, 1, 1, 1, 1, 1, 1)
 };
@@ -22,38 +22,35 @@ export default function reducer(state = initialState, action) {
     case UPDATE_NOTIFICATIONS:
       if (!action.payload) {
         newState = { ...state };
-        if (!!newState["remindersEnabled"]) {
-          if (!newState["weekdayRemindersEnabled"]) {
-            newState["weekdayRemindersEnabled"] = newState["remindersEnabled"];
-          }
-          if (!newState["weekendRemindersEnabled"]) {
-            newState["weekendRemindersEnabled"] = newState["remindersEnabled"];
-          }
+        if (newState["weekdayRemindersEnabled"] === null) {
+          newState["weekdayRemindersEnabled"] = !!newState["remindersEnabled"] ? newState["remindersEnabled"] : false;
         }
-        if (!!newState["remindersTime"]) {
-          if (!newState["weekdayRemindersTime"]) {
-            newState["weekdayRemindersTime"] = newState["remindersTime"];
-          }
-          if (!newState["weekendRemindersTime"]) {
-            newState["weekendRemindersTime"] = newState["remindersTime"];
-          }
+        if (newState["weekendRemindersEnabled"] === null) {
+          newState["weekendRemindersEnabled"] = !!newState["remindersEnabled"] ? newState["remindersEnabled"] : false;
         }
-        if (!!newState["affirmationsEnabled"]) {
-          if (!newState["weekdayAffirmationsEnabled"]) {
-            newState["weekdayAffirmationsEnabled"] = newState["affirmationsEnabled"];
-          }
-          if (!newState["weekendAffirmationsEnabled"]) {
-            newState["weekendAffirmationsEnabled"] = newState["affirmationsEnabled"];
-          }
+        if (newState["weekdayRemindersTime"] === null) {
+          newState["weekdayRemindersTime"] = !!newState["remindersTime"] ? newState["remindersTime"] : new Date(2018, 10, 1, 7, 0, 0, 0);
         }
-        if (!!newState["affirmationsTime"]) {
-          if (!newState["weekdayAffirmationsTime"]) {
-            newState["weekdayAffirmationsTime"] = newState["affirmationsTime"];
-          }
-          if (!newState["weekendAffirmationsTime"]) {
-            newState["weekendAffirmationsTime"] = newState["affirmationsTime"];
-          }
+        if (newState["weekendRemindersTime"] === null) {
+          newState["weekendRemindersTime"] = !!newState["remindersTime"] ? newState["remindersTime"] : new Date(2018, 10, 1, 9, 0, 0, 0);
         }
+        if (newState["weekdayAffirmationsEnabled"] === null) {
+          newState["weekdayAffirmationsEnabled"] = !!newState["affirmationsEnabled"] ? newState["affirmationsEnabled"] : false;
+        }
+        if (newState["weekendAffirmationsEnabled"] === null) {
+          newState["weekendAffirmationsEnabled"] = !!newState["affirmationsEnabled"] ? newState["affirmationsEnabled"] : false;
+        }
+        if (newState["weekdayAffirmationsTime"] === null) {
+          newState["weekdayAffirmationsTime"] = !!newState["affirmationsTime"]
+            ? newState["affirmationsTime"]
+            : new Date(2018, 10, 1, 11, 0, 0, 0);
+        }
+        if (newState["weekendAffirmationsTime"] === null) {
+          newState["weekendAffirmationsTime"] = !!newState["affirmationsTime"]
+            ? newState["affirmationsTime"]
+            : new Date(2018, 10, 1, 13, 0, 0, 0);
+        }
+
         return newState;
       } else {
         return {
