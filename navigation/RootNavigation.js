@@ -14,7 +14,8 @@ import {
   TaskHelpNavigator,
   TermsNavigator,
   TutorialNavigator,
-  ViewTaskNavigator
+  ViewTaskNavigator,
+  NotificationsNavigator
 } from './MainTabNavigator';
 
 const RootStackNavigator = StackNavigator(
@@ -69,6 +70,12 @@ const RootStackNavigator = StackNavigator(
     },
     FAQ: {
       screen: FAQNavigator,
+      navigationOptions: props => ({
+        gesturesEnabled: false
+      })
+    },
+    Notifications: {
+      screen: NotificationsNavigator,
       navigationOptions: props => ({
         gesturesEnabled: false
       })
