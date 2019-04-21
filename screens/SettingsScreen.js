@@ -1,5 +1,5 @@
 import React from "react";
-import { Alert, FlatList, Linking, Platform, StyleSheet } from "react-native";
+import { Alert, FlatList, Linking, Platform, StyleSheet, SectionList, Text } from "react-native";
 import { Icon, ListItem } from "react-native-elements";
 import Rate, { AndroidMarket } from "react-native-rate";
 import { connect } from "react-redux";
@@ -68,12 +68,12 @@ class SettingsScreen extends React.Component {
   // TODO nav back to home screen on clear
 
   render() {
-    item1 = {
+    itemResetData = {
       key: "1",
       view: <ListItem onPress={() => this.onPressResetStore()} title="Reset Data" avatar={<Icon type="evilicon" name="undo" size={24} />} />
     };
 
-    item2 = {
+    itemCredit = {
       key: "2",
       view: (
         <ListItem
@@ -84,7 +84,7 @@ class SettingsScreen extends React.Component {
       )
     };
 
-    item4 = {
+    itemFaq = {
       key: "4",
       view: (
         <ListItem
@@ -95,7 +95,7 @@ class SettingsScreen extends React.Component {
       )
     };
 
-    item5 = {
+    itemContactUs = {
       key: "5",
       view: (
         <ListItem
@@ -106,7 +106,7 @@ class SettingsScreen extends React.Component {
       )
     };
 
-    item6 = {
+    itemPrivacy = {
       key: "6",
       view: (
         <ListItem
@@ -117,7 +117,7 @@ class SettingsScreen extends React.Component {
       )
     };
 
-    item7 = {
+    itemTerms = {
       key: "7",
       view: (
         <ListItem
@@ -128,7 +128,7 @@ class SettingsScreen extends React.Component {
       )
     };
 
-    item3 = {
+    itemSubscribe = {
       key: "3",
       view: !this.props.premium ? (
         <ListItem
@@ -152,7 +152,7 @@ class SettingsScreen extends React.Component {
       )
     };
 
-    item8 = {
+    itemNotifications = {
       key: "8",
       view: (
         <ListItem
@@ -172,7 +172,7 @@ class SettingsScreen extends React.Component {
       fallbackPlatformURL: "https://base11studios.com/clients/present-sense/"
     };
 
-    item10 = {
+    itemReview = {
       key: "10",
       view: (
         <ListItem
@@ -185,9 +185,30 @@ class SettingsScreen extends React.Component {
       )
     };
 
+    sectionArray = [
+      { title: "", data: [itemSubscribe, itemReview, itemNotifications] },
+      { title: "", data: [itemContactUs, itemFaq] },
+      { title: "", data: [itemCredit, itemPrivacy, itemTerms] },
+      { title: "", data: [itemResetData] }
+    ];
+
     return (
       <PageContainer>
-        <FlatList data={[item3, item8, item10, item4, item5, item2, item6, item7, item1]} renderItem={({ item }) => item.view} />
+        <SectionList
+          renderItem={({ item }) => item.view}
+          renderSectionHeader={({ section: { title } }) => (
+            <Text
+              style={{
+                backgroundColor: "#EFF1F4",
+                fontSize: 10,
+                padding: 2,
+                color: "#fff",
+                fontWeight: "bold"
+              }}
+            />
+          )}
+          sections={sectionArray}
+        />
       </PageContainer>
     );
   }
