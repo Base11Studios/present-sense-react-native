@@ -7,7 +7,7 @@ import PushNotification from "react-native-push-notification";
 import { connect } from "react-redux";
 import { PURGE } from "redux-persist";
 import { PageContainer } from "../components/PageContainer";
-import { updateNotifications } from "../redux/reducers/notification";
+import { updateNotifications, updateNotificationSounds } from "../redux/reducers/notification";
 import { updateTasks } from "../redux/reducers/tasks";
 import { COLOR_TERTIARY, COLOR_WHITE } from "../styles/common";
 
@@ -116,6 +116,13 @@ class NotificationsScreen extends React.Component {
       affirm,
       this.props.weekendAffirmationsTime
     );
+  }
+
+  onPressToggleSounds() {
+    const sounds = !this.props.notificationSoundsEnabled;
+
+    this.props.updateNotificationSounds(sounds);
+    this.props.updateNotifications();
   }
 
   onPressCancelWeekdayReminderConfigure() {
@@ -379,6 +386,45 @@ class NotificationsScreen extends React.Component {
       )
     };
 
+    toggleSoundsOff = {
+      key: "10",
+      view: (
+        <ListItem
+          hideChevron={true}
+          title={
+            <View style={styles.reminderContainer}>
+              <View style={styles.reminderTimeContainer}>
+                <View style={styles.reminderTextContainer}>
+                  <Text style={styles.toggleSoundsTitle}>Notification Sounds</Text>
+                  <Text style={styles.toggleSoundsText}>
+                    The notifications on some devices do not respect the Do Not Disturb setting and still play a sound even when DND is on.
+                    Turning this setting off will silence notifications.
+                  </Text>
+                </View>
+              </View>
+              <View style={styles.reminderEnabledContainer}>
+                <Switch
+                  style={styles.reminderEnabledSwitch}
+                  onValueChange={() => this.onPressToggleSounds()}
+                  value={this.props.notificationSoundsEnabled}
+                />
+              </View>
+            </View>
+          }
+          avatar={<Icon type="material" name="notifications-none" size={24} />}
+        />
+      )
+    };
+
+    sectionArray = [
+      { title: "Reminders", data: [weekdayReminderTime, weekendReminderTime] },
+      { title: "Affirmations", data: [weekdayAffirmationTime, weekendAffirmationTime] }
+    ];
+
+    if (Platform.OS !== "ios") {
+      sectionArray.push({ title: "Options", data: [toggleSoundsOff] });
+    }
+
     return (
       <PageContainer>
         <SectionList
@@ -394,11 +440,7 @@ class NotificationsScreen extends React.Component {
               }}
             />
           )}
-          sections={[
-            { title: "Reminders", data: [weekdayReminderTime, weekendReminderTime] },
-            { title: "Affirmations", data: [weekdayAffirmationTime, weekendAffirmationTime] },
-            { title: "Options", data: [] }
-          ]}
+          sections={sectionArray}
         />
         {/* // keyExtractor={item => item.key} */}
         <DateTimePicker
@@ -458,6 +500,14 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "200"
   },
+  toggleSoundsTitle: {
+    fontSize: 18,
+    fontWeight: "200"
+  },
+  toggleSoundsText: {
+    fontSize: 12,
+    fontWeight: "200"
+  },
   reminderTime: {}
 });
 
@@ -471,14 +521,16 @@ function mapStateToProps(state, ownProps) {
     weekendRemindersEnabled: state.notification.weekendRemindersEnabled,
     weekendRemindersTime: state.notification.weekendRemindersTime,
     weekendAffirmationsEnabled: state.notification.weekendAffirmationsEnabled,
-    weekendAffirmationsTime: state.notification.weekendAffirmationsTime
+    weekendAffirmationsTime: state.notification.weekendAffirmationsTime,
+    notificationSoundsEnabled: state.notification.notificationSoundsEnabled
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     dispatch,
-    updateNotifications: data => dispatch(updateNotifications(data))
+    updateNotifications: data => dispatch(updateNotifications(data)),
+    updateNotificationSounds: data => dispatch(updateNotificationSounds(data))
   };
 }
 

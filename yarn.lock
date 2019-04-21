@@ -4149,10 +4149,9 @@ react-native-picker@^4.3.7:
   resolved "https://registry.yarnpkg.com/react-native-picker/-/react-native-picker-4.3.7.tgz#9842e8c62ff0d8b676e9514d9f9172413c0518a8"
   integrity sha1-mELoxi/w2LZ26VFNn5FyQTwFGKg=
 
-react-native-push-notification@^3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/react-native-push-notification/-/react-native-push-notification-3.1.2.tgz#a6129fb2897773a19c7b42bba1b51a9a4aac7df3"
-  integrity sha512-MjjPNXb2Cw7g1D41DtVbTVuGFCAtADxb91pAEFSkQ0AZ2gIooqYkWFHBL6woc15QHhtaZS8VT2GQoyW5OWlxIg==
+"react-native-push-notification@git+https://github.com/MaximusBaton/react-native-push-notification.git":
+  version "3.0.31"
+  resolved "git+https://github.com/MaximusBaton/react-native-push-notification.git#a795b191061e4ecc43a0b2cf8201b073a197006c"
 
 react-native-rate@^1.1.6:
   version "1.1.6"

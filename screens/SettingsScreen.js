@@ -158,7 +158,7 @@ class SettingsScreen extends React.Component {
         <ListItem
           onPress={() => this.props.navigation.navigate("Notifications")}
           title="Notifications"
-          avatar={<Icon type="font-awesome" name="question-circle-o" size={24} containerStyle={{ paddingLeft: 2, paddingRight: 2 }} />}
+          avatar={<Icon type="material" name="notifications-none" size={24} containerStyle={{ paddingLeft: 2, paddingRight: 2 }} />}
         />
       )
     };
@@ -180,7 +180,7 @@ class SettingsScreen extends React.Component {
             this.rateApp();
           }}
           title="Review Present Sense"
-          avatar={<Icon type="font-awesome" name="question-circle-o" size={24} containerStyle={{ paddingLeft: 2, paddingRight: 2 }} />}
+          avatar={<Icon type="font-awesome" name="pencil-square-o" size={24} containerStyle={{ paddingLeft: 2, paddingRight: 2 }} />}
         />
       )
     };

@@ -1,6 +1,7 @@
 import { PURGE } from "redux-persist";
 
 export const UPDATE_NOTIFICATIONS = "notification/UPDATE_NOTIFICATIONS";
+export const UPDATE_NOTIFICATION_SOUNDS = "notification/UPDATE_NOTIFICATION_SOUNDS";
 export const SCHEDULE_AFFIRMATION_NOTIFICATIONS = "notification/SCHEDULE_AFFIRMATION_NOTIFICATIONS";
 export const CANCEL_SCHEDULED_AFFIRMATION_NOTIFICATIONS = "notification/CANCEL_SCHEDULED_AFFIRMATION_NOTIFICATIONS";
 
@@ -13,6 +14,7 @@ const initialState = {
   weekendAffirmationsEnabled: null,
   weekdayAffirmationsTime: null,
   weekendAffirmationsTime: null,
+  notificationSoundsEnabled: true,
   timerEnabled: false,
   timerTime: new Date(2018, 1, 1, 1, 1, 1, 1)
 };
@@ -83,6 +85,8 @@ export default function reducer(state = initialState, action) {
           timerTime: isNotEmpty(action.payload.timerTime) ? action.payload.timerTime : state.timerTime
         };
       }
+    case UPDATE_NOTIFICATION_SOUNDS:
+      return { ...state, notificationSoundsEnabled: action.payload };
     case PURGE:
       return initialState;
     default:
@@ -98,6 +102,13 @@ function isNotEmpty(property) {
 export function updateNotifications(data) {
   return {
     type: UPDATE_NOTIFICATIONS,
+    payload: data
+  };
+}
+
+export function updateNotificationSounds(data) {
+  return {
+    type: UPDATE_NOTIFICATION_SOUNDS,
     payload: data
   };
 }

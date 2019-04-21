@@ -47,6 +47,7 @@
 		375E471E21BDB3A80026C43E /* libRNBackgroundTimer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 375E471B21BDB3960026C43E /* libRNBackgroundTimer.a */; };
 		375E472521BDE2B80026C43E /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 375E472421BDE2B00026C43E /* libRNSound.a */; };
 		375E472721BDE7CF0026C43E /* bell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 375E472621BDE7CF0026C43E /* bell.wav */; };
+		375ECDBB226D13AF005187D2 /* silent.wav in Resources */ = {isa = PBXBuildFile; fileRef = 375ECD8A226D13AE005187D2 /* silent.wav */; };
 		377C315320C0A3A700D33296 /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 377C315220C0A37400D33296 /* libSplashScreen.a */; };
 		37A1351421B1FB66003A5E21 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37A134F521B1FB42003A5E21 /* libRCTPushNotification.a */; };
 		3D638F9F3EF3E5FB13AC73FB /* libPods-PresMo-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B66B216029CE50FEDDACA9C3 /* libPods-PresMo-tvOS.a */; };
@@ -463,6 +464,7 @@
 		375E471521BDB3960026C43E /* RNBackgroundTimer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNBackgroundTimer.xcodeproj; path = "../node_modules/react-native-background-timer/ios/RNBackgroundTimer.xcodeproj"; sourceTree = "<group>"; };
 		375E471F21BDE2B00026C43E /* RNSound.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSound.xcodeproj; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; };
 		375E472621BDE7CF0026C43E /* bell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = bell.wav; path = ../android/app/src/main/res/raw/bell.wav; sourceTree = "<group>"; };
+		375ECD8A226D13AE005187D2 /* silent.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = silent.wav; path = ../android/app/src/main/res/raw/silent.wav; sourceTree = "<group>"; };
 		377C314D20C0A37400D33296 /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
 		37A134E321B1FB41003A5E21 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		37A1351521B1FF32003A5E21 /* PresMo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = PresMo.entitlements; path = PresMo/PresMo.entitlements; sourceTree = "<group>"; };
@@ -640,6 +642,7 @@
 		13B07FAE1A68108700A75B9A /* PresMo */ = {
 			isa = PBXGroup;
 			children = (
+				375ECD8A226D13AE005187D2 /* silent.wav */,
 				375E472621BDE7CF0026C43E /* bell.wav */,
 				37A1351521B1FF32003A5E21 /* PresMo.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -1463,6 +1466,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				375ECDBB226D13AF005187D2 /* silent.wav in Resources */,
 				3366CDF3A7A9492E94BFBC08 /* Entypo.ttf in Resources */,
 				D0312C1CEA204281964AE55D /* EvilIcons.ttf in Resources */,
 				1CBEC6216E88474F8EF6A66B /* Feather.ttf in Resources */,
