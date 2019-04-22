@@ -11,7 +11,7 @@
 #import <React/RCTRootView.h>
 #import <React/RCTPushNotificationManager.h>
 #import <AVFoundation/AVFoundation.h>
-#import "SplashScreen.h"
+#import "RNSplashScreen.h"
 
 @implementation AppDelegate
 
@@ -41,7 +41,7 @@
   rootView.loadingView = launchScreenView;
 
   // Splash screen
-  [SplashScreen show];
+  [RNSplashScreen show];
   return YES;
 }
 
