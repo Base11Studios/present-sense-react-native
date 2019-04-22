@@ -386,6 +386,13 @@ class NotificationsScreen extends React.Component {
       )
     };
 
+    toggleSoundsText = "Turning this setting off will silence notifications.";
+
+    if (Platform.OS !== "ios") {
+      toggleSoundsText =
+        "The notifications on some devices do not respect the Do Not Disturb setting and still play a sound even when DND is on. Turning this setting off will silence notifications.";
+    }
+
     toggleSoundsOff = {
       key: "10",
       view: (
@@ -396,10 +403,7 @@ class NotificationsScreen extends React.Component {
               <View style={styles.reminderTimeContainer}>
                 <View style={styles.reminderTextContainer}>
                   <Text style={styles.toggleSoundsTitle}>Notification Sounds</Text>
-                  <Text style={styles.toggleSoundsText}>
-                    The notifications on some devices do not respect the Do Not Disturb setting and still play a sound even when DND is on.
-                    Turning this setting off will silence notifications.
-                  </Text>
+                  <Text style={styles.toggleSoundsText}>{toggleSoundsText}</Text>
                 </View>
               </View>
               <View style={styles.reminderEnabledContainer}>
@@ -418,12 +422,9 @@ class NotificationsScreen extends React.Component {
 
     sectionArray = [
       { title: "Reminders", data: [weekdayReminderTime, weekendReminderTime] },
-      { title: "Affirmations", data: [weekdayAffirmationTime, weekendAffirmationTime] }
+      { title: "Affirmations", data: [weekdayAffirmationTime, weekendAffirmationTime] },
+      { title: "Options", data: [toggleSoundsOff] }
     ];
-
-    if (Platform.OS !== "ios") {
-      sectionArray.push({ title: "Options", data: [toggleSoundsOff] });
-    }
 
     return (
       <PageContainer>
