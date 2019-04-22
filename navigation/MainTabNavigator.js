@@ -37,6 +37,7 @@ import {
   COLOR_SECONDARY,
   COLOR_WHITE
 } from '../styles/common';
+import NotificationsScreen from '../screens/NotificationsScreen';
 
 export const ViewTaskNavigator = StackNavigator({
   TaskOverview: {
@@ -391,6 +392,20 @@ export const FAQNavigator = StackNavigator({
     screen: FAQScreen,
     navigationOptions: props => ({
       title: 'FAQ',
+      headerLeft: <BackButton {...props} />,
+      headerTintColor: COLOR_BLACK,
+      headerStyle: {
+        backgroundColor: COLOR_WHITE
+      }
+    })
+  }
+});
+
+export const NotificationsNavigator = StackNavigator({
+  FAQ: {
+    screen: NotificationsScreen,
+    navigationOptions: props => ({
+      title: 'Notifications',
       headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {

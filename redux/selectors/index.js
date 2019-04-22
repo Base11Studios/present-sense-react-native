@@ -1,5 +1,5 @@
-import moment from 'moment';
-import { createSelector } from 'reselect';
+import moment from "moment";
+import { createSelector } from "reselect";
 
 const getTasksCompleted = state => state.tasks.completedTasks;
 const getTutorialTasksCompleted = state => state.tasks.completedTutorialTasks;
@@ -7,11 +7,15 @@ const getTasks = state => state.tasks.tasks;
 const getDailyIntentionStatus = state => state.tasks.dailyIntentionStatus;
 
 export const getDailyIntention = state => state.tasks.dailyIntention;
-export const getAffirmationsTime = state => state.notification.affirmationsTime;
-export const getAffirmationsEnabled = state =>
-  state.notification.affirmationsEnabled;
-export const getRemindersTime = state => state.notification.remindersTime;
-export const getRemindersEnabled = state => state.notification.remindersEnabled;
+export const getWeekdayAffirmationsTime = state => state.notification.weekdayAffirmationsTime;
+export const getWeekdayAffirmationsEnabled = state => state.notification.weekdayAffirmationsEnabled;
+export const getWeekdayRemindersTime = state => state.notification.weekdayRemindersTime;
+export const getWeekdayRemindersEnabled = state => state.notification.weekdayRemindersEnabled;
+export const getWeekendAffirmationsTime = state => state.notification.weekendAffirmationsTime;
+export const getWeekendAffirmationsEnabled = state => state.notification.weekendAffirmationsEnabled;
+export const getWeekendRemindersTime = state => state.notification.weekendRemindersTime;
+export const getWeekendRemindersEnabled = state => state.notification.weekendRemindersEnabled;
+export const getNotificationSoundsEnabled = state => state.notification.notificationSoundsEnabled;
 export const getTimerTime = state => state.notification.timerTime;
 export const getTimerEnabled = state => state.notification.timerEnabled;
 export const getPremium = state => state.subscription.premium;
@@ -27,7 +31,7 @@ export const getLeastUsedTasks = createSelector(
 
     return tasks
       .filter(task => {
-        if ((task.premium && !premium) || task.type === 'Tutorial') {
+        if ((task.premium && !premium) || task.type === "Tutorial") {
           return false;
         } else {
           return true;
@@ -44,9 +48,9 @@ export const getEverydayTasks = createSelector(
   [getTasksCompleted, getTasks, getDailyIntentionStatus],
   (tasksCompleted, tasks, dailyIntentionStatus) => {
     everydayTasks = [];
-    taskMindful = tasks.filter(task => !!task && task.id === '11');
-    taskGrateful = tasks.filter(task => !!task && task.id === '8');
-    taskIntent = tasks.filter(task => !!task && task.id === '16');
+    taskMindful = tasks.filter(task => !!task && task.id === "11");
+    taskGrateful = tasks.filter(task => !!task && task.id === "8");
+    taskIntent = tasks.filter(task => !!task && task.id === "16");
 
     if (taskIntent.length > 0) {
       everydayTasks.push(taskIntent[0]);
@@ -63,25 +67,21 @@ export const getEverydayTasks = createSelector(
       .filter(task => {
         const completeDate = new Date(task.completeDate);
         return (
-          (task.task.id === '11' &&
-            completeDate.toDateString() === todaysDate) ||
-          (task.task.id === '16' &&
-            completeDate.toDateString() === todaysDate) ||
-          (task.task.id === '8' && completeDate.toDateString() === todaysDate)
+          (task.task.id === "11" && completeDate.toDateString() === todaysDate) ||
+          (task.task.id === "16" && completeDate.toDateString() === todaysDate) ||
+          (task.task.id === "8" && completeDate.toDateString() === todaysDate)
         );
       })
       .map(task => task.task.id);
 
-    return everydayTasks.filter(
-      task => !everydayTasksCompleted.includes(task.id)
-    );
+    return everydayTasks.filter(task => !everydayTasksCompleted.includes(task.id));
   }
 );
 
 export const getDailyIntentionTask = createSelector(
   [getTasks],
   tasks => {
-    taskIntent = tasks.filter(task => !!task && task.id === '16');
+    taskIntent = tasks.filter(task => !!task && task.id === "16");
 
     if (taskIntent.length > 0) {
       return taskIntent[0];
@@ -102,14 +102,8 @@ export const getTotalTasksCompleted = createSelector(
 export const getNextTutorialTask = createSelector(
   [getTasks, getTutorialTasksCompleted],
   (tasks, completedTutorialTasks) => {
-    let completedTutorialTaskIds = completedTutorialTasks.map(
-      task => task.task.id
-    );
-    let tutorialTasks = tasks.filter(
-      task =>
-        task.type === 'Tutorial' &&
-        completedTutorialTaskIds.indexOf(task.id) < 0
-    );
+    let completedTutorialTaskIds = completedTutorialTasks.map(task => task.task.id);
+    let tutorialTasks = tasks.filter(task => task.type === "Tutorial" && completedTutorialTaskIds.indexOf(task.id) < 0);
     if (tutorialTasks.length > 0) {
       tutorialTasks.sort(function(taskA, taskB) {
         return +taskA.id - +taskB.id;
@@ -124,47 +118,42 @@ export const getNextTutorialTask = createSelector(
 export const getMindTasksCompleted = createSelector(
   [getTasksCompleted],
   tasksCompleted => {
-    return tasksCompleted.filter(task => task.task.focusType === 'Mind').length;
+    return tasksCompleted.filter(task => task.task.focusType === "Mind").length;
   }
 );
 
 export const getTasteTasksCompleted = createSelector(
   [getTasksCompleted],
   tasksCompleted => {
-    return tasksCompleted.filter(task => task.task.focusType === 'Taste')
-      .length;
+    return tasksCompleted.filter(task => task.task.focusType === "Taste").length;
   }
 );
 
 export const getSmellTasksCompleted = createSelector(
   [getTasksCompleted],
   tasksCompleted => {
-    return tasksCompleted.filter(task => task.task.focusType === 'Smell')
-      .length;
+    return tasksCompleted.filter(task => task.task.focusType === "Smell").length;
   }
 );
 
 export const getSightTasksCompleted = createSelector(
   [getTasksCompleted],
   tasksCompleted => {
-    return tasksCompleted.filter(task => task.task.focusType === 'Sight')
-      .length;
+    return tasksCompleted.filter(task => task.task.focusType === "Sight").length;
   }
 );
 
 export const getSoundTasksCompleted = createSelector(
   [getTasksCompleted],
   tasksCompleted => {
-    return tasksCompleted.filter(task => task.task.focusType === 'Sound')
-      .length;
+    return tasksCompleted.filter(task => task.task.focusType === "Sound").length;
   }
 );
 
 export const getTouchTasksCompleted = createSelector(
   [getTasksCompleted],
   tasksCompleted => {
-    return tasksCompleted.filter(task => task.task.focusType === 'Touch')
-      .length;
+    return tasksCompleted.filter(task => task.task.focusType === "Touch").length;
   }
 );
 
@@ -175,13 +164,8 @@ export const getTasksPerDay = createSelector(
     if (tasksCompleted.length > 0) {
       let daysSinceFirstTask =
         moment(new Date())
-          .startOf('day')
-          .diff(
-            moment(
-              tasksCompleted[tasksCompleted.length - 1].completeDate
-            ).startOf('day'),
-            'days'
-          ) + 1;
+          .startOf("day")
+          .diff(moment(tasksCompleted[tasksCompleted.length - 1].completeDate).startOf("day"), "days") + 1;
 
       return tasksCompleted.length / daysSinceFirstTask;
     }
@@ -198,22 +182,19 @@ export const getTaskStreak = createSelector(
 
     if (tasksCompleted.length > 0) {
       let dateToFulfillStartingYesterday = moment(new Date())
-        .subtract(1, 'days')
-        .startOf('day');
+        .subtract(1, "days")
+        .startOf("day");
       tasksCompleted.forEach(task => {
         if (
           moment(task.completeDate)
-            .startOf('day')
+            .startOf("day")
             .isSame(dateToFulfillStartingYesterday)
         ) {
           streak = streak + 1;
-          dateToFulfillStartingYesterday = dateToFulfillStartingYesterday.subtract(
-            1,
-            'days'
-          );
+          dateToFulfillStartingYesterday = dateToFulfillStartingYesterday.subtract(1, "days");
         } else if (
           moment(task.completeDate)
-            .startOf('day')
+            .startOf("day")
             .isAfter(dateToFulfillStartingYesterday)
         ) {
           // Bonus points
@@ -232,8 +213,8 @@ export const getTaskStreak = createSelector(
 const addTodayToStreak = function(streak, tasksCompleted) {
   if (
     moment(new Date())
-      .startOf('day')
-      .isSame(moment(tasksCompleted[0].completeDate).startOf('day'))
+      .startOf("day")
+      .isSame(moment(tasksCompleted[0].completeDate).startOf("day"))
   ) {
     return streak + 1;
   } else {
