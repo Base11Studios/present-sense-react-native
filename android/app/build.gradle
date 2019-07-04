@@ -105,8 +105,8 @@ android {
         applicationId "com.base11studios.presentmoment"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 30
-        versionName "3.4"
+        versionCode 35
+        versionName "3.5"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -152,7 +152,6 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-vector-icons')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "com.facebook.react:react-native:+"  // From node_modules

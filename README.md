@@ -26,10 +26,6 @@ Increment version code in app/build.gradle
 
 ## iOS
 
-Toggle these lines in AppDelegate.m
-jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil]; // DEV
-// jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"]; // PROD
-
 Info.plist
 App Transport Security Settings > Exception Domains > localhost > NSExceptionAllowsInsecureHttp > NO
 
