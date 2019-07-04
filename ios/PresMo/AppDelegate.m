@@ -21,7 +21,7 @@
   
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
-                                                   moduleName:@"RnDiffApp"
+                                                   moduleName:@"PresMo"
                                             initialProperties:nil];
 
 
@@ -39,6 +39,7 @@
 
   // Splash screen
   [RNSplashScreen show];
+  
   return YES;
 }
 
