@@ -21,8 +21,12 @@ Add an icon (ideally at least 192x192 pixels) named icon.png to your project roo
 
 ## Android
 
+After any changes to yarn packages, have to run `npx jetify`
+
 Increment version code in app/build.gradle
-`cd android && ./gradlew assembleRelease`
+`npx jetify && cd android && ./gradlew bundleRelease`
+
+Upload `app.aab`
 
 ## iOS
 
@@ -37,3 +41,16 @@ Build in XCode
 
 `keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000`
 `security find-generic-password -s android_keystore -w`
+
+
+
+
+### Yarn package overrides
+THIS MAY NOT BE REQUIRED. TRY WITHOUT IT, BUT IF ISSUES, TRY IT:
+For react-native-picker, AndroidX support:
+https://github.com/beefe/react-native-picker/issues/374
+
+Goto node_modules/react-native-picker/android/build.gradle and change sdk versions to 28 instead of 27
+
+
+

@@ -1,5 +1,10 @@
 package com.base11studios.presentmoment;
 
+import android.util.Log;
+
+import com.facebook.react.PackageList;
+import com.facebook.hermes.reactexecutor.HermesExecutorFactory;
+import com.facebook.react.bridge.JavaScriptExecutorFactory;
 import android.app.Application;
 import com.dooboolab.RNIap.RNIapPackage;
 import com.facebook.react.ReactApplication;
@@ -13,10 +18,8 @@ import com.dooboolab.RNIap.RNIapPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
-import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
@@ -29,17 +32,18 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-            new RNSoundPackage(),
-            new BackgroundTimerPackage(),
-            new PickerViewPackage(),
-            new ReactNativePushNotificationPackage(),
-            new SplashScreenReactPackage(),
-            new RNIapPackage(),
-            new VectorIconsPackage(),
-            new RNGestureHandlerPackage()
-      );
+      @SuppressWarnings("UnnecessaryLocalVariable")
+      List<ReactPackage> packages = new PackageList(this).getPackages();
+      // Packages that cannot be autolinked yet can be added manually here, for example:
+      packages.add(new RNSoundPackage());
+      packages.add(new BackgroundTimerPackage());
+      packages.add(new PickerViewPackage());
+      packages.add(new ReactNativePushNotificationPackage());
+      packages.add(new SplashScreenReactPackage());
+      packages.add(new RNIapPackage());
+      packages.add(new VectorIconsPackage());
+      packages.add(new RNGestureHandlerPackage());
+      return packages;
     }
 
     @Override
