@@ -29,20 +29,17 @@ target 'PresMo' do
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
-  pod 'React-RCTPushNotification', :path => '../node_modules/react-native/Libraries/PushNotificationIOS'
+  # pod 'React-RCTPushNotification', :path => '../node_modules/react-native/Libraries/PushNotificationIOS'
 
 
-  # pod 'RNIap', :path => '../node_modules/react-native-iap'
-
+  pod 'RNIap', :path => '../node_modules/react-native-iap'
   pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
-  
   pod 'RNRate', :path => '../node_modules/react-native-rate/ios'
-
   pod 'Picker', :path => '../node_modules/react-native-picker'
-
   pod 'react-native-background-timer', :path => '../node_modules/react-native-background-timer'
-
   pod 'RNSound', :path => '../node_modules/react-native-sound'
+
+  pod 'RNCPushNotificationIOS', :path => '../node_modules/@react-native-community/push-notification-ios'
 
   target 'PresMoTests' do
     inherit! :search_paths
@@ -64,3 +61,4 @@ target 'PresMo-tvOS' do
   end
 
 end
+

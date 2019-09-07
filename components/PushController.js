@@ -1,5 +1,6 @@
+import PushNotificationIOS from "@react-native-community/push-notification-ios";
 import React from 'react';
-import { Platform, PushNotificationIOS, View } from 'react-native';
+import { Platform, View } from 'react-native';
 import PushNotification from 'react-native-push-notification';
 
 export default class PushController extends React.Component {

@@ -79,8 +79,6 @@ PODS:
     - React-Core (= 0.60.5)
   - React-RCTNetwork (0.60.5):
     - React-Core (= 0.60.5)
-  - React-RCTPushNotification (0.60.5):
-    - React-Core (= 0.60.5)
   - React-RCTSettings (0.60.5):
     - React-Core (= 0.60.5)
   - React-RCTText (0.60.5):
@@ -89,6 +87,8 @@ PODS:
     - React-Core (= 0.60.5)
   - React-RCTWebSocket (0.60.5):
     - React-Core (= 0.60.5)
+  - RNCPushNotificationIOS (1.0.2):
+    - React
   - RNGestureHandler (1.4.1):
     - React
   - RNIap (3.4.5):
@@ -124,11 +124,11 @@ DEPENDENCIES:
   - React-RCTImage (from `../node_modules/react-native/Libraries/Image`)
   - React-RCTLinking (from `../node_modules/react-native/Libraries/LinkingIOS`)
   - React-RCTNetwork (from `../node_modules/react-native/Libraries/Network`)
-  - React-RCTPushNotification (from `../node_modules/react-native/Libraries/PushNotificationIOS`)
   - React-RCTSettings (from `../node_modules/react-native/Libraries/Settings`)
   - React-RCTText (from `../node_modules/react-native/Libraries/Text`)
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-RCTWebSocket (from `../node_modules/react-native/Libraries/WebSocket`)
+  - "RNCPushNotificationIOS (from `../node_modules/@react-native-community/push-notification-ios`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNIap (from `../node_modules/react-native-iap`)
   - RNRate (from `../node_modules/react-native-rate/ios`)
@@ -179,8 +179,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/LinkingIOS"
   React-RCTNetwork:
     :path: "../node_modules/react-native/Libraries/Network"
-  React-RCTPushNotification:
-    :path: "../node_modules/react-native/Libraries/PushNotificationIOS"
   React-RCTSettings:
     :path: "../node_modules/react-native/Libraries/Settings"
   React-RCTText:
@@ -189,6 +187,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Vibration"
   React-RCTWebSocket:
     :path: "../node_modules/react-native/Libraries/WebSocket"
+  RNCPushNotificationIOS:
+    :path: "../node_modules/@react-native-community/push-notification-ios"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNIap:
@@ -223,11 +223,11 @@ SPEC CHECKSUMS:
   React-RCTImage: 963859de2b05d2037d1b7842cdbddc8d7f3a2f3b
   React-RCTLinking: 5998a7db9a6156ed112b006d01f76b2d1cc83d98
   React-RCTNetwork: 0b676e8194f3f893db813007d37e37e9820173a3
-  React-RCTPushNotification: cb885c81c2b22aa6f61ccc31e480a8bb1ebae5ab
   React-RCTSettings: fdd7606f1b6050eced69fc6046d5db6768aefd57
   React-RCTText: 36c0532feb5521cb295ba80e7e44b70cf1c36fc7
   React-RCTVibration: dabb8d59bb47e1d9124b3f77bfdc1b33d42b0a74
   React-RCTWebSocket: 2e7f6e98fd6d2bf447d145e499c3a235cc13e350
+  RNCPushNotificationIOS: e063e649fa697b77869c05fd18e370799285db4f
   RNGestureHandler: 311e3b1cef021a7c9ef31e97e7dc31970cc6288d
   RNIap: 8050b47307ff76a62cf9bf19e9602406e268dce0
   RNRate: 72b5c9c2e62de9a01710918eb83d75fb99b44c7b
@@ -235,6 +235,6 @@ SPEC CHECKSUMS:
   RNVectorIcons: 66af4d5c8ff4f584c7b7cd9c4b0780920f27fce2
   yoga: 88c514f310aff89b94a14c5fbf44b95735af0cb7
 
-PODFILE CHECKSUM: 3e32410efe17c95a96ca46ef74057f46c0cb794d
+PODFILE CHECKSUM: c4165456a4adb86fc017df3fcb55feb16bb30dc4
 
 COCOAPODS: 1.5.3
