@@ -56,3 +56,10 @@ buck-out/
 *.jsbundle
 
 RnDiffApp/ios/Podfile.lock
+
+ios/Pods
+ios/Pods/
+ios/Pods/*
+ios/Pods/**/*
+ios/Pods/Target Support Files
+ios/Pods/Target Support Files/*

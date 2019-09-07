@@ -6,16 +6,9 @@ import com.facebook.react.PackageList;
 import com.facebook.hermes.reactexecutor.HermesExecutorFactory;
 import com.facebook.react.bridge.JavaScriptExecutorFactory;
 import android.app.Application;
-import com.dooboolab.RNIap.RNIapPackage;
 import com.facebook.react.ReactApplication;
-import com.oblador.vectoricons.VectorIconsPackage;
-import com.zmxv.RNSound.RNSoundPackage;
-import com.ocetnik.timer.BackgroundTimerPackage;
-import com.beefe.picker.PickerViewPackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
-import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.dooboolab.RNIap.RNIapPackage;
-import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
@@ -34,15 +27,16 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       @SuppressWarnings("UnnecessaryLocalVariable")
       List<ReactPackage> packages = new PackageList(this).getPackages();
-      // Packages that cannot be autolinked yet can be added manually here, for example:
-      packages.add(new RNSoundPackage());
-      packages.add(new BackgroundTimerPackage());
-      packages.add(new PickerViewPackage());
+      // Packages that cannot be autolinked yet can be added manually here, for
+      // example:
+      // packages.add(new RNSoundPackage());
+      // packages.add(new BackgroundTimerPackage());
+      // packages.add(new PickerViewPackage());
       packages.add(new ReactNativePushNotificationPackage());
-      packages.add(new SplashScreenReactPackage());
+      // packages.add(new SplashScreenReactPackage());
       packages.add(new RNIapPackage());
-      packages.add(new VectorIconsPackage());
-      packages.add(new RNGestureHandlerPackage());
+      // packages.add(new VectorIconsPackage());
+      // packages.add(new RNGestureHandlerPackage());
       return packages;
     }
 
