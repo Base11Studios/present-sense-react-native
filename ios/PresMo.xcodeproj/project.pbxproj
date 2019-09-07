@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* PresMoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* PresMoTests.m */; };
-		10119D9BD78C9FE5E525CD00 /* libPods-PresMo-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A45C6C3DD39FB03CE43B0AF5 /* libPods-PresMo-tvOS.a */; };
+		099FA583FC1A281C541B7487 /* libPods-PresMo-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F36330282D1E350B8348E383 /* libPods-PresMo-tvOS.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -32,10 +32,9 @@
 		3718C52620BA316D0093B9B3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3718C52520BA316D0093B9B3 /* StoreKit.framework */; };
 		375E472721BDE7CF0026C43E /* bell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 375E472621BDE7CF0026C43E /* bell.wav */; };
 		375ECDBB226D13AF005187D2 /* silent.wav in Resources */ = {isa = PBXBuildFile; fileRef = 375ECD8A226D13AE005187D2 /* silent.wav */; };
+		37C9AA4C8B361ED2035BE86A /* libPods-PresMo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF9C91BA6A804B89149446D /* libPods-PresMo.a */; };
 		405BA43F54C2495980A28246 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 743E59F6852C4F98B89D4528 /* AntDesign.ttf */; };
 		48497A36F59240FB8AA6E6B3 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D286292DACC841A483BFB7E8 /* FontAwesome5_Brands.ttf */; };
-		57EEC357BA560D3CB7449344 /* libPods-PresMo-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 319E35BCADEDC685B9E3140C /* libPods-PresMo-tvOSTests.a */; };
-		5E3E85E13C485AD5066BA8A6 /* libPods-PresMoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2AAE65618E30A5B40DA37F7 /* libPods-PresMoTests.a */; };
 		61B3CEE5693146C3977CCEC7 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 722DE8EE071249A881D20CC9 /* Ionicons.ttf */; };
 		630A263D0E8740869522B36E /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7676968F04344A494DFC7F6 /* SimpleLineIcons.ttf */; };
 		6BEED94071AD4F87BB9BCB58 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEB67F8B93AE4DD7A17F2845 /* MaterialIcons.ttf */; };
@@ -44,8 +43,9 @@
 		9221807B745A4EF2B2943FB0 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16578998FCAD41919DCE385B /* Zocial.ttf */; };
 		9BC6EBC992C74062809A176A /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74A7DC76192A4997B437CA89 /* Octicons.ttf */; };
 		A2F57AB922AD41F69ED10D2F /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A47C53C3E9484378BC5419E6 /* Feather.ttf */; };
-		A79B153FE8799B433A8BB87E /* libPods-PresMo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A370A2881C92C47482D0543 /* libPods-PresMo.a */; };
+		A9CF87BCDAE0AFFA83B2166B /* libPods-PresMo-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 373FAD5414672089EF8A5B6C /* libPods-PresMo-tvOSTests.a */; };
 		AEBDE74EA94548EA8D35621A /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5697F40CA1214AF1B3F92E20 /* MaterialCommunityIcons.ttf */; };
+		CADF9D773252B4DF8BB7ED25 /* libPods-PresMoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C46B0A68CF935796CD26B423 /* libPods-PresMoTests.a */; };
 		D6BE023DD47B40B8AFA94BA0 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3E98B2037A74B948A42ED03 /* Entypo.ttf */; };
 		F3555689BA304F1798A34E6D /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A28DC295B2E84CD8A63D1538 /* FontAwesome.ttf */; };
 		FBAD5E7EB3B24156A8E073F9 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75470CC783EE4ED1B211F72E /* FontAwesome5_Regular.ttf */; };
@@ -337,6 +337,7 @@
 		00E356EE1AD99517003FC87E /* PresMoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PresMoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* PresMoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PresMoTests.m; sourceTree = "<group>"; };
+		079064A391A2AE2ADF3FCF09 /* Pods-PresMo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresMo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PresMo/Pods-PresMo.debug.xcconfig"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* PresMo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PresMo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -347,46 +348,45 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = PresMo/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = PresMo/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		1603310F38B823E8E936CE60 /* Pods-PresMo-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresMo-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PresMo-tvOSTests/Pods-PresMo-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		16578998FCAD41919DCE385B /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		1DF9C91BA6A804B89149446D /* libPods-PresMo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PresMo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2278E508DC5C40ADADA6104A /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
-		26FFDD688C7B4B2C18803D1E /* Pods-PresMo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresMo.release.xcconfig"; path = "Pods/Target Support Files/Pods-PresMo/Pods-PresMo.release.xcconfig"; sourceTree = "<group>"; };
-		276109944959FAB6B6D1FB7D /* Pods-PresMoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresMoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PresMoTests/Pods-PresMoTests.release.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* PresMo-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PresMo-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* PresMo-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PresMo-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D8BFB3ECBBAE88EC8ECAFA9 /* Pods-PresMo-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresMo-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-PresMo-tvOS/Pods-PresMo-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		319E35BCADEDC685B9E3140C /* libPods-PresMo-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PresMo-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3718C52520BA316D0093B9B3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		373FAD5414672089EF8A5B6C /* libPods-PresMo-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PresMo-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		375E472621BDE7CF0026C43E /* bell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = bell.wav; path = ../android/app/src/main/res/raw/bell.wav; sourceTree = "<group>"; };
 		375ECD8A226D13AE005187D2 /* silent.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = silent.wav; path = ../android/app/src/main/res/raw/silent.wav; sourceTree = "<group>"; };
 		37A134E321B1FB41003A5E21 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		37A1351521B1FF32003A5E21 /* PresMo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = PresMo.entitlements; path = PresMo/PresMo.entitlements; sourceTree = "<group>"; };
-		3A370A2881C92C47482D0543 /* libPods-PresMo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PresMo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4412FEE24D3340CCAB3C0F4C /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		5697F40CA1214AF1B3F92E20 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		58D89E0CEE2C0341F131E46F /* Pods-PresMo-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresMo-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-PresMo-tvOS/Pods-PresMo-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
-		6A0CA3147CFD637BF440FF86 /* Pods-PresMo-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresMo-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PresMo-tvOS/Pods-PresMo-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		5FD9EB7600E07E034E2D7ED2 /* Pods-PresMoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresMoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PresMoTests/Pods-PresMoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		722DE8EE071249A881D20CC9 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		743E59F6852C4F98B89D4528 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		74A7DC76192A4997B437CA89 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		75470CC783EE4ED1B211F72E /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		7ECBDECBFC38292F73E09D29 /* Pods-PresMo-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresMo-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PresMo-tvOSTests/Pods-PresMo-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		A28DC295B2E84CD8A63D1538 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
-		A45C6C3DD39FB03CE43B0AF5 /* libPods-PresMo-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PresMo-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A47C53C3E9484378BC5419E6 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		AECE9809A09B4A77B2F093DD /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		B1D9783D9C12EDA6FC28377E /* Pods-PresMo-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresMo-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PresMo-tvOS/Pods-PresMo-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B3E98B2037A74B948A42ED03 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		B7676968F04344A494DFC7F6 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
-		B90AD5B8CB0F5D83E4B443F0 /* Pods-PresMo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresMo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PresMo/Pods-PresMo.debug.xcconfig"; sourceTree = "<group>"; };
+		BB2742B6D933AA9BD0078437 /* Pods-PresMoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresMoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PresMoTests/Pods-PresMoTests.release.xcconfig"; sourceTree = "<group>"; };
+		C46B0A68CF935796CD26B423 /* libPods-PresMoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PresMoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC078559E8B45ACE2C39F872 /* Pods-PresMo-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresMo-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PresMo-tvOSTests/Pods-PresMo-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CEB67F8B93AE4DD7A17F2845 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		D286292DACC841A483BFB7E8 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		D593FF1E1B5B6A7D42BD9A36 /* Pods-PresMo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresMo.release.xcconfig"; path = "Pods/Target Support Files/Pods-PresMo/Pods-PresMo.release.xcconfig"; sourceTree = "<group>"; };
 		D8F38BBAD05143959BFA9944 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
-		E2AAE65618E30A5B40DA37F7 /* libPods-PresMoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PresMoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5A816C001FE132608106FC8 /* Pods-PresMoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresMoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PresMoTests/Pods-PresMoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		FB86DDB0E99ACAA2A728D59A /* Pods-PresMo-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresMo-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PresMo-tvOSTests/Pods-PresMo-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F36330282D1E350B8348E383 /* libPods-PresMo-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PresMo-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -395,7 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
-				5E3E85E13C485AD5066BA8A6 /* libPods-PresMoTests.a in Frameworks */,
+				CADF9D773252B4DF8BB7ED25 /* libPods-PresMoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,7 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3718C52620BA316D0093B9B3 /* StoreKit.framework in Frameworks */,
-				A79B153FE8799B433A8BB87E /* libPods-PresMo.a in Frameworks */,
+				37C9AA4C8B361ED2035BE86A /* libPods-PresMo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,7 +420,7 @@
 				2D02E4C61E0B4AEC006451C7 /* libRCTSettings-tvOS.a in Frameworks */,
 				2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */,
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
-				10119D9BD78C9FE5E525CD00 /* libPods-PresMo-tvOS.a in Frameworks */,
+				099FA583FC1A281C541B7487 /* libPods-PresMo-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,7 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */,
-				57EEC357BA560D3CB7449344 /* libPods-PresMo-tvOSTests.a in Frameworks */,
+				A9CF87BCDAE0AFFA83B2166B /* libPods-PresMo-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,10 +558,10 @@
 			children = (
 				3718C52520BA316D0093B9B3 /* StoreKit.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
-				3A370A2881C92C47482D0543 /* libPods-PresMo.a */,
-				A45C6C3DD39FB03CE43B0AF5 /* libPods-PresMo-tvOS.a */,
-				319E35BCADEDC685B9E3140C /* libPods-PresMo-tvOSTests.a */,
-				E2AAE65618E30A5B40DA37F7 /* libPods-PresMoTests.a */,
+				1DF9C91BA6A804B89149446D /* libPods-PresMo.a */,
+				F36330282D1E350B8348E383 /* libPods-PresMo-tvOS.a */,
+				373FAD5414672089EF8A5B6C /* libPods-PresMo-tvOSTests.a */,
+				C46B0A68CF935796CD26B423 /* libPods-PresMoTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -580,21 +580,6 @@
 				37A134F721B1FB42003A5E21 /* libRCTPushNotification-tvOS.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		4C00E1983E457EEAD21BB835 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B90AD5B8CB0F5D83E4B443F0 /* Pods-PresMo.debug.xcconfig */,
-				26FFDD688C7B4B2C18803D1E /* Pods-PresMo.release.xcconfig */,
-				6A0CA3147CFD637BF440FF86 /* Pods-PresMo-tvOS.debug.xcconfig */,
-				2D8BFB3ECBBAE88EC8ECAFA9 /* Pods-PresMo-tvOS.release.xcconfig */,
-				FB86DDB0E99ACAA2A728D59A /* Pods-PresMo-tvOSTests.debug.xcconfig */,
-				1603310F38B823E8E936CE60 /* Pods-PresMo-tvOSTests.release.xcconfig */,
-				E5A816C001FE132608106FC8 /* Pods-PresMoTests.debug.xcconfig */,
-				276109944959FAB6B6D1FB7D /* Pods-PresMoTests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
@@ -654,7 +639,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				D067E35804C64D7FA82F1994 /* Resources */,
 				3744A02A20B8CAF600DBDCD9 /* Recovered References */,
-				4C00E1983E457EEAD21BB835 /* Pods */,
+				DC70CE386E537089F6456EAC /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -704,6 +689,21 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		DC70CE386E537089F6456EAC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				079064A391A2AE2ADF3FCF09 /* Pods-PresMo.debug.xcconfig */,
+				D593FF1E1B5B6A7D42BD9A36 /* Pods-PresMo.release.xcconfig */,
+				B1D9783D9C12EDA6FC28377E /* Pods-PresMo-tvOS.debug.xcconfig */,
+				58D89E0CEE2C0341F131E46F /* Pods-PresMo-tvOS.release.xcconfig */,
+				CC078559E8B45ACE2C39F872 /* Pods-PresMo-tvOSTests.debug.xcconfig */,
+				7ECBDECBFC38292F73E09D29 /* Pods-PresMo-tvOSTests.release.xcconfig */,
+				5FD9EB7600E07E034E2D7ED2 /* Pods-PresMoTests.debug.xcconfig */,
+				BB2742B6D933AA9BD0078437 /* Pods-PresMoTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -711,7 +711,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "PresMoTests" */;
 			buildPhases = (
-				915892258827082A82966E89 /* [CP] Check Pods Manifest.lock */,
+				02D2F5ED0FE470390BE62148 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -730,12 +730,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "PresMo" */;
 			buildPhases = (
-				5E012DD17B492597629653D1 /* [CP] Check Pods Manifest.lock */,
+				17C469BDD31D259426EF309E /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				90820A42A456AAE72537E6C1 /* [CP] Copy Pods Resources */,
+				EE8ED7245C43984D54A0F798 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -750,7 +750,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "PresMo-tvOS" */;
 			buildPhases = (
-				6FD60FA7B80F9E15E6E38C16 /* [CP] Check Pods Manifest.lock */,
+				53F726DAB7DDC21239536FA6 /* [CP] Check Pods Manifest.lock */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
 				2D02E4791E0B4A5D006451C7 /* Resources */,
@@ -769,7 +769,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "PresMo-tvOSTests" */;
 			buildPhases = (
-				12B24E956A7AEFCBFAAA77E7 /* [CP] Check Pods Manifest.lock */,
+				BA4D05B792FA15A5FE6A524A /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -1224,7 +1224,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		12B24E956A7AEFCBFAAA77E7 /* [CP] Check Pods Manifest.lock */ = {
+		02D2F5ED0FE470390BE62148 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1239,28 +1239,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PresMo-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-PresMoTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Bundle React Native Code And Images";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		5E012DD17B492597629653D1 /* [CP] Check Pods Manifest.lock */ = {
+		17C469BDD31D259426EF309E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1282,7 +1268,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6FD60FA7B80F9E15E6E38C16 /* [CP] Check Pods Manifest.lock */ = {
+		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native Code And Images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		53F726DAB7DDC21239536FA6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1304,7 +1304,29 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		90820A42A456AAE72537E6C1 /* [CP] Copy Pods Resources */ = {
+		BA4D05B792FA15A5FE6A524A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PresMo-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE8ED7245C43984D54A0F798 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1354,28 +1376,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PresMo/Pods-PresMo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		915892258827082A82966E89 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PresMoTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1445,7 +1445,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E5A816C001FE132608106FC8 /* Pods-PresMoTests.debug.xcconfig */;
+			baseConfigurationReference = 5FD9EB7600E07E034E2D7ED2 /* Pods-PresMoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1469,7 +1469,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 276109944959FAB6B6D1FB7D /* Pods-PresMoTests.release.xcconfig */;
+			baseConfigurationReference = BB2742B6D933AA9BD0078437 /* Pods-PresMoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -1490,7 +1490,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B90AD5B8CB0F5D83E4B443F0 /* Pods-PresMo.debug.xcconfig */;
+			baseConfigurationReference = 079064A391A2AE2ADF3FCF09 /* Pods-PresMo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PresMo/PresMo.entitlements;
@@ -1518,7 +1518,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26FFDD688C7B4B2C18803D1E /* Pods-PresMo.release.xcconfig */;
+			baseConfigurationReference = D593FF1E1B5B6A7D42BD9A36 /* Pods-PresMo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PresMo/PresMo.entitlements;
@@ -1545,7 +1545,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A0CA3147CFD637BF440FF86 /* Pods-PresMo-tvOS.debug.xcconfig */;
+			baseConfigurationReference = B1D9783D9C12EDA6FC28377E /* Pods-PresMo-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1574,7 +1574,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D8BFB3ECBBAE88EC8ECAFA9 /* Pods-PresMo-tvOS.release.xcconfig */;
+			baseConfigurationReference = 58D89E0CEE2C0341F131E46F /* Pods-PresMo-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1603,7 +1603,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB86DDB0E99ACAA2A728D59A /* Pods-PresMo-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = CC078559E8B45ACE2C39F872 /* Pods-PresMo-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1631,7 +1631,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1603310F38B823E8E936CE60 /* Pods-PresMo-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 7ECBDECBFC38292F73E09D29 /* Pods-PresMo-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
