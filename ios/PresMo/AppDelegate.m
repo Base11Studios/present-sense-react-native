@@ -9,7 +9,8 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
-#import <RNCPushNotificationIOS.h>
+//#import <RNCPushNotificationIOS.h>
+#import "RNCPushNotificationIOS.h"
 #import <AVFoundation/AVFoundation.h>
 #import "RNSplashScreen.h"
 
@@ -38,7 +39,7 @@
   rootView.loadingView = launchScreenView;
 
   // Splash screen
-  [RNSplashScreen show];
+//  [RNSplashScreen show];
   
   return YES;
 }
