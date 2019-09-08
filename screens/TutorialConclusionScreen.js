@@ -1,14 +1,14 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Button } from 'react-native-elements';
-import { NavigationActions, StackActions } from 'react-navigation';
-import { connect } from 'react-redux';
-import { DismissButton } from '../components/DismissButton';
-import { MyText } from '../components/MyText';
-import { ProgressStepper } from '../components/ProgressStepper';
-import { ScrollingPageContainer } from '../components/ScrollingPageContainer';
-import { showTutorial } from '../redux/reducers/tutorial';
-import { COLOR_TERTIARY, COLOR_WHITE } from '../styles/common';
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { Button } from "react-native-elements";
+import { NavigationActions, StackActions } from "react-navigation";
+import { connect } from "react-redux";
+import { DismissButton } from "../components/DismissButton";
+import { MyText } from "../components/MyText";
+import { ProgressStepper } from "../components/ProgressStepper";
+import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
+import { showTutorial } from "../redux/reducers/tutorial";
+import { COLOR_TERTIARY, COLOR_WHITE } from "../styles/common";
 
 class TutorialConclusionScreen extends React.Component {
   pressNext() {
@@ -17,7 +17,7 @@ class TutorialConclusionScreen extends React.Component {
         index: 0,
         actions: [
           NavigationActions.navigate({
-            routeName: 'Tutorial',
+            routeName: "Tutorial",
             params: {}
           })
         ]
@@ -25,25 +25,16 @@ class TutorialConclusionScreen extends React.Component {
     );
 
     this.props.navigation.dispatch(NavigationActions.back());
-    this.props.navigation.navigate('Profile');
+    this.props.navigation.navigate("Profile");
   }
 
   render() {
     const { activeTask } = this.props;
     return (
       <ScrollingPageContainer style={{ backgroundColor: COLOR_TERTIARY }}>
-        <ProgressStepper
-          totalSteps={8}
-          stepNumber={8}
-          style={{ marginBottom: 0 }}
-        />
-        <View style={{ alignItems: 'flex-end', marginBottom: 20 }}>
-          <DismissButton
-            color={COLOR_WHITE}
-            {...this.props}
-            resetRoute="Tutorial"
-            underlayColor={COLOR_TERTIARY}
-          />
+        <ProgressStepper totalSteps={8} stepNumber={8} style={{ marginBottom: 0 }} />
+        <View style={{ alignItems: "flex-end", marginBottom: 20 }}>
+          <DismissButton color={COLOR_WHITE} {...this.props} resetRoute="Tutorial" underlayColor={COLOR_TERTIARY} />
         </View>
 
         <View style={styles.header}>
@@ -62,19 +53,21 @@ class TutorialConclusionScreen extends React.Component {
           style={{
             padding: 20,
             // flex: 2,
-            alignItems: 'center',
-            justifyContent: 'center'
+            alignItems: "center",
+            justifyContent: "center"
           }}
         >
           <Button
-            iconRight={{ name: 'keyboard-arrow-right', type: 'material' }}
+            iconRight={{ name: "keyboard-arrow-right", type: "material" }}
             onPress={() => this.pressNext()}
             title="Tutorial: Completed"
-            color={COLOR_WHITE}
+            titleStyle={{
+              color: COLOR_WHITE,
+              fontSize: 20
+            }}
             buttonStyle={{
               backgroundColor: COLOR_TERTIARY
             }}
-            large={true}
           />
         </View>
       </ScrollingPageContainer>
@@ -86,8 +79,8 @@ const styles = StyleSheet.create({
   header: {
     padding: 20,
     // flex: 5,
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start'
+    alignItems: "flex-start",
+    justifyContent: "flex-start"
   }
 });
 

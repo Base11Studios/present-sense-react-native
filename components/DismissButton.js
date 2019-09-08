@@ -1,9 +1,9 @@
-import React from 'react';
-import { Platform, TouchableOpacity, View } from 'react-native';
-import { Icon } from 'react-native-elements';
-import { NavigationActions, StackActions } from 'react-navigation';
-import Colors from '../constants/Colors';
-import { COLOR_BLACK, COLOR_WHITE } from '../styles/common';
+import React from "react";
+import { Platform, TouchableOpacity, View } from "react-native";
+import { Icon } from "react-native-elements";
+import { NavigationActions, StackActions } from "react-navigation";
+import Colors from "../constants/Colors";
+import { COLOR_BLACK, COLOR_WHITE } from "../styles/common";
 // TODO if iOS, wrap with touch hightlight, if android wrap with https://medium.com/differential/better-cross-platform-react-native-components-cb8aadeba472
 
 export class DismissButton extends React.Component {
@@ -40,26 +40,12 @@ export class DismissButton extends React.Component {
           }}
         >
           <Icon
-            name={Platform.OS === 'ios' ? 'ios-close' : 'md-close'}
-            size={Platform.OS === 'ios' ? 35 : 24}
-            color={
-              !!this.props.color
-                ? this.props.color
-                : Platform.OS === 'ios'
-                ? Colors.tintColor
-                : COLOR_BLACK
-            }
+            name={Platform.OS === "ios" ? "ios-close" : "md-close"}
+            size={Platform.OS === "ios" ? 35 : 24}
+            color={!!this.props.color ? this.props.color : Platform.OS === "ios" ? Colors.tintColor : COLOR_BLACK}
             type="ionicon"
-            containerStyle={
-              Platform.OS === 'ios'
-                ? { marginTop: -10, width: 25, marginLeft: -18 }
-                : { width: 25, marginLeft: -20 }
-            }
-            underlayColor={
-              !!this.props.underlayColor
-                ? this.props.underlayColor
-                : COLOR_WHITE
-            }
+            containerStyle={Platform.OS === "ios" ? { marginTop: -10, width: 25, marginLeft: -18 } : { width: 25, marginLeft: -20 }}
+            underlayColor={!!this.props.underlayColor ? this.props.underlayColor : COLOR_WHITE}
           />
         </View>
       </TouchableOpacity>

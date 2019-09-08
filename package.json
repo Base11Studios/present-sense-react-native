@@ -22,7 +22,7 @@
     "react-native": "0.60.5",
     "react-native-background-timer": "^2.1.1",
     "react-native-collapsible": "^1.4.0",
-    "react-native-elements": "^0.19.1",
+    "react-native-elements": "1.2.x",
     "react-native-gesture-handler": "^1.4.1",
     "react-native-iap": "^3.3.2",
     "react-native-keyboard-aware-scroll-view": "^0.9.1",

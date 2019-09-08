@@ -15,11 +15,7 @@ export default class IntroOverviewScreen extends React.Component {
   render() {
     return (
       <ScrollingPageContainer style={{ backgroundColor: COLOR_PRIMARY }}>
-        <ProgressStepper
-          totalSteps={6}
-          stepNumber={2}
-          style={{ marginBottom: 0 }}
-        />
+        <ProgressStepper totalSteps={6} stepNumber={2} style={{ marginBottom: 0 }} />
         <View
           style={{
             justifyContent: "flex-start",
@@ -27,11 +23,7 @@ export default class IntroOverviewScreen extends React.Component {
             marginBottom: 20
           }}
         >
-          <BackButton
-            {...this.props}
-            color={COLOR_WHITE}
-            underlayColor={COLOR_PRIMARY}
-          />
+          <BackButton {...this.props} color={COLOR_WHITE} underlayColor={COLOR_PRIMARY} />
         </View>
         <View style={styles.header}>
           <MyText
@@ -42,8 +34,7 @@ export default class IntroOverviewScreen extends React.Component {
               fontSize: 20
             }}
           >
-            Present Sense teaches Mindfulness: the ability to be aware of where
-            we are and what we're doing in the present moment.
+            Present Sense teaches Mindfulness: the ability to be aware of where we are and what we're doing in the present moment.
           </MyText>
         </View>
         <View
@@ -58,11 +49,13 @@ export default class IntroOverviewScreen extends React.Component {
             iconRight={{ name: "keyboard-arrow-right", type: "material" }}
             onPress={() => this.pressNext()}
             title="Continue"
-            color={COLOR_WHITE}
+            titleStyle={{
+              color: COLOR_WHITE,
+              fontSize: 20
+            }}
             buttonStyle={{
               backgroundColor: COLOR_PRIMARY
             }}
-            large={true}
           />
         </View>
       </ScrollingPageContainer>

@@ -15,11 +15,7 @@ export default class IntroActivityScreen extends React.Component {
   render() {
     return (
       <ScrollingPageContainer style={{ backgroundColor: COLOR_PRIMARY }}>
-        <ProgressStepper
-          totalSteps={6}
-          stepNumber={3}
-          style={{ marginBottom: 0 }}
-        />
+        <ProgressStepper totalSteps={6} stepNumber={3} style={{ marginBottom: 0 }} />
         <View
           style={{
             justifyContent: "flex-start",
@@ -27,11 +23,7 @@ export default class IntroActivityScreen extends React.Component {
             marginBottom: 20
           }}
         >
-          <BackButton
-            {...this.props}
-            color={COLOR_WHITE}
-            underlayColor={COLOR_PRIMARY}
-          />
+          <BackButton {...this.props} color={COLOR_WHITE} underlayColor={COLOR_PRIMARY} />
         </View>
         <View
           style={{
@@ -59,9 +51,8 @@ export default class IntroActivityScreen extends React.Component {
               fontSize: 20
             }}
           >
-            Let's practice mindfulness by taking 6 deep breaths through your
-            nose. Focus on feeling the sensations in your nostrils as the air
-            moves in and out.
+            Let's practice mindfulness by taking 6 deep breaths through your nose. Focus on feeling the sensations in your nostrils as the
+            air moves in and out.
           </MyText>
         </View>
         <View
@@ -76,11 +67,13 @@ export default class IntroActivityScreen extends React.Component {
             iconRight={{ name: "keyboard-arrow-right", type: "material" }}
             onPress={() => this.pressNext()}
             title="6 Breaths: Taken"
-            color={COLOR_WHITE}
+            titleStyle={{
+              color: COLOR_WHITE,
+              fontSize: 20
+            }}
             buttonStyle={{
               backgroundColor: COLOR_PRIMARY
             }}
-            large={true}
           />
         </View>
       </ScrollingPageContainer>

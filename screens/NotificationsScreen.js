@@ -1,15 +1,12 @@
 import React from "react";
 import Moment from "react-moment"; // TODO tz support
-import { Alert, SectionList, Linking, Platform, StyleSheet, Switch, Text, TouchableOpacity, View } from "react-native";
+import { Alert, Platform, SectionList, StyleSheet, Switch, Text, TouchableOpacity, View } from "react-native";
 import { Icon, ListItem } from "react-native-elements";
 import DateTimePicker from "react-native-modal-datetime-picker";
 import PushNotification from "react-native-push-notification";
 import { connect } from "react-redux";
-import { PURGE } from "redux-persist";
 import { PageContainer } from "../components/PageContainer";
 import { updateNotifications, updateNotificationSounds } from "../redux/reducers/notification";
-import { updateTasks } from "../redux/reducers/tasks";
-import { COLOR_TERTIARY, COLOR_WHITE } from "../styles/common";
 
 class NotificationsScreen extends React.Component {
   state = {
@@ -258,7 +255,7 @@ class NotificationsScreen extends React.Component {
       key: "1",
       view: (
         <ListItem
-          hideChevron={true}
+          chevron={false}
           title={
             <View style={styles.reminderContainer}>
               <TouchableOpacity
@@ -282,7 +279,7 @@ class NotificationsScreen extends React.Component {
               </View>
             </View>
           }
-          avatar={<Icon type="material" name="notifications-none" size={24} />}
+          leftAvatar={<Icon type="material" name="notifications-none" size={24} />}
         />
       )
     };
@@ -291,7 +288,7 @@ class NotificationsScreen extends React.Component {
       key: "2",
       view: (
         <ListItem
-          hideChevron={true}
+          chevron={false}
           title={
             <View style={styles.reminderContainer}>
               <TouchableOpacity
@@ -315,7 +312,7 @@ class NotificationsScreen extends React.Component {
               </View>
             </View>
           }
-          avatar={<Icon type="material" name="notifications-none" size={24} />}
+          leftAvatar={<Icon type="material" name="notifications-none" size={24} />}
         />
       )
     };
@@ -324,7 +321,7 @@ class NotificationsScreen extends React.Component {
       key: "3",
       view: (
         <ListItem
-          hideChevron={true}
+          chevron={false}
           title={
             <View style={styles.reminderContainer}>
               <TouchableOpacity
@@ -348,7 +345,7 @@ class NotificationsScreen extends React.Component {
               </View>
             </View>
           }
-          avatar={<Icon type="material" name="notifications-none" size={24} />}
+          leftAvatar={<Icon type="material" name="notifications-none" size={24} />}
         />
       )
     };
@@ -357,7 +354,7 @@ class NotificationsScreen extends React.Component {
       key: "9",
       view: (
         <ListItem
-          hideChevron={true}
+          chevron={false}
           title={
             <View style={styles.reminderContainer}>
               <TouchableOpacity
@@ -381,7 +378,7 @@ class NotificationsScreen extends React.Component {
               </View>
             </View>
           }
-          avatar={<Icon type="material" name="notifications-none" size={24} />}
+          leftAvatar={<Icon type="material" name="notifications-none" size={24} />}
         />
       )
     };
@@ -397,7 +394,7 @@ class NotificationsScreen extends React.Component {
       key: "10",
       view: (
         <ListItem
-          hideChevron={true}
+          chevron={false}
           title={
             <View style={styles.reminderContainer}>
               <View style={styles.reminderTimeContainer}>
@@ -415,7 +412,7 @@ class NotificationsScreen extends React.Component {
               </View>
             </View>
           }
-          avatar={<Icon type="material" name="notifications-none" size={24} />}
+          leftAvatar={<Icon type="material" name="notifications-none" size={24} />}
         />
       )
     };

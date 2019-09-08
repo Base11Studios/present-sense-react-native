@@ -41,9 +41,8 @@ class IntroConclusionScreen extends React.Component {
               fontSize: 20
             }}
           >
-            You just completed your first Mindful Experience! Do a few everyday
-            to bring mindfulness into your life and experience every moment life
-            can offer.
+            You just completed your first Mindful Experience! Do a few everyday to bring mindfulness into your life and experience every
+            moment life can offer.
           </MyText>
         </View>
         <View
@@ -58,11 +57,13 @@ class IntroConclusionScreen extends React.Component {
             iconRight={{ name: "keyboard-arrow-right", type: "material" }}
             onPress={() => this.pressNext()}
             title="Experience: Completed"
-            color={COLOR_WHITE}
+            titleStyle={{
+              color: COLOR_WHITE,
+              fontSize: 20
+            }}
             buttonStyle={{
               backgroundColor: COLOR_PRIMARY
             }}
-            large={true}
           />
         </View>
       </ScrollingPageContainer>

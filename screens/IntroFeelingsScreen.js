@@ -1,41 +1,21 @@
-import { withFormik } from 'formik';
-import { default as React } from 'react';
-import {
-  Keyboard,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View
-} from 'react-native';
-import { Button } from 'react-native-elements';
-import { connect } from 'react-redux';
-import Yup from 'yup';
-import { AutoExpandingTextInput } from '../components/AutoExpandingTextInput';
-import { BackButton } from '../components/BackButton';
-import { ErrorText } from '../components/ErrorText';
-import { KeyboardAwareScrollingPageContainer } from '../components/KeyboardAwareScrollingPageContainer';
-import { MyText } from '../components/MyText';
-import { ProgressStepper } from '../components/ProgressStepper';
-import { completeTask } from '../redux/reducers/tasks';
-import {
-  COLOR_BLACK,
-  COLOR_LIGHT_GREY,
-  COLOR_PRIMARY,
-  COLOR_WHITE
-} from '../styles/common';
+import { withFormik } from "formik";
+import { default as React } from "react";
+import { Keyboard, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
+import { Button } from "react-native-elements";
+import { connect } from "react-redux";
+import Yup from "yup";
+import { AutoExpandingTextInput } from "../components/AutoExpandingTextInput";
+import { BackButton } from "../components/BackButton";
+import { ErrorText } from "../components/ErrorText";
+import { KeyboardAwareScrollingPageContainer } from "../components/KeyboardAwareScrollingPageContainer";
+import { MyText } from "../components/MyText";
+import { ProgressStepper } from "../components/ProgressStepper";
+import { completeTask } from "../redux/reducers/tasks";
+import { COLOR_BLACK, COLOR_LIGHT_GREY, COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
 
 // Our inner form component. Will be wrapped with Formik({..})
 const InnerCompleteTaskForm = props => {
-  const {
-    values,
-    touched,
-    errors,
-    dirty,
-    isSubmitting,
-    handleChange,
-    handleBlur,
-    handleSubmit,
-    handleReset
-  } = props;
+  const { values, touched, errors, dirty, isSubmitting, handleChange, handleBlur, handleSubmit, handleReset } = props;
   const { task } = props;
 
   const feelErrors =
@@ -49,33 +29,23 @@ const InnerCompleteTaskForm = props => {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <KeyboardAwareScrollingPageContainer
-        style={{ backgroundColor: COLOR_PRIMARY }}
-      >
-        <ProgressStepper
-          totalSteps={6}
-          stepNumber={5}
-          style={{ marginBottom: 0 }}
-        />
+      <KeyboardAwareScrollingPageContainer style={{ backgroundColor: COLOR_PRIMARY }}>
+        <ProgressStepper totalSteps={6} stepNumber={5} style={{ marginBottom: 0 }} />
         <View
           style={{
-            justifyContent: 'flex-start',
-            flexDirection: 'row',
+            justifyContent: "flex-start",
+            flexDirection: "row",
             marginBottom: 10
           }}
         >
-          <BackButton
-            {...props}
-            color={COLOR_WHITE}
-            underlayColor={COLOR_PRIMARY}
-          />
+          <BackButton {...props} color={COLOR_WHITE} underlayColor={COLOR_PRIMARY} />
         </View>
         <View
           style={{
             padding: 20,
             // flex: 2,
-            alignItems: 'flex-start',
-            justifyContent: 'flex-start'
+            alignItems: "flex-start",
+            justifyContent: "flex-start"
           }}
         >
           <MyText
@@ -86,8 +56,7 @@ const InnerCompleteTaskForm = props => {
               fontSize: 20
             }}
           >
-            Awesome! It's important to be aware of your thoughts, feelings, and
-            body. Close your eyes and briefly scan from head to toe.
+            Awesome! It's important to be aware of your thoughts, feelings, and body. Close your eyes and briefly scan from head to toe.
           </MyText>
         </View>
         <View style={[styles.header]}>
@@ -103,12 +72,12 @@ const InnerCompleteTaskForm = props => {
             </MyText>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center'
+                flexDirection: "row",
+                alignItems: "center"
               }}
             >
               <AutoExpandingTextInput
-                onChangeText={text => props.setFieldValue('feel', text)}
+                onChangeText={text => props.setFieldValue("feel", text)}
                 value={props.values.feel}
                 style={{
                   borderColor: COLOR_WHITE,
@@ -125,7 +94,6 @@ const InnerCompleteTaskForm = props => {
                   flex: 1
                 }}
                 title="NEXT"
-                color={COLOR_WHITE}
                 buttonStyle={{
                   marginLeft: 0,
                   marginRight: 0,
@@ -133,14 +101,16 @@ const InnerCompleteTaskForm = props => {
                   paddingRight: 0,
                   backgroundColor: COLOR_PRIMARY
                 }}
-                fontSize={14}
-                containerViewStyle={{
+                titleStyle={{
+                  fontSize: 14,
+                  color: COLOR_WHITE
+                }}
+                containerStyle={{
                   marginLeft: 0,
                   marginRight: 0,
                   paddingLeft: 0,
                   paddingRight: 0
                 }}
-                large={false}
                 onPress={props.handleSubmit}
               />
             </View>
@@ -151,8 +121,8 @@ const InnerCompleteTaskForm = props => {
           style={{
             padding: 20,
             // flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center'
+            alignItems: "center",
+            justifyContent: "center"
           }}
         />
         {/* </KeyboardAvoidingView> */}
@@ -162,9 +132,9 @@ const InnerCompleteTaskForm = props => {
 };
 
 const CompleteTaskForm = withFormik({
-  mapPropsToValues: () => ({ feel: '' }),
+  mapPropsToValues: () => ({ feel: "" }),
   validationSchema: Yup.object().shape({
-    feel: Yup.string().required('Response is required!')
+    feel: Yup.string().required("Response is required!")
   }),
   handleSubmit: (values, { props, setSubmitting }) => {
     let completed = { ...props.navigation.state.params.result };
@@ -172,9 +142,9 @@ const CompleteTaskForm = withFormik({
     completed.hideToast = true;
 
     props.completeTask(completed);
-    props.navigation.navigate('IntroConclusion');
+    props.navigation.navigate("IntroConclusion");
   },
-  displayName: 'FeelForm' // helps with React DevTools
+  displayName: "FeelForm" // helps with React DevTools
 })(InnerCompleteTaskForm);
 
 class IntroFeelingsScreen extends React.Component {
@@ -196,7 +166,7 @@ function mapStateToProps(state) {
   let breathTask;
   state.tasks.tasks.forEach(task => {
     // Tutorial 6 breaths ID
-    if (task.id === '44') {
+    if (task.id === "44") {
       breathTask = task;
     }
   });

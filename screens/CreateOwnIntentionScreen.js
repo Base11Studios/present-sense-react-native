@@ -1,41 +1,21 @@
-import { withFormik } from 'formik';
-import { default as React } from 'react';
-import {
-  Keyboard,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View
-} from 'react-native';
-import { Button } from 'react-native-elements';
-import { connect } from 'react-redux';
-import Yup from 'yup';
-import { AutoExpandingTextInput } from '../components/AutoExpandingTextInput';
-import { BackButton } from '../components/BackButton';
-import { DismissButton } from '../components/DismissButton';
-import { ErrorText } from '../components/ErrorText';
-import { KeyboardAwareScrollingPageContainer } from '../components/KeyboardAwareScrollingPageContainer';
-import { MyText } from '../components/MyText';
-import { setDailyIntention } from '../redux/reducers/tasks';
-import {
-  COLOR_BLACK,
-  COLOR_LIGHT_GREY,
-  COLOR_PRIMARY,
-  COLOR_WHITE
-} from '../styles/common';
+import { withFormik } from "formik";
+import { default as React } from "react";
+import { Keyboard, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
+import { Button } from "react-native-elements";
+import { connect } from "react-redux";
+import Yup from "yup";
+import { AutoExpandingTextInput } from "../components/AutoExpandingTextInput";
+import { BackButton } from "../components/BackButton";
+import { DismissButton } from "../components/DismissButton";
+import { ErrorText } from "../components/ErrorText";
+import { KeyboardAwareScrollingPageContainer } from "../components/KeyboardAwareScrollingPageContainer";
+import { MyText } from "../components/MyText";
+import { setDailyIntention } from "../redux/reducers/tasks";
+import { COLOR_BLACK, COLOR_LIGHT_GREY, COLOR_PRIMARY, COLOR_WHITE } from "../styles/common";
 
 // Our inner form component. Will be wrapped with Formik({..})
 const InnerCreateIntentionForm = props => {
-  const {
-    values,
-    touched,
-    errors,
-    dirty,
-    isSubmitting,
-    handleChange,
-    handleBlur,
-    handleSubmit,
-    handleReset
-  } = props;
+  const { values, touched, errors, dirty, isSubmitting, handleChange, handleBlur, handleSubmit, handleReset } = props;
   const { task } = props;
 
   const intentionErrors =
@@ -48,23 +28,17 @@ const InnerCreateIntentionForm = props => {
   state = { promptInputHeight: 20, intentionInputHeight: 20 };
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <KeyboardAwareScrollingPageContainer
-        style={{ backgroundColor: COLOR_PRIMARY }}
-      >
+      <KeyboardAwareScrollingPageContainer style={{ backgroundColor: COLOR_PRIMARY }}>
         <View
           style={{
-            justifyContent: 'space-between',
-            flexDirection: 'row',
+            justifyContent: "space-between",
+            flexDirection: "row",
             marginBottom: 20,
             marginTop: 12
           }}
         >
           <View>
-            <BackButton
-              {...props}
-              color={COLOR_WHITE}
-              underlayColor={COLOR_PRIMARY}
-            />
+            <BackButton {...props} color={COLOR_WHITE} underlayColor={COLOR_PRIMARY} />
           </View>
           <View>
             <DismissButton
@@ -79,8 +53,8 @@ const InnerCreateIntentionForm = props => {
           style={{
             padding: 20,
             // flex: 2,
-            alignItems: 'flex-start',
-            justifyContent: 'flex-start'
+            alignItems: "flex-start",
+            justifyContent: "flex-start"
           }}
         >
           <MyText
@@ -91,8 +65,7 @@ const InnerCreateIntentionForm = props => {
               fontSize: 20
             }}
           >
-            Create your intention. Be purposeful and be positive. Try starting
-            with "I will", "Be", "Do", or choose your own start.
+            Create your intention. Be purposeful and be positive. Try starting with "I will", "Be", "Do", or choose your own start.
           </MyText>
         </View>
         <View style={[styles.header]}>
@@ -108,12 +81,12 @@ const InnerCreateIntentionForm = props => {
             </MyText>
             <View
               style={{
-                flexDirection: 'row',
-                alignItems: 'center'
+                flexDirection: "row",
+                alignItems: "center"
               }}
             >
               <AutoExpandingTextInput
-                onChangeText={text => props.setFieldValue('intention', text)}
+                onChangeText={text => props.setFieldValue("intention", text)}
                 value={props.values.intention}
                 style={{
                   borderColor: COLOR_WHITE,
@@ -130,7 +103,10 @@ const InnerCreateIntentionForm = props => {
                   flex: 1
                 }}
                 title="NEXT"
-                color={COLOR_WHITE}
+                titleStyle={{
+                  fontSize: 14,
+                  color: COLOR_WHITE
+                }}
                 buttonStyle={{
                   marginLeft: 0,
                   marginRight: 0,
@@ -138,14 +114,12 @@ const InnerCreateIntentionForm = props => {
                   paddingRight: 0,
                   backgroundColor: COLOR_PRIMARY
                 }}
-                fontSize={14}
-                containerViewStyle={{
+                containerStyle={{
                   marginLeft: 0,
                   marginRight: 0,
                   paddingLeft: 0,
                   paddingRight: 0
                 }}
-                large={false}
                 onPress={props.handleSubmit}
               />
             </View>
@@ -156,8 +130,8 @@ const InnerCreateIntentionForm = props => {
           style={{
             padding: 20,
             // flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center'
+            alignItems: "center",
+            justifyContent: "center"
           }}
         />
       </KeyboardAwareScrollingPageContainer>
@@ -166,15 +140,15 @@ const InnerCreateIntentionForm = props => {
 };
 
 const CreateIntentionForm = withFormik({
-  mapPropsToValues: () => ({ intention: '' }),
+  mapPropsToValues: () => ({ intention: "" }),
   validationSchema: Yup.object().shape({
-    intention: Yup.string().required('Response is required!')
+    intention: Yup.string().required("Response is required!")
   }),
   handleSubmit: (values, { props, setSubmitting }) => {
     props.setDailyIntention(values.intention);
-    props.navigation.navigate('Home');
+    props.navigation.navigate("Home");
   },
-  displayName: 'DailyIntentionForm' // helps with React DevTools
+  displayName: "DailyIntentionForm" // helps with React DevTools
 })(InnerCreateIntentionForm);
 
 class CreateOwnIntentionScreen extends React.Component {

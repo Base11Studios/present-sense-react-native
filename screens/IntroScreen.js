@@ -23,10 +23,7 @@ export default class IntroScreen extends React.Component {
             justifyContent: "center"
           }}
         >
-          <Image
-            style={{ width: 90, height: 90 }}
-            source={require("../assets/images/icon.png")}
-          />
+          <Image style={{ width: 90, height: 90 }} source={require("../assets/images/icon.png")} />
         </View>
 
         <View style={styles.header}>
@@ -38,8 +35,7 @@ export default class IntroScreen extends React.Component {
               fontSize: 20
             }}
           >
-            Welcome to Present Sense. An app that teaches you to experience the
-            joy in everyday moments. Let's make you: present.
+            Welcome to Present Sense. An app that teaches you to experience the joy in everyday moments. Let's make you: present.
           </MyText>
         </View>
         <View
@@ -54,11 +50,13 @@ export default class IntroScreen extends React.Component {
             iconRight={{ name: "keyboard-arrow-right", type: "material" }}
             onPress={() => this.pressNext()}
             title="Start Tutorial"
-            color={COLOR_WHITE}
+            titleStyle={{
+              color: COLOR_WHITE,
+              fontSize: 20
+            }}
             buttonStyle={{
               backgroundColor: COLOR_PRIMARY
             }}
-            large={true}
           />
         </View>
       </ScrollingPageContainer>

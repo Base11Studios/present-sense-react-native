@@ -1,57 +1,44 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Button } from 'react-native-elements';
-import { connect } from 'react-redux';
-import { BackButton } from '../components/BackButton';
-import { DismissButton } from '../components/DismissButton';
-import { MyText } from '../components/MyText';
-import { ProgressStepper } from '../components/ProgressStepper';
-import { ScrollingPageContainer } from '../components/ScrollingPageContainer';
-import { COLOR_TERTIARY, COLOR_WHITE } from '../styles/common';
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { Button } from "react-native-elements";
+import { connect } from "react-redux";
+import { BackButton } from "../components/BackButton";
+import { DismissButton } from "../components/DismissButton";
+import { MyText } from "../components/MyText";
+import { ProgressStepper } from "../components/ProgressStepper";
+import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
+import { COLOR_TERTIARY, COLOR_WHITE } from "../styles/common";
 
 class TutorialActivityScreen extends React.Component {
   pressNext() {
-    this.props.navigation.navigate('TutorialObservations');
+    this.props.navigation.navigate("TutorialObservations");
   }
 
   render() {
     const { activeTask } = this.props;
     return (
       <ScrollingPageContainer style={{ backgroundColor: COLOR_TERTIARY }}>
-        <ProgressStepper
-          totalSteps={8}
-          stepNumber={5}
-          style={{ marginBottom: 0 }}
-        />
+        <ProgressStepper totalSteps={8} stepNumber={5} style={{ marginBottom: 0 }} />
         <View
           style={{
-            justifyContent: 'space-between',
-            flexDirection: 'row',
+            justifyContent: "space-between",
+            flexDirection: "row",
             marginBottom: 20
           }}
         >
           <View>
-            <BackButton
-              {...this.props}
-              color={COLOR_WHITE}
-              underlayColor={COLOR_TERTIARY}
-            />
+            <BackButton {...this.props} color={COLOR_WHITE} underlayColor={COLOR_TERTIARY} />
           </View>
           <View>
-            <DismissButton
-              color={COLOR_WHITE}
-              {...this.props}
-              resetRoute="DoTask"
-              underlayColor={COLOR_TERTIARY}
-            />
+            <DismissButton color={COLOR_WHITE} {...this.props} resetRoute="DoTask" underlayColor={COLOR_TERTIARY} />
           </View>
         </View>
         <View
           style={{
             padding: 20,
             // flex: 1,
-            alignItems: 'flex-start',
-            justifyContent: 'flex-start'
+            alignItems: "flex-start",
+            justifyContent: "flex-start"
           }}
         >
           <MyText
@@ -79,19 +66,21 @@ class TutorialActivityScreen extends React.Component {
           style={{
             padding: 20,
             // flex: 2,
-            alignItems: 'center',
-            justifyContent: 'center'
+            alignItems: "center",
+            justifyContent: "center"
           }}
         >
           <Button
-            iconRight={{ name: 'keyboard-arrow-right', type: 'material' }}
+            iconRight={{ name: "keyboard-arrow-right", type: "material" }}
             onPress={() => this.pressNext()}
             title="Experience: Done"
-            color={COLOR_WHITE}
+            titleStyle={{
+              color: COLOR_WHITE,
+              fontSize: 20
+            }}
             buttonStyle={{
               backgroundColor: COLOR_TERTIARY
             }}
-            large={true}
           />
         </View>
       </ScrollingPageContainer>
@@ -103,8 +92,8 @@ const styles = StyleSheet.create({
   header: {
     padding: 20,
     // flex: 1,
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start'
+    alignItems: "flex-start",
+    justifyContent: "flex-start"
   }
 });
 

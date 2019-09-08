@@ -1,50 +1,45 @@
-import React from 'react';
-import { Animated, Easing, Platform } from 'react-native';
-import { Icon } from 'react-native-elements';
-import { createBottomTabNavigator, StackNavigator } from 'react-navigation';
-import { BackButton } from '../components/BackButton';
-import { SettingsButton } from '../components/SettingsButton';
-import CompletedTasksScreen from '../screens/CompletedTasksScreen';
-import CreateOwnIntentionScreen from '../screens/CreateOwnIntentionScreen';
-import CreditsScreen from '../screens/CreditsScreen';
-import FAQScreen from '../screens/FAQScreen';
-import HomeScreen from '../screens/HomeScreen';
-import InspireScreen from '../screens/InspireScreen';
-import IntroActivityScreen from '../screens/IntroActivityScreen';
-import IntroConclusionScreen from '../screens/IntroConclusionScreen';
-import IntroFeelingsScreen from '../screens/IntroFeelingsScreen';
-import IntroObservationsScreen from '../screens/IntroObservationsScreen';
-import IntroOverviewScreen from '../screens/IntroOverviewScreen';
-import IntroScreen from '../screens/IntroScreen';
-import ListTasksScreen from '../screens/ListTasksScreen';
-import PrivacyPolicyScreen from '../screens/PrivacyPolicyScreen';
-import SetIntentionScreen from '../screens/SetIntentionScreen';
-import SettingsScreen from '../screens/SettingsScreen';
-import SubscriptionScreen from '../screens/SubscriptionScreen';
-import TaskFeelingsScreen from '../screens/TaskFeelingsScreen';
-import TaskHelpScreen from '../screens/TaskHelpScreen';
-import TaskObservationsScreen from '../screens/TaskObservationsScreen';
-import TaskOverviewScreen from '../screens/TaskOverviewScreen';
-import TermsAndConditions from '../screens/TermsAndConditions';
-import TutorialActivityScreen from '../screens/TutorialActivityScreen';
-import TutorialConclusionScreen from '../screens/TutorialConclusionScreen';
-import TutorialFeelingsScreen from '../screens/TutorialFeelingsScreen';
-import TutorialHelperScreen from '../screens/TutorialHelperScreen';
-import TutorialObservationsScreen from '../screens/TutorialObservationsScreen';
-import {
-  COLOR_BLACK,
-  COLOR_PRIMARY,
-  COLOR_SECONDARY,
-  COLOR_WHITE
-} from '../styles/common';
-import NotificationsScreen from '../screens/NotificationsScreen';
+import React from "react";
+import { Animated, Easing, Platform } from "react-native";
+import { Icon } from "react-native-elements";
+import { createBottomTabNavigator, StackNavigator } from "react-navigation";
+import { BackButton } from "../components/BackButton";
+import { SettingsButton } from "../components/SettingsButton";
+import CompletedTasksScreen from "../screens/CompletedTasksScreen";
+import CreateOwnIntentionScreen from "../screens/CreateOwnIntentionScreen";
+import CreditsScreen from "../screens/CreditsScreen";
+import FAQScreen from "../screens/FAQScreen";
+import HomeScreen from "../screens/HomeScreen";
+import InspireScreen from "../screens/InspireScreen";
+import IntroActivityScreen from "../screens/IntroActivityScreen";
+import IntroConclusionScreen from "../screens/IntroConclusionScreen";
+import IntroFeelingsScreen from "../screens/IntroFeelingsScreen";
+import IntroObservationsScreen from "../screens/IntroObservationsScreen";
+import IntroOverviewScreen from "../screens/IntroOverviewScreen";
+import IntroScreen from "../screens/IntroScreen";
+import ListTasksScreen from "../screens/ListTasksScreen";
+import NotificationsScreen from "../screens/NotificationsScreen";
+import PrivacyPolicyScreen from "../screens/PrivacyPolicyScreen";
+import SetIntentionScreen from "../screens/SetIntentionScreen";
+import SettingsScreen from "../screens/SettingsScreen";
+import SubscriptionScreen from "../screens/SubscriptionScreen";
+import TaskFeelingsScreen from "../screens/TaskFeelingsScreen";
+import TaskHelpScreen from "../screens/TaskHelpScreen";
+import TaskObservationsScreen from "../screens/TaskObservationsScreen";
+import TaskOverviewScreen from "../screens/TaskOverviewScreen";
+import TermsAndConditions from "../screens/TermsAndConditions";
+import TutorialActivityScreen from "../screens/TutorialActivityScreen";
+import TutorialConclusionScreen from "../screens/TutorialConclusionScreen";
+import TutorialFeelingsScreen from "../screens/TutorialFeelingsScreen";
+import TutorialHelperScreen from "../screens/TutorialHelperScreen";
+import TutorialObservationsScreen from "../screens/TutorialObservationsScreen";
+import { COLOR_BLACK, COLOR_PRIMARY, COLOR_SECONDARY, COLOR_WHITE } from "../styles/common";
 
 export const ViewTaskNavigator = StackNavigator({
   TaskOverview: {
     screen: TaskOverviewScreen,
     navigationOptions: props => ({
-      title: 'Be Mindful',
-      headerMode: 'float',
+      title: "Be Mindful",
+      headerMode: "float",
       headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
@@ -58,7 +53,7 @@ export const PrivacyNavigator = StackNavigator({
   SettingsPrivacy: {
     screen: PrivacyPolicyScreen,
     navigationOptions: props => ({
-      title: 'Privacy Policy',
+      title: "Privacy Policy",
       headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
@@ -72,7 +67,7 @@ export const DailyIntentionNavigator = StackNavigator({
   DailyIntention: {
     screen: SetIntentionScreen,
     navigationOptions: props => ({
-      title: 'Set a Daily Intention',
+      title: "Set a Daily Intention",
       headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
@@ -87,7 +82,7 @@ export const SetDailyIntentionNavigator = StackNavigator(
     CustomDailyIntention: {
       screen: CreateOwnIntentionScreen,
       navigationOptions: props => ({
-        title: 'Create Intention',
+        title: "Create Intention",
         headerLeft: <BackButton {...props} />,
         headerTintColor: COLOR_BLACK,
         headerStyle: {
@@ -97,7 +92,7 @@ export const SetDailyIntentionNavigator = StackNavigator(
     }
   },
   {
-    headerMode: 'none',
+    headerMode: "none",
     modal: true,
     transitionConfig: () => ({
       transitionSpec: {
@@ -113,7 +108,7 @@ export const TermsNavigator = StackNavigator({
   SettingsTerms: {
     screen: TermsAndConditions,
     navigationOptions: props => ({
-      title: 'T & C',
+      title: "T & C",
       headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
@@ -128,7 +123,7 @@ export const DoTaskNavigator = StackNavigator(
     TaskObservations: {
       screen: TaskObservationsScreen,
       navigationOptions: props => ({
-        title: 'Journal Observations',
+        title: "Journal Observations",
         headerTintColor: COLOR_BLACK,
         headerStyle: {
           backgroundColor: COLOR_WHITE
@@ -138,7 +133,7 @@ export const DoTaskNavigator = StackNavigator(
     TaskFeelings: {
       screen: TaskFeelingsScreen,
       navigationOptions: props => ({
-        title: 'Journal Feelings',
+        title: "Journal Feelings",
         headerLeft: <BackButton {...props} />,
         headerTintColor: COLOR_BLACK,
         headerStyle: {
@@ -148,7 +143,7 @@ export const DoTaskNavigator = StackNavigator(
     }
   },
   {
-    headerMode: 'none',
+    headerMode: "none",
     modal: true,
     transitionConfig: () => ({
       transitionSpec: {
@@ -164,7 +159,7 @@ export const SubscribeNavigator = StackNavigator({
   Subscribe: {
     screen: SubscriptionScreen,
     navigationOptions: props => ({
-      title: 'Subscribe',
+      title: "Subscribe",
       headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
@@ -175,7 +170,7 @@ export const SubscribeNavigator = StackNavigator({
   Privacy: {
     screen: PrivacyPolicyScreen,
     navigationOptions: props => ({
-      title: 'Privacy Policy',
+      title: "Privacy Policy",
       headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
@@ -186,7 +181,7 @@ export const SubscribeNavigator = StackNavigator({
   Terms: {
     screen: TermsAndConditions,
     navigationOptions: props => ({
-      title: 'T & C',
+      title: "T & C",
       headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
@@ -273,7 +268,7 @@ export const TutorialNavigator = StackNavigator(
   },
   {
     header: null,
-    headerMode: 'none',
+    headerMode: "none",
     modal: true,
     transitionConfig: () => ({
       transitionSpec: {
@@ -354,7 +349,7 @@ export const IntroNavigator = StackNavigator(
   },
   {
     header: null,
-    headerMode: 'none',
+    headerMode: "none",
     modal: false
   }
 );
@@ -363,7 +358,7 @@ export const CreditsNavigator = StackNavigator({
   Credits: {
     screen: CreditsScreen,
     navigationOptions: props => ({
-      title: 'Credits',
+      title: "Credits",
       headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
@@ -377,7 +372,7 @@ export const TaskHelpNavigator = StackNavigator({
   TaskHelp: {
     screen: TaskHelpScreen,
     navigationOptions: props => ({
-      title: 'Mindfulness Help',
+      title: "Mindfulness Help",
       headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
@@ -391,7 +386,7 @@ export const FAQNavigator = StackNavigator({
   FAQ: {
     screen: FAQScreen,
     navigationOptions: props => ({
-      title: 'FAQ',
+      title: "FAQ",
       headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
@@ -405,7 +400,7 @@ export const NotificationsNavigator = StackNavigator({
   FAQ: {
     screen: NotificationsScreen,
     navigationOptions: props => ({
-      title: 'Notifications',
+      title: "Notifications",
       headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
@@ -498,17 +493,17 @@ export const TabNavigator = createBottomTabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         switch (routeName) {
-          case 'Home':
-            iconName = Platform.OS === 'ios' ? `ios-home` : 'md-home';
+          case "Home":
+            iconName = Platform.OS === "ios" ? `ios-home` : "md-home";
             break;
-          case 'Search':
-            iconName = Platform.OS === 'ios' ? `ios-search` : 'md-search';
+          case "Search":
+            iconName = Platform.OS === "ios" ? `ios-search` : "md-search";
             break;
-          case 'Inspire':
-            iconName = Platform.OS === 'ios' ? `ios-bulb` : 'md-bulb';
+          case "Inspire":
+            iconName = Platform.OS === "ios" ? `ios-bulb` : "md-bulb";
             break;
-          case 'Profile':
-            iconName = Platform.OS === 'ios' ? 'ios-person' : 'md-person';
+          case "Profile":
+            iconName = Platform.OS === "ios" ? "ios-person" : "md-person";
             break;
         }
         return (
@@ -523,7 +518,7 @@ export const TabNavigator = createBottomTabNavigator(
       },
       tabBarOptions: {
         activeTintColor: COLOR_PRIMARY,
-        inactiveTintColor: 'gray',
+        inactiveTintColor: "gray",
         style: {
           backgroundColor: COLOR_WHITE
         }

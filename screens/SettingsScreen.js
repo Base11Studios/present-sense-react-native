@@ -70,7 +70,9 @@ class SettingsScreen extends React.Component {
   render() {
     itemResetData = {
       key: "1",
-      view: <ListItem onPress={() => this.onPressResetStore()} title="Reset Data" avatar={<Icon type="evilicon" name="undo" size={24} />} />
+      view: (
+        <ListItem onPress={() => this.onPressResetStore()} title="Reset Data" leftAvatar={<Icon type="evilicon" name="undo" size={24} />} />
+      )
     };
 
     itemCredit = {
@@ -79,7 +81,7 @@ class SettingsScreen extends React.Component {
         <ListItem
           onPress={() => this.props.navigation.navigate("Credits")}
           title="Credits"
-          avatar={<Icon type="simple-line-icon" name="notebook" size={20} containerStyle={{ padding: 2 }} />}
+          leftAvatar={<Icon type="simple-line-icon" name="notebook" size={20} containerStyle={{ padding: 2 }} />}
         />
       )
     };
@@ -90,7 +92,7 @@ class SettingsScreen extends React.Component {
         <ListItem
           onPress={() => this.props.navigation.navigate("FAQ")}
           title="FAQ"
-          avatar={<Icon type="font-awesome" name="question-circle-o" size={24} containerStyle={{ paddingLeft: 2, paddingRight: 2 }} />}
+          leftAvatar={<Icon type="font-awesome" name="question-circle-o" size={24} containerStyle={{ paddingLeft: 2, paddingRight: 2 }} />}
         />
       )
     };
@@ -101,7 +103,9 @@ class SettingsScreen extends React.Component {
         <ListItem
           onPress={() => this.openURL("mailto:support@base11studios.com?subject=Present Sense " + Platform.OS + " App")}
           title="Contact Us"
-          avatar={<Icon type="material-community" name="email-outline" size={22} containerStyle={{ paddingLeft: 2, paddingRight: 0 }} />}
+          leftAvatar={
+            <Icon type="material-community" name="email-outline" size={22} containerStyle={{ paddingLeft: 2, paddingRight: 0 }} />
+          }
         />
       )
     };
@@ -112,7 +116,7 @@ class SettingsScreen extends React.Component {
         <ListItem
           onPress={() => this.props.navigation.navigate("SettingsPrivacy")}
           title="Privacy Policy"
-          avatar={<Icon type="font-awesome" name="lock" size={26} containerStyle={{ paddingLeft: 4, paddingRight: 4 }} />}
+          leftAvatar={<Icon type="font-awesome" name="lock" size={26} containerStyle={{ paddingLeft: 4, paddingRight: 4 }} />}
         />
       )
     };
@@ -123,7 +127,7 @@ class SettingsScreen extends React.Component {
         <ListItem
           onPress={() => this.props.navigation.navigate("SettingsTerms")}
           title="Terms & Conditions"
-          avatar={<Icon type="font-awesome" name="file-text-o" size={23} containerStyle={{ paddingLeft: 2, paddingRight: 2 }} />}
+          leftAvatar={<Icon type="font-awesome" name="file-text-o" size={23} containerStyle={{ paddingLeft: 2, paddingRight: 2 }} />}
         />
       )
     };
@@ -134,14 +138,14 @@ class SettingsScreen extends React.Component {
         <ListItem
           onPress={() => this.props.navigation.navigate("Subscribe")}
           title="Unlock Premium"
-          avatar={<Icon type="material" name="star-border" size={24} />}
+          leftAvatar={<Icon type="material" name="star-border" size={24} containerStyle={{ paddingLeft: 2, paddingRight: 2 }} />}
         />
       ) : (
         <ListItem
           onPress={() => this.props.navigation.navigate("Subscribe")}
           title="Unlock Premium"
-          avatar={<Icon type="material" name="star-border" size={24} />}
-          hideChevron={true}
+          leftAvatar={<Icon type="material" name="star-border" size={24} containerStyle={{ paddingLeft: 2, paddingRight: 2 }} />}
+          chevron={false}
           disabled={true}
           badge={{
             value: "SUBSCRIBED",
@@ -158,7 +162,7 @@ class SettingsScreen extends React.Component {
         <ListItem
           onPress={() => this.props.navigation.navigate("Notifications")}
           title="Notifications"
-          avatar={<Icon type="material" name="notifications-none" size={24} containerStyle={{ paddingLeft: 2, paddingRight: 2 }} />}
+          leftAvatar={<Icon type="material" name="notifications-none" size={24} containerStyle={{ paddingLeft: 2, paddingRight: 2 }} />}
         />
       )
     };
@@ -180,7 +184,7 @@ class SettingsScreen extends React.Component {
             this.rateApp();
           }}
           title="Review Present Sense"
-          avatar={<Icon type="font-awesome" name="pencil-square-o" size={24} containerStyle={{ paddingLeft: 2, paddingRight: 2 }} />}
+          leftAvatar={<Icon type="font-awesome" name="pencil-square-o" size={24} containerStyle={{ paddingLeft: 2, paddingRight: 2 }} />}
         />
       )
     };
