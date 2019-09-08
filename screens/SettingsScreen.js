@@ -1,5 +1,5 @@
 import React from "react";
-import { Alert, FlatList, Linking, Platform, StyleSheet, SectionList, Text } from "react-native";
+import { Alert, Linking, Platform, SectionList, StyleSheet, Text } from "react-native";
 import { Icon, ListItem } from "react-native-elements";
 import Rate, { AndroidMarket } from "react-native-rate";
 import { connect } from "react-redux";

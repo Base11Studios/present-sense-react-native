@@ -1,24 +1,14 @@
-import React from 'react';
-import {
-  Alert,
-  Platform,
-  StyleSheet,
-  TouchableOpacity,
-  View
-} from 'react-native';
-import * as RNIap from 'react-native-iap';
-import { connect } from 'react-redux';
-import { MyText } from '../components/MyText';
-import { ScrollingPageContainer } from '../components/ScrollingPageContainer';
-import { SubscribeCarousel } from '../components/SubscribeCarousel';
-import { Title4 } from '../components/Title4';
-import { Title5 } from '../components/Title5';
-import {
-  subscribeUser,
-  updateIAPs,
-  updateUserSubscriptions
-} from '../redux/reducers/subscription';
-import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_WHITE } from '../styles/common';
+import React from "react";
+import { Alert, Platform, StyleSheet, TouchableOpacity, View } from "react-native";
+import * as RNIap from "react-native-iap";
+import { connect } from "react-redux";
+import { MyText } from "../components/MyText";
+import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
+import { SubscribeCarousel } from "../components/SubscribeCarousel";
+import { Title4 } from "../components/Title4";
+import { Title5 } from "../components/Title5";
+import { subscribeUser, updateIAPs, updateUserSubscriptions } from "../redux/reducers/subscription";
+import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_WHITE } from "../styles/common";
 
 class SubscriptionScreen extends React.Component {
   componentDidMount() {
@@ -34,22 +24,23 @@ class SubscriptionScreen extends React.Component {
         this.props.subscribeUser();
       });
     } catch (err) {
-      Alert.alert('Something went wrong! Please try again.');
+      Alert.alert("Something went wrong! Please try again.");
     }
   };
 
-  componentWillReceiveProps(nextProps) {
-    if (!!nextProps.premium) {
-      this.props.navigation.navigate('Settings');
+  // TODO - OK?? Was componentWillReceiveProps
+  componentDidUpdate(prevProps) {
+    if (!!prevProps.premium) {
+      this.props.navigation.navigate("Settings");
     }
   }
 
   onPressTerms() {
-    this.props.navigation.navigate('Terms');
+    this.props.navigation.navigate("Terms");
   }
 
   onPressPrivacy() {
-    this.props.navigation.navigate('Privacy');
+    this.props.navigation.navigate("Privacy");
   }
 
   onPressRestore() {
@@ -73,13 +64,7 @@ class SubscriptionScreen extends React.Component {
   }
 
   render() {
-    const {
-      yearlyProduct,
-      monthlyProduct,
-      receipt,
-      availableItemsMessage,
-      discount
-    } = this.props;
+    const { yearlyProduct, monthlyProduct, receipt, availableItemsMessage, discount } = this.props;
 
     return (
       <ScrollingPageContainer>
@@ -87,7 +72,7 @@ class SubscriptionScreen extends React.Component {
 
         <SubscribeCarousel />
 
-        <View style={{ flexDirection: 'column', justifyContent: 'flex-start' }}>
+        <View style={{ flexDirection: "column", justifyContent: "flex-start" }}>
           <TouchableOpacity onPress={() => this.onPressPurchaseMonthly()}>
             <View
               style={{
@@ -97,20 +82,18 @@ class SubscriptionScreen extends React.Component {
                 marginBottom: 7,
                 borderRadius: 6,
                 backgroundColor: COLOR_SECONDARY,
-                flexDirection: 'column'
+                flexDirection: "column"
               }}
             >
               <Title5 style={{ color: COLOR_WHITE }}>MONTHLY </Title5>
               <View
                 style={{
-                  flexDirection: 'row',
-                  justifyContent: 'space-between'
+                  flexDirection: "row",
+                  justifyContent: "space-between"
                 }}
               >
                 <MyText style={{ fontSize: 16, color: COLOR_WHITE }}>
-                  {!!monthlyProduct && !!monthlyProduct.monthlyFormat
-                    ? monthlyProduct.monthlyFormat + ' / month'
-                    : 'N/A'}
+                  {!!monthlyProduct && !!monthlyProduct.monthlyFormat ? monthlyProduct.monthlyFormat + " / month" : "N/A"}
                 </MyText>
                 {!!monthlyProduct && !!monthlyProduct.trial ? (
                   <View>
@@ -118,7 +101,7 @@ class SubscriptionScreen extends React.Component {
                       style={{
                         fontSize: 14,
                         color: COLOR_WHITE,
-                        fontWeight: '600'
+                        fontWeight: "600"
                       }}
                     >
                       {monthlyProduct.trial.toLowerCase()} free trial
@@ -139,13 +122,13 @@ class SubscriptionScreen extends React.Component {
                 marginTop: 7,
                 borderRadius: 6,
                 backgroundColor: COLOR_PRIMARY,
-                flexDirection: 'column'
+                flexDirection: "column"
               }}
             >
               <View
                 style={{
-                  justifyContent: 'space-between',
-                  flexDirection: 'row'
+                  justifyContent: "space-between",
+                  flexDirection: "row"
                 }}
               >
                 <Title5 style={{ color: COLOR_WHITE }}>YEARLY </Title5>
@@ -154,23 +137,21 @@ class SubscriptionScreen extends React.Component {
                     style={{
                       fontSize: 14,
                       color: COLOR_WHITE,
-                      fontWeight: 'bold'
+                      fontWeight: "bold"
                     }}
                   >
-                    {!!discount ? discount + '% OFF' : ''}
+                    {!!discount ? discount + "% OFF" : ""}
                   </MyText>
                 </View>
               </View>
               <View
                 style={{
-                  flexDirection: 'row',
-                  justifyContent: 'space-between'
+                  flexDirection: "row",
+                  justifyContent: "space-between"
                 }}
               >
                 <MyText style={{ fontSize: 16, color: COLOR_WHITE }}>
-                  {!!yearlyProduct && !!yearlyProduct.yearlyFormat
-                    ? yearlyProduct.yearlyFormat + ' / year'
-                    : 'N/A'}
+                  {!!yearlyProduct && !!yearlyProduct.yearlyFormat ? yearlyProduct.yearlyFormat + " / year" : "N/A"}
                 </MyText>
                 {!!yearlyProduct && !!yearlyProduct.trial ? (
                   <View>
@@ -178,7 +159,7 @@ class SubscriptionScreen extends React.Component {
                       style={{
                         fontSize: 14,
                         color: COLOR_WHITE,
-                        fontWeight: '600'
+                        fontWeight: "600"
                       }}
                     >
                       {yearlyProduct.trial.toLowerCase()} free trial
@@ -206,36 +187,29 @@ class SubscriptionScreen extends React.Component {
             <MyText style={styles.restoreText}>Restore Purchase</MyText>
           </TouchableOpacity>
         </View>
-        {Platform.OS === 'ios' ? (
+        {Platform.OS === "ios" ? (
           <View style={styles.subscribe}>
             <MyText style={styles.text}>
-              Payment will be charged to your iTunes account at confirmation of
-              purchase. Subscription automatically renews unless auto-renew is
-              turned off at least 24-hours before the end of the current period.
-              Account will be charged for renewal within 24-hours prior to the
-              end of the current period.
+              Payment will be charged to your iTunes account at confirmation of purchase. Subscription automatically renews unless
+              auto-renew is turned off at least 24-hours before the end of the current period. Account will be charged for renewal within
+              24-hours prior to the end of the current period.
             </MyText>
             <MyText style={styles.text}>
-              Subscriptions may be managed by the user and auto-renewal may be
-              turned off by going to the user’s Account Settings after purchase.
+              Subscriptions may be managed by the user and auto-renewal may be turned off by going to the user’s Account Settings after
+              purchase.
             </MyText>
             <MyText style={styles.text}>
-              Any unused portion of a free trial period, if offered, will be
-              forfeited when the user purchases a subscription to that
+              Any unused portion of a free trial period, if offered, will be forfeited when the user purchases a subscription to that
               publication, where applicable.
             </MyText>
           </View>
         ) : (
           <View style={styles.subscribe}>
             <MyText style={styles.text}>
-              Payment will be charged to your Google Play account at
-              confirmation of purchase. Subscription automatically renews unless
+              Payment will be charged to your Google Play account at confirmation of purchase. Subscription automatically renews unless
               auto-renew is turned off.
             </MyText>
-            <MyText style={styles.text}>
-              Subscriptions may be managed by the user by going to Google Play
-              after purchase.
-            </MyText>
+            <MyText style={styles.text}>Subscriptions may be managed by the user by going to Google Play after purchase.</MyText>
           </View>
         )}
       </ScrollingPageContainer>
@@ -246,7 +220,7 @@ class SubscriptionScreen extends React.Component {
 const styles = StyleSheet.create({
   title: {
     padding: 20,
-    justifyContent: 'center'
+    justifyContent: "center"
   },
   subscribe: {
     padding: 16
@@ -255,14 +229,14 @@ const styles = StyleSheet.create({
     paddingBottom: 16
   },
   termsContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center'
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center"
   },
   legalContainer: {
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
     marginTop: 32,
     marginBottom: 20
   },

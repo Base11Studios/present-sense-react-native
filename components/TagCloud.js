@@ -1,55 +1,103 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import { StyleSheet, View, ViewPropTypes } from 'react-native';
-import { MyText } from '../components/MyText';
-import {
-  COLOR_ALERT,
-  COLOR_HIGHLIGHT,
-  COLOR_PRIMARY,
-  COLOR_QUATERNARY,
-  COLOR_SECONDARY,
-  COLOR_TERTIARY
-} from '../styles/common';
+import PropTypes from "prop-types";
+import React from "react";
+import { StyleSheet, View, ViewPropTypes } from "react-native";
+import { MyText } from "../components/MyText";
+import { COLOR_ALERT, COLOR_HIGHLIGHT, COLOR_PRIMARY, COLOR_QUATERNARY, COLOR_SECONDARY, COLOR_TERTIARY } from "../styles/common";
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: "center",
+    justifyContent: "center"
   },
   cloudTagContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    justifyContent: 'center'
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "center",
+    justifyContent: "center"
   }
 });
 
 export default class TagCloud extends React.Component {
   constructor(props) {
     super(props);
-    this.updateClouds(this.props, false);
+    this.state = getState(this.props, false);
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.updateClouds(nextProps, true);
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return getState(nextProps);
   }
 
   componentDidMount() {
     this.forceUpdate();
   }
 
-  updateClouds(nextProps, forceUpdate) {
-    let pointArray = nextProps.tagList.map(tag => tag.point);
-    let pointMin = Math.min(...pointArray);
-    let pointMax = Math.max(...pointArray);
-    let pointRange = pointMax - pointMin;
+  render() {
+    return (
+      <View style={[styles.container, this.props.style]}>
+        <View style={styles.cloudTagContainer}>{this.state.TagCloud}</View>
+      </View>
+    );
+  }
+}
 
-    this.TagCloud = this.orderData(nextProps).map((item, key) => {
+TagCloud.propTypes = {
+  tagList: PropTypes.array,
+  colorList: PropTypes.array,
+  minFontSize: PropTypes.number,
+  style: ViewPropTypes.style,
+  tagPaddingLeft: PropTypes.number,
+  tagPaddingTop: PropTypes.number,
+  tagPaddingRight: PropTypes.number,
+  tagPaddingBottom: PropTypes.number
+};
+
+TagCloud.defaultProps = {
+  tagList: [],
+  colorList: [COLOR_PRIMARY, COLOR_SECONDARY, COLOR_TERTIARY, COLOR_QUATERNARY, COLOR_HIGHLIGHT, COLOR_ALERT],
+  minFontSize: 12,
+  tagPaddingLeft: 4,
+  tagPaddingTop: 0,
+  tagPaddingRight: 4,
+  tagPaddingBottom: 0
+};
+
+function orderData(props) {
+  return shuffle(props.tagList);
+}
+
+function shuffle(array) {
+  var currentIndex = array.length,
+    temporaryValue,
+    randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+function getState(props, forceUpdate) {
+  let pointArray = props.tagList.map(tag => tag.point);
+  let pointMin = Math.min(...pointArray);
+  let pointMax = Math.max(...pointArray);
+  let pointRange = pointMax - pointMin;
+
+  return {
+    TagCloud: orderData(props).map((item, key) => {
       const tagContainerStyle = {
-        paddingLeft: nextProps.tagPaddingLeft,
-        paddingTop: nextProps.tagPaddingTop,
-        paddingRight: nextProps.tagPaddingRight,
-        paddingBottom: nextProps.tagPaddingBottom
+        paddingLeft: props.tagPaddingLeft,
+        paddingTop: props.tagPaddingTop,
+        paddingRight: props.tagPaddingRight,
+        paddingBottom: props.tagPaddingBottom
       };
 
       let itemValue = item.point - pointMin;
@@ -71,8 +119,8 @@ export default class TagCloud extends React.Component {
       }
 
       const tagStyle = {
-        fontSize: nextProps.minFontSize + itemRanking * 4,
-        color: nextProps.colorList[itemRanking]
+        fontSize: props.minFontSize + itemRanking * 4,
+        color: props.colorList[itemRanking]
       };
 
       return (
@@ -80,70 +128,10 @@ export default class TagCloud extends React.Component {
           <MyText style={tagStyle}>{item.title}</MyText>
         </View>
       );
-    });
-
-    if (!!forceUpdate) {
-      this.forceUpdate();
-    }
-  }
-
-  orderData(props) {
-    return this.shuffle(props.tagList);
-  }
-
-  shuffle = function(array) {
-    var currentIndex = array.length,
-      temporaryValue,
-      randomIndex;
-
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-
-    return array;
+    })
   };
 
-  render() {
-    return (
-      <View style={[styles.container, this.props.style]}>
-        <View style={styles.cloudTagContainer}>{this.TagCloud}</View>
-      </View>
-    );
-  }
+  // if (!!forceUpdate) {
+  //   this.forceUpdate();
+  // }
 }
-
-TagCloud.propTypes = {
-  tagList: PropTypes.array,
-  colorList: PropTypes.array,
-  minFontSize: PropTypes.number,
-  style: ViewPropTypes.style,
-  tagPaddingLeft: PropTypes.number,
-  tagPaddingTop: PropTypes.number,
-  tagPaddingRight: PropTypes.number,
-  tagPaddingBottom: PropTypes.number
-};
-
-TagCloud.defaultProps = {
-  tagList: [],
-  colorList: [
-    COLOR_PRIMARY,
-    COLOR_SECONDARY,
-    COLOR_TERTIARY,
-    COLOR_QUATERNARY,
-    COLOR_HIGHLIGHT,
-    COLOR_ALERT
-  ],
-  minFontSize: 12,
-  tagPaddingLeft: 4,
-  tagPaddingTop: 0,
-  tagPaddingRight: 4,
-  tagPaddingBottom: 0
-};

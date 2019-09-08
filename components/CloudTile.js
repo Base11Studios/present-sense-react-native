@@ -9,100 +9,14 @@ var removeWords = require("remove-words");
 class CloudTile extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      feelingTagList: this.getFilteredWordCounts(props.tasksCompleted, "feel"),
-      senseTagList: this.getFilteredWordCounts(props.tasksCompleted, "prompt"),
-      minFontSize: 12,
-      style: {
-        paddingLeft: 0,
-        paddingRight: 0
-      }
-    };
+    this.state = calculateNewState(props);
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.updateLists(nextProps);
-  }
-
-  updateLists(nextProps) {
-    this.setState({
-      feelingTagList: this.getFilteredWordCounts(
-        nextProps.tasksCompleted,
-        "feel"
-      ),
-      senseTagList: this.getFilteredWordCounts(
-        nextProps.tasksCompleted,
-        "prompt"
-      ),
-      minFontSize: 12,
-      style: {
-        paddingLeft: 0,
-        paddingRight: 0
-      }
-    });
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return calculateNewState(nextProps);
   }
 
   // TODO cap the list items at like 30?
-
-  getFilteredWordCounts(completedTasks, type) {
-    let wordArray = [];
-    let tagMap = {};
-    let tagList = [];
-    completedTasks.map(completedTask => {
-      if (type === "feel") {
-        wordArray.push(
-          ...removeWords(
-            completedTask.formValues.feel
-              .replace(/[.,\/#!;:()]/g, "")
-              .replace(/\s{2,}/g, " ")
-              .replace(/\n|\r|\t/g, " "),
-            false
-          )
-        );
-      } else {
-        wordArray.push(
-          ...removeWords(
-            completedTask.formValues.prompt
-              .replace(/[.,\/#!;:()]/g, "")
-              .replace(/\s{2,}/g, " ")
-              .replace(/\n|\r|\t/g, " "),
-            false
-          )
-        );
-      }
-    });
-
-    wordArray.forEach(word => {
-      if (!tagMap[word]) {
-        tagMap[word] = 1;
-      } else {
-        tagMap[word] = tagMap[word] + 1;
-      }
-    });
-
-    for (var property in tagMap) {
-      if (tagMap.hasOwnProperty(property)) {
-        tagList.push({
-          title: property,
-          point: tagMap[property]
-        });
-      }
-    }
-
-    if (tagList.length > 50) {
-      tagList.sort(function(b, a) {
-        const keyA = a.point,
-          keyB = b.point;
-        if (keyA < keyB) return -1;
-        if (keyA > keyB) return 1;
-        return 0;
-      });
-
-      tagList = tagList.slice(0, 50);
-    }
-
-    return tagList;
-  }
 
   render() {
     const { tasksCompleted } = this.props;
@@ -164,3 +78,75 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(CloudTile);
+
+function getFilteredWordCounts(completedTasks, type) {
+  let wordArray = [];
+  let tagMap = {};
+  let tagList = [];
+  completedTasks.map(completedTask => {
+    if (type === "feel") {
+      wordArray.push(
+        ...removeWords(
+          completedTask.formValues.feel
+            .replace(/[.,\/#!;:()]/g, "")
+            .replace(/\s{2,}/g, " ")
+            .replace(/\n|\r|\t/g, " "),
+          false
+        )
+      );
+    } else {
+      wordArray.push(
+        ...removeWords(
+          completedTask.formValues.prompt
+            .replace(/[.,\/#!;:()]/g, "")
+            .replace(/\s{2,}/g, " ")
+            .replace(/\n|\r|\t/g, " "),
+          false
+        )
+      );
+    }
+  });
+
+  wordArray.forEach(word => {
+    if (!tagMap[word]) {
+      tagMap[word] = 1;
+    } else {
+      tagMap[word] = tagMap[word] + 1;
+    }
+  });
+
+  for (var property in tagMap) {
+    if (tagMap.hasOwnProperty(property)) {
+      tagList.push({
+        title: property,
+        point: tagMap[property]
+      });
+    }
+  }
+
+  if (tagList.length > 50) {
+    tagList.sort(function(b, a) {
+      const keyA = a.point,
+        keyB = b.point;
+      if (keyA < keyB) return -1;
+      if (keyA > keyB) return 1;
+      return 0;
+    });
+
+    tagList = tagList.slice(0, 50);
+  }
+
+  return tagList;
+}
+
+function calculateNewState(props) {
+  return {
+    feelingTagList: getFilteredWordCounts(props.tasksCompleted, "feel"),
+    senseTagList: getFilteredWordCounts(props.tasksCompleted, "prompt"),
+    minFontSize: 12,
+    style: {
+      paddingLeft: 0,
+      paddingRight: 0
+    }
+  };
+}
