@@ -1,1 +1,9 @@
-{}
+{
+	"auth": {
+		"presentsensereactnatf3242233": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}
