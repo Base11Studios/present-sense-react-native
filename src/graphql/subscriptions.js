@@ -1,22 +1,22 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateTodo = `subscription OnCreateTodo {
-  onCreateTodo {
+export const onCreateUsageStatistics = `subscription OnCreateUsageStatistics {
+  onCreateUsageStatistics {
     appOpenedCount
     versionNumber
   }
 }
 `;
-export const onUpdateTodo = `subscription OnUpdateTodo {
-  onUpdateTodo {
+export const onUpdateUsageStatistics = `subscription OnUpdateUsageStatistics {
+  onUpdateUsageStatistics {
     appOpenedCount
     versionNumber
   }
 }
 `;
-export const onDeleteTodo = `subscription OnDeleteTodo {
-  onDeleteTodo {
+export const onDeleteUsageStatistics = `subscription OnDeleteUsageStatistics {
+  onDeleteUsageStatistics {
     appOpenedCount
     versionNumber
   }

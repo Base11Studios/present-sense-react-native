@@ -1,31 +1,31 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createTodo = `mutation CreateTodo(
-  $input: CreateTodoInput!
-  $condition: ModelTodoConditionInput
+export const createUsageStatistics = `mutation CreateUsageStatistics(
+  $input: CreateUsageStatisticsInput!
+  $condition: ModelUsageStatisticsConditionInput
 ) {
-  createTodo(input: $input, condition: $condition) {
+  createUsageStatistics(input: $input, condition: $condition) {
     appOpenedCount
     versionNumber
   }
 }
 `;
-export const updateTodo = `mutation UpdateTodo(
-  $input: UpdateTodoInput!
-  $condition: ModelTodoConditionInput
+export const updateUsageStatistics = `mutation UpdateUsageStatistics(
+  $input: UpdateUsageStatisticsInput!
+  $condition: ModelUsageStatisticsConditionInput
 ) {
-  updateTodo(input: $input, condition: $condition) {
+  updateUsageStatistics(input: $input, condition: $condition) {
     appOpenedCount
     versionNumber
   }
 }
 `;
-export const deleteTodo = `mutation DeleteTodo(
-  $input: DeleteTodoInput!
-  $condition: ModelTodoConditionInput
+export const deleteUsageStatistics = `mutation DeleteUsageStatistics(
+  $input: DeleteUsageStatisticsInput!
+  $condition: ModelUsageStatisticsConditionInput
 ) {
-  deleteTodo(input: $input, condition: $condition) {
+  deleteUsageStatistics(input: $input, condition: $condition) {
     appOpenedCount
     versionNumber
   }

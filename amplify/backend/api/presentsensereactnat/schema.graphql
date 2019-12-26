@@ -1,4 +1,4 @@
-type Todo @model {
+type UsageStatistics @model {
   appOpenedCount: Int!
   versionNumber: String
 }
