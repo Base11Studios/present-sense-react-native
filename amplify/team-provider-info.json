@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-presentsensereactnat-dev-131404-authRole",
+            "UnauthRoleArn": "arn:aws:iam::507815355865:role/amplify-presentsensereactnat-dev-131404-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::507815355865:role/amplify-presentsensereactnat-dev-131404-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "amplify-presentsensereactnat-dev-131404-deployment",
+            "UnauthRoleName": "amplify-presentsensereactnat-dev-131404-unauthRole",
+            "StackName": "amplify-presentsensereactnat-dev-131404",
+            "StackId": "arn:aws:cloudformation:us-east-2:507815355865:stack/amplify-presentsensereactnat-dev-131404/8a463670-280b-11ea-98ee-021a782363a8",
+            "AmplifyAppId": "d1e7gaftoi1jft"
+        }
+    }
+}
