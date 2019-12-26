@@ -7,6 +7,7 @@ Add an icon (ideally at least 192x192 pixels) named icon.png to your project roo
 
 `react-native run-ios`
 `react-native run-android`
+`react-native run-ios --simulator="iPhone 5s"`
 
 ## With built app for release
 
