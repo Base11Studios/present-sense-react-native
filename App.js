@@ -14,10 +14,10 @@ import { persistor, store } from "./redux/store";
 import { COLOR_ALERT } from "./styles/common";
 
 import Amplify from "aws-amplify";
-import awsconfig from "./aws-exports";
+import awsmobile from "./aws-exports";
 import { withAuthenticator } from "aws-amplify-react-native";
 
-Amplify.configure(awsconfig);
+Amplify.configure(awsmobile);
 
 // TODO remove in next react-native stable version
 YellowBox.ignoreWarnings(["Warning: isMounted(...) is deprecated"]);
