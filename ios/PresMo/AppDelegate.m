@@ -39,7 +39,7 @@
   rootView.loadingView = launchScreenView;
 
   // Splash screen
-  [RNSplashScreen show];
+//  [RNSplashScreen show];
   
   return YES;
 }
