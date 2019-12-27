@@ -16,6 +16,9 @@ import { updateNotifications } from "../redux/reducers/notification";
 import { updateIAPs, updateUserSubscriptions } from "../redux/reducers/subscription";
 import { updateTasks } from "../redux/reducers/tasks";
 import { showTutorial } from "../redux/reducers/tutorial";
+
+import Amplify, { API, graphqlOperation } from "aws-amplify";
+import * as mutations from "../src/graphql/mutations";
 // TODO add stars to tile if have done one of the tasks today. Make BG lighter?
 
 const VERSION_NUMBER = "3.3";
@@ -26,8 +29,22 @@ class HomeScreen extends React.Component {
     title: "Home"
   };
 
+  getStuff = async () => {
+    // Mutation
+    const usageStatistics = {
+      appOpenedCount: 1,
+      versionNumber: "3.1"
+    };
+
+    const newTodo = await API.graphql(graphqlOperation(mutations.createUsageStatistics, { input: usageStatistics }));
+    console.warn(newTodo);
+  };
+
   componentDidMount() {
-    this.props.updateAppCount();
+    // this.props.updateAppCount();
+
+    this.getStuff();
+
     // Did they have a previous version?
     if (!!this.props.versionNumber && parseFloat(this.props.versionNumber) < parseFloat(VERSION_NUMBER)) {
       const buttons = [];
@@ -186,7 +203,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(HomeScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
