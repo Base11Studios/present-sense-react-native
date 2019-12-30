@@ -15,7 +15,8 @@ import {
   TermsNavigator,
   TutorialNavigator,
   ViewTaskNavigator,
-  NotificationsNavigator
+  NotificationsNavigator,
+  AuthNavigator
 } from './MainTabNavigator';
 
 const RootStackNavigator = StackNavigator(
@@ -94,6 +95,12 @@ const RootStackNavigator = StackNavigator(
     },
     SettingsTerms: {
       screen: TermsNavigator,
+      navigationOptions: props => ({
+        gesturesEnabled: false
+      })
+    },
+    SettingsAuth: {
+      screen: AuthNavigator,
       navigationOptions: props => ({
         gesturesEnabled: false
       })

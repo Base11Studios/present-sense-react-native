@@ -10,11 +10,6 @@
             "StackName": "amplify-presentsensereactnat-dev-131404",
             "StackId": "arn:aws:cloudformation:us-east-2:507815355865:stack/amplify-presentsensereactnat-dev-131404/8a463670-280b-11ea-98ee-021a782363a8",
             "AmplifyAppId": "d1e7gaftoi1jft"
-        },
-        "categories": {
-            "auth": {
-                "presentsensereactnatf3242233": {}
-            }
         }
     }
 }

@@ -29,7 +29,7 @@ class HomeScreen extends React.Component {
     title: "Home"
   };
 
-  getStuff = async () => {
+  testGraphQL = async () => {
     // Mutation
     const usageStatistics = {
       appOpenedCount: 1,
@@ -41,9 +41,9 @@ class HomeScreen extends React.Component {
   };
 
   componentDidMount() {
-    // this.props.updateAppCount();
+    this.props.updateAppCount();
 
-    this.getStuff();
+    this.testGraphQL();
 
     // Did they have a previous version?
     if (!!this.props.versionNumber && parseFloat(this.props.versionNumber) < parseFloat(VERSION_NUMBER)) {
@@ -72,12 +72,12 @@ class HomeScreen extends React.Component {
     this.props.updateIAPs();
     this.props.updateNotifications();
 
-    if (!this.props.tutorial["appIntro"]) {
+    if (!this.props.tutorial.appIntro) {
       this.props.navigation.navigate("Intro");
     }
     SplashScreen.hide();
 
-    if (this.props.appOpenedCount > 6 && this.props.appOpenedCount % 8 === 0 && !this.props.tutorial["rateApp"]) {
+    if (this.props.appOpenedCount > 6 && this.props.appOpenedCount % 8 === 0 && !this.props.tutorial.rateApp) {
       this.rateApp();
     }
 
@@ -203,4 +203,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomeScreen);

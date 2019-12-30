@@ -33,6 +33,7 @@ import TutorialFeelingsScreen from "../screens/TutorialFeelingsScreen";
 import TutorialHelperScreen from "../screens/TutorialHelperScreen";
 import TutorialObservationsScreen from "../screens/TutorialObservationsScreen";
 import { COLOR_BLACK, COLOR_PRIMARY, COLOR_SECONDARY, COLOR_WHITE } from "../styles/common";
+import AuthScreen from "../screens/AuthScreen";
 
 export const ViewTaskNavigator = StackNavigator({
   TaskOverview: {
@@ -109,6 +110,20 @@ export const TermsNavigator = StackNavigator({
     screen: TermsAndConditions,
     navigationOptions: props => ({
       title: "T & C",
+      headerLeft: <BackButton {...props} />,
+      headerTintColor: COLOR_BLACK,
+      headerStyle: {
+        backgroundColor: COLOR_WHITE
+      }
+    })
+  }
+});
+
+export const AuthNavigator = StackNavigator({
+  SettingsAuth: {
+    screen: AuthScreen,
+    navigationOptions: props => ({
+      title: "Login",
       headerLeft: <BackButton {...props} />,
       headerTintColor: COLOR_BLACK,
       headerStyle: {
@@ -494,13 +509,13 @@ export const TabNavigator = createBottomTabNavigator(
         let iconName;
         switch (routeName) {
           case "Home":
-            iconName = Platform.OS === "ios" ? `ios-home` : "md-home";
+            iconName = Platform.OS === "ios" ? "ios-home" : "md-home";
             break;
           case "Search":
-            iconName = Platform.OS === "ios" ? `ios-search` : "md-search";
+            iconName = Platform.OS === "ios" ? "ios-search" : "md-search";
             break;
           case "Inspire":
-            iconName = Platform.OS === "ios" ? `ios-bulb` : "md-bulb";
+            iconName = Platform.OS === "ios" ? "ios-bulb" : "md-bulb";
             break;
           case "Profile":
             iconName = Platform.OS === "ios" ? "ios-person" : "md-person";

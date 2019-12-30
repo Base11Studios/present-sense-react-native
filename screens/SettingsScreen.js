@@ -7,11 +7,19 @@ import { PURGE } from "redux-persist";
 import { PageContainer } from "../components/PageContainer";
 import { updateTasks } from "../redux/reducers/tasks";
 import { COLOR_TERTIARY, COLOR_WHITE } from "../styles/common";
+import { Auth } from 'aws-amplify';
 
 class SettingsScreen extends React.Component {
   static navigationOptions = {
     title: "Settings"
   };
+
+  settingsItemAuthentication;
+  settingsItemAuth;
+  settingsItemUnauth;
+  settingsItemLoading;
+  currentAuthItem;
+  settingsItemsArray = [];
 
   constructor(props) {
     super(props);
@@ -65,17 +73,36 @@ class SettingsScreen extends React.Component {
     Rate.rate(options, success => {});
   }
 
+  checkAuthentication() {
+    Auth.currentAuthenticatedUser({
+      bypassCache: false // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
+    })
+      .then(user => {
+        this.currentAuthItem = this.settingsItemAuth;
+        this.settingsItemsArray[3].data = [this.settingsItemAuth];
+      })
+      // eslint-disable-next-line handle-callback-err
+      .catch(err => {
+        this.setItemAuthToLoginReady();
+      });
+  }
+
+  setItemAuthToLoginReady() {
+    this.currentAuthItem = this.settingsItemUnauth;
+    this.settingsItemsArray[3].data = [this.settingsItemUnauth];
+  }
+
   // TODO nav back to home screen on clear
 
   render() {
-    itemResetData = {
+    let itemResetData = {
       key: "1",
       view: (
         <ListItem onPress={() => this.onPressResetStore()} title="Reset Data" leftAvatar={<Icon type="evilicon" name="undo" size={24} />} />
       )
     };
 
-    itemCredit = {
+    let itemCredit = {
       key: "2",
       view: (
         <ListItem
@@ -86,7 +113,7 @@ class SettingsScreen extends React.Component {
       )
     };
 
-    itemFaq = {
+    let itemFaq = {
       key: "4",
       view: (
         <ListItem
@@ -97,7 +124,7 @@ class SettingsScreen extends React.Component {
       )
     };
 
-    itemContactUs = {
+    let itemContactUs = {
       key: "5",
       view: (
         <ListItem
@@ -110,7 +137,7 @@ class SettingsScreen extends React.Component {
       )
     };
 
-    itemPrivacy = {
+    let itemPrivacy = {
       key: "6",
       view: (
         <ListItem
@@ -121,7 +148,7 @@ class SettingsScreen extends React.Component {
       )
     };
 
-    itemTerms = {
+    let itemTerms = {
       key: "7",
       view: (
         <ListItem
@@ -132,7 +159,7 @@ class SettingsScreen extends React.Component {
       )
     };
 
-    itemSubscribe = {
+    let itemSubscribe = {
       key: "3",
       view: !this.props.premium ? (
         <ListItem
@@ -156,7 +183,7 @@ class SettingsScreen extends React.Component {
       )
     };
 
-    itemNotifications = {
+    let itemNotifications = {
       key: "8",
       view: (
         <ListItem
@@ -176,7 +203,7 @@ class SettingsScreen extends React.Component {
       fallbackPlatformURL: "https://base11studios.com/clients/present-sense/"
     };
 
-    itemReview = {
+    let itemReview = {
       key: "10",
       view: (
         <ListItem
@@ -189,10 +216,51 @@ class SettingsScreen extends React.Component {
       )
     };
 
-    sectionArray = [
+    this.settingsItemUnauth = {
+      key: "11",
+      view: (
+        <ListItem
+          onPress={() => this.props.navigation.navigate("SettingsAuth")}
+          title="Login to Backup Data"
+          leftAvatar={<Icon type="font-awesome" name="pencil-square-o" size={24} containerStyle={{ paddingLeft: 2, paddingRight: 2 }} />}
+        />
+      )
+    };
+
+    this.settingsItemAuth = {
+      key: "12",
+      view: (
+        <ListItem
+          onPress={() => {
+            Auth.signOut();
+            this.setItemAuthToLoginReady();
+            this.forceUpdate();
+          }}
+          title="Logout"
+          leftAvatar={<Icon type="font-awesome" name="pencil-square-o" size={24} containerStyle={{ paddingLeft: 2, paddingRight: 2 }} />}
+        />
+      )
+    };
+
+    this.settingsItemLoading = {
+      key: "12",
+      view: (
+        <ListItem
+          title="Checking login..."
+          leftAvatar={<Icon type="font-awesome" name="pencil-square-o" size={24} containerStyle={{ paddingLeft: 2, paddingRight: 2 }} />}
+        />
+      )
+    };
+
+    this.currentAuthItem = this.currentAuthItem || this.settingsItemLoading;
+
+    this.checkAuthentication();
+
+    this.settingsItemsArray = [
       { title: "", data: [itemSubscribe, itemReview, itemNotifications] },
       { title: "", data: [itemContactUs, itemFaq] },
       { title: "", data: [itemCredit, itemPrivacy, itemTerms] },
+      { title: "", data: [this.currentAuthItem] },
       { title: "", data: [itemResetData] }
     ];
 
@@ -211,7 +279,7 @@ class SettingsScreen extends React.Component {
               }}
             />
           )}
-          sections={sectionArray}
+          sections={this.settingsItemsArray}
         />
       </PageContainer>
     );

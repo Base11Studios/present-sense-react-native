@@ -54,3 +54,22 @@ Goto node_modules/react-native-picker/android/build.gradle and change sdk versio
 
 
 
+# Amplify
+
+Run `amplify pull` to get the latest configuration
+
+Auth configuration: https://aws-amplify.github.io/docs/js/authentication#using-auth-components-in-react--react-native
+
+`amplify add api` for new GraphQL schema
+
+
+#### TODO AWS Sync Notes
+// Still write to redux store for every change
+// Find a meta reducer or something that can look at the redux store and everytime it changes, run the backup process
+// Login will be from settings "Link account"
+// You can logout or if not authenticated, login which will have the create account flow
+// At home screen we can warn if the user is no longer logged in but they were once (store something in redux store once they login once)
+// Set token to 3650 days expiration to keep logged in 10 years
+// When opening app, if logged in, need to do a merge of online and local data.
+// -- The local redux store can hold a timestamp "last synced" and if the timestamp on the AWS data is later than the local, we need to merge.
+// -- Also upon login, need to do a sync as well
