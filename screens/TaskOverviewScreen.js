@@ -1,22 +1,34 @@
-import React, { Component } from "react";
-import { Alert, AppState, Platform, StyleSheet, TouchableOpacity, View } from "react-native";
-import BackgroundTimer from "react-native-background-timer";
-import Collapsible from "react-native-collapsible";
-import { Card, Icon } from "react-native-elements";
-import Picker from "react-native-picker";
-import PushNotification from "react-native-push-notification";
-import Sound from "react-native-sound";
-import AntIcon from "react-native-vector-icons/AntDesign";
-import { connect } from "react-redux";
-import { FocusBadge } from "../components/FocusBadge";
-import { MyText } from "../components/MyText";
-import { PrimaryButton } from "../components/PrimaryButton";
-import { ScrollingPageContainer } from "../components/ScrollingPageContainer";
-import { Title4 } from "../components/Title4";
-import { getBackgroundColorByDay } from "../constants/Helpers";
-import { updateNotifications } from "../redux/reducers/notification";
-import { startTask } from "../redux/reducers/tasks";
-import { COLOR_BLACK, COLOR_PRIMARY, COLOR_TERTIARY, COLOR_WHITE } from "../styles/common";
+import React, { Component } from 'react';
+import {
+  Alert,
+  AppState,
+  Platform,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import BackgroundTimer from 'react-native-background-timer';
+import Collapsible from 'react-native-collapsible';
+import { Card, Icon } from 'react-native-elements';
+import Picker from 'react-native-picker';
+import PushNotification from 'react-native-push-notification';
+import Sound from 'react-native-sound';
+import AntIcon from 'react-native-vector-icons/AntDesign';
+import { connect } from 'react-redux';
+import { FocusBadge } from '../components/FocusBadge';
+import { MyText } from '../components/MyText';
+import { PrimaryButton } from '../components/PrimaryButton';
+import { ScrollingPageContainer } from '../components/ScrollingPageContainer';
+import { Title4 } from '../components/Title4';
+import { getBackgroundColorByDay } from '../constants/Helpers';
+import { updateNotifications } from '../redux/reducers/notification';
+import { startTask } from '../redux/reducers/tasks';
+import {
+  COLOR_BLACK,
+  COLOR_PRIMARY,
+  COLOR_TERTIARY,
+  COLOR_WHITE,
+} from '../styles/common';
 
 class TaskOverviewScreen extends Component {
   state = {
@@ -26,7 +38,7 @@ class TaskOverviewScreen extends Component {
     isSoundOpen: false,
     isTimerLengthSetOpen: false,
     completeTimerSound: null,
-    timerLength: ["00", "05", "00"]
+    timerLength: ['00', '05', '00'],
   };
 
   componentDidMount() {
@@ -35,19 +47,19 @@ class TaskOverviewScreen extends Component {
 
   handleNoNotificationPermissions() {
     let enableNotifications =
-      Platform.OS === "ios"
+      Platform.OS === 'ios'
         ? "You won't get a timer alert if the app isn't open when your timer completes. To enable, open the Settings app > Present Sense > Notifications, then click \"Allow Notifications\"."
         : "You won't get a timer alert if the app isn't open when your timer completes. To enable, open the Settings app > Apps & notifications > Present Sense > Notifications, then click \"Show notifications\".";
 
     Alert.alert(
-      "Notification Permissions Are Disabled",
+      'Notification Permissions Are Disabled',
       enableNotifications,
       [
         {
-          text: "OK",
-          onPress: () => {},
-          style: "cancel"
-        }
+          text: 'OK',
+          onPress: () => { },
+          style: 'cancel'
+        },
       ],
       { cancelable: false }
     );
@@ -59,11 +71,11 @@ class TaskOverviewScreen extends Component {
 
   onPressStartTask = selectedTask => {
     this.props.startTask(selectedTask);
-    this.props.navigation.navigate("TaskObservations", { task: selectedTask });
+    this.props.navigation.navigate('TaskObservations', { task: selectedTask });
   };
 
   onPressGetHelp(props) {
-    this.props.navigation.navigate("TaskHelp");
+    this.props.navigation.navigate('TaskHelp');
   }
 
   onPressToggleTips() {
@@ -83,15 +95,19 @@ class TaskOverviewScreen extends Component {
 
   setupSound() {
     // Enable playback in silence mode
-    Sound.setCategory("Playback");
-    Sound.setMode("SpokenAudio");
+    Sound.setCategory('Playback');
+    Sound.setMode('SpokenAudio');
 
-    this.state.completeTimerSound = new Sound("bell.wav", Sound.MAIN_BUNDLE, error => {
-      if (error) {
-        console.warn("failed to load the sound", error);
-        return;
+    this.state.completeTimerSound = new Sound(
+      'bell.wav',
+      Sound.MAIN_BUNDLE,
+      error => {
+        if (error) {
+          console.warn('failed to load the sound', error);
+          return;
+        }
       }
-    });
+    );
 
     this.state.completeTimerSound.setNumberOfLoops(0);
   }
@@ -99,7 +115,7 @@ class TaskOverviewScreen extends Component {
   playSound() {
     this.state.completeTimerSound.play(success => {
       if (!success) {
-        console.warn("playback failed due to audio decoding errors");
+        console.warn('playback failed due to audio decoding errors');
         // reset the player to its uninitialized state (android only)
         // this is the only option to recover after an error occured and use the player again
         this.state.completeTimerSound.reset();
@@ -108,34 +124,37 @@ class TaskOverviewScreen extends Component {
   }
 
   advanceTimer() {
-    if (this.state.timerLength[2] !== "00") {
+    if (this.state.timerLength[2] !== '00') {
       let seconds = parseInt(this.state.timerLength[2]);
       seconds = seconds - 1;
-      this.state.timerLength[2] = seconds < 10 ? "0" + seconds.toString() : seconds.toString();
+      this.state.timerLength[2] =
+        seconds < 10 ? '0' + seconds.toString() : seconds.toString();
 
       if (
-        this.state.timerLength[2] === "00" &&
-        this.state.timerLength[1] === "00" &&
-        this.state.timerLength[0] === "00" &&
+        this.state.timerLength[2] === '00' &&
+        this.state.timerLength[1] === '00' &&
+        this.state.timerLength[0] === '00' &&
         !!this.state.isTimerPlaying
       ) {
-        if (AppState.currentState === "active") {
+        if (AppState.currentState === 'active') {
           this.stopTimer(true);
           this.playSound();
         }
         this.stopTimer(false);
       }
-    } else if (this.state.timerLength[1] !== "00") {
+    } else if (this.state.timerLength[1] !== '00') {
       let minutes = parseInt(this.state.timerLength[1]);
       minutes = minutes - 1;
-      this.state.timerLength[2] = "59";
-      this.state.timerLength[1] = minutes < 10 ? "0" + minutes.toString() : minutes.toString();
-    } else if (this.state.timerLength[0] !== "00") {
+      this.state.timerLength[2] = '59';
+      this.state.timerLength[1] =
+        minutes < 10 ? '0' + minutes.toString() : minutes.toString();
+    } else if (this.state.timerLength[0] !== '00') {
       let hours = parseInt(this.state.timerLength[0]);
       hours = hours - 1;
-      this.state.timerLength[2] = "59";
-      this.state.timerLength[1] = "59";
-      this.state.timerLength[0] = hours < 10 ? "0" + hours.toString() : hours.toString();
+      this.state.timerLength[2] = '59';
+      this.state.timerLength[1] = '59';
+      this.state.timerLength[0] =
+        hours < 10 ? '0' + hours.toString() : hours.toString();
     }
     this.forceUpdate();
   }
@@ -148,7 +167,7 @@ class TaskOverviewScreen extends Component {
 
     this.props.updateNotifications({
       timerEnabled: true,
-      timerTime: now
+      timerTime: now,
     });
   }
 
@@ -158,9 +177,19 @@ class TaskOverviewScreen extends Component {
       this.setState({ isTimerPlaying: newState });
 
       BackgroundTimer.stopBackgroundTimer();
-      if (!!newState) {
-        if (this.state.timerLength[2] !== "00" || this.state.timerLength[1] !== "00" || this.state.timerLength[0] !== "00") {
-          if (!(this.state.timerLength[2] === "01" && this.state.timerLength[1] === "00" && this.state.timerLength[0] === "00")) {
+      if (newState) {
+        if (
+          this.state.timerLength[2] !== '00' ||
+          this.state.timerLength[1] !== '00' ||
+          this.state.timerLength[0] !== '00'
+        ) {
+          if (
+            !(
+              this.state.timerLength[2] === '01' &&
+              this.state.timerLength[1] === '00' &&
+              this.state.timerLength[0] === '00'
+            )
+          ) {
             this.advanceTimer();
           }
           this.setupTimerFinishedNotification();
@@ -177,17 +206,17 @@ class TaskOverviewScreen extends Component {
   stopTimer(stopNotification) {
     BackgroundTimer.stopBackgroundTimer();
     this.setState({ isTimerPlaying: false });
-    if (!!stopNotification) {
+    if (stopNotification) {
       this.props.updateNotifications({
         timerEnabled: false,
-        timerTime: new Date()
+        timerTime: new Date(),
       });
     }
   }
 
   getDoublePaddedString(num) {
     if (num < 10 && num > -10) {
-      return "0" + num.toString();
+      return '0' + num.toString();
     } else {
       return num.toString();
     }
@@ -209,9 +238,9 @@ class TaskOverviewScreen extends Component {
     Picker.init({
       pickerData: pickerData,
       selectedValue: this.state.timerLength,
-      pickerTitleText: "HH : MM : SS",
-      pickerConfirmBtnText: "SET",
-      pickerCancelBtnText: "CLOSE",
+      pickerTitleText: 'HH : MM : SS',
+      pickerConfirmBtnText: 'SET',
+      pickerCancelBtnText: 'CLOSE',
       pickerConfirmBtnColor: [255, 255, 255, 1],
       pickerCancelBtnColor: [255, 255, 255, 1],
       pickerTitleColor: [255, 255, 255, 1],
@@ -227,7 +256,7 @@ class TaskOverviewScreen extends Component {
       onPickerCancel: data => {
         this.setState({ isTimerLengthSetOpen: false });
       },
-      onPickerSelect: data => {}
+      onPickerSelect: data => { },
     });
 
     this.setState({ isTimerLengthSetOpen: true });
@@ -235,7 +264,323 @@ class TaskOverviewScreen extends Component {
   }
 
   isTimerLengthZero() {
-    return this.state.timerLength[2] === "00" && this.state.timerLength[1] === "00" && this.state.timerLength[0] === "00";
+    return (
+      this.state.timerLength[2] === '00' &&
+      this.state.timerLength[1] === '00' &&
+      this.state.timerLength[0] === '00'
+    );
+  }
+
+  getSoundView(activeTask) {
+    return (
+      <View>
+        <TouchableOpacity
+          onPress={() => this.onPressToggleTimer()}
+          style={{ flex: 1 }}
+        >
+          <View
+            style={[
+              styles.cardPadded,
+              { flexDirection: 'row', marginBottom: 10 },
+            ]}
+          >
+            <View style={{ flex: 3 }}>
+              <Title4>SOUND</Title4>
+            </View>
+            {!this.state.isTimerEnabled ? (
+              <View style={{ flex: 1 }}>
+                <MyText style={{ fontSize: 16, color: COLOR_BLACK }}>
+                  {(this.state.timerLength[0] !== '00'
+                    ? this.state.timerLength[0] + ':'
+                    : '') +
+                    this.state.timerLength[1] +
+                    ':' +
+                    this.state.timerLength[2]}
+                </MyText>
+              </View>
+            ) : (
+                <View />
+              )}
+            <View style={{ width: 50, alignItems: 'flex-end' }}>
+              <Icon
+                type="ionicon"
+                color={COLOR_BLACK}
+                name={
+                  !this.state.isTimerEnabled ? 'ios-arrow-down' : 'ios-arrow-up'
+                }
+                size={24}
+              />
+            </View>
+          </View>
+        </TouchableOpacity>
+
+        <Collapsible collapsed={!this.state.isTimerEnabled}>
+          <View
+            style={[
+              styles.cardPadded,
+              styles.toggleCard,
+              { minHeight: 50, marginBottom: 10 },
+            ]}
+          >
+            <TouchableOpacity
+              style={{
+                flex: 4,
+                alignItems: 'center'
+              }}
+              onPress={() => this.onPressTimerLength()}
+            >
+              <MyText style={{ fontSize: 40, color: COLOR_WHITE }}>
+                {(this.state.timerLength[0] !== '00'
+                  ? this.state.timerLength[0] + ':'
+                  : '') +
+                  this.state.timerLength[1] +
+                  ':' +
+                  this.state.timerLength[2]}
+              </MyText>
+            </TouchableOpacity>
+            {!this.isTimerLengthZero() ? (
+              <TouchableOpacity
+                style={{
+                  flex: 1,
+                  alignItems: 'center'
+                }}
+                onPress={() => this.onPressTimerPlayToggle()}
+              >
+                <AntIcon
+                  name={
+                    !this.state.isTimerPlaying ? 'playcircleo' : 'pausecircleo'
+                  }
+                  size={34}
+                  containerStyle={{ padding: 7 }}
+                  color={COLOR_WHITE}
+                />
+              </TouchableOpacity>
+            ) : (
+                <View />
+              )}
+          </View>
+        </Collapsible>
+      </View>
+    );
+  }
+
+  getTimerView(activeTask) {
+    return (
+      <View>
+        <TouchableOpacity
+          onPress={() => this.onPressToggleTimer()}
+          style={{ flex: 1 }}
+        >
+          <View
+            style={[
+              styles.cardPadded,
+              {
+                flexDirection: 'row',
+                marginTop: 10,
+                marginBottom: 10,
+              },
+            ]}
+          >
+            <View style={{ flex: 3 }}>
+              <Title4>TIMER</Title4>
+            </View>
+            {!this.state.isTimerEnabled ? (
+              <View style={{ flex: 1 }}>
+                <MyText style={{ fontSize: 16, color: COLOR_BLACK }}>
+                  {(this.state.timerLength[0] !== '00'
+                    ? this.state.timerLength[0] + ':'
+                    : '') +
+                    this.state.timerLength[1] +
+                    ':' +
+                    this.state.timerLength[2]}
+                </MyText>
+              </View>
+            ) : (
+                <View />
+              )}
+            <View style={{ width: 50, alignItems: 'flex-end' }}>
+              <Icon
+                type="ionicon"
+                color={COLOR_BLACK}
+                name={
+                  !this.state.isTimerEnabled
+                    ? 'ios-arrow-down'
+                    : 'ios-arrow-up'
+                }
+                size={24}
+              />
+            </View>
+          </View>
+        </TouchableOpacity>
+
+        <Collapsible collapsed={!this.state.isTimerEnabled}>
+          <View
+            style={[
+              styles.cardPadded,
+              styles.toggleCard,
+              { minHeight: 50, marginBottom: 10 },
+            ]}
+          >
+            <TouchableOpacity
+              style={{
+                flex: 4,
+                alignItems: 'center'
+              }}
+              onPress={() => this.onPressTimerLength()}
+            >
+              <MyText style={{ fontSize: 40, color: COLOR_WHITE }}>
+                {(this.state.timerLength[0] !== '00'
+                  ? this.state.timerLength[0] + ':'
+                  : '') +
+                  this.state.timerLength[1] +
+                  ':' +
+                  this.state.timerLength[2]}
+              </MyText>
+            </TouchableOpacity>
+            {!this.isTimerLengthZero() ? (
+              <TouchableOpacity
+                style={{
+                  flex: 1,
+                  alignItems: 'center'
+                }}
+                onPress={() => this.onPressTimerPlayToggle()}
+              >
+                <AntIcon
+                  name={
+                    !this.state.isTimerPlaying
+                      ? 'playcircleo'
+                      : 'pausecircleo'
+                  }
+                  size={34}
+                  containerStyle={{ padding: 7 }}
+                  color={COLOR_WHITE}
+                />
+              </TouchableOpacity>
+            ) : (
+                <View />
+              )}
+          </View>
+        </Collapsible>
+      </View>
+    )
+  }
+
+  getHintsView(activeTask) {
+    return activeTask.hints ? (
+      <View>
+        <TouchableOpacity onPress={() => this.onPressToggleTips()}>
+          <View
+            style={[
+              styles.cardPadded,
+              {
+                flexDirection: 'row',
+                marginTop: 10,
+                marginBottom: 20,
+              },
+            ]}
+          >
+            <View style={{ flex: 1 }}>
+              <Title4>GET TIPS</Title4>
+            </View>
+            <View style={{ width: 50, alignItems: 'flex-end' }}>
+              <Icon
+                type="ionicon"
+                color={COLOR_BLACK}
+                name={
+                  !this.state.isTipsOpen
+                    ? 'ios-arrow-down'
+                    : 'ios-arrow-up'
+                }
+                size={24}
+              />
+            </View>
+          </View>
+        </TouchableOpacity>
+
+        <Collapsible collapsed={!this.state.isTipsOpen}>
+          <View style={styles.cardPadded}>
+            <MyText style={{ marginBottom: 20 }}>
+              {activeTask.hints}
+            </MyText>
+            <MyText style={{ marginBottom: 20 }}>
+              If your thoughts wander, it's OK, gently bring back your
+              focus and simply begin again.
+            </MyText>
+          </View>
+        </Collapsible>
+      </View>
+    ) : (
+        <View />
+      )
+  }
+
+  getBadgeView(activeTask) {
+    return (
+      <View
+        style={{
+          flexDirection: 'row',
+          backgroundColor: getBackgroundColorByDay(activeTask.type),
+          marginBottom: 26,
+        }}
+      >
+        <View style={{ flex: 1 }}>
+          <Title4
+            textStyle={{ color: COLOR_WHITE }}
+            style={{
+              marginLeft: 16,
+              marginBottom: 10,
+              marginTop: 20,
+            }}
+          >
+            FOCUS
+              </Title4>
+          <MyText
+            style={{ color: COLOR_WHITE, marginLeft: 16, marginBottom: 20 }}
+          >
+            {activeTask.prompt}
+          </MyText>
+        </View>
+        <View style={{ width: 200, alignItems: 'flex-end' }}>
+          <FocusBadge
+            focusType={activeTask.focusType}
+            style={[{ marginBottom: 10 }, styles.cardPadded]}
+          />
+        </View>
+      </View>
+    );
+  }
+
+  getHeaderView(activeTask) {
+    return (
+      <View
+        style={{
+          flexDirection: 'row',
+          paddingLeft: 16,
+          paddingRight: 16,
+          paddingBottom: 20,
+        }}
+      >
+        <MyText
+          style={{
+            flex: 1,
+            fontWeight: 'bold',
+            fontSize: 16,
+            color: COLOR_BLACK,
+          }}
+        >
+          {activeTask.title}
+        </MyText>
+        <TouchableOpacity onPress={() => this.onPressGetHelp()}>
+          <Icon
+            type="font-awesome"
+            name="question-circle-o"
+            size={21}
+            containerStyle={[{ padding: 0 }, this.props.style]}
+            color={COLOR_PRIMARY}
+          />
+        </TouchableOpacity>
+      </View>
+    )
   }
 
   render() {
@@ -252,173 +597,23 @@ class TaskOverviewScreen extends Component {
           }
         /> */}
         <Card containerStyle={styles.card}>
-          <View
-            style={{
-              flexDirection: "row",
-              paddingLeft: 16,
-              paddingRight: 16,
-              paddingBottom: 20
-            }}
-          >
-            <MyText
-              style={{
-                flex: 1,
-                fontWeight: "bold",
-                fontSize: 16,
-                color: COLOR_BLACK
-              }}
-            >
-              {activeTask.title}
-            </MyText>
-            <TouchableOpacity onPress={() => this.onPressGetHelp()}>
-              <Icon
-                type="font-awesome"
-                name="question-circle-o"
-                size={21}
-                containerStyle={[{ padding: 0 }, this.props.style]}
-                color={COLOR_PRIMARY}
-              />
-            </TouchableOpacity>
-          </View>
-          <MyText style={[{ marginBottom: 26 }, styles.cardPadded]}>{activeTask.description}</MyText>
+          {this.getHeaderView(activeTask)}
 
-          <View
-            style={{
-              flexDirection: "row",
-              backgroundColor: getBackgroundColorByDay(activeTask.type),
-              marginBottom: 26
-            }}
-          >
-            <View style={{ flex: 1 }}>
-              <Title4
-                textStyle={{ color: COLOR_WHITE }}
-                style={{
-                  marginLeft: 16,
-                  marginBottom: 10,
-                  marginTop: 20
-                }}
-              >
-                FOCUS
-              </Title4>
-              <MyText style={{ color: COLOR_WHITE, marginLeft: 16, marginBottom: 20 }}>{activeTask.prompt}</MyText>
-            </View>
-            <View style={{ width: 200, alignItems: "flex-end" }}>
-              <FocusBadge focusType={activeTask.focusType} style={[{ marginBottom: 10 }, styles.cardPadded]} />
-            </View>
-          </View>
+          <MyText style={[{ marginBottom: 26 }, styles.cardPadded]}>
+            {activeTask.description}
+          </MyText>
 
-          <View>
-            <TouchableOpacity onPress={() => this.onPressToggleTimer()} style={{ flex: 1 }}>
-              <View
-                style={[
-                  styles.cardPadded,
-                  {
-                    flexDirection: "row",
-                    marginBottom: 10
-                  }
-                ]}
-              >
-                <View style={{ flex: 3 }}>
-                  <Title4>TIMER</Title4>
-                </View>
-                {!this.state.isTimerEnabled ? (
-                  <View style={{ flex: 1 }}>
-                    <MyText style={{ fontSize: 16, color: COLOR_BLACK }}>
-                      {(this.state.timerLength[0] !== "00" ? this.state.timerLength[0] + ":" : "") +
-                        this.state.timerLength[1] +
-                        ":" +
-                        this.state.timerLength[2]}
-                    </MyText>
-                  </View>
-                ) : (
-                  <View />
-                )}
-                <View style={{ width: 50, alignItems: "flex-end" }}>
-                  <Icon
-                    type="ionicon"
-                    color={COLOR_BLACK}
-                    name={!this.state.isTimerEnabled ? "ios-arrow-down" : "ios-arrow-up"}
-                    size={24}
-                  />
-                </View>
-              </View>
-            </TouchableOpacity>
-
-            <Collapsible collapsed={!this.state.isTimerEnabled}>
-              <View style={[styles.cardPadded, styles.toggleCard, { minHeight: 50, marginBottom: 10 }]}>
-                <TouchableOpacity
-                  style={{
-                    flex: 4,
-                    alignItems: "center"
-                  }}
-                  onPress={() => this.onPressTimerLength()}
-                >
-                  <MyText style={{ fontSize: 40, color: COLOR_WHITE }}>
-                    {(this.state.timerLength[0] !== "00" ? this.state.timerLength[0] + ":" : "") +
-                      this.state.timerLength[1] +
-                      ":" +
-                      this.state.timerLength[2]}
-                  </MyText>
-                </TouchableOpacity>
-                {!this.isTimerLengthZero() ? (
-                  <TouchableOpacity
-                    style={{
-                      flex: 1,
-                      alignItems: "center"
-                    }}
-                    onPress={() => this.onPressTimerPlayToggle()}
-                  >
-                    <AntIcon
-                      name={!this.state.isTimerPlaying ? "playcircleo" : "pausecircleo"}
-                      size={34}
-                      containerStyle={{ padding: 7 }}
-                      color={COLOR_WHITE}
-                    />
-                  </TouchableOpacity>
-                ) : (
-                  <View />
-                )}
-              </View>
-            </Collapsible>
-          </View>
-
-          {!!activeTask.hints ? (
-            <View>
-              <TouchableOpacity onPress={() => this.onPressToggleTips()}>
-                <View
-                  style={[
-                    styles.cardPadded,
-                    {
-                      flexDirection: "row",
-                      marginTop: 10,
-                      marginBottom: 20
-                    }
-                  ]}
-                >
-                  <View style={{ flex: 1 }}>
-                    <Title4>GET TIPS</Title4>
-                  </View>
-                  <View style={{ width: 50, alignItems: "flex-end" }}>
-                    <Icon type="ionicon" color={COLOR_BLACK} name={!this.state.isTipsOpen ? "ios-arrow-down" : "ios-arrow-up"} size={24} />
-                  </View>
-                </View>
-              </TouchableOpacity>
-
-              <Collapsible collapsed={!this.state.isTipsOpen}>
-                <View style={styles.cardPadded}>
-                  <MyText style={{ marginBottom: 20 }}>{activeTask.hints}</MyText>
-                  <MyText style={{ marginBottom: 20 }}>
-                    If your thoughts wander, it's OK, gently bring back your focus and simply begin again.
-                  </MyText>
-                </View>
-              </Collapsible>
-            </View>
-          ) : (
-            <View />
-          )}
+          {this.getBadgeView(activeTask)}
+          {this.getSoundView(activeTask)}
+          {this.getTimerView(activeTask)}
+          {this.getHintsView(activeTask)}
 
           <View style={styles.cardPadded}>
-            <PrimaryButton color={COLOR_PRIMARY} title="JOURNAL" onPress={() => this.onPressStartTask(activeTask)} />
+            <PrimaryButton
+              color={COLOR_PRIMARY}
+              title="JOURNAL"
+              onPress={() => this.onPressStartTask(activeTask)}
+            />
           </View>
         </Card>
       </ScrollingPageContainer>
@@ -429,11 +624,11 @@ class TaskOverviewScreen extends Component {
 const styles = StyleSheet.create({
   card: {
     paddingHorizontal: 0,
-    marginBottom: 20
+    marginBottom: 20,
   },
   cardPadded: {
     marginLeft: 16,
-    marginRight: 16
+    marginRight: 16,
   },
   toggleCard: {
     marginHorizontal: 16,
@@ -441,21 +636,21 @@ const styles = StyleSheet.create({
     padding: 8,
     borderRadius: 6,
     backgroundColor: COLOR_TERTIARY,
-    flexDirection: "row",
-    alignItems: "center"
-  }
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
 });
 
 const mapStateToProps = state => {
   return {
-    activeTask: state.tasks.activeTask
+    activeTask: state.tasks.activeTask,
   };
 };
 
 function mapDispatchToProps(dispatch) {
   return {
     startTask: type => dispatch(startTask(type)),
-    updateNotifications: data => dispatch(updateNotifications(data))
+    updateNotifications: data => dispatch(updateNotifications(data)),
   };
 }
 
