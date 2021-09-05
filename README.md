@@ -5,14 +5,17 @@ Add an icon (ideally at least 192x192 pixels) named icon.png to your project roo
 
 # Run app
 
-`react-native run-ios`
-`react-native run-android`
-`react-native run-ios --simulator="iPhone 5s"`
+Start metro
+`npx react-native start`
+
+`npx react-native run-ios`
+`npx react-native run-android`
+`npx react-native run-ios --simulator="iPhone 12"`
 
 ## With built app for release
 
-`react-native run-android --variant=release`
-`react-native run-ios --configuration Release`
+`npx react-native run-android --variant=release`
+`npx react-native run-ios --configuration Release`
 
 ## Get logs for Android
 
@@ -43,15 +46,10 @@ Build in XCode
 `keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000`
 `security find-generic-password -s android_keystore -w`
 
-
-
-
 ### Yarn package overrides
+
 THIS MAY NOT BE REQUIRED. TRY WITHOUT IT, BUT IF ISSUES, TRY IT:
 For react-native-picker, AndroidX support:
 https://github.com/beefe/react-native-picker/issues/374
 
 Goto node_modules/react-native-picker/android/build.gradle and change sdk versions to 28 instead of 27
-
-
-
