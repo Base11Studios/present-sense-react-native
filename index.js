@@ -3,6 +3,7 @@ import App from './App';
 import PushNotificationIOS from '@react-native-community/push-notification-ios';
 import PushNotification from 'react-native-push-notification';
 import { Importance } from 'react-native-push-notification';
+import { Platform } from 'react-native';
 
 AppRegistry.registerComponent('PresMo', () => App);
 
@@ -54,17 +55,21 @@ PushNotification.configure({
    * - if you are not using remote notification or do not have Firebase installed, use this:
    *     requestPermissions: Platform.OS === 'ios'
    */
-  requestPermissions: true,
+  requestPermissions: Platform.OS === 'ios',
 });
 
 export const ANDROID_NOTIFICATION_CHANNEL_NAME = 'presentSenseReminders';
 
-PushNotification.createChannel(
-  {
-    channelId: ANDROID_NOTIFICATION_CHANNEL_NAME, // (required)
-    channelName: 'Reminders and Affirmations', // (required)
-    channelDescription: 'Reminders and Affirmations can be setup in the Settings menu in Present Sense', // (optional) default: undefined.
-    importance: Importance.DEFAULT, // (optional) default: Importance.HIGH. Int value of the Android notification importance
-  },
-  created => console.log(`createChannel returned '${created}'`), // (optional) callback returns whether the channel was created, false means it already existed.
-);
+PushNotification.channelExists(ANDROID_NOTIFICATION_CHANNEL_NAME, exists => {
+  if (!exists) {
+    PushNotification.createChannel(
+      {
+        channelId: ANDROID_NOTIFICATION_CHANNEL_NAME, // (required)
+        channelName: 'Reminders and Affirmations', // (required)
+        channelDescription: 'Reminders and Affirmations can be setup in the Settings menu in Present Sense', // (optional) default: undefined.
+        importance: Importance.DEFAULT, // (optional) default: Importance.HIGH. Int value of the Android notification importance
+      },
+      created => console.log(`createChannel returned '${created}'`), // (optional) callback returns whether the channel was created, false means it already existed.
+    );
+  }
+});
