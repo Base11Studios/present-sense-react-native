@@ -53,3 +53,22 @@ For react-native-picker, AndroidX support:
 https://github.com/beefe/react-native-picker/issues/374
 
 Goto node_modules/react-native-picker/android/build.gradle and change sdk versions to 28 instead of 27
+
+# Temp fixes
+
+node_modules/react-native-keyboard-aware-scroll-view/lib/KeyboardAwareHOC.js
+
+line 319 - can't have async func with default value, move it to a new line
+
+```
+scrollIntoView = async (
+element: React.Element<\*>,
+options: ScrollIntoViewOptions
+) => {
+options = options || {}
+if (!this.\_rnkasv_keyboardView || !element) {
+return
+}
+```
+
+https://github.com/oblador/react-native-vector-icons/issues/1334#issuecomment-883106346

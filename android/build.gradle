@@ -14,18 +14,24 @@
  
 buildscript {
     ext {
-        buildToolsVersion = "28.0.3"
+        // Added for RN Notifications TODO I don't think I need because I'm not doing remote notifications
+        // googlePlayServicesVersion = "16.1.0"
+        // firebaseVersion = "17.3.4"
+        firebaseMessagingVersion = "21.1.0"
+        // End add
+
+        buildToolsVersion = "30.0.2"
         minSdkVersion = 21
-        compileSdkVersion = 28
-        targetSdkVersion = 28
-        supportLibVersion = "28.0.0"
+        compileSdkVersion = 30
+        targetSdkVersion = 30
+        ndkVersion = "20.1.5948944"
     }
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.2'
+        classpath("com.android.tools.build:gradle:4.2.1")
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -34,9 +40,9 @@ buildscript {
 
 allprojects {
     repositories {
+        mavenCentral()
         google()
         mavenLocal()
-        jcenter()
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url "$rootDir/../node_modules/react-native/android"
@@ -45,7 +51,7 @@ allprojects {
             // Android JSC is installed from npm
             url("$rootDir/../node_modules/jsc-android/dist")
         }
-        maven { url 'https://jitpack.io' }
+        maven { url 'https://www.jitpack.io' }
     }
 }
 

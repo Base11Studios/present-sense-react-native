@@ -1,14 +1,13 @@
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
- * @flow
+ * @flow strict-local
  */
 
 import React from 'react';
 import { ActivityIndicator, Platform, StatusBar, StyleSheet, View, YellowBox } from 'react-native';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
-import PushController from './components/PushController';
 import RootNavigation from './navigation/RootNavigation';
 import { persistor, store } from './redux/store';
 import { COLOR_ALERT } from './styles/common';
@@ -24,7 +23,6 @@ const App = () => {
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
           <RootNavigation />
         </View>
-        <PushController />
       </PersistGate>
     </Provider>
   );

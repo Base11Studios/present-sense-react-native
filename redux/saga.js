@@ -1,15 +1,15 @@
-import { Platform } from "react-native";
-import * as RNIap from "react-native-iap";
-import PushNotification from "react-native-push-notification";
-import Toast from "react-native-root-toast";
-import { put, select, takeEvery } from "redux-saga/effects";
-import CommonDataManager from "../constants/CommonDataManager";
-import { LIFETIME_CONSUME_ID, MONTHLY_SUB_ID, YEARLY_SUB_ID } from "../constants/IAP";
-import { affirmationData } from "../redux/reducers/affirmation-data";
-import { COLOR_QUATERNARY } from "../styles/common";
-import { UPDATE_NOTIFICATIONS } from "./reducers/notification";
-import { SUBSCRIBE_USER, UNSUBSCRIBE_USER, UPDATE_IAPS, UPDATE_IAPS_SUCCESS, UPDATE_SUBSCRIPTIONS } from "./reducers/subscription";
-import { COMPLETE_TASK, SET_DAILY_INTENTION } from "./reducers/tasks";
+import { Platform } from 'react-native';
+import * as RNIap from 'react-native-iap';
+import PushNotification from 'react-native-push-notification';
+import Toast from 'react-native-root-toast';
+import { put, select, takeEvery } from 'redux-saga/effects';
+import CommonDataManager from '../constants/CommonDataManager';
+import { LIFETIME_CONSUME_ID, MONTHLY_SUB_ID, YEARLY_SUB_ID } from '../constants/IAP';
+import { affirmationData } from '../redux/reducers/affirmation-data';
+import { COLOR_QUATERNARY } from '../styles/common';
+import { UPDATE_NOTIFICATIONS } from './reducers/notification';
+import { SUBSCRIBE_USER, UNSUBSCRIBE_USER, UPDATE_IAPS, UPDATE_IAPS_SUCCESS, UPDATE_SUBSCRIPTIONS } from './reducers/subscription';
+import { COMPLETE_TASK, SET_DAILY_INTENTION } from './reducers/tasks';
 import {
   getDailyIntention,
   getPremium,
@@ -25,19 +25,20 @@ import {
   getWeekendAffirmationsEnabled,
   getWeekendRemindersTime,
   getNotificationSoundsEnabled,
-  getWeekendRemindersEnabled
-} from "./selectors/index";
-var currencyFormatter = require("currency-formatter");
+  getWeekendRemindersEnabled,
+} from './selectors/index';
+import ANDROID_NOTIFICATION_CHANNEL_NAME from '../index';
+var currencyFormatter = require('currency-formatter');
 
 const AFFIRMATIONS_START_ID = 100;
 const AFFIRMATION_NUMBER_TO_SCHEDULE = 14;
 const REMINDERS_START_ID = 50;
 const REMINDER_NUMBER_TO_SCHEDULE = 14;
-const TIMER_ID = "2";
+const TIMER_ID = '2';
 
 const itemSkus = Platform.select({
   ios: [MONTHLY_SUB_ID, YEARLY_SUB_ID],
-  android: [MONTHLY_SUB_ID, YEARLY_SUB_ID, LIFETIME_CONSUME_ID, "com.test.inapp", "com.test.subscription"]
+  android: [MONTHLY_SUB_ID, YEARLY_SUB_ID, LIFETIME_CONSUME_ID, 'com.test.inapp', 'com.test.subscription'],
 });
 
 function* prepareIapIfNeeded() {
@@ -50,26 +51,26 @@ function* prepareIapIfNeeded() {
 }
 
 function convertAndroidPeriodToString(period) {
-  if (period.toUpperCase() === "M") {
-    return "MONTH";
+  if (period.toUpperCase() === 'M') {
+    return 'MONTH';
   }
-  if (period.toUpperCase() === "D") {
-    return "DAY";
+  if (period.toUpperCase() === 'D') {
+    return 'DAY';
   }
-  if (period.toUpperCase() === "Y") {
-    return "YEAR";
+  if (period.toUpperCase() === 'Y') {
+    return 'YEAR';
   }
-  if (period.toUpperCase() === "W") {
-    return "WEEK";
+  if (period.toUpperCase() === 'W') {
+    return 'WEEK';
   }
 }
 
 function setupFreeTrial(product) {
-  if (Platform.OS === "ios" && !!product.introductoryPriceNumberOfPeriodsIOS) {
-    product.trial = product.introductoryPriceNumberOfPeriodsIOS + "-" + product.introductoryPriceSubscriptionPeriodIOS;
-  } else if (Platform.OS === "android" && !!product.freeTrialPeriodAndroid) {
+  if (Platform.OS === 'ios' && !!product.introductoryPriceNumberOfPeriodsIOS) {
+    product.trial = product.introductoryPriceNumberOfPeriodsIOS + '-' + product.introductoryPriceSubscriptionPeriodIOS;
+  } else if (Platform.OS === 'android' && !!product.freeTrialPeriodAndroid) {
     product.trial =
-      product.freeTrialPeriodAndroid.substring(1, 2) + "-" + convertAndroidPeriodToString(product.freeTrialPeriodAndroid.substring(2, 3));
+      product.freeTrialPeriodAndroid.substring(1, 2) + '-' + convertAndroidPeriodToString(product.freeTrialPeriodAndroid.substring(2, 3));
   }
 
   return product;
@@ -104,8 +105,8 @@ function* updateIaps(action) {
         payload: {
           monthlyProduct: monthlyProduct,
           yearlyProduct: yearlyProduct,
-          discount: discount
-        }
+          discount: discount,
+        },
       });
     }
   } catch (e) {}
@@ -144,7 +145,7 @@ function* completeTask(action) {
       const totalCompleted = yield select(getTotalTasksCompleted);
       const streak = yield select(getTaskStreak);
 
-      let toastComplete = Toast.show("Mindful Experience Complete!", {
+      Toast.show('Mindful Experience Complete!', {
         duration: Toast.durations.LONG,
         position: Toast.positions.BOTTOM - 190,
         backgroundColor: COLOR_QUATERNARY,
@@ -156,13 +157,13 @@ function* completeTask(action) {
         onShow: () => {},
         onShown: () => {},
         onHide: () => {},
-        onHidden: () => {}
+        onHidden: () => {},
       });
 
       let completeMessage =
-        totalCompleted.toString() + (totalCompleted === 1 ? " Mindful Experience Completed" : " Mindful Experiences Completed");
+        totalCompleted.toString() + (totalCompleted === 1 ? ' Mindful Experience Completed' : ' Mindful Experiences Completed');
 
-      let toastTotalComplete = Toast.show(completeMessage, {
+      Toast.show(completeMessage, {
         duration: Toast.durations.LONG,
         position: Toast.positions.BOTTOM - 90,
         backgroundColor: COLOR_QUATERNARY,
@@ -174,9 +175,9 @@ function* completeTask(action) {
         onShow: () => {},
         onShown: () => {},
         onHide: () => {},
-        onHidden: () => {}
+        onHidden: () => {},
       });
-      let toastStreak = Toast.show(streak + " Day Streak!", {
+      Toast.show(streak + ' Day Streak!', {
         duration: Toast.durations.LONG,
         position: Toast.positions.BOTTOM - 140,
         backgroundColor: COLOR_QUATERNARY,
@@ -188,7 +189,7 @@ function* completeTask(action) {
         onShow: () => {},
         onShown: () => {},
         onHide: () => {},
-        onHidden: () => {}
+        onHidden: () => {},
       });
     }
   } catch (e) {}
@@ -198,7 +199,7 @@ function* dailyIntention(action) {
   try {
     let storeDailyIntention = yield select(getDailyIntention);
 
-    let toastIntentionSet = Toast.show("Intention set to '" + storeDailyIntention + "'", {
+    Toast.show("Intention set to '" + storeDailyIntention + "'", {
       duration: Toast.durations.LONG,
       position: Toast.positions.BOTTOM - 90,
       backgroundColor: COLOR_QUATERNARY,
@@ -210,14 +211,14 @@ function* dailyIntention(action) {
       onShow: () => {},
       onShown: () => {},
       onHide: () => {},
-      onHidden: () => {}
+      onHidden: () => {},
     });
   } catch (e) {}
 }
 
 function* subscribeUser(action) {
   try {
-    let toastTotalComplete = Toast.show("Premium Unlocked. Thanks for your purchase!", {
+    Toast.show('Premium Unlocked. Thanks for your purchase!', {
       duration: Toast.durations.LONG,
       position: Toast.positions.BOTTOM - 90,
       backgroundColor: COLOR_QUATERNARY,
@@ -229,7 +230,7 @@ function* subscribeUser(action) {
       onShow: () => {},
       onShown: () => {},
       onHide: () => {},
-      onHidden: () => {}
+      onHidden: () => {},
     });
   } catch (e) {}
 }
@@ -241,38 +242,31 @@ function cancelNotifications(action) {
 }
 
 function scheduleTimerNotification(date, id) {
-  notificationObject = {
+  let notificationObject = {
     title: "Time's up!",
-    message: "The timer for your mindful experience has ended.", // (required)
+    message: 'The timer for your mindful experience has ended.', // (required)
     playSound: true, // (optional) default: true
-    soundName: "bell.wav", // (optional) Sound to play when the notification is shown. Value of 'default' plays the default sound. It can be set to a custom sound such as 'android.resource://com.xyz/raw/my_sound'. It will look for the 'my_sound' audio file in 'res/raw' directory and play it. default: 'default' (default sound is played)
-    number: "10", // (optional) Valid 32 bit integer specified as string. default: none (Cannot be zero)
+    soundName: 'bell.wav', // (optional) Sound to play when the notification is shown. Value of 'default' plays the default sound. It can be set to a custom sound such as 'android.resource://com.xyz/raw/my_sound'. It will look for the 'my_sound' audio file in 'res/raw' directory and play it. default: 'default' (default sound is played)
+    number: '10', // (optional) Valid 32 bit integer specified as string. default: none (Cannot be zero)
     // actions: '[""]', // (Android only) See the doc for notification actions to know more
-    date: date
+    date: date,
+    id: id, // (optional) Valid unique 32 bit integer specified as string. default: Autogenerated Unique ID
   };
 
-  if (Platform.OS === "ios") {
-    PushNotification.localNotificationSchedule(
-      Object.assign(notificationObject, {
-        alertAction: "view",
-        // category: null,
-        userInfo: { id: id }
-      })
-    );
+  if (Platform.OS === 'ios') {
+    PushNotification.localNotificationSchedule(notificationObject);
   } else {
     PushNotification.localNotificationSchedule(
       Object.assign(notificationObject, {
-        id: id, // (optional) Valid unique 32 bit integer specified as string. default: Autogenerated Unique ID
+        channelId: ANDROID_NOTIFICATION_CHANNEL_NAME,
         autoCancel: true, // (optional) default: true
-        largeIcon: "ic_launcher_round", // (optional) default: "ic_launcher"
-        // smallIcon: 'ic_notification', // (optional) default: "ic_notification" with fallback for "ic_launcher"
+        largeIcon: 'ic_launcher_round', // (optional) default: "ic_launcher"
+        smallIcon: 'ic_launcher_round', // (optional) default: "ic_notification" with fallback for "ic_launcher"
         vibrate: true, // (optional) default: true
         vibration: 300, // vibration length in milliseconds, ignored if vibrate=false, default: 1000
         ongoing: false, // (optional) set whether this is an "ongoing" notification
-        priority: "default", // (optional) set notification priority, default: high
-        visibility: "public", // (optional) set notification visibility, default: private
-        importance: "default" // (optional) set notification importance, default: high
-      })
+        visibility: 'public', // (optional) set notification visibility, default: private
+      }),
     );
   }
 }
@@ -290,38 +284,31 @@ function scheduleNotification(date, message, id, title, notificationSoundsEnable
   //     " SOUNDS " +
   //     notificationSoundsEnabled
   // );
-  notificationObject = {
+  let notificationObject = {
     title: title,
     message: message, // (required)
     playSound: true, // (optional) default: true
-    soundName: !!notificationSoundsEnabled ? "default" : "silent.wav", // (optional) Sound to play when the notification is shown. Value of 'default' plays the default sound. It can be set to a custom sound such as 'android.resource://com.xyz/raw/my_sound'. It will look for the 'my_sound' audio file in 'res/raw' directory and play it. default: 'default' (default sound is played)
-    number: "10", // (optional) Valid 32 bit integer specified as string. default: none (Cannot be zero)
+    soundName: notificationSoundsEnabled ? 'default' : 'silent.wav', // (optional) Sound to play when the notification is shown. Value of 'default' plays the default sound. It can be set to a custom sound such as 'android.resource://com.xyz/raw/my_sound'. It will look for the 'my_sound' audio file in 'res/raw' directory and play it. default: 'default' (default sound is played)
+    number: '10', // (optional) Valid 32 bit integer specified as string. default: none (Cannot be zero)
     // actions: '[""]', // (Android only) See the doc for notification actions to know more
-    date: date
+    date: date,
+    id: id, // (optional) Valid unique 32 bit integer specified as string. default: Autogenerated Unique ID
   };
 
-  if (Platform.OS === "ios") {
-    PushNotification.localNotificationSchedule(
-      Object.assign(notificationObject, {
-        alertAction: "view",
-        // category: null,
-        userInfo: { id: id }
-      })
-    );
+  if (Platform.OS === 'ios') {
+    PushNotification.localNotificationSchedule(notificationObject);
   } else {
     PushNotification.localNotificationSchedule(
       Object.assign(notificationObject, {
-        id: id, // (optional) Valid unique 32 bit integer specified as string. default: Autogenerated Unique ID
+        channelId: ANDROID_NOTIFICATION_CHANNEL_NAME,
         autoCancel: true, // (optional) default: true
-        largeIcon: "ic_launcher_round", // (optional) default: "ic_launcher"
-        // smallIcon: 'ic_notification', // (optional) default: "ic_notification" with fallback for "ic_launcher"
-        vibrate: !!notificationSoundsEnabled ? true : false, // (optional) default: true
+        largeIcon: 'ic_launcher_round', // (optional) default: "ic_launcher"
+        smallIcon: 'ic_launcher_round', // (optional) default: "ic_notification" with fallback for "ic_launcher"
+        vibrate: notificationSoundsEnabled ? true : false, // (optional) default: true
         vibration: 300, // vibration length in milliseconds, ignored if vibrate=false, default: 1000
         ongoing: false, // (optional) set whether this is an "ongoing" notification
-        priority: "default", // (optional) set notification priority, default: high
-        visibility: "public", // (optional) set notification visibility, default: private
-        importance: "default" // (optional) set notification importance, default: high
-      })
+        visibility: 'public', // (optional) set notification visibility, default: private
+      }),
     );
   }
 }
@@ -346,10 +333,10 @@ function getAffirmationForDay(day, premium) {
 }
 
 function updateDateToBeInFuture(time) {
-  todaysDate = new Date();
-  now = new Date();
+  let todaysDate = new Date();
+  let now = new Date();
 
-  date = new Date(time);
+  let date = new Date(time);
   todaysDate.setHours(date.getHours());
   todaysDate.setMinutes(date.getMinutes());
   todaysDate.setMilliseconds(date.getMilliseconds());
@@ -388,48 +375,48 @@ function* updateNotifications(action) {
     }
 
     // CREATE ALL NOTIFICATIONS FOR REMINDERS
-    firstWeekdayReminderDate = updateDateToBeInFuture(weekdayRemindersTime);
-    firstWeekendReminderDate = updateDateToBeInFuture(weekendRemindersTime);
+    let firstWeekdayReminderDate = updateDateToBeInFuture(weekdayRemindersTime);
+    let firstWeekendReminderDate = updateDateToBeInFuture(weekendRemindersTime);
     for (let index = REMINDERS_START_ID; index < REMINDERS_START_ID + REMINDER_NUMBER_TO_SCHEDULE; index++) {
-      weekdayNotificationDate = new Date(firstWeekdayReminderDate);
+      let weekdayNotificationDate = new Date(firstWeekdayReminderDate);
       weekdayNotificationDate.setDate(weekdayNotificationDate.getDate() + (index - REMINDERS_START_ID));
-      weekendNotificationDate = new Date(firstWeekendReminderDate);
+      let weekendNotificationDate = new Date(firstWeekendReminderDate);
       weekendNotificationDate.setDate(firstWeekendReminderDate.getDate() + (index - REMINDERS_START_ID));
       if (!!weekdayRemindersEnabled && !isWeekend(weekdayNotificationDate)) {
         scheduleNotification(
           weekdayNotificationDate,
-          "Take a pause, find your mindful moment!",
+          'Take a pause, find your mindful moment!',
           index.toString(),
-          "Daily reminder",
-          notificationSoundsEnabled
+          'Daily reminder',
+          notificationSoundsEnabled,
         );
       }
       if (!!weekendRemindersEnabled && isWeekend(weekendNotificationDate)) {
         scheduleNotification(
           weekendNotificationDate,
-          "Take a pause, find your mindful moment!",
+          'Take a pause, find your mindful moment!',
           index.toString(),
-          "Daily reminder",
-          notificationSoundsEnabled
+          'Daily reminder',
+          notificationSoundsEnabled,
         );
       }
     }
 
     // CREATE ALL NOTIFICATIONS FOR AFFIRMATIONS
-    firstWeekdayAffirmationDate = updateDateToBeInFuture(weekdayAffirmationsTime);
-    firstWeekendAffirmationDate = updateDateToBeInFuture(weekendAffirmationsTime);
+    let firstWeekdayAffirmationDate = updateDateToBeInFuture(weekdayAffirmationsTime);
+    let firstWeekendAffirmationDate = updateDateToBeInFuture(weekendAffirmationsTime);
     for (let index = AFFIRMATIONS_START_ID; index < AFFIRMATIONS_START_ID + AFFIRMATION_NUMBER_TO_SCHEDULE; index++) {
-      weekdayNotificationDate = new Date(firstWeekdayAffirmationDate);
+      let weekdayNotificationDate = new Date(firstWeekdayAffirmationDate);
       weekdayNotificationDate.setDate(weekdayNotificationDate.getDate() + (index - AFFIRMATIONS_START_ID));
-      weekendNotificationDate = new Date(firstWeekendAffirmationDate);
+      let weekendNotificationDate = new Date(firstWeekendAffirmationDate);
       weekendNotificationDate.setDate(firstWeekendAffirmationDate.getDate() + (index - AFFIRMATIONS_START_ID));
       if (!!weekdayAffirmationsEnabled && !isWeekend(weekdayNotificationDate)) {
         scheduleNotification(
           weekdayNotificationDate,
           getAffirmationForDay(getDayOfYear(weekdayNotificationDate), premium),
           index.toString(),
-          "Daily affirmation",
-          notificationSoundsEnabled
+          'Daily affirmation',
+          notificationSoundsEnabled,
         );
       }
       if (!!weekendAffirmationsEnabled && isWeekend(weekendNotificationDate)) {
@@ -437,8 +424,8 @@ function* updateNotifications(action) {
           weekendNotificationDate,
           getAffirmationForDay(getDayOfYear(weekendNotificationDate), premium),
           index.toString(),
-          "Daily affirmation",
-          notificationSoundsEnabled
+          'Daily affirmation',
+          notificationSoundsEnabled,
         );
       }
     }
