@@ -14,7 +14,7 @@
     "currency-formatter": "^1.4.2",
     "formik": "^0.11.11",
     "jetifier": "^1.6.4",
-    "moment": "^2.22.1",
+    "moment": "^2.29.2",
     "moment-timezone": "^0.5.17",
     "prop-types": "^15.6.1",
     "react": "16.8.6",
