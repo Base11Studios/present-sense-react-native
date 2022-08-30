@@ -15,7 +15,7 @@
     "formik": "^0.11.11",
     "jetifier": "^1.6.4",
     "moment": "^2.22.1",
-    "moment-timezone": "^0.5.17",
+    "moment-timezone": "^0.5.35",
     "prop-types": "^15.6.1",
     "react": "16.8.6",
     "react-moment": "^0.7.0",
