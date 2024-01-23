@@ -1,9 +1,22 @@
-# Icon Generation
+# Present Sense App
+
+Created by Dan Bellinski.
+
+Active on Google Play at https://play.google.com/store/apps/details?id=com.base11studios.presentmoment
+Active on iOS App Store at https://apps.apple.com/us/app/present-sense-mindfulness/id1390285501?ls=1
+
+Marketing Website at https://base11studios.com/clients/present-sense/
+
+----
+
+# Internal Notes
+
+## Icon Generation
 
 Add an icon (ideally at least 192x192 pixels) named icon.png to your project root. To automatically generate icons of all sizes for all app projects in the same folder, run:
 `app-icon generate`
 
-# Run app
+## Run app
 
 `react-native run-ios`
 `react-native run-android`
